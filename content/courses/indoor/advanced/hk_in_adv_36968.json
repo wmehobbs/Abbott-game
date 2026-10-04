@@ -1,0 +1,143 @@
+{
+  "id": "hk_in_adv_36968",
+  "class_id": "advanced",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor lesson single then line, right, Tuesday 10708",
+  "height_label": "3'0\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.846,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -11.4
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.42
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -3.981
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.888,
+      "sp": 0.722,
+      "pos": [
+        4.76,
+        0.0,
+        1.146
+      ],
+      "yaw": -0.04,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        -4.76,
+        0.0,
+        6.273
+      ],
+      "yaw": 0.04,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.906,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.929,
+      "sp": 0.722,
+      "pos": [
+        -3.808,
+        0.0,
+        1.5
+      ],
+      "yaw": 3.13793,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.947,
+      "sp": 0.0,
+      "pos": [
+        -4.379,
+        0.0,
+        -3.45
+      ],
+      "yaw": 3.14047,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.96,
+      "sp": 0.722,
+      "pos": [
+        -4.379,
+        0.0,
+        -8.4
+      ],
+      "yaw": 3.08284,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "walk_text": "Hidden K walk ten thousand seven hundred hk_in_adv_36968 eight in the indoor on Thursday for hk_in_adv_36968 advanced. Height 3'0\", 8 fences, pattern lesson hk_in_adv_36968 single then line, side right. Fence one hk_in_adv_36968 of walk ten thousand seven hundred eight hk_in_adv_36968 is a plank vertical at four point hk_in_adv_36968 eight by minus eleven point four. Walk hk_in_adv_36968 ten thousand seven hundred eight meat is hk_in_adv_36968 a labeled related. Sit after the in hk_in_adv_36968 of walk ten thousand seven hundred eight. hk_in_adv_36968 Last of walk ten thousand seven hk_in_adv_36968.",
+  "michelle_brief": "Walk ten thousand seven hundred eight. Quiet to the first."
+}

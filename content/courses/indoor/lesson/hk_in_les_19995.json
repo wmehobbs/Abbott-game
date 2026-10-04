@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19995",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, outside, first school 13662",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.421,
+      "sp": 0.0,
+      "pos": [
+        4.16,
+        0.0,
+        -11.16
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.531,
+      "sp": 0.0,
+      "pos": [
+        4.16,
+        0.0,
+        -3.677
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.636,
+      "sp": 0.0,
+      "pos": [
+        4.16,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand six hundred hk_in_les_19995 sixty-two in the indoor on late for hk_in_les_19995 lesson. Height poles to 2'3\", 3 fences, hk_in_les_19995 pattern related out, side right. Fence one hk_in_les_19995 of walk thirteen thousand six hundred sixty-two hk_in_les_19995 is a plank vertical at four point hk_in_les_19995 two by minus eleven point two. Walk hk_in_les_19995 thirteen thousand six hundred sixty-two meat is hk_in_les_19995 a labeled related. Sit after the in hk_in_les_19995 of walk thirteen thousand six hundred sixty-two. hk_in_les_19995 Last of walk thirteen thousand six hk_in_les_19995.",
+  "michelle_brief": "Walk thirteen thousand six hundred sixty-two. Quiet to the first."
+}

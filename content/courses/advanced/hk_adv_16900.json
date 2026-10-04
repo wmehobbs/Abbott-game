@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_16900",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, inside, Thursday 574",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -25.585
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.9
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -14.682
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.15
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.869,
+      "sp": 0.526,
+      "pos": [
+        8.86,
+        0.0,
+        -7.535
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        -8.8,
+        0.0,
+        -0.388
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        6.759
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -8.8,
+        0.0,
+        13.906
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        21.053
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.912,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        7.088,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.18576,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        -7.04,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.19479,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.939,
+      "sp": 0.526,
+      "pos": [
+        7.088,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.19216,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.951,
+      "sp": 0.526,
+      "pos": [
+        -8.096,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.17224,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "outside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk five hundred seventy-four in hk_adv_16900 the outdoor ring on Thursday for advanced. hk_adv_16900 Height 3'0\", 12 fences, pattern outside track, hk_adv_16900 side outside. Fence one of walk five hk_adv_16900 hundred seventy-four is a brush vertical at hk_adv_16900 eight point nine by minus twenty-five point hk_adv_16900 six. Walk five hundred seventy-four meat is hk_adv_16900 a labeled related. Sit after the in hk_adv_16900 of walk five hundred seventy-four. Last of hk_adv_16900 walk five hundred seventy-four is a brush hk_adv_16900 oxer at minus eight point one hk_adv_16900.",
+  "michelle_brief": "Walk five hundred seventy-four. Quiet to the first."
+}

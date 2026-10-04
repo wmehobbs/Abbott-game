@@ -1,0 +1,461 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+RIDECERT begin
+RIDECERT filter hk_int_006
+RIDECERT round hk_int_006 class=intermediate seed=3 jo=false style=refuse_early
+COUNT fence=1 ahead=7.99 lateral=2.47 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+MICHELLE soft | Two. Wait.
+COUNT fence=1 ahead=7.98 lateral=1.50 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=1 ahead=7.56 lateral=0.20 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=7.7,-31.6 ahead=6.53 lat=0.26 ang=4.1 along=6.5 gait=3 v=2.49 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=5.35 lateral=0.20 stride=1 word=One. Early. kept=true
+RIDEAI ASK n=1 ahead=4.29 lat=0.2 ang=4.1 charge=1.0
+RIDECERT refuse fence=1 why=early
+RIDEAI sit n=1 phase=approach pos=7.8,-29.7 ahead=4.64 lat=0.12 ang=4.1 along=4.6 gait=1 v=0.46 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=4.43 lateral=0.20 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=1 ahead=4.20 lateral=0.20 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=1 ahead=3.59 lateral=0.20 stride=0 word=Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=7.9,-28.3 ahead=3.19 lat=0.02 ang=4.1 along=3.2 gait=3 v=2.58 rein=0
+MICHELLE soft | Now.
+COUNT fence=1 ahead=3.06 lateral=0.20 stride=0 word=Now. kept=true
+RIDEAI ASK n=1 ahead=2.57 lat=0.2 ang=4.1 charge=1.0
+RIDEAI fence 1 -> 2 t=6.29 leave=leave
+COUNT fence=2 ahead=7.02 lateral=16.13 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=2 phase=land pos=7.4,-22.4 ahead=14.32 lat=15.3 ang=46.9 along=4.6 gait=3 v=3.09 rein=-1
+RIDEAI sit n=2 phase=land pos=4.6,-21.6 ahead=10.56 lat=12.42 ang=108.2 along=4.0 gait=3 v=3.09 rein=-1
+RIDEAI sit n=2 phase=setup pos=1.2,-22.7 ahead=5.64 lat=9.16 ang=117.6 along=5.3 gait=3 v=3.85 rein=0
+RIDEAI sit n=2 phase=setup pos=-0.7,-23.6 ahead=3.12 lat=7.26 ang=120.0 along=6.3 gait=3 v=2.68 rein=0
+RIDEAI sit n=2 phase=setup pos=-3.9,-25.1 ahead=-0.45 lat=4.16 ang=120.0 along=8.1 gait=3 v=3.31 rein=0
+RIDEAI sit n=2 phase=around pos=-6.3,-26.1 ahead=-1.87 lat=1.84 ang=112.7 along=9.2 gait=3 v=3.49 rein=1
+RIDEAI sit n=2 phase=approach pos=-8.8,-25.7 ahead=5.24 lat=0.64 ang=50.3 along=9.0 gait=3 v=2.76 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=2 ahead=7.24 lateral=1.59 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=2 phase=approach pos=-9.6,-23.5 ahead=7.04 lat=1.54 ang=16.4 along=6.9 gait=3 v=1.76 rein=1
+MICHELLE soft | One. Early.
+COUNT fence=2 ahead=5.36 lateral=0.61 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=2 ahead=4.19 lateral=0.34 stride=0 word=Early. kept=true
+RIDEAI sit n=2 phase=approach pos=-8.5,-20.8 ahead=4.19 lat=0.68 ang=14.1 along=4.1 gait=3 v=3.88 rein=-1
+MICHELLE soft | Wait.
+COUNT fence=2 ahead=3.55 lateral=0.26 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=2 ahead=3.04 lateral=0.07 stride=0 word=Now. kept=true
+RIDEAI ASK n=2 ahead=2.59 lat=0.08 ang=7.1 charge=1.0
+RIDEAI fence 2 -> 3 t=16.83 leave=leave
+RIDEAI sit n=3 phase=land pos=-6.5,-14.2 ahead=16.32 lat=14.52 ang=45.8 along=8.5 gait=3 v=3.09 rein=1
+COUNT fence=3 ahead=10.99 lateral=8.91 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=3 phase=land pos=-3.7,-13.4 ahead=10.78 lat=11.62 ang=95.9 along=7.8 gait=3 v=3.21 rein=0
+RIDEAI sit n=3 phase=setup pos=-0.3,-13.8 ahead=6.75 lat=8.28 ang=99.9 along=8.2 gait=3 v=4.02 rein=0
+RIDEAI sit n=3 phase=setup pos=4.5,-14.7 ahead=1.7 lat=3.5 ang=101.1 along=9.0 gait=3 v=3.78 rein=1
+RIDEAI sit n=3 phase=approach pos=7.3,-15.1 ahead=2.32 lat=0.7 ang=79.9 along=9.4 gait=3 v=3.76 rein=-1
+RIDEAI sit n=3 phase=approach pos=9.0,-13.6 ahead=7.35 lat=1.06 ang=16.1 along=8.0 gait=3 v=1.34 rein=-1
+MICHELLE soft | Two. Wait.
+COUNT fence=3 ahead=7.64 lateral=1.55 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=3 ahead=7.57 lateral=0.00 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=8.8,-11.7 ahead=6.11 lat=0.86 ang=9.5 along=6.1 gait=3 v=2.91 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=3 ahead=5.37 lateral=0.15 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=3 ahead=4.18 lateral=0.15 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=3 ahead=3.60 lateral=0.15 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=3 ahead=3.08 lateral=0.15 stride=0 word=Now. kept=true
+RIDEAI ASK n=3 ahead=2.56 lat=0.16 ang=9.5 charge=1.0
+RIDEAI fence 3 -> 4 t=25.88 leave=leave
+MICHELLE soft | One. Wait.
+COUNT fence=4 ahead=6.87 lateral=1.24 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=4 phase=approach pos=7.7,-5.2 ahead=6.87 lat=0.24 ang=8.3 along=7.0 gait=3 v=3.84 rein=1
+MICHELLE soft | One. Early.
+COUNT fence=4 ahead=5.37 lateral=0.28 stride=1 word=One. Early. kept=true
+RIDEAI sit n=4 phase=approach pos=7.7,-3.1 ahead=4.92 lat=0.26 ang=0.2 along=4.9 gait=3 v=2.25 rein=0
+MICHELLE soft | Early.
+COUNT fence=4 ahead=4.21 lateral=0.28 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=4 ahead=3.57 lateral=0.28 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=4 ahead=3.08 lateral=0.28 stride=0 word=Now. kept=true
+RIDEAI sit n=4 phase=approach pos=7.7,-0.9 ahead=2.67 lat=0.28 ang=0.2 along=2.7 gait=3 v=2.25 rein=0
+RIDEAI ASK n=4 ahead=2.56 lat=0.28 ang=0.2 charge=1.0
+RIDEAI fence 4 -> 5 t=29.37 leave=leave
+MICHELLE soft | Two. Wait.
+COUNT fence=5 ahead=9.70 lateral=0.31 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=5 phase=approach pos=7.7,4.8 ahead=7.78 lat=0.28 ang=0.2 along=7.8 gait=3 v=2.25 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=5 ahead=7.55 lateral=0.31 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=5 phase=approach pos=7.7,7.1 ahead=5.53 lat=0.3 ang=0.2 along=5.5 gait=3 v=2.25 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=5 ahead=5.38 lateral=0.31 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=5 ahead=4.20 lateral=0.31 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=5 ahead=3.59 lateral=0.31 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=5 ahead=3.05 lateral=0.31 stride=0 word=Now. kept=true
+RIDEAI sit n=5 phase=approach pos=7.7,9.8 ahead=2.75 lat=0.3 ang=0.2 along=2.8 gait=3 v=3.61 rein=0
+RIDEAI ASK n=5 ahead=2.57 lat=0.32 ang=0.2 charge=1.0
+RIDEAI fence 5 -> 6 t=33.79 leave=leave
+RIDEAI sit n=6 phase=land pos=6.3,15.5 ahead=16.64 lat=14.44 ang=61.4 along=8.3 gait=3 v=3.09 rein=-1
+COUNT fence=6 ahead=10.99 lateral=8.84 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=6 phase=land pos=3.2,16.0 ahead=10.77 lat=11.36 ang=94.0 along=8.1 gait=3 v=3.22 rein=0
+RIDEAI sit n=6 phase=setup pos=-0.6,15.8 ahead=6.29 lat=7.58 ang=98.1 along=8.5 gait=3 v=4.87 rein=0
+RIDEAI sit n=6 phase=setup pos=-5.3,15.4 ahead=0.99 lat=2.92 ang=101.6 along=9.2 gait=3 v=2.06 rein=0
+RIDEAI sit n=6 phase=approach pos=-7.8,15.6 ahead=4.14 lat=0.4 ang=65.8 along=9.2 gait=3 v=3.48 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=6 ahead=7.53 lateral=1.49 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=6 phase=approach pos=-9.1,17.3 ahead=7.54 lat=1.0 ang=0.2 along=7.5 gait=3 v=1.34 rein=1
+MICHELLE soft | One. Early.
+COUNT fence=6 ahead=5.40 lateral=0.04 stride=1 word=One. Early. kept=true
+RIDEAI sit n=6 phase=approach pos=-8.6,19.6 ahead=5.28 lat=0.7 ang=7.9 along=5.2 gait=3 v=3.41 rein=0
+MICHELLE soft | Early.
+COUNT fence=6 ahead=4.16 lateral=0.04 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=6 ahead=3.58 lateral=0.04 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=6 ahead=3.06 lateral=0.04 stride=0 word=Now. kept=true
+RIDEAI ASK n=6 ahead=2.55 lat=0.04 ang=7.9 charge=1.0
+RIDEAI fence 6 -> 7 t=42.87 leave=leave
+COUNT fence=7 ahead=7.48 lateral=5.85 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=7 phase=land pos=-7.1,26.1 ahead=7.91 lat=7.06 ang=28.2 along=5.2 gait=3 v=3.09 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=7 ahead=7.84 lateral=1.51 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=7 ahead=7.56 lateral=0.41 stride=1 word=One. Wait. kept=true
+COUNT fence=7 ahead=6.56 lateral=1.63 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=7 phase=land pos=-4.5,27.6 ahead=4.57 lat=4.54 ang=89.5 along=3.7 gait=3 v=3.09 rein=1
+RIDEAI sit n=7 phase=setup pos=-2.0,26.1 ahead=-3.55 lat=2.0 ang=150.7 along=5.2 gait=3 v=3.21 rein=1
+RIDEAI sit n=7 phase=approach pos=0.2,24.7 ahead=-0.01 lat=0.2 ang=88.3 along=6.6 gait=3 v=2.45 rein=-1
+RIDEAI sit n=7 phase=setup pos=2.8,25.9 ahead=-1.22 lat=2.86 ang=73.6 along=5.4 gait=3 v=1.92 rein=1
+RIDEAI sit n=7 phase=setup pos=5.5,25.0 ahead=-8.29 lat=5.46 ang=135.3 along=6.3 gait=3 v=3.57 rein=1
+RIDEAI sit n=7 phase=setup pos=5.9,22.7 ahead=-6.43 lat=5.94 ang=162.8 along=8.6 gait=3 v=3.3 rein=1
+RIDEAI sit n=7 phase=setup pos=4.1,20.9 ahead=2.17 lat=4.1 ang=100.4 along=10.4 gait=3 v=2.57 rein=1
+RIDEAI sit n=7 phase=approach pos=1.2,21.2 ahead=5.64 lat=1.2 ang=63.0 along=10.1 gait=3 v=1.92 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=7 ahead=8.35 lateral=1.59 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=7 phase=approach pos=0.0,23.0 ahead=8.25 lat=0.02 ang=2.8 along=8.3 gait=3 v=1.34 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=7 ahead=7.55 lateral=0.40 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=7 phase=approach pos=-0.1,25.4 ahead=5.85 lat=0.1 ang=2.8 along=5.9 gait=3 v=3.48 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=7 ahead=5.37 lateral=0.40 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=7 ahead=4.20 lateral=0.40 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=7 ahead=3.55 lateral=0.40 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=7 ahead=3.06 lateral=0.14 stride=0 word=Now. kept=true
+RIDEAI ASK n=7 ahead=2.54 lat=0.14 ang=1.8 charge=1.0
+RIDEAI fence 7 -> 8 t=55.43 leave=leave
+RIDEAI sit n=8 phase=land pos=-0.1,32.2 ahead=-20.24 lat=7.16 ang=175.7 along=20.8 gait=3 v=3.54 rein=-1
+RIDEAI sit n=8 phase=land pos=-1.9,34.6 ahead=-4.68 lat=5.44 ang=114.5 along=23.3 gait=3 v=3.09 rein=-1
+COUNT fence=8 ahead=0.91 lateral=23.93 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=8 phase=land pos=-4.8,34.2 ahead=15.74 lat=2.52 ang=53.2 along=22.9 gait=3 v=3.09 rein=-1
+RIDEAI sit n=8 phase=around pos=-5.9,31.7 ahead=19.95 lat=1.36 ang=9.2 along=20.4 gait=3 v=2.11 rein=-1
+RIDEAI sit n=8 phase=setup pos=-4.9,28.5 ahead=15.82 lat=2.32 ang=17.3 along=17.3 gait=3 v=4.41 rein=0
+RIDEAI sit n=8 phase=setup pos=-3.7,24.5 ahead=13.61 lat=3.44 ang=10.9 along=13.2 gait=3 v=1.99 rein=1
+RIDEAI sit n=8 phase=approach pos=-5.6,22.2 ahead=9.23 lat=1.54 ang=41.4 along=10.9 gait=3 v=2.59 rein=-1
+MICHELLE soft | Two. Wait.
+COUNT fence=8 ahead=10.13 lateral=1.51 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=8 phase=approach pos=-6.2,20.2 ahead=8.95 lat=0.9 ang=10.8 along=8.9 gait=3 v=1.4 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=8 ahead=7.56 lateral=0.79 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=8 phase=approach pos=-6.5,18.0 ahead=6.82 lat=0.52 ang=7.3 along=6.8 gait=3 v=3.18 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=8 ahead=5.37 lateral=0.34 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=8 ahead=4.21 lateral=0.34 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=8 ahead=3.57 lateral=0.11 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=8 ahead=3.06 lateral=0.11 stride=0 word=Now. kept=true
+RIDEAI sit n=8 phase=approach pos=-6.9,14.3 ahead=3.06 lat=0.08 ang=3.8 along=3.1 gait=3 v=3.88 rein=0
+RIDEAI ASK n=8 ahead=2.54 lat=0.12 ang=3.8 charge=1.0
+RIDEAI fence 8 -> 9 t=66.12 leave=leave
+RIDEAI sit n=9 phase=land pos=-6.6,7.4 ahead=13.58 lat=1.28 ang=12.6 along=13.6 gait=3 v=3.22 rein=0
+COUNT fence=9 ahead=10.97 lateral=3.39 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=9 phase=land pos=-5.7,4.4 ahead=9.87 lat=0.38 ang=22.9 along=10.6 gait=3 v=3.22 rein=-1
+RIDEAI sit n=9 phase=approach pos=-3.8,1.8 ahead=7.27 lat=1.5 ang=16.5 along=8.0 gait=3 v=1.73 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=9 ahead=7.70 lateral=1.56 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=9 ahead=7.55 lateral=0.15 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=9 phase=approach pos=-4.2,-0.2 ahead=6.07 lat=1.12 ang=14.9 along=6.0 gait=3 v=3.14 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=9 ahead=5.39 lateral=0.46 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=9 ahead=4.17 lateral=0.46 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=9 ahead=3.55 lateral=0.13 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=9 ahead=3.10 lateral=0.13 stride=0 word=Now. kept=true
+RIDEAI ASK n=9 ahead=2.58 lat=0.12 ang=10.3 charge=1.0
+RIDEAI fence 9 -> 10 t=72.34 leave=leave
+RIDEAI sit n=10 phase=land pos=-5.6,-6.8 ahead=16.07 lat=1.92 ang=4.3 along=16.3 gait=3 v=3.74 rein=-1
+RIDEAI sit n=10 phase=land pos=-5.1,-10.0 ahead=13.03 lat=1.28 ang=14.0 along=13.1 gait=3 v=3.22 rein=0
+COUNT fence=10 ahead=10.98 lateral=3.61 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=10 phase=land pos=-4.1,-13.0 ahead=8.44 lat=0.16 ang=34.5 along=10.1 gait=3 v=3.09 rein=-1
+MICHELLE soft | Two. Wait.
+COUNT fence=10 ahead=7.81 lateral=1.50 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=10 phase=approach pos=-2.7,-15.4 ahead=7.81 lat=1.38 ang=0.8 along=7.8 gait=3 v=1.38 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=10 ahead=7.56 lateral=0.39 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=10 phase=approach pos=-3.4,-17.8 ahead=5.44 lat=0.86 ang=13.1 along=5.4 gait=3 v=3.6 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=10 ahead=5.38 lateral=0.39 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=10 ahead=4.16 lateral=0.39 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=10 ahead=3.60 lateral=0.06 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=10 ahead=3.08 lateral=0.06 stride=0 word=Now. kept=true
+RIDEAI ASK n=10 ahead=2.56 lat=0.06 ang=8.5 charge=1.0
+RIDEAI fence 10 -> 11 t=78.57 leave=leave
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_int_006_refuse_early.jsonl n=85
+RIDECERT hk_int_006 style=refuse_early success=true faults=4 jumped=10/10 t=81.74 teleported=false complete=true refused=[1] rail_fences=[] rail_air=[] conf=83.0 scope=82.5
+RIDECERT round hk_int_006 class=intermediate seed=3 jo=false style=rail_late
+COUNT fence=1 ahead=7.99 lateral=2.47 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+MICHELLE soft | Two. Wait.
+COUNT fence=1 ahead=7.98 lateral=1.50 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=1 ahead=7.56 lateral=0.20 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=7.7,-31.6 ahead=6.53 lat=0.26 ang=4.1 along=6.5 gait=3 v=2.49 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=5.35 lateral=0.20 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=1 ahead=4.16 lateral=0.20 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=1 ahead=3.58 lateral=0.20 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=1 ahead=3.06 lateral=0.20 stride=0 word=Now. kept=true
+RIDEAI sit n=1 phase=approach pos=8.0,-28.2 ahead=3.06 lat=0.02 ang=4.1 along=3.1 gait=3 v=3.88 rein=0
+RIDEAI ASK n=1 ahead=2.61 lat=0.2 ang=4.1 charge=1.0
+RIDEAI fence 1 -> 2 t=3.54 leave=
+COUNT fence=2 ahead=7.05 lateral=16.13 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=2 phase=land pos=7.2,-22.2 ahead=14.71 lat=15.06 ang=53.0 along=4.4 gait=3 v=3.09 rein=-1
+RIDEAI sit n=2 phase=land pos=4.3,-21.7 ahead=9.81 lat=12.14 ang=111.2 along=4.1 gait=3 v=3.09 rein=0
+RIDEAI sit n=2 phase=setup pos=1.0,-22.8 ahead=5.83 lat=8.9 ang=114.6 along=5.4 gait=3 v=2.63 rein=0
+RIDEAI sit n=2 phase=setup pos=-0.8,-23.5 ahead=3.8 lat=7.22 ang=115.7 along=6.2 gait=3 v=1.55 rein=0
+RIDEAI sit n=2 phase=setup pos=-3.1,-24.7 ahead=0.26 lat=4.98 ang=121.6 along=7.6 gait=3 v=3.71 rein=0
+RIDEAI sit n=2 phase=setup pos=-5.6,-25.8 ahead=-1.91 lat=2.58 ang=118.1 along=8.9 gait=3 v=2.92 rein=0
+RIDEAI sit n=2 phase=approach pos=-8.3,-26.1 ahead=3.44 lat=0.1 ang=67.9 along=9.4 gait=3 v=2.19 rein=1
+RIDEAI sit n=2 phase=approach pos=-9.7,-23.9 ahead=7.15 lat=1.72 ang=3.8 along=7.3 gait=3 v=1.34 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=2 ahead=7.22 lateral=1.46 stride=1 word=One. Wait. kept=true
+MICHELLE soft | One. Early.
+COUNT fence=2 ahead=5.38 lateral=0.72 stride=1 word=One. Early. kept=true
+RIDEAI sit n=2 phase=approach pos=-8.9,-21.8 ahead=5.22 lat=1.06 ang=19.5 along=5.2 gait=3 v=3.29 rein=0
+MICHELLE soft | Early.
+COUNT fence=2 ahead=4.18 lateral=0.28 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=2 ahead=3.59 lateral=0.28 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=2 ahead=3.09 lateral=0.02 stride=0 word=Now. kept=true
+RIDEAI ASK n=2 ahead=2.63 lat=0.04 ang=7.8 charge=1.0
+RIDEAI fence 2 -> 3 t=14.53 leave=
+RIDEAI sit n=3 phase=land pos=-7.0,-14.9 ahead=15.38 lat=15.0 ang=29.2 along=9.2 gait=3 v=3.09 rein=1
+RIDEAI sit n=3 phase=land pos=-4.5,-13.5 ahead=12.38 lat=12.44 ang=90.5 along=7.8 gait=3 v=3.09 rein=1
+COUNT fence=3 ahead=10.96 lateral=8.94 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=3 phase=land pos=-1.3,-13.8 ahead=8.44 lat=9.26 ang=95.6 along=8.1 gait=3 v=3.37 rein=0
+RIDEAI sit n=3 phase=setup pos=3.2,-14.5 ahead=3.24 lat=4.8 ang=99.7 along=8.8 gait=3 v=5.55 rein=0
+RIDEAI sit n=3 phase=approach pos=6.4,-15.1 ahead=0.77 lat=1.6 ang=95.0 along=9.4 gait=3 v=3.11 rein=-1
+RIDEAI sit n=3 phase=approach pos=8.8,-14.1 ahead=6.65 lat=0.84 ang=32.6 along=8.4 gait=3 v=2.38 rein=-1
+MICHELLE soft | Two. Wait.
+COUNT fence=3 ahead=7.65 lateral=1.49 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=3 ahead=7.57 lateral=0.06 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=8.9,-12.4 ahead=6.78 lat=0.96 ang=8.6 along=6.7 gait=3 v=2.41 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=3 ahead=5.37 lateral=0.06 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=3 ahead=4.18 lateral=0.06 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=3 ahead=3.60 lateral=0.06 stride=0 word=Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=8.4,-9.0 ahead=3.4 lat=0.44 ang=8.6 along=3.4 gait=3 v=3.88 rein=0
+MICHELLE soft | Now.
+COUNT fence=3 ahead=3.08 lateral=0.06 stride=0 word=Now. kept=true
+MICHELLE soft | Too deep.
+COUNT fence=3 ahead=1.97 lateral=0.21 stride=0 word=Too deep. kept=true
+RIDEAI ASK n=3 ahead=1.39 lat=0.2 ang=1.6 charge=1.0
+FENCE knock 3 by horse at 8.2,-6.9 next=3 jumping=true
+RIDECERT rail now=1 next=3 jumping=true phase=jump pos=8.2,-6.8
+RIDEAI fence 3 -> 4 t=23.77 leave=deep
+MICHELLE soft | One. Wait.
+COUNT fence=4 ahead=5.77 lateral=0.00 stride=1 word=One. Wait. kept=true
+MICHELLE soft | One. Early.
+COUNT fence=4 ahead=5.39 lateral=0.00 stride=1 word=One. Early. kept=true
+RIDEAI sit n=4 phase=approach pos=8.1,-3.0 ahead=4.81 lat=0.14 ang=1.6 along=4.8 gait=3 v=1.44 rein=0
+MICHELLE soft | Early.
+COUNT fence=4 ahead=4.20 lateral=0.00 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=4 ahead=3.60 lateral=0.00 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=4 ahead=3.07 lateral=0.00 stride=0 word=Now. kept=true
+RIDEAI sit n=4 phase=approach pos=8.0,-0.9 ahead=2.7 lat=0.08 ang=1.6 along=2.7 gait=3 v=2.25 rein=0
+RIDEAI ASK n=4 ahead=2.59 lat=0.0 ang=1.6 charge=1.0
+RIDEAI fence 4 -> 5 t=26.72 leave=deep
+MICHELLE soft | Two. Wait.
+COUNT fence=5 ahead=9.73 lateral=0.31 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=5 phase=approach pos=7.9,4.8 ahead=7.81 lat=0.08 ang=1.6 along=7.8 gait=3 v=2.25 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=5 ahead=7.54 lateral=0.31 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=5 phase=approach pos=7.8,7.0 ahead=5.55 lat=0.16 ang=1.6 along=5.6 gait=3 v=2.25 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=5 ahead=5.36 lateral=0.31 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=5 ahead=4.18 lateral=0.31 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=5 ahead=3.56 lateral=0.31 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=5 ahead=3.07 lateral=0.31 stride=0 word=Now. kept=true
+RIDEAI sit n=5 phase=approach pos=7.7,9.8 ahead=2.78 lat=0.24 ang=1.6 along=2.8 gait=3 v=3.61 rein=0
+RIDEAI ASK n=5 ahead=2.55 lat=0.14 ang=1.9 charge=1.0
+RIDEAI fence 5 -> 6 t=31.16 leave=deep
+RIDEAI sit n=6 phase=land pos=6.6,15.6 ahead=16.87 lat=14.74 ang=58.3 along=8.2 gait=3 v=3.09 rein=-1
+COUNT fence=6 ahead=10.97 lateral=8.93 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=6 phase=land pos=3.6,16.1 ahead=10.97 lat=11.7 ang=95.1 along=7.9 gait=3 v=3.22 rein=0
+RIDEAI sit n=6 phase=setup pos=-0.2,15.8 ahead=6.51 lat=7.94 ang=99.1 along=8.4 gait=3 v=4.83 rein=0
+RIDEAI sit n=6 phase=setup pos=-5.1,15.4 ahead=1.59 lat=3.08 ang=99.1 along=9.2 gait=3 v=2.63 rein=0
+RIDEAI sit n=6 phase=approach pos=-7.5,15.4 ahead=3.51 lat=0.64 ang=71.9 along=9.3 gait=3 v=3.33 rein=1
+RIDEAI sit n=6 phase=approach pos=-9.1,17.2 ahead=7.52 lat=1.06 ang=7.2 along=7.7 gait=3 v=1.34 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=6 ahead=7.56 lateral=1.55 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=6 phase=approach pos=-8.7,19.3 ahead=5.66 lat=0.76 ang=9.1 along=5.6 gait=3 v=3.18 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=6 ahead=5.38 lateral=0.14 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=6 ahead=4.21 lateral=0.14 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=6 ahead=3.56 lateral=0.14 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=6 ahead=3.04 lateral=0.14 stride=0 word=Now. kept=true
+RIDEAI ASK n=6 ahead=2.59 lat=0.14 ang=9.1 charge=1.0
+RIDEAI fence 6 -> 7 t=40.32 leave=deep
+COUNT fence=7 ahead=7.64 lateral=5.58 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=7 phase=land pos=-7.1,25.7 ahead=7.9 lat=7.1 ang=23.3 along=5.5 gait=3 v=3.39 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=7 ahead=7.89 lateral=1.48 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=7 ahead=7.56 lateral=0.24 stride=1 word=One. Wait. kept=true
+COUNT fence=7 ahead=6.59 lateral=1.67 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=7 phase=land pos=-4.7,27.5 ahead=5.04 lat=4.7 ang=84.5 along=3.8 gait=3 v=3.09 rein=1
+RIDEAI sit n=7 phase=setup pos=-2.0,26.2 ahead=-3.06 lat=2.04 ang=145.8 along=5.1 gait=3 v=3.09 rein=1
+RIDEAI sit n=7 phase=approach pos=0.2,24.7 ahead=0.03 lat=0.26 ang=87.5 along=6.5 gait=3 v=2.22 rein=-1
+RIDEAI sit n=7 phase=setup pos=2.9,26.1 ahead=-0.77 lat=2.88 ang=68.3 along=5.1 gait=3 v=2.0 rein=1
+RIDEAI sit n=7 phase=setup pos=5.4,25.5 ahead=-7.8 lat=5.38 ang=129.6 along=5.7 gait=3 v=3.8 rein=1
+RIDEAI sit n=7 phase=setup pos=6.2,23.3 ahead=-6.55 lat=6.16 ang=168.0 along=8.0 gait=3 v=3.07 rein=1
+RIDEAI sit n=7 phase=setup pos=4.5,21.2 ahead=1.6 lat=4.48 ang=105.6 along=10.0 gait=3 v=2.34 rein=1
+RIDEAI sit n=7 phase=approach pos=1.5,21.2 ahead=3.76 lat=1.48 ang=76.7 along=10.1 gait=3 v=1.92 rein=1
+RIDEAI sit n=7 phase=approach pos=-0.2,23.0 ahead=7.98 lat=0.22 ang=13.8 along=8.3 gait=3 v=1.91 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=7 ahead=8.02 lateral=1.52 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=7 ahead=7.56 lateral=0.38 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=7 phase=approach pos=-0.3,25.0 ahead=6.27 lat=0.28 ang=0.9 along=6.3 gait=3 v=2.98 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=7 ahead=5.39 lateral=0.38 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=7 ahead=4.17 lateral=0.38 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=7 ahead=3.59 lateral=0.38 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=7 ahead=3.07 lateral=0.38 stride=0 word=Now. kept=true
+RIDEAI sit n=7 phase=approach pos=-0.3,28.7 ahead=2.57 lat=0.32 ang=2.5 along=2.6 gait=3 v=3.88 rein=0
+RIDEAI ASK n=7 ahead=2.57 lat=0.2 ang=2.5 charge=1.0
+RIDEAI fence 7 -> 8 t=52.92 leave=deep
+RIDEAI sit n=8 phase=land pos=-1.6,34.4 ahead=-7.86 lat=5.78 ang=123.4 along=23.1 gait=3 v=3.09 rein=-1
+COUNT fence=8 ahead=0.95 lateral=23.93 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=8 phase=land pos=-4.5,34.4 ahead=13.34 lat=2.84 ang=62.1 along=23.2 gait=3 v=3.09 rein=-1
+RIDEAI sit n=8 phase=around pos=-6.0,32.0 ahead=20.73 lat=1.26 ang=0.3 along=20.7 gait=3 v=1.92 rein=-1
+RIDEAI sit n=8 phase=setup pos=-5.2,29.1 ahead=16.42 lat=2.1 ang=17.6 along=17.9 gait=3 v=4.1 rein=0
+RIDEAI sit n=8 phase=setup pos=-3.7,24.8 ahead=13.58 lat=3.48 ang=1.4 along=13.5 gait=3 v=2.78 rein=1
+RIDEAI sit n=8 phase=approach pos=-5.2,22.5 ahead=8.38 lat=1.9 ang=52.3 along=11.3 gait=3 v=3.86 rein=-1
+MICHELLE soft | Two. Wait.
+COUNT fence=8 ahead=10.08 lateral=1.45 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=8 phase=approach pos=-6.1,20.4 ahead=9.16 lat=0.94 ang=10.5 along=9.1 gait=3 v=1.77 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=8 ahead=7.55 lateral=0.74 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=8 phase=approach pos=-6.5,18.5 ahead=7.24 lat=0.6 ang=10.5 along=7.2 gait=3 v=2.83 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=8 ahead=5.36 lateral=0.32 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=8 ahead=4.20 lateral=0.32 stride=0 word=Early. kept=true
+RIDEAI sit n=8 phase=approach pos=-6.9,14.8 ahead=3.62 lat=0.12 ang=7.0 along=3.6 gait=3 v=3.88 rein=0
+MICHELLE soft | Wait.
+COUNT fence=8 ahead=3.55 lateral=0.32 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=8 ahead=3.05 lateral=0.11 stride=0 word=Now. kept=true
+RIDEAI ASK n=8 ahead=2.53 lat=0.12 ang=3.5 charge=1.0
+RIDEAI fence 8 -> 9 t=63.61 leave=leave
+RIDEAI sit n=9 phase=land pos=-6.7,7.9 ahead=14.04 lat=1.38 ang=12.9 along=14.1 gait=3 v=3.22 rein=0
+COUNT fence=9 ahead=10.98 lateral=3.45 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=9 phase=land pos=-5.9,4.8 ahead=10.39 lat=0.54 ang=22.1 along=11.0 gait=3 v=3.22 rein=0
+RIDEAI sit n=9 phase=approach pos=-4.0,2.1 ahead=6.93 lat=1.32 ang=25.2 along=8.3 gait=3 v=3.02 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=9 ahead=7.67 lateral=1.58 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=9 ahead=7.56 lateral=0.02 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=9 phase=approach pos=-4.1,0.1 ahead=6.44 lat=1.18 ang=14.4 along=6.3 gait=3 v=2.79 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=9 ahead=5.37 lateral=0.44 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=9 ahead=4.16 lateral=0.44 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=9 ahead=3.54 lateral=0.11 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=9 ahead=3.08 lateral=0.11 stride=0 word=Now. kept=true
+RIDEAI sit n=9 phase=approach pos=-5.0,-3.4 ahead=2.82 lat=0.38 ang=9.7 along=2.8 gait=3 v=3.88 rein=0
+RIDEAI ASK n=9 ahead=2.57 lat=0.1 ang=9.7 charge=1.0
+RIDEAI fence 9 -> 10 t=69.81 leave=leave
+RIDEAI sit n=10 phase=land pos=-5.2,-9.6 ahead=13.45 lat=1.36 ang=13.6 along=13.5 gait=3 v=3.22 rein=0
+COUNT fence=10 ahead=10.98 lateral=3.53 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=10 phase=land pos=-4.3,-12.6 ahead=9.5 lat=0.36 ang=26.9 along=10.5 gait=3 v=3.22 rein=-1
+RIDEAI sit n=10 phase=approach pos=-2.6,-15.2 ahead=7.57 lat=1.44 ang=11.7 along=8.0 gait=3 v=1.34 rein=1
+MICHELLE soft | Two. Wait.
+COUNT fence=10 ahead=7.80 lateral=1.48 stride=2 word=Two. Wait. kept=true
+MICHELLE soft | One. Wait.
+COUNT fence=10 ahead=7.55 lateral=0.41 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=10 phase=approach pos=-3.2,-17.3 ahead=5.93 lat=1.02 ang=13.9 along=5.9 gait=3 v=3.29 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=10 ahead=5.35 lateral=0.41 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=10 ahead=4.19 lateral=0.41 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=10 ahead=3.56 lateral=0.08 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=10 ahead=3.05 lateral=0.08 stride=0 word=Now. kept=true
+RIDEAI ASK n=10 ahead=2.53 lat=0.08 ang=9.2 charge=1.0
+RIDEAI fence 10 -> 11 t=76.07 leave=leave
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_int_006_rail_late.jsonl n=82
+RIDECERT hk_int_006 style=rail_late success=true faults=4 jumped=10/10 t=79.24 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=86.5 scope=81.0
+RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_style.json
+RIDECERT done pass=true board=style 1 style_all=true

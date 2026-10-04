@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_33420",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, first school 22077",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.74,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -24.82
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.786,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -17.319
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.834,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        18.2
+      ],
+      "yaw": 3.1109,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand seventy-seven in hk_jo_int_33420 the outdoor ring on Thursday for intermediate. hk_jo_int_33420 Height 2'6\", 4 fences, pattern jump off hk_jo_int_33420 tight, side outside. Fence one of walk hk_jo_int_33420 twenty-two thousand seventy-seven is a white vertical hk_jo_int_33420 at seven point eight by minus twenty-four hk_jo_int_33420 point eight. Walk twenty-two thousand seventy-seven meat hk_jo_int_33420 is a labeled related. Sit after the hk_jo_int_33420 in of walk twenty-two thousand seventy-seven. Last hk_jo_int_33420 of walk twenty-two thousand seventy-seven is a hk_jo_int_33420 plank vertical at seven point two hk_jo_int_33420.",
+  "michelle_brief": "Walk twenty-two thousand seventy-seven. Quiet to the first."
+}

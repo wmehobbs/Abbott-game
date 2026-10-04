@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19866",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor outside track, left, Wednesday 13571",
+  "height_label": "poles to 2'3\"",
+  "pattern": "outside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.412,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.32
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.524,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -3.92
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand five hundred hk_in_les_19866 seventy-one in the indoor on the other hk_in_les_19866 way for lesson. Height poles to 2'3\", hk_in_les_19866 3 fences, pattern outside track, side right. hk_in_les_19866 Fence one of walk thirteen thousand five hk_in_les_19866 hundred seventy-one is a brush vertical at hk_in_les_19866 four point five by minus eleven point hk_in_les_19866 two. Walk thirteen thousand five hundred seventy-one hk_in_les_19866 meat is a labeled related. Sit after hk_in_les_19866 the in of walk thirteen thousand five hk_in_les_19866 hundred seventy-one. Last of walk thirteen hk_in_les_19866.",
+  "michelle_brief": "Walk thirteen thousand five hundred seventy-one. Quiet to the first."
+}

@@ -1,0 +1,147 @@
+{
+  "id": "hk_beg_9469",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "related in, right, first school 10034",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.606,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.85
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.603,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -14.905
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.78
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.628,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -4.129
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.634,
+      "sp": 0.0,
+      "pos": [
+        -8.2,
+        0.0,
+        6.647
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.651,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        17.424
+      ],
+      "yaw": -0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.666,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.672,
+      "sp": 0.0,
+      "pos": [
+        -7.544,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.09818,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.7,
+      "sp": 0.0,
+      "pos": [
+        7.475,
+        0.0,
+        11.0
+      ],
+      "yaw": 3.19072,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "related_in",
+  "indoor": false,
+  "walk_text": "Hidden K walk ten thousand thirty-four in hk_beg_9469 the outdoor ring on Tuesday for beginner. hk_beg_9469 Height 2'3\", 8 fences, pattern related in, hk_beg_9469 side inside. Fence one of walk ten hk_beg_9469 thousand thirty-four is a natural vertical at hk_beg_9469 eight point one by minus twenty-five point hk_beg_9469 eight. Walk ten thousand thirty-four meat is hk_beg_9469 a labeled related. Sit after the in hk_beg_9469 of walk ten thousand thirty-four. Last of hk_beg_9469 walk ten thousand thirty-four is a natural hk_beg_9469 vertical at seven point five by hk_beg_9469.",
+  "michelle_brief": "Walk ten thousand thirty-four. Quiet to the first."
+}

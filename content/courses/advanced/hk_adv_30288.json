@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_30288",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, outside, Wednesday 2020",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.853,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -26.18
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.87
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -15.315
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -8.062
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        -0.81
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.887,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        6.443
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.91,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        13.695
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.921,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        20.948
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.909,
+      "sp": 0.788,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.93,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.08371,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.14812,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.955,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.09822,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.96,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.08454,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk two thousand twenty in hk_adv_30288 the outdoor ring on Thursday for advanced. hk_adv_30288 Height 3'0\", 12 fences, pattern liverpool lookalike hk_adv_30288 flower, side inside. Fence one of walk hk_adv_30288 two thousand twenty is a plank vertical hk_adv_30288 at seven point eight by minus twenty-six hk_adv_30288 point two. Walk two thousand twenty meat hk_adv_30288 is a labeled related. Sit after the hk_adv_30288 in of walk two thousand twenty. Last hk_adv_30288 of walk two thousand twenty is a hk_adv_30288 flower box at minus six point hk_adv_30288.",
+  "michelle_brief": "Walk two thousand twenty. Quiet to the first."
+}

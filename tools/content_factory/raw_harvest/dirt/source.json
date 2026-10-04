@@ -1,0 +1,23 @@
+{
+  "slug": "dirt",
+  "source": "polyhaven",
+  "source_id": "dirt",
+  "page": "https://polyhaven.com/a/dirt",
+  "author": "Charlotte Baglioni",
+  "license": "CC0 1.0",
+  "license_url": "https://polyhaven.com/license",
+  "tags": [
+    "ring",
+    "apron"
+  ],
+  "maps": {
+    "albedo": "dirt_albedo_1k.jpg",
+    "albedo_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dirt/dirt_diff_1k.jpg",
+    "normal": "dirt_normal_1k.jpg",
+    "normal_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dirt/dirt_nor_gl_1k.jpg",
+    "rough": "dirt_rough_1k.jpg",
+    "rough_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dirt/dirt_rough_1k.jpg"
+  },
+  "date_fetched": "2026-09-16",
+  "use_for": "ring, apron"
+}

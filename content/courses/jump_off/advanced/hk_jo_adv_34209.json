@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_34209",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, left, first school 20306",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.854,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -25.585
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.37
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.886,
+      "sp": 0.537,
+      "pos": [
+        8.44,
+        0.0,
+        -18.212
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.925,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.945,
+      "sp": 0.0,
+      "pos": [
+        7.765,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.18478,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand three hundred hk_jo_adv_34209 six in the outdoor ring on late hk_jo_adv_34209 for advanced. Height 3'0\", 4 fences, pattern hk_jo_adv_34209 jump off tight, side right. Fence one hk_jo_adv_34209 of walk twenty thousand three hundred six hk_jo_adv_34209 is a brush vertical at eight point hk_jo_adv_34209 four by minus twenty-five point six. Walk hk_jo_adv_34209 twenty thousand three hundred six meat is hk_jo_adv_34209 a labeled related. Sit after the in hk_jo_adv_34209 of walk twenty thousand three hundred six. hk_jo_adv_34209 Last of walk twenty thousand three hk_jo_adv_34209.",
+  "michelle_brief": "Walk twenty thousand three hundred six. Quiet to the first."
+}

@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_16956",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "related out, right, late 630",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 3-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.865,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -25.67
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 3,
+        "distance_m": 14.58
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -11.094
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.865,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -4.545
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        -7.8,
+        0.0,
+        2.004
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.893,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        8.553
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.898,
+      "sp": 0.0,
+      "pos": [
+        -7.8,
+        0.0,
+        15.102
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "flower",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        21.651
+      ],
+      "yaw": -0.05,
+      "name": "flower box",
+      "related": {
+        "to": 8,
+        "strides": 2,
+        "distance_m": 10.85
+      }
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.918,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.921,
+      "sp": 0.501,
+      "pos": [
+        6.92,
+        0.0,
+        15.5
+      ],
+      "yaw": 3.18533,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.942,
+      "sp": 0.0,
+      "pos": [
+        -7.176,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.08495,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        6.92,
+        0.0,
+        2.45
+      ],
+      "yaw": 3.08169,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.96,
+      "sp": 0.501,
+      "pos": [
+        -7.176,
+        0.0,
+        -4.3
+      ],
+      "yaw": 3.1674,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "related_out",
+  "indoor": false,
+  "walk_text": "Hidden K walk six hundred thirty in hk_adv_16956 the outdoor ring on before the show hk_adv_16956 for advanced. Height 3'0\", 12 fences, pattern hk_adv_16956 related out, side outside. Fence one of hk_adv_16956 walk six hundred thirty is a natural hk_adv_16956 vertical at eight point seven by minus hk_adv_16956 twenty-five point seven. Walk six hundred thirty hk_adv_16956 meat is a labeled related. Sit after hk_adv_16956 the in of walk six hundred thirty. hk_adv_16956 Last of walk six hundred thirty is hk_adv_16956 a white oxer at minus seven hk_adv_16956.",
+  "michelle_brief": "Walk six hundred thirty. Quiet to the first."
+}

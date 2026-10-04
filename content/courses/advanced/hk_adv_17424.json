@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17424",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "related out, left, the other way 1098",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 3-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.857,
+      "sp": 0.0,
+      "pos": [
+        9.07,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 3,
+        "distance_m": 14.52
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.867,
+      "sp": 0.493,
+      "pos": [
+        9.07,
+        0.0,
+        -11.749
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.875,
+      "sp": 0.493,
+      "pos": [
+        9.07,
+        0.0,
+        -5.091
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.885,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        1.567
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.887,
+      "sp": 0.0,
+      "pos": [
+        9.07,
+        0.0,
+        8.225
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.909,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        14.884
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.913,
+      "sp": 0.0,
+      "pos": [
+        9.07,
+        0.0,
+        21.542
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.915,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.93,
+      "sp": 0.0,
+      "pos": [
+        7.256,
+        0.0,
+        15.5
+      ],
+      "yaw": 3.1975,
+      "name": "brush vertical",
+      "related": {
+        "to": 10,
+        "strides": 3,
+        "distance_m": 14.45
+      }
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.936,
+      "sp": 0.0,
+      "pos": [
+        -5.52,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.11073,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.949,
+      "sp": 0.0,
+      "pos": [
+        8.344,
+        0.0,
+        2.0
+      ],
+      "yaw": 3.11026,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.956,
+      "sp": 0.493,
+      "pos": [
+        -6.348,
+        0.0,
+        -4.75
+      ],
+      "yaw": 3.16126,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "related_out",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand ninety-eight in hk_adv_17424 the outdoor ring on the other way hk_adv_17424 for advanced. Height 3'0\", 12 fences, pattern hk_adv_17424 related out, side right. Fence one of hk_adv_17424 walk one thousand ninety-eight is a plank hk_adv_17424 vertical at nine point one by minus hk_adv_17424 twenty-six point three. Walk one thousand ninety-eight hk_adv_17424 meat is a labeled related. Sit after hk_adv_17424 the in of walk one thousand ninety-eight. hk_adv_17424 Last of walk one thousand ninety-eight is hk_adv_17424 a plank oxer at minus six hk_adv_17424.",
+  "michelle_brief": "Walk one thousand ninety-eight. Quiet to the first."
+}

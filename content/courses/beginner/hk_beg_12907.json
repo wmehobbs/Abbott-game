@@ -1,0 +1,147 @@
+{
+  "id": "hk_beg_12907",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, left, before the show 4803",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.586,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -25.84
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.87
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.602,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -14.969
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.79
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -4.177
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.634,
+      "sp": 0.0,
+      "pos": [
+        -7.5,
+        0.0,
+        6.616
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.651,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        17.408
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.659,
+      "sp": 0.311,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.68,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        18.2
+      ],
+      "yaw": 3.13521,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.688,
+      "sp": 0.0,
+      "pos": [
+        6.219,
+        0.0,
+        11.0
+      ],
+      "yaw": 3.15373,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand eight hundred hk_beg_12907 three in the outdoor ring on before hk_beg_12907 the show for beginner. Height 2'3\", 8 hk_beg_12907 fences, pattern liverpool lookalike flower, side inside. hk_beg_12907 Fence one of walk four thousand eight hk_beg_12907 hundred three is a brush vertical at hk_beg_12907 six point eight by minus twenty-five point hk_beg_12907 eight. Walk four thousand eight hundred three hk_beg_12907 meat is a labeled related. Sit after hk_beg_12907 the in of walk four thousand eight hk_beg_12907 hundred three. Last of walk four hk_beg_12907.",
+  "michelle_brief": "Walk four thousand eight hundred three. Quiet to the first."
+}

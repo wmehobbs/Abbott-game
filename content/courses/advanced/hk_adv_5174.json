@@ -1,0 +1,215 @@
+{
+  "id": "hk_adv_5174",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, before the show 4033",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.858,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -25.84
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.82
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.863,
+      "sp": 0.48,
+      "pos": [
+        7.81,
+        0.0,
+        -15.017
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.2
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -7.814
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.887,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        -0.611
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.897,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        6.591
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        13.794
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.907,
+      "sp": 0.48,
+      "pos": [
+        7.81,
+        0.0,
+        20.997
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": {
+        "to": 8,
+        "strides": 2,
+        "distance_m": 10.62
+      }
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.917,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.937,
+      "sp": 0.48,
+      "pos": [
+        7.185,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.19237,
+      "name": "brush oxer",
+      "related": {
+        "to": 10,
+        "strides": 3,
+        "distance_m": 15.17
+      }
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.942,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.19846,
+      "name": "plank vertical",
+      "related": {
+        "to": 11,
+        "strides": 3,
+        "distance_m": 15.17
+      }
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.941,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.12684,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.945,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.143,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "outside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand thirty-three in hk_adv_5174 the outdoor ring on after work for hk_adv_5174 advanced. Height 3'0\", 12 fences, pattern outside hk_adv_5174 track, side outside. Fence one of walk hk_adv_5174 four thousand thirty-three is a plank vertical hk_adv_5174 at seven point eight by minus twenty-five hk_adv_5174 point eight. Walk four thousand thirty-three meat hk_adv_5174 is a labeled related. Sit after the hk_adv_5174 in of walk four thousand thirty-three. Last hk_adv_5174 of walk four thousand thirty-three is a hk_adv_5174 flower box at minus six point hk_adv_5174.",
+  "michelle_brief": "Walk four thousand thirty-three. Quiet to the first."
+}

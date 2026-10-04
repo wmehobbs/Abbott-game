@@ -1,0 +1,210 @@
+{
+  "id": "hk_adv_015",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, before the show 15",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Twelve. Related early. Don't get busy after the first leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        6.848,
+        0.0,
+        -24.329
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.871,
+      "sp": 0.0,
+      "pos": [
+        -6.662,
+        0.0,
+        -14.027
+      ],
+      "yaw": 0.07,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.865,
+      "sp": 0.0,
+      "pos": [
+        -6.662,
+        0.0,
+        -4.603
+      ],
+      "yaw": 0.06,
+      "name": "natural vertical",
+      "related": {
+        "to": 4,
+        "strides": 2,
+        "distance_m": 10.84
+      }
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -6.012,
+        0.0,
+        6.22
+      ],
+      "yaw": 0.06,
+      "name": "flower box",
+      "related": {
+        "to": 5,
+        "strides": 3,
+        "distance_m": 15.18
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        6.848,
+        0.0,
+        14.285
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 6,
+        "strides": 3,
+        "distance_m": 15.06
+      }
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.896,
+      "sp": 0.0,
+      "pos": [
+        -6.662,
+        0.0,
+        20.932
+      ],
+      "yaw": 0.07,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.906,
+      "sp": 0.753,
+      "pos": [
+        6.848,
+        0.0,
+        28.167
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": {
+        "to": 8,
+        "strides": 1,
+        "distance_m": 7.51
+      }
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.252
+      ],
+      "yaw": -0.00741,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.935,
+      "sp": 0.0,
+      "pos": [
+        -6.129,
+        0.0,
+        12.703
+      ],
+      "yaw": 3.06075,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.929,
+      "sp": 0.0,
+      "pos": [
+        6.3,
+        0.0,
+        0.682
+      ],
+      "yaw": 3.05885,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.922,
+      "sp": 0.0,
+      "pos": [
+        6.129,
+        0.0,
+        -8.725
+      ],
+      "yaw": 3.05327,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.932,
+      "sp": 0.753,
+      "pos": [
+        6.3,
+        0.0,
+        -17.126
+      ],
+      "yaw": 3.13104,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fifteen in the outdoor hk_adv_015 ring on the other way for advanced. hk_adv_015 Height 3'0\", 12 fences, pattern outside track, hk_adv_015 side right. Fence one of walk fifteen hk_adv_015 is a white vertical at six point hk_adv_015 eight by minus twenty-four point three. Walk hk_adv_015 fifteen meat is a labeled related. Sit hk_adv_015 after the in of walk fifteen. Last hk_adv_015 of walk fifteen is a plank oxer hk_adv_015 at six point three by minus seventeen hk_adv_015 point one. Same leave on walk hk_adv_015.",
+  "michelle_brief": "Walk fifteen. Quiet to the first."
+}

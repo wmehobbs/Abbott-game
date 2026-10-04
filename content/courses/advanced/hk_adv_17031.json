@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_17031",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "inside track, left, morning 705",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.851,
+      "sp": 0.0,
+      "pos": [
+        7.39,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.7
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.87,
+      "sp": 0.0,
+      "pos": [
+        7.39,
+        0.0,
+        -15.05
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        -7.6,
+        0.0,
+        -7.842
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        7.39,
+        0.0,
+        -0.633
+      ],
+      "yaw": -0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -7.6,
+        0.0,
+        6.575
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.909,
+      "sp": 0.0,
+      "pos": [
+        7.39,
+        0.0,
+        13.783
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.907,
+      "sp": 0.58,
+      "pos": [
+        -7.6,
+        0.0,
+        20.992
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.928,
+      "sp": 0.58,
+      "pos": [
+        7.39,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.925,
+      "sp": 0.58,
+      "pos": [
+        -6.992,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.18517,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.942,
+      "sp": 0.0,
+      "pos": [
+        6.799,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.15555,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.954,
+      "sp": 0.0,
+      "pos": [
+        -6.992,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.13767,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.951,
+      "sp": 0.0,
+      "pos": [
+        6.799,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.18236,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "inside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven hundred five in hk_adv_17031 the outdoor ring on first school for hk_adv_17031 advanced. Height 3'0\", 12 fences, pattern inside hk_adv_17031 track, side right. Fence one of walk hk_adv_17031 seven hundred five is a brush vertical hk_adv_17031 at seven point four by minus twenty-five hk_adv_17031 point eight. Walk seven hundred five meat hk_adv_17031 is a labeled related. Sit after the hk_adv_17031 in of walk seven hundred five. Last hk_adv_17031 of walk seven hundred five is a hk_adv_17031 flower box at six point eight hk_adv_17031.",
+  "michelle_brief": "Walk seven hundred five. Quiet to the first."
+}

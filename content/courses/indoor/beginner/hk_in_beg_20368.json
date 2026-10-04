@@ -1,0 +1,115 @@
+{
+  "id": "hk_in_beg_20368",
+  "class_id": "beginner",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor lesson single then line, right, late 11405",
+  "height_label": "2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.599,
+      "sp": 0.0,
+      "pos": [
+        4.28,
+        0.0,
+        -11.4
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.45
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.612,
+      "sp": 0.0,
+      "pos": [
+        4.28,
+        0.0,
+        -3.952
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        4.28,
+        0.0,
+        3.724
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.65,
+      "sp": 0.0,
+      "pos": [
+        -4.28,
+        0.0,
+        11.4
+      ],
+      "yaw": 0.04,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.682,
+      "sp": 0.0,
+      "pos": [
+        3.938,
+        0.0,
+        9.15
+      ],
+      "yaw": 3.16114,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.691,
+      "sp": 0.352,
+      "pos": [
+        -3.938,
+        0.0,
+        6.45
+      ],
+      "yaw": 3.16551,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "walk_text": "Hidden K walk eleven thousand four hundred hk_in_beg_20368 five in the indoor on after work hk_in_beg_20368 for beginner. Height 2'3\", 6 fences, pattern hk_in_beg_20368 lesson single then line, side outside. Fence hk_in_beg_20368 one of walk eleven thousand four hundred hk_in_beg_20368 five is a natural vertical at four hk_in_beg_20368 point three by minus eleven point four. hk_in_beg_20368 Walk eleven thousand four hundred five meat hk_in_beg_20368 is a labeled related. Sit after the hk_in_beg_20368 in of walk eleven thousand four hundred hk_in_beg_20368 five. Last of walk eleven thousand hk_in_beg_20368.",
+  "michelle_brief": "Walk eleven thousand four hundred five. Quiet to the first."
+}

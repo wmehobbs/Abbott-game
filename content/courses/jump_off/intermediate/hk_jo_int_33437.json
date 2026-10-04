@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_33437",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, quiet 22094",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.733,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.785,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        -17.645
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.844,
+      "sp": 0.585,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        -5.98,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.18854,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand ninety-four in hk_jo_int_33437 the outdoor ring on first school for hk_jo_int_33437 intermediate. Height 2'6\", 4 fences, pattern jump hk_jo_int_33437 off tight, side inside. Fence one of hk_jo_int_33437 walk twenty-two thousand ninety-four is a natural hk_jo_int_33437 vertical at six point five by minus hk_jo_int_33437 twenty-five. Walk twenty-two thousand ninety-four meat is hk_jo_int_33437 a labeled related. Sit after the in hk_jo_int_33437 of walk twenty-two thousand ninety-four. Last of hk_jo_int_33437 walk twenty-two thousand ninety-four is a plank hk_jo_int_33437 vertical at minus six by seventeen hk_jo_int_33437.",
+  "michelle_brief": "Walk twenty-two thousand ninety-four. Quiet to the first."
+}

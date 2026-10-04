@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17899",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, right, late 1573",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.858,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.73
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.855,
+      "sp": 0.557,
+      "pos": [
+        7.18,
+        0.0,
+        -15.535
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.29
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.871,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        -8.246
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        -6.6,
+        0.0,
+        -0.956
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.898,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        6.333
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.895,
+      "sp": 0.0,
+      "pos": [
+        -6.6,
+        0.0,
+        13.622
+      ],
+      "yaw": 0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.909,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        20.911
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.917,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        6.606,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.16882,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        -6.072,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.15353,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.958,
+      "sp": 0.0,
+      "pos": [
+        5.744,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.10416,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.959,
+      "sp": 0.0,
+      "pos": [
+        -6.072,
+        0.0,
+        -7.45
+      ],
+      "yaw": 3.18786,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand five hundred hk_adv_17899 seventy-three in the outdoor ring on morning hk_adv_17899 for advanced. Height 3'0\", 12 fences, pattern hk_adv_17899 liverpool lookalike flower, side left. Fence one hk_adv_17899 of walk one thousand five hundred seventy-three hk_adv_17899 is a plank vertical at seven point hk_adv_17899 two by minus twenty-six point three. Walk hk_adv_17899 one thousand five hundred seventy-three meat is hk_adv_17899 a labeled related. Sit after the in hk_adv_17899 of walk one thousand five hundred seventy-three. hk_adv_17899 Last of walk one thousand five hk_adv_17899.",
+  "michelle_brief": "Walk one thousand five hundred seventy-three. Quiet to the first."
+}

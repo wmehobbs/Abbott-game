@@ -1,0 +1,71 @@
+{
+  "id": "hk_les_006",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, left, before the show 22732",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 7.48,
+  "notes": "Same three as the lesson. Walk him in. Don't chase the line.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.444,
+      "sp": 0.0,
+      "pos": [
+        2.725,
+        0.0,
+        -20.802
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.529,
+      "sp": 0.0,
+      "pos": [
+        -7.3,
+        0.0,
+        -9.749
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.85
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.613,
+      "sp": 0.0,
+      "pos": [
+        -6.758,
+        0.0,
+        1.083
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "lesson_single_then_line",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-two thousand seven hundred hk_les_006 thirty-two in the outdoor ring on the hk_les_006 other way for lesson. Height poles to hk_les_006 2'3\", 3 fences, pattern lesson single then hk_les_006 line, side inside. Fence one of walk hk_les_006 twenty-two thousand seven hundred thirty-two is a hk_les_006 white vertical at two point seven by hk_les_006 minus twenty point eight. Walk twenty-two thousand hk_les_006 seven hundred thirty-two meat is a labeled hk_les_006 related. Sit after the in of walk hk_les_006 twenty-two thousand seven hundred thirty-two. Last hk_les_006.",
+  "michelle_brief": "Walk twenty-two thousand seven hundred thirty-two. Quiet to the first."
+}

@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+PLAYTEST begin fences=8
+MICHELLE soft | Two. Wait.
+PLAYTEST clear faults=0 complete=true
+MICHELLE soft | Two. Wait.
+PLAYTEST refuse faults=4
+FENCE knock 3 by horse at 8.7,-2.4 next=3 jumping=true
+PLAYTEST rail faults=4
+PLAYTEST wrote E:/Workspace/Madison/game/../dist/playtest_results.json
+PLAYTEST done pass=true

@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19953",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, inside, morning 13636",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.423,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.32
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.45
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.521,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.868
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.634,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand six hundred hk_in_les_19953 thirty-six in the indoor on Wednesday for hk_in_les_19953 lesson. Height poles to 2'3\", 3 fences, hk_in_les_19953 pattern lesson single then line, side left. hk_in_les_19953 Fence one of walk thirteen thousand six hk_in_les_19953 hundred thirty-six is a brush vertical at hk_in_les_19953 four point nine by minus eleven point hk_in_les_19953 three. Walk thirteen thousand six hundred thirty-six hk_in_les_19953 meat is a labeled related. Sit after hk_in_les_19953 the in of walk thirteen thousand six hk_in_les_19953 hundred thirty-six. Last of walk thirteen hk_in_les_19953.",
+  "michelle_brief": "Walk thirteen thousand six hundred thirty-six. Quiet to the first."
+}

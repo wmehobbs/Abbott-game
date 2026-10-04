@@ -1,0 +1,73 @@
+{
+  "id": "hk_in_jo_int_8376",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "show"
+  ],
+  "name": "indoor jump-off jump off tight, right, Thursday 13473",
+  "height_label": "2'6\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.735,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -11.4
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.46
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.826,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -3.94
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.893,
+      "sp": 0.0,
+      "pos": [
+        -3.496,
+        0.0,
+        -7.5
+      ],
+      "yaw": 3.17578,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "walk_text": "Hidden K walk thirteen thousand four hundred hk_in_jo_int_8376 seventy-three in the indoor on Tuesday for hk_in_jo_int_8376 intermediate. Height 2'6\", 3 fences, pattern jump hk_in_jo_int_8376 off tight, side outside. Fence one of hk_in_jo_int_8376 walk thirteen thousand four hundred seventy-three is hk_in_jo_int_8376 a brush vertical at three point eight hk_in_jo_int_8376 by minus eleven point four. Walk thirteen hk_in_jo_int_8376 thousand four hundred seventy-three meat is a hk_in_jo_int_8376 labeled related. Sit after the in of hk_in_jo_int_8376 walk thirteen thousand four hundred seventy-three. Last hk_in_jo_int_8376 of walk thirteen thousand four hundred hk_in_jo_int_8376.",
+  "michelle_brief": "Walk thirteen thousand four hundred seventy-three. Quiet to the first."
+}

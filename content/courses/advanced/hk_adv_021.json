@@ -1,0 +1,202 @@
+{
+  "id": "hk_adv_021",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, first school 21",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Open jumpers. Eyes up. Leave with him.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.874,
+      "sp": 0.0,
+      "pos": [
+        8.478,
+        0.0,
+        -23.864
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.846,
+      "sp": 0.0,
+      "pos": [
+        -8.285,
+        0.0,
+        -16.962
+      ],
+      "yaw": 0.07,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        8.478,
+        0.0,
+        -8.627
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 4,
+        "strides": 2,
+        "distance_m": 10.46
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.899,
+      "sp": 0.409,
+      "pos": [
+        8.478,
+        0.0,
+        1.833
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": {
+        "to": 5,
+        "strides": 2,
+        "distance_m": 10.84
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.896,
+      "sp": 0.0,
+      "pos": [
+        8.478,
+        0.0,
+        12.668
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.879,
+      "sp": 0.409,
+      "pos": [
+        -8.285,
+        0.0,
+        19.336
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "flower",
+      "h": 0.924,
+      "sp": 0.0,
+      "pos": [
+        8.478,
+        0.0,
+        29.372
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.897,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.48
+      ],
+      "yaw": -0.00288,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.918,
+      "sp": 0.0,
+      "pos": [
+        -7.622,
+        0.0,
+        7.66
+      ],
+      "yaw": 3.10497,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.932,
+      "sp": 0.0,
+      "pos": [
+        -7.8,
+        0.0,
+        -1.715
+      ],
+      "yaw": 3.19819,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.921,
+      "sp": 0.0,
+      "pos": [
+        -7.622,
+        0.0,
+        -7.982
+      ],
+      "yaw": 3.18085,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.929,
+      "sp": 0.0,
+      "pos": [
+        7.8,
+        0.0,
+        -15.977
+      ],
+      "yaw": 3.12339,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-one in the outdoor hk_adv_021 ring on before the show for advanced. hk_adv_021 Height 3'0\", 12 fences, pattern outside track, hk_adv_021 side right. Fence one of walk twenty-one hk_adv_021 is a white vertical at eight point hk_adv_021 five by minus twenty-three point nine. Walk hk_adv_021 twenty-one meat is a labeled related. Sit hk_adv_021 after the in of walk twenty-one. Last hk_adv_021 of walk twenty-one is a plank vertical hk_adv_021 at seven point eight by minus sixteen. hk_adv_021 Same leave on walk twenty-one. Then hk_adv_021.",
+  "michelle_brief": "Walk twenty-one. Quiet to the first."
+}

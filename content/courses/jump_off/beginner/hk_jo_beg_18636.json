@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_18636",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, quiet 21087",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.591,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.42
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -17.573
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.661,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.7,
+      "sp": 0.0,
+      "pos": [
+        7.765,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.09389,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand eighty-seven in hk_jo_beg_18636 the outdoor ring on morning for beginner. hk_jo_beg_18636 Height 2'3\", 4 fences, pattern jump off hk_jo_beg_18636 tight, side outside. Fence one of walk hk_jo_beg_18636 twenty-one thousand eighty-seven is a brush vertical hk_jo_beg_18636 at eight point four by minus twenty-five. hk_jo_beg_18636 Walk twenty-one thousand eighty-seven meat is a hk_jo_beg_18636 labeled related. Sit after the in of hk_jo_beg_18636 walk twenty-one thousand eighty-seven. Last of walk hk_jo_beg_18636 twenty-one thousand eighty-seven is a brush vertical hk_jo_beg_18636 at seven point eight by eighteen hk_jo_beg_18636.",
+  "michelle_brief": "Walk twenty-one thousand eighty-seven. Quiet to the first."
+}

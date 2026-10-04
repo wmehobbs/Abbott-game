@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_19001",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, first school 21960",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.735,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.31
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.789,
+      "sp": 0.533,
+      "pos": [
+        7.18,
+        0.0,
+        -18.956
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.845,
+      "sp": 0.533,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.896,
+      "sp": 0.0,
+      "pos": [
+        -6.072,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.18265,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand nine hundred hk_jo_int_19001 sixty in the outdoor ring on morning hk_jo_int_19001 for intermediate. Height 2'6\", 4 fences, pattern hk_jo_int_19001 jump off tight, side inside. Fence one hk_jo_int_19001 of walk twenty-one thousand nine hundred sixty hk_jo_int_19001 is a white vertical at seven point hk_jo_int_19001 two by minus twenty-six point three. Walk hk_jo_int_19001 twenty-one thousand nine hundred sixty meat is hk_jo_int_19001 a labeled related. Sit after the in hk_jo_int_19001 of walk twenty-one thousand nine hundred sixty. hk_jo_int_19001 Last of walk twenty-one thousand nine hk_jo_int_19001.",
+  "michelle_brief": "Walk twenty-one thousand nine hundred sixty. Quiet to the first."
+}

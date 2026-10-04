@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19938",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, outside, late 13623",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.417,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.526,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -3.749
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.635,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand six hundred hk_in_les_19938 twenty-three in the indoor on morning for hk_in_les_19938 lesson. Height poles to 2'3\", 3 fences, hk_in_les_19938 pattern lesson single then line, side outside. hk_in_les_19938 Fence one of walk thirteen thousand six hk_in_les_19938 hundred twenty-three is a white vertical at hk_in_les_19938 four point five by minus eleven point hk_in_les_19938 two. Walk thirteen thousand six hundred twenty-three hk_in_les_19938 meat is a labeled related. Sit after hk_in_les_19938 the in of walk thirteen thousand six hk_in_les_19938 hundred twenty-three. Last of walk thirteen hk_in_les_19938.",
+  "michelle_brief": "Walk thirteen thousand six hundred twenty-three. Quiet to the first."
+}

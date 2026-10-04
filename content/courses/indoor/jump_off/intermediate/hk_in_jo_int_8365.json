@@ -1,0 +1,73 @@
+{
+  "id": "hk_in_jo_int_8365",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "show"
+  ],
+  "name": "indoor jump-off jump off tight, left, before the show 13462",
+  "height_label": "2'6\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.736,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.44
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.823,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        -3.562
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.885,
+      "sp": 0.493,
+      "pos": [
+        -3.136,
+        0.0,
+        -4.8
+      ],
+      "yaw": 3.19402,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "walk_text": "Hidden K walk thirteen thousand four hundred hk_in_jo_int_8365 sixty-two in the indoor on the other hk_in_jo_int_8365 way for intermediate. Height 2'6\", 3 fences, hk_in_jo_int_8365 pattern jump off tight, side inside. Fence hk_in_jo_int_8365 one of walk thirteen thousand four hundred hk_in_jo_int_8365 sixty-two is a plank vertical at three hk_in_jo_int_8365 point nine by minus eleven. Walk thirteen hk_in_jo_int_8365 thousand four hundred sixty-two meat is a hk_in_jo_int_8365 labeled related. Sit after the in of hk_in_jo_int_8365 walk thirteen thousand four hundred sixty-two. Last hk_in_jo_int_8365 of walk thirteen thousand four hundred hk_in_jo_int_8365.",
+  "michelle_brief": "Walk thirteen thousand four hundred sixty-two. Quiet to the first."
+}

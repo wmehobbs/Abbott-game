@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_33047",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, morning 21431",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.602,
+      "sp": 0.0,
+      "pos": [
+        8.23,
+        0.0,
+        -25.84
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        8.23,
+        0.0,
+        -18.487
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.661,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.696,
+      "sp": 0.4,
+      "pos": [
+        -8.004,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.10723,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand four hundred hk_jo_beg_33047 thirty-one in the outdoor ring on Thursday hk_jo_beg_33047 for beginner. Height 2'3\", 4 fences, pattern hk_jo_beg_33047 jump off tight, side inside. Fence one hk_jo_beg_33047 of walk twenty-one thousand four hundred thirty-one hk_jo_beg_33047 is a brush vertical at eight point hk_jo_beg_33047 two by minus twenty-five point eight. Walk hk_jo_beg_33047 twenty-one thousand four hundred thirty-one meat is hk_jo_beg_33047 a labeled related. Sit after the in hk_jo_beg_33047 of walk twenty-one thousand four hundred thirty-one. hk_jo_beg_33047 Last of walk twenty-one thousand four hk_jo_beg_33047.",
+  "michelle_brief": "Walk twenty-one thousand four hundred thirty-one. Quiet to the first."
+}

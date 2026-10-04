@@ -1,0 +1,143 @@
+{
+  "id": "hk_in_adv_36930",
+  "class_id": "advanced",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor related out, outside, late 10670",
+  "height_label": "3'0\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.857,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.41
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -3.83
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.883,
+      "sp": 0.682,
+      "pos": [
+        4.52,
+        0.0,
+        1.247
+      ],
+      "yaw": -0.04,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.89,
+      "sp": 0.0,
+      "pos": [
+        -4.52,
+        0.0,
+        6.323
+      ],
+      "yaw": 0.04,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.905,
+      "sp": 0.682,
+      "pos": [
+        4.52,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.935,
+      "sp": 0.0,
+      "pos": [
+        -4.158,
+        0.0,
+        1.5
+      ],
+      "yaw": 3.17382,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "flower",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        -4.158,
+        0.0,
+        -3.45
+      ],
+      "yaw": 3.09424,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.957,
+      "sp": 0.0,
+      "pos": [
+        -4.158,
+        0.0,
+        -8.4
+      ],
+      "yaw": 3.15767,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "walk_text": "Hidden K walk ten thousand six hundred hk_in_adv_36930 seventy in the indoor on Wednesday for hk_in_adv_36930 advanced. Height 3'0\", 8 fences, pattern related hk_in_adv_36930 out, side outside. Fence one of walk hk_in_adv_36930 ten thousand six hundred seventy is a hk_in_adv_36930 natural vertical at four point five by hk_in_adv_36930 minus eleven point two. Walk ten thousand hk_in_adv_36930 six hundred seventy meat is a labeled hk_in_adv_36930 related. Sit after the in of walk hk_in_adv_36930 ten thousand six hundred seventy. Last of hk_in_adv_36930 walk ten thousand six hundred seventy hk_in_adv_36930.",
+  "michelle_brief": "Walk ten thousand six hundred seventy. Quiet to the first."
+}

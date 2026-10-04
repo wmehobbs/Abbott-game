@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_7090",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, right, the other way 14122",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.424,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.36
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.518,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -3.88
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.632,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand one hundred hk_in_les_7090 twenty-two in the indoor on Wednesday for hk_in_les_7090 lesson. Height poles to 2'3\", 3 fences, hk_in_les_7090 pattern related out, side left. Fence one hk_in_les_7090 of walk fourteen thousand one hundred twenty-two hk_in_les_7090 is a white vertical at five by hk_in_les_7090 minus eleven point two. Walk fourteen thousand hk_in_les_7090 one hundred twenty-two meat is a labeled hk_in_les_7090 related. Sit after the in of walk hk_in_les_7090 fourteen thousand one hundred twenty-two. Last of hk_in_les_7090 walk fourteen thousand one hundred twenty-two hk_in_les_7090.",
+  "michelle_brief": "Walk fourteen thousand one hundred twenty-two. Quiet to the first."
+}

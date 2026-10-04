@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_33061",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, Tuesday 21445",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.59,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.628,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -18.772
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.668,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.694,
+      "sp": 0.454,
+      "pos": [
+        -6.44,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.09573,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand four hundred hk_jo_beg_33061 forty-five in the outdoor ring on quiet hk_jo_beg_33061 for beginner. Height 2'3\", 4 fences, pattern hk_jo_beg_33061 jump off tight, side outside. Fence one hk_jo_beg_33061 of walk twenty-one thousand four hundred forty-five hk_jo_beg_33061 is a white vertical at six point hk_jo_beg_33061 seven by minus twenty-six point three. Walk hk_jo_beg_33061 twenty-one thousand four hundred forty-five meat is hk_jo_beg_33061 a labeled related. Sit after the in hk_jo_beg_33061 of walk twenty-one thousand four hundred forty-five. hk_jo_beg_33061 Last of walk twenty-one thousand four hk_jo_beg_33061.",
+  "michelle_brief": "Walk twenty-one thousand four hundred forty-five. Quiet to the first."
+}

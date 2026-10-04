@@ -1,0 +1,206 @@
+{
+  "id": "hk_adv_050",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, quiet 50",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Open jumpers. Eyes up. Leave with him.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.868,
+      "sp": 0.0,
+      "pos": [
+        6.658,
+        0.0,
+        -25.183
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.845,
+      "sp": 0.0,
+      "pos": [
+        6.658,
+        0.0,
+        -16.564
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.72
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        6.658,
+        0.0,
+        -5.844
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.875,
+      "sp": 0.0,
+      "pos": [
+        -7.053,
+        0.0,
+        1.138
+      ],
+      "yaw": 0.07,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.872,
+      "sp": 0.672,
+      "pos": [
+        6.658,
+        0.0,
+        9.678
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.891,
+      "sp": 0.672,
+      "pos": [
+        -7.053,
+        0.0,
+        21.96
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.897,
+      "sp": 0.0,
+      "pos": [
+        6.658,
+        0.0,
+        29.679
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.932,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.545
+      ],
+      "yaw": 0.01376,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.912,
+      "sp": 0.0,
+      "pos": [
+        -6.489,
+        0.0,
+        9.719
+      ],
+      "yaw": 3.10908,
+      "name": "natural vertical",
+      "related": {
+        "to": 10,
+        "strides": 3,
+        "distance_m": 15.12
+      }
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        6.125,
+        0.0,
+        1.389
+      ],
+      "yaw": 3.08835,
+      "name": "white vertical",
+      "related": {
+        "to": 11,
+        "strides": 3,
+        "distance_m": 14.79
+      }
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.935,
+      "sp": 0.0,
+      "pos": [
+        -6.489,
+        0.0,
+        -6.333
+      ],
+      "yaw": 3.0729,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        -6.125,
+        0.0,
+        -19.513
+      ],
+      "yaw": 3.15758,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fifty in the outdoor hk_adv_050 ring on Tuesday for advanced. Height 3'0\", hk_adv_050 12 fences, pattern outside track, side outside. hk_adv_050 Fence one of walk fifty is a hk_adv_050 white vertical at six point seven by hk_adv_050 minus twenty-five point two. Walk fifty meat hk_adv_050 is a labeled related. Sit after the hk_adv_050 in of walk fifty. Last of walk hk_adv_050 fifty is a flower box at minus hk_adv_050 six point one by minus nineteen point hk_adv_050 five. Same leave on walk fifty. hk_adv_050.",
+  "michelle_brief": "Walk fifty. Quiet to the first."
+}

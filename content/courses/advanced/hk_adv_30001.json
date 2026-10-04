@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_30001",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "in and out two, outside, Thursday 1733",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 1-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.846,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.37
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -18.981
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.867,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -11.117
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.891,
+      "sp": 0.697,
+      "pos": [
+        -8.2,
+        0.0,
+        -3.254
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.904,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        4.61
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.902,
+      "sp": 0.697,
+      "pos": [
+        -8.2,
+        0.0,
+        12.473
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        20.337
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.913,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.934,
+      "sp": 0.0,
+      "pos": [
+        -7.544,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.15958,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.944,
+      "sp": 0.0,
+      "pos": [
+        7.475,
+        0.0,
+        14.15
+      ],
+      "yaw": 3.13748,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        -7.544,
+        0.0,
+        6.05
+      ],
+      "yaw": 3.19533,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.958,
+      "sp": 0.0,
+      "pos": [
+        7.475,
+        0.0,
+        -1.6
+      ],
+      "yaw": 3.17639,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "in_and_out_two",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand seven hundred hk_adv_30001 thirty-three in the outdoor ring on after hk_adv_30001 work for advanced. Height 3'0\", 12 fences, hk_adv_30001 pattern in and out two, side inside. hk_adv_30001 Fence one of walk one thousand seven hk_adv_30001 hundred thirty-three is a natural vertical at hk_adv_30001 eight point one by minus twenty-six point hk_adv_30001 four. Walk one thousand seven hundred thirty-three hk_adv_30001 meat is a labeled related. Sit after hk_adv_30001 the in of walk one thousand seven hk_adv_30001 hundred thirty-three. Last of walk one hk_adv_30001.",
+  "michelle_brief": "Walk one thousand seven hundred thirty-three. Quiet to the first."
+}

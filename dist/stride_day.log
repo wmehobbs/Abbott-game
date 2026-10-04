@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+STRIDE lane_x=-1.0 clearance=5.72
+STRIDE speed_mean=5.55 speed_min=5.55 speed_max=5.55
+STRIDE footfalls=42 stride_cycles=13 distance_m=44.4
+STRIDE meters_per_stride=3.415 vs_3_35=0.065 warm_s=0.0
+STRIDE exact_cycles=13.68 meters_exact=3.246 vs_exact=-0.104
+STRIDE meters_from_footfalls=3.171 vs_foot=-0.179
+STRIDE end=-1.0,14.4 gait=3

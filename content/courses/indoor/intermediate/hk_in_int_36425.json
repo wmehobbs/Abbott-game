@@ -1,0 +1,143 @@
+{
+  "id": "hk_in_int_36425",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor related out, outside, Thursday 12912",
+  "height_label": "2'6\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.734,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -11.32
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.42
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.759,
+      "sp": 0.535,
+      "pos": [
+        4.4,
+        0.0,
+        -3.899
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.788,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        1.201
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.809,
+      "sp": 0.0,
+      "pos": [
+        -4.4,
+        0.0,
+        6.3
+      ],
+      "yaw": 0.04,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.828,
+      "sp": 0.535,
+      "pos": [
+        4.4,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.847,
+      "sp": 0.535,
+      "pos": [
+        -4.048,
+        0.0,
+        1.5
+      ],
+      "yaw": 3.09623,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.87,
+      "sp": 0.0,
+      "pos": [
+        -4.048,
+        0.0,
+        -3.45
+      ],
+      "yaw": 3.14457,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.884,
+      "sp": 0.0,
+      "pos": [
+        -4.048,
+        0.0,
+        -8.4
+      ],
+      "yaw": 3.15289,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "walk_text": "Hidden K walk twelve thousand nine hundred hk_in_int_36425 twelve in the indoor on before the hk_in_int_36425 show for intermediate. Height 2'6\", 8 fences, hk_in_int_36425 pattern related out, side left. Fence one hk_in_int_36425 of walk twelve thousand nine hundred twelve hk_in_int_36425 is a natural vertical at four point hk_in_int_36425 four by minus eleven point three. Walk hk_in_int_36425 twelve thousand nine hundred twelve meat is hk_in_int_36425 a labeled related. Sit after the in hk_in_int_36425 of walk twelve thousand nine hundred twelve. hk_in_int_36425 Last of walk twelve thousand nine hk_in_int_36425.",
+  "michelle_brief": "Walk twelve thousand nine hundred twelve. Quiet to the first."
+}

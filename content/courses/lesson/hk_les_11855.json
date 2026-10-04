@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_11855",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, quiet 22944",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.43,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -24.82
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.69
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.524,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -14.132
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand nine hundred hk_les_11855 forty-four in the outdoor ring on quiet hk_les_11855 for lesson. Height poles to 2'3\", 3 hk_les_11855 fences, pattern lesson single then line, side hk_les_11855 inside. Fence one of walk twenty-two thousand hk_les_11855 nine hundred forty-four is a natural vertical hk_les_11855 at nine by minus twenty-four point eight. hk_les_11855 Walk twenty-two thousand nine hundred forty-four meat hk_les_11855 is a labeled related. Sit after the hk_les_11855 in of walk twenty-two thousand nine hundred hk_les_11855 forty-four. Last of walk twenty-two thousand hk_les_11855.",
+  "michelle_brief": "Walk twenty-two thousand nine hundred forty-four. Quiet to the first."
+}

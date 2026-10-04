@@ -1,0 +1,143 @@
+{
+  "id": "hk_in_int_8048",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor lesson single then line, inside, late 13358",
+  "height_label": "2'6\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.75,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -11.4
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.47
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.761,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -3.934
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.775,
+      "sp": 0.562,
+      "pos": [
+        4.76,
+        0.0,
+        1.177
+      ],
+      "yaw": -0.04,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.803,
+      "sp": 0.0,
+      "pos": [
+        -4.76,
+        0.0,
+        6.289
+      ],
+      "yaw": 0.04,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.832,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.848,
+      "sp": 0.562,
+      "pos": [
+        -4.379,
+        0.0,
+        1.5
+      ],
+      "yaw": 3.11879,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        -4.379,
+        0.0,
+        -3.45
+      ],
+      "yaw": 3.13871,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        -4.379,
+        0.0,
+        -8.4
+      ],
+      "yaw": 3.09452,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "walk_text": "Hidden K walk thirteen thousand three hundred hk_in_int_8048 fifty-eight in the indoor on quiet for hk_in_int_8048 intermediate. Height 2'6\", 8 fences, pattern lesson hk_in_int_8048 single then line, side right. Fence one hk_in_int_8048 of walk thirteen thousand three hundred fifty-eight hk_in_int_8048 is a natural vertical at four point hk_in_int_8048 eight by minus eleven point four. Walk hk_in_int_8048 thirteen thousand three hundred fifty-eight meat is hk_in_int_8048 a labeled related. Sit after the in hk_in_int_8048 of walk thirteen thousand three hundred fifty-eight. hk_in_int_8048 Last of walk thirteen thousand three hk_in_int_8048.",
+  "michelle_brief": "Walk thirteen thousand three hundred fifty-eight. Quiet to the first."
+}

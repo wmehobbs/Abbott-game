@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_32838",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, after work 21223",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.598,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -25.84
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.64,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -18.362
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.662,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.695,
+      "sp": 0.0,
+      "pos": [
+        -7.912,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.16236,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand two hundred hk_jo_beg_32838 twenty-three in the outdoor ring on after hk_jo_beg_32838 work for beginner. Height 2'3\", 4 fences, hk_jo_beg_32838 pattern jump off tight, side left. Fence hk_jo_beg_32838 one of walk twenty-one thousand two hundred hk_jo_beg_32838 twenty-three is a natural vertical at seven hk_jo_beg_32838 point six by minus twenty-five point eight. hk_jo_beg_32838 Walk twenty-one thousand two hundred twenty-three meat hk_jo_beg_32838 is a labeled related. Sit after the hk_jo_beg_32838 in of walk twenty-one thousand two hundred hk_jo_beg_32838 twenty-three. Last of walk twenty-one thousand hk_jo_beg_32838.",
+  "michelle_brief": "Walk twenty-one thousand two hundred twenty-three. Quiet to the first."
+}

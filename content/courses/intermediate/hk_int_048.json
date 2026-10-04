@@ -1,0 +1,174 @@
+{
+  "id": "hk_int_048",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, first school 14278",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "One-stride in the middle. Don't move. Let him jump it.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.722,
+      "sp": 0.0,
+      "pos": [
+        7.28,
+        0.0,
+        -23.775
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.767,
+      "sp": 0.0,
+      "pos": [
+        -7.894,
+        0.0,
+        -14.24
+      ],
+      "yaw": 0.07,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.772,
+      "sp": 0.0,
+      "pos": [
+        7.28,
+        0.0,
+        -7.731
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.794,
+      "sp": 0.0,
+      "pos": [
+        -7.894,
+        0.0,
+        0.746
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": {
+        "to": 5,
+        "strides": 1,
+        "distance_m": 7.3
+      }
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.817,
+      "sp": 0.507,
+      "pos": [
+        -7.456,
+        0.0,
+        8.031
+      ],
+      "yaw": 0.06,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.824,
+      "sp": 0.507,
+      "pos": [
+        -7.894,
+        0.0,
+        15.896
+      ],
+      "yaw": 0.07,
+      "name": "brush oxer",
+      "related": {
+        "to": 7,
+        "strides": 3,
+        "distance_m": 14.02
+      }
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.853,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        27.482
+      ],
+      "yaw": -0.00635,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.855,
+      "sp": 0.0,
+      "pos": [
+        7.262,
+        0.0,
+        0.644
+      ],
+      "yaw": 3.11449,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.863,
+      "sp": 0.0,
+      "pos": [
+        -6.698,
+        0.0,
+        -6.436
+      ],
+      "yaw": 3.1896,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.87,
+      "sp": 0.0,
+      "pos": [
+        -7.262,
+        0.0,
+        -23.174
+      ],
+      "yaw": 3.06828,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_int_048 seventy-eight in the outdoor ring on before hk_int_048 the show for intermediate. Height 2'6\", 10 hk_int_048 fences, pattern outside track, side outside. Fence hk_int_048 one of walk fourteen thousand two hundred hk_int_048 seventy-eight is a white vertical at seven hk_int_048 point three by minus twenty-three point eight. hk_int_048 Walk fourteen thousand two hundred seventy-eight meat hk_int_048 is a labeled related. Sit after the hk_int_048 in of walk fourteen thousand two hundred hk_int_048 seventy-eight. Last of walk fourteen thousand hk_int_048.",
+  "michelle_brief": "Walk fourteen thousand two hundred seventy-eight. Quiet to the first."
+}

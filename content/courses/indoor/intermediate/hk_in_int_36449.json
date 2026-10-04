@@ -1,0 +1,143 @@
+{
+  "id": "hk_in_int_36449",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor jump off tight, right, Tuesday 12936",
+  "height_label": "2'6\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.733,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -11.32
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.758,
+      "sp": 0.62,
+      "pos": [
+        4.4,
+        0.0,
+        -3.967
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.792,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        1.155
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.804,
+      "sp": 0.62,
+      "pos": [
+        -4.4,
+        0.0,
+        6.278
+      ],
+      "yaw": 0.04,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.82,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.839,
+      "sp": 0.0,
+      "pos": [
+        -3.52,
+        0.0,
+        1.5
+      ],
+      "yaw": 3.10862,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.862,
+      "sp": 0.62,
+      "pos": [
+        -4.048,
+        0.0,
+        -3.45
+      ],
+      "yaw": 3.10023,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -4.048,
+        0.0,
+        -8.4
+      ],
+      "yaw": 3.13331,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "walk_text": "Hidden K walk twelve thousand nine hundred hk_in_int_36449 thirty-six in the indoor on Wednesday for hk_in_int_36449 intermediate. Height 2'6\", 8 fences, pattern jump hk_in_int_36449 off tight, side outside. Fence one of hk_in_int_36449 walk twelve thousand nine hundred thirty-six is hk_in_int_36449 a white vertical at four point four hk_in_int_36449 by minus eleven point three. Walk twelve hk_in_int_36449 thousand nine hundred thirty-six meat is a hk_in_int_36449 labeled related. Sit after the in of hk_in_int_36449 walk twelve thousand nine hundred thirty-six. Last hk_in_int_36449 of walk twelve thousand nine hundred hk_in_int_36449.",
+  "michelle_brief": "Walk twelve thousand nine hundred thirty-six. Quiet to the first."
+}

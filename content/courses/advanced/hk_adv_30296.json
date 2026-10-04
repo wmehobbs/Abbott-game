@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_30296",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "rollback short, right, first school 2028",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.858,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.83
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.855,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -14.674
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.877,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -7.528
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.879,
+      "sp": 0.0,
+      "pos": [
+        -7.8,
+        0.0,
+        -0.383
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.889,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        6.763
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.902,
+      "sp": 0.0,
+      "pos": [
+        -7.8,
+        0.0,
+        13.909
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.904,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        21.054
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.912,
+      "sp": 0.597,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        6.92,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.14936,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.937,
+      "sp": 0.597,
+      "pos": [
+        -6.24,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.11357,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        6.92,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.18286,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.952,
+      "sp": 0.0,
+      "pos": [
+        -6.24,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.13565,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "rollback_short",
+  "indoor": false,
+  "walk_text": "Hidden K walk two thousand twenty-eight in hk_adv_30296 the outdoor ring on morning for advanced. hk_adv_30296 Height 3'0\", 12 fences, pattern rollback short, hk_adv_30296 side outside. Fence one of walk two hk_adv_30296 thousand twenty-eight is a natural vertical at hk_adv_30296 eight point seven by minus twenty-five point hk_adv_30296 five. Walk two thousand twenty-eight meat is hk_adv_30296 a labeled related. Sit after the in hk_adv_30296 of walk two thousand twenty-eight. Last of hk_adv_30296 walk two thousand twenty-eight is a natural hk_adv_30296 vertical at minus six point two hk_adv_30296.",
+  "michelle_brief": "Walk two thousand twenty-eight. Quiet to the first."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35568",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, left, first school 13993",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.433,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -11.4
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.38
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.526,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -4.022
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.629,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand nine hundred hk_in_les_35568 ninety-three in the indoor on Tuesday for hk_in_les_35568 lesson. Height poles to 2'3\", 3 fences, hk_in_les_35568 pattern lesson single then line, side right. hk_in_les_35568 Fence one of walk thirteen thousand nine hk_in_les_35568 hundred ninety-three is a white vertical at hk_in_les_35568 three point eight by minus eleven point hk_in_les_35568 four. Walk thirteen thousand nine hundred ninety-three hk_in_les_35568 meat is a labeled related. Sit after hk_in_les_35568 the in of walk thirteen thousand nine hk_in_les_35568 hundred ninety-three. Last of walk thirteen hk_in_les_35568.",
+  "michelle_brief": "Walk thirteen thousand nine hundred ninety-three. Quiet to the first."
+}

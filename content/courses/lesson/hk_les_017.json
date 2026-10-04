@@ -1,0 +1,71 @@
+{
+  "id": "hk_les_017",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, left, after work 22743",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 11.55,
+  "notes": "Left-hand line. Straight and quiet. He'll tell you.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.422,
+      "sp": 0.0,
+      "pos": [
+        -1.606,
+        0.0,
+        -18.703
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.541,
+      "sp": 0.0,
+      "pos": [
+        7.946,
+        0.0,
+        -5.545
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.7
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.613,
+      "sp": 0.0,
+      "pos": [
+        7.946,
+        0.0,
+        5.151
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "lesson_single_then_line",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-two thousand seven hundred hk_les_017 forty-three in the outdoor ring on Tuesday hk_les_017 for lesson. Height poles to 2'3\", 3 hk_les_017 fences, pattern lesson single then line, side hk_les_017 outside. Fence one of walk twenty-two thousand hk_les_017 seven hundred forty-three is a white vertical hk_les_017 at minus one point six by minus hk_les_017 eighteen point seven. Walk twenty-two thousand seven hk_les_017 hundred forty-three meat is a labeled related. hk_les_017 Sit after the in of walk twenty-two hk_les_017 thousand seven hundred forty-three. Last of hk_les_017.",
+  "michelle_brief": "Walk twenty-two thousand seven hundred forty-three. Quiet to the first."
+}

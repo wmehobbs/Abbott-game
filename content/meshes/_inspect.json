@@ -1,0 +1,332 @@
+{
+  "kenney_female_a": {
+    "files": [
+      "character-female-a.glb"
+    ],
+    "glb": {
+      "version": 2,
+      "bytes": 273448,
+      "meshes": 2,
+      "primitives": 2,
+      "nodes": 10,
+      "skins": 2,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "sprint",
+        "jump",
+        "fall",
+        "crouch",
+        "sit",
+        "drive",
+        "die",
+        "pick-up",
+        "emote-yes",
+        "emote-no",
+        "holding-right",
+        "holding-left",
+        "holding-both",
+        "holding-right-shoot",
+        "holding-left-shoot",
+        "holding-both-shoot",
+        "attack-melee-right",
+        "attack-melee-left",
+        "attack-kick-right",
+        "attack-kick-left",
+        "interact-right"
+      ],
+      "anim_count": 32,
+      "position_verts": 1576,
+      "bbox": {
+        "min": [
+          -0.9999995231628418,
+          -0.9999995231628418,
+          -0.9999998807907104
+        ],
+        "max": [
+          1.0,
+          1.0,
+          1.0000001192092896
+        ],
+        "size": [
+          1.9999995231628418,
+          1.9999995231628418,
+          2.0
+        ]
+      },
+      "node_names": [
+        "character-female-a",
+        "root",
+        "leg-left",
+        "leg-right",
+        "torso",
+        "arm-left",
+        "arm-right",
+        "head",
+        "body-mesh",
+        "head-mesh"
+      ],
+      "mesh_names": [
+        "body-mesh",
+        "head-mesh"
+      ]
+    },
+    "source": {
+      "slug": "kenney_female_a",
+      "file": "character-female-a.glb",
+      "bytes": 273448,
+      "url": "https://cdn.cinevva.com/assets/packs/kenney/mini-characters/character-female-a.glb",
+      "date_fetched": "2026-09-16",
+      "author": "Kenney",
+      "license": "CC0 1.0",
+      "page": "https://kenney.nl/assets/mini-characters",
+      "role": "rider",
+      "via": "Cinevva CDN mirror of the official CC0 pack"
+    }
+  },
+  "oga_saddle_bedroll": {
+    "files": [
+      "saddle_with_bedroll.zip"
+    ],
+    "zip": [
+      "saddle_1.blend",
+      "saddle_1.png",
+      "__MACOSX/",
+      "__MACOSX/._saddle_1.png"
+    ],
+    "zip_n": 4,
+    "source": {
+      "slug": "oga_saddle_bedroll",
+      "file": "saddle_with_bedroll.zip",
+      "bytes": 549105,
+      "url": "https://opengameart.org/sites/default/files/saddle%20with%20bedroll.zip",
+      "date_fetched": "2026-09-16",
+      "author": "Wolfgang Wozniak / Ouren",
+      "license": "CC-BY 3.0",
+      "page": "https://opengameart.org/content/saddle-with-bedroll",
+      "role": "saddle",
+      "note": "Inspected as Western bedroll saddle \u2014 not a keeper for Hidden K."
+    }
+  },
+  "quaternius_casual_female": {
+    "files": [
+      "Casual_Female.glb"
+    ],
+    "glb": {
+      "version": 2,
+      "bytes": 1759956,
+      "meshes": 6,
+      "primitives": 6,
+      "nodes": 33,
+      "skins": 6,
+      "animations": [
+        "Death",
+        "Defeat",
+        "Idle",
+        "Jump",
+        "PickUp",
+        "Punch",
+        "RecieveHit",
+        "Roll",
+        "Run",
+        "Run_Carry",
+        "Shoot_OneHanded",
+        "SitDown",
+        "StandUp",
+        "SwordSlash",
+        "Victory",
+        "Walk",
+        "Walk_Carry"
+      ],
+      "anim_count": 17,
+      "position_verts": 8958,
+      "bbox": {
+        "min": [
+          -1.619834065437317,
+          -6.791186332702637,
+          -2.7058398723602295
+        ],
+        "max": [
+          1.619834065437317,
+          3.4931061267852783,
+          2.562541961669922
+        ],
+        "size": [
+          3.239668130874634,
+          10.284292459487915,
+          5.268381834030151
+        ]
+      },
+      "node_names": [
+        "Scene",
+        "CharacterArmature",
+        "Body",
+        "Cube004",
+        "Cube004_1",
+        "Cube004_2",
+        "Cube004_3",
+        "Cube004_4",
+        "Cube004_5",
+        "Bone",
+        "FootL",
+        "Body_1",
+        "Hips",
+        "Abdomen",
+        "Torso",
+        "Neck",
+        "Head",
+        "ShoulderL",
+        "UpperArmL",
+        "LowerArmL",
+        "FistL",
+        "ShoulderR",
+        "UpperArmR",
+        "LowerArmR",
+        "FistR",
+        "UpperLegL",
+        "LowerLegL",
+        "UpperLegR",
+        "LowerLegR",
+        "PoleTargetL"
+      ],
+      "mesh_names": []
+    },
+    "source": {
+      "slug": "quaternius_casual_female",
+      "file": "Casual_Female.glb",
+      "bytes": 1759956,
+      "url": "https://cdn.cinevva.com/assets/packs/quaternius/ultimate-animated-characters/Casual_Female.glb",
+      "date_fetched": "2026-09-16",
+      "author": "Quaternius",
+      "license": "CC0 1.0",
+      "page": "https://quaternius.com/packs/ultimateanimatedcharacters.html",
+      "role": "rider",
+      "via": "Cinevva CDN mirror of the official CC0 pack"
+    }
+  },
+  "quaternius_modular_casual": {
+    "files": [
+      "Casual.glb"
+    ],
+    "glb": {
+      "version": 2,
+      "bytes": 2628300,
+      "meshes": 9,
+      "primitives": 9,
+      "nodes": 76,
+      "skins": 9,
+      "animations": [
+        "Death",
+        "Gun_Shoot",
+        "HitRecieve",
+        "HitRecieve_2",
+        "Idle",
+        "Idle_Gun",
+        "Idle_Gun_Pointing",
+        "Idle_Gun_Shoot",
+        "Idle_Neutral",
+        "Idle_Sword",
+        "Interact",
+        "Kick_Left",
+        "Kick_Right",
+        "Punch_Left",
+        "Punch_Right",
+        "Roll",
+        "Run",
+        "Run_Back",
+        "Run_Left",
+        "Run_Right",
+        "Run_Shoot",
+        "Sword_Slash",
+        "Walk",
+        "Wave"
+      ],
+      "anim_count": 24,
+      "position_verts": 12968,
+      "bbox": {
+        "min": [
+          -0.9999139308929443,
+          -1.0023928880691528,
+          -0.9997127652168274
+        ],
+        "max": [
+          0.9999139308929443,
+          1.8434743881225586,
+          1.3913911581039429
+        ],
+        "size": [
+          1.9998278617858887,
+          2.8458672761917114,
+          2.3911039233207703
+        ]
+      },
+      "node_names": [
+        "Scene",
+        "CharacterArmature",
+        "Casual_Body",
+        "Cube037",
+        "Cube037_1",
+        "Casual_Feet",
+        "Cube070",
+        "Cube070_1",
+        "Casual_Head",
+        "Cube001",
+        "Cube001_1",
+        "Cube001_2",
+        "Cube001_3",
+        "Casual_Legs",
+        "Root",
+        "Body",
+        "Hips",
+        "Abdomen",
+        "Torso",
+        "Chest",
+        "Neck",
+        "Head",
+        "ShoulderL",
+        "UpperArmL",
+        "LowerArmL",
+        "WristL",
+        "Index1L",
+        "Index2L",
+        "Index3L",
+        "Index4L"
+      ],
+      "mesh_names": []
+    },
+    "source": {
+      "slug": "quaternius_modular_casual",
+      "file": "Casual.glb",
+      "bytes": 2628300,
+      "url": "https://cdn.cinevva.com/assets/packs/quaternius/ultimate-modular-women/Casual.glb",
+      "date_fetched": "2026-09-16",
+      "author": "Quaternius",
+      "license": "CC0 1.0",
+      "page": "https://quaternius.com/packs/ultimatemodularwomen.html",
+      "role": "rider",
+      "via": "Cinevva CDN mirror of the official CC0 pack"
+    }
+  },
+  "vroid_base_female": {
+    "files": [
+      "base_female.zip"
+    ],
+    "zip": [
+      "Base_Female.vrm"
+    ],
+    "zip_n": 1,
+    "source": {
+      "slug": "vroid_base_female",
+      "file": "base_female.zip",
+      "bytes": 13149860,
+      "url": "https://opengameart.org/sites/default/files/base_female.zip",
+      "date_fetched": "2026-09-16",
+      "author": "VRoid Project (submitted by hecko)",
+      "license": "CC0 1.0",
+      "page": "https://opengameart.org/content/vroid-studio-cc0-models",
+      "role": "rider",
+      "note": "Anime VRM sample. Legal, wrong look for hunt-seat."
+    }
+  }
+}

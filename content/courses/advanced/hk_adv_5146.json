@@ -1,0 +1,211 @@
+{
+  "id": "hk_adv_5146",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, right, before the show 4005",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        7.915,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.76
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.852,
+      "sp": 0.0,
+      "pos": [
+        7.915,
+        0.0,
+        -14.233
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.07
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.868,
+      "sp": 0.0,
+      "pos": [
+        7.915,
+        0.0,
+        -7.161
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.875,
+      "sp": 0.0,
+      "pos": [
+        -7.2,
+        0.0,
+        -0.089
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.895,
+      "sp": 0.0,
+      "pos": [
+        7.915,
+        0.0,
+        6.983
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.896,
+      "sp": 0.68,
+      "pos": [
+        -7.2,
+        0.0,
+        14.056
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.902,
+      "sp": 0.68,
+      "pos": [
+        7.915,
+        0.0,
+        21.128
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": {
+        "to": 8,
+        "strides": 2,
+        "distance_m": 10.61
+      }
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.913,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.922,
+      "sp": 0.0,
+      "pos": [
+        6.332,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.09886,
+      "name": "white vertical",
+      "related": {
+        "to": 10,
+        "strides": 3,
+        "distance_m": 14.82
+      }
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        -6.624,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.09944,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.942,
+      "sp": 0.68,
+      "pos": [
+        7.282,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.09473,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.96,
+      "sp": 0.68,
+      "pos": [
+        -6.624,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.19971,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand five in hk_adv_5146 the outdoor ring on before the show hk_adv_5146 for advanced. Height 3'0\", 12 fences, pattern hk_adv_5146 liverpool lookalike flower, side outside. Fence one hk_adv_5146 of walk four thousand five is a hk_adv_5146 brush vertical at seven point nine by hk_adv_5146 minus twenty-five. Walk four thousand five meat hk_adv_5146 is a labeled related. Sit after the hk_adv_5146 in of walk four thousand five. Last hk_adv_5146 of walk four thousand five is a hk_adv_5146 plank oxer at minus six point hk_adv_5146.",
+  "michelle_brief": "Walk four thousand five. Quiet to the first."
+}

@@ -1,0 +1,112 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+RIDECERT begin
+RIDECERT filter hk_adv_001
+RIDECERT round hk_adv_001 class=advanced seed=0 jo=false style=clear
+RIDEAI sit n=1 phase=approach pos=6.6,-31.3 ahead=7.45 lat=0.36 ang=4.2 along=7.4 gait=3 v=1.84 rein=0
+RIDEAI sit n=1 phase=approach pos=6.9,-28.3 ahead=4.51 lat=0.14 ang=4.2 along=4.5 gait=3 v=3.88 rein=0
+RIDEAI ASK n=1 ahead=2.57 lat=0.18 ang=4.2 charge=1.0
+RIDEAI fence 1 -> 2 t=3.92 leave=leave
+RIDEAI sit n=2 phase=land pos=6.9,-21.8 ahead=12.22 lat=7.62 ang=4.6 along=12.9 gait=3 v=3.09 rein=-1
+RIDEAI sit n=2 phase=land pos=4.5,-20.2 ahead=10.89 lat=6.3 ang=56.6 along=10.2 gait=3 v=3.09 rein=-1
+RIDEAI sit n=2 phase=setup pos=1.5,-21.4 ahead=2.76 lat=3.16 ang=92.4 along=9.8 gait=3 v=3.83 rein=0
+RIDEAI sit n=2 phase=approach pos=-0.8,-22.3 ahead=5.45 lat=0.64 ang=58.7 along=9.4 gait=3 v=3.19 rein=1
+RIDEAI sit n=2 phase=approach pos=-2.9,-21.3 ahead=7.48 lat=0.62 ang=3.5 along=7.5 gait=3 v=1.5 rein=0
+RIDEAI sit n=2 phase=approach pos=-4.1,-18.9 ahead=4.87 lat=0.48 ang=3.5 along=4.8 gait=3 v=3.71 rein=0
+RIDEAI ASK n=2 ahead=2.54 lat=0.18 ang=3.5 charge=1.0
+RIDEAI fence 2 -> 3 t=11.45 leave=straight
+RIDEAI sit n=3 phase=land pos=-6.8,-12.9 ahead=7.88 lat=13.78 ang=3.0 along=8.6 gait=3 v=3.09 rein=1
+RIDEAI sit n=3 phase=land pos=-5.4,-10.3 ahead=13.71 lat=12.4 ang=58.2 along=6.0 gait=3 v=3.09 rein=1
+RIDEAI sit n=3 phase=setup pos=-2.4,-10.3 ahead=7.05 lat=9.4 ang=108.3 along=5.9 gait=3 v=3.47 rein=0
+RIDEAI sit n=3 phase=setup pos=1.9,-11.9 ahead=1.8 lat=5.08 ang=112.4 along=7.6 gait=3 v=5.55 rein=0
+RIDEAI sit n=3 phase=setup pos=4.9,-13.2 ahead=-1.99 lat=2.08 ang=115.8 along=8.9 gait=3 v=2.41 rein=0
+RIDEAI sit n=3 phase=approach pos=7.8,-13.0 ahead=4.15 lat=0.8 ang=56.5 along=8.7 gait=3 v=1.92 rein=-1
+RIDEAI sit n=3 phase=approach pos=8.6,-11.5 ahead=7.35 lat=1.58 ang=9.3 along=7.2 gait=3 v=1.53 rein=-1
+RIDEAI sit n=3 phase=approach pos=7.8,-9.0 ahead=4.68 lat=0.8 ang=17.5 along=4.7 gait=3 v=3.75 rein=0
+RIDEAI ASK n=3 ahead=2.53 lat=0.0 ang=8.2 charge=1.0
+RIDEAI fence 3 -> 4 t=20.83 leave=leave
+RIDEAI sit n=4 phase=approach pos=6.9,-2.9 ahead=6.03 lat=0.1 ang=1.2 along=6.0 gait=3 v=1.4 rein=0
+RIDEAI sit n=4 phase=approach pos=6.9,-0.8 ahead=3.96 lat=0.14 ang=1.2 along=4.0 gait=3 v=2.25 rein=0
+RIDEAI ASK n=4 ahead=2.57 lat=0.22 ang=1.2 charge=1.0
+RIDEAI fence 4 -> 5 t=24.29 leave=leave
+RIDEAI sit n=5 phase=approach pos=6.7,4.8 ahead=9.17 lat=0.26 ang=1.2 along=9.2 gait=3 v=2.31 rein=0
+RIDEAI sit n=5 phase=approach pos=6.7,6.6 ahead=7.32 lat=0.3 ang=1.2 along=7.3 gait=3 v=2.25 rein=0
+RIDEAI sit n=5 phase=approach pos=6.7,8.9 ahead=5.03 lat=0.34 ang=1.2 along=5.0 gait=3 v=2.6 rein=0
+RIDEAI ASK n=5 ahead=2.53 lat=0.2 ang=3.5 charge=1.0
+RIDEAI fence 5 -> 6 t=28.85 leave=leave
+RIDEAI sit n=6 phase=land pos=6.8,15.2 ahead=10.54 lat=14.66 ang=13.8 along=7.2 gait=3 v=3.24 rein=-1
+RIDEAI sit n=6 phase=land pos=4.9,17.4 ahead=13.49 lat=12.58 ang=75.1 along=5.2 gait=3 v=3.09 rein=-1
+RIDEAI sit n=6 phase=land pos=2.0,16.8 ahead=2.41 lat=9.76 ang=136.3 along=6.0 gait=3 v=3.09 rein=-1
+RIDEAI sit n=6 phase=setup pos=-1.0,13.8 ahead=-2.65 lat=6.98 ang=140.4 along=9.2 gait=3 v=5.39 rein=0
+RIDEAI sit n=6 phase=setup pos=-3.9,12.1 ahead=5.51 lat=4.26 ang=83.4 along=11.0 gait=3 v=2.31 rein=1
+RIDEAI sit n=6 phase=approach pos=-6.9,13.0 ahead=5.3 lat=1.18 ang=65.9 along=10.3 gait=3 v=3.67 rein=1
+RIDEAI sit n=6 phase=approach pos=-7.9,14.6 ahead=8.82 lat=0.02 ang=3.0 along=8.8 gait=3 v=1.34 rein=0
+RIDEAI sit n=6 phase=approach pos=-7.9,16.9 ahead=6.5 lat=0.1 ang=3.0 along=6.5 gait=3 v=3.41 rein=0
+RIDEAI sit n=6 phase=approach pos=-7.8,20.8 ahead=2.68 lat=0.24 ang=0.5 along=2.7 gait=3 v=3.88 rein=0
+RIDEAI ASK n=6 ahead=2.55 lat=0.22 ang=0.5 charge=1.0
+RIDEAI fence 6 -> 7 t=38.51 leave=leave
+RIDEAI sit n=7 phase=land pos=-5.9,26.8 ahead=12.97 lat=12.88 ang=62.7 along=3.3 gait=3 v=3.09 rein=1
+RIDEAI sit n=7 phase=land pos=-2.9,26.6 ahead=7.02 lat=9.94 ang=118.9 along=3.5 gait=3 v=3.09 rein=0
+RIDEAI come again n=7 rein=1 pos=-1.9,26.0
+RIDEAI sit n=7 phase=again pos=-1.1,25.2 ahead=1.88 lat=8.1 ang=137.5 along=4.9 gait=3 v=1.76 rein=-1
+RIDEAI sit n=7 phase=again pos=1.0,23.3 ahead=-0.24 lat=6.0 ang=132.9 along=6.8 gait=3 v=3.88 rein=0
+RIDEAI sit n=7 phase=again pos=3.9,20.7 ahead=-3.57 lat=3.12 ang=129.4 along=9.4 gait=3 v=3.88 rein=0
+RIDEAI sit n=7 phase=again pos=7.0,18.3 ahead=-5.45 lat=0.02 ang=117.7 along=11.8 gait=3 v=3.88 rein=-1
+RIDEAI sit n=7 phase=setup pos=9.6,18.3 ahead=4.67 lat=2.62 ang=54.6 along=11.8 gait=3 v=2.49 rein=-1
+RIDEAI sit n=7 phase=setup pos=10.8,20.9 ahead=9.61 lat=3.8 ang=7.8 along=9.2 gait=3 v=1.92 rein=-1
+RIDEAI sit n=7 phase=approach pos=8.9,23.0 ahead=4.52 lat=1.92 ang=67.3 along=7.1 gait=3 v=3.43 rein=1
+RIDEAI sit n=7 phase=approach pos=7.9,24.3 ahead=5.83 lat=0.88 ang=13.1 along=5.8 gait=3 v=1.4 rein=0
+RIDEAI sit n=7 phase=approach pos=7.4,26.6 ahead=3.5 lat=0.42 ang=8.4 along=3.5 gait=3 v=3.41 rein=0
+RIDEAI ASK n=7 ahead=2.58 lat=0.08 ang=8.4 charge=1.0
+RIDEAI fence 7 -> 8 t=51.17 leave=leave
+RIDEAI sit n=8 phase=land pos=7.3,33.2 ahead=-14.92 lat=11.12 ang=136.5 along=10.0 gait=3 v=3.09 rein=1
+RIDEAI sit n=8 phase=land pos=10.1,34.3 ahead=-8.69 lat=11.76 ang=162.3 along=12.9 gait=3 v=3.09 rein=1
+RIDEAI sit n=8 phase=setup pos=12.5,32.3 ahead=6.68 lat=9.36 ang=99.9 along=14.9 gait=3 v=2.74 rein=1
+RIDEAI sit n=8 phase=setup pos=12.1,29.9 ahead=12.81 lat=7.02 ang=62.1 along=14.1 gait=3 v=3.53 rein=0
+RIDEAI sit n=8 phase=setup pos=10.8,26.0 ahead=8.72 lat=3.4 ang=62.1 along=12.2 gait=3 v=2.29 rein=0
+RIDEAI sit n=8 phase=approach pos=9.5,23.4 ahead=9.07 lat=1.08 ang=36.6 along=10.5 gait=3 v=4.03 rein=1
+RIDEAI sit n=8 phase=approach pos=7.3,22.3 ahead=8.13 lat=0.38 ang=5.3 along=8.1 gait=3 v=2.26 rein=0
+RIDEAI sit n=8 phase=approach pos=4.2,21.4 ahead=4.86 lat=0.08 ang=5.3 along=4.9 gait=3 v=3.88 rein=0
+RIDEAI ASK n=8 ahead=2.55 lat=0.16 ang=1.8 charge=1.0
+RIDEAI fence 8 -> 9 t=60.94 leave=leave
+RIDEAI sit n=9 phase=approach pos=-2.7,20.1 ahead=1.29 lat=1.76 ang=94.6 along=5.8 gait=3 v=3.09 rein=-1
+RIDEAI sit n=9 phase=approach pos=-5.4,18.8 ahead=3.23 lat=0.9 ang=33.3 along=4.5 gait=3 v=3.09 rein=-1
+RIDEAI come again n=9 rein=1 pos=-5.4,18.7
+RIDEAI sit n=9 phase=away pos=-7.0,18.0 ahead=-3.03 lat=2.5 ang=98.8 along=3.7 gait=3 v=2.35 rein=1
+RIDEAI sit n=9 phase=again pos=-9.1,20.2 ahead=-6.76 lat=4.6 ang=168.6 along=6.0 gait=3 v=3.73 rein=1
+RIDEAI sit n=9 phase=again pos=-10.2,23.7 ahead=-11.01 lat=5.64 ang=147.7 along=9.5 gait=3 v=3.73 rein=1
+RIDEAI sit n=9 phase=setup pos=-10.2,27.1 ahead=-7.12 lat=5.54 ang=143.6 along=12.9 gait=3 v=2.44 rein=1
+RIDEAI sit n=9 phase=setup pos=-7.9,28.0 ahead=5.01 lat=3.22 ang=82.4 along=13.7 gait=3 v=3.6 rein=1
+RIDEAI sit n=9 phase=around pos=-6.0,26.8 ahead=10.28 lat=1.36 ang=41.6 along=12.5 gait=3 v=2.3 rein=0
+RIDEAI sit n=9 phase=approach pos=-4.3,24.0 ahead=9.54 lat=0.3 ang=7.9 along=9.7 gait=3 v=4.52 rein=1
+RIDEAI sit n=9 phase=approach pos=-4.2,21.6 ahead=7.3 lat=0.38 ang=1.1 along=7.3 gait=3 v=2.49 rein=0
+RIDEAI sit n=9 phase=approach pos=-4.0,18.2 ahead=3.83 lat=0.44 ang=1.1 along=3.8 gait=3 v=3.88 rein=0
+RIDEAI ASK n=9 ahead=2.56 lat=0.3 ang=2.4 charge=1.0
+RIDEAI fence 9 -> 10 t=73.09 leave=leave
+RIDEAI sit n=10 phase=land pos=-4.2,11.7 ahead=12.06 lat=0.14 ang=0.9 along=12.1 gait=3 v=3.22 rein=0
+RIDEAI sit n=10 phase=approach pos=-4.2,8.7 ahead=9.01 lat=0.08 ang=0.9 along=9.0 gait=3 v=1.59 rein=0
+RIDEAI sit n=10 phase=approach pos=-4.3,6.6 ahead=6.99 lat=0.06 ang=0.9 along=7.0 gait=3 v=2.98 rein=0
+RIDEAI sit n=10 phase=approach pos=-4.4,2.9 ahead=3.28 lat=0.0 ang=0.9 along=3.3 gait=3 v=3.88 rein=0
+RIDEAI ASK n=10 ahead=2.57 lat=0.06 ang=0.9 charge=1.0
+RIDEAI fence 10 -> 11 t=78.36 leave=leave
+RIDEAI sit n=11 phase=approach pos=-4.5,-2.4 ahead=5.39 lat=0.06 ang=1.3 along=5.4 gait=3 v=2.2 rein=0
+RIDEAI sit n=11 phase=approach pos=-4.6,-4.7 ahead=3.13 lat=0.1 ang=1.3 along=3.1 gait=3 v=2.25 rein=0
+RIDEAI ASK n=11 ahead=2.57 lat=0.18 ang=1.3 charge=1.0
+RIDEAI fence 11 -> 12 t=81.83 leave=leave
+RIDEAI sit n=12 phase=land pos=-3.8,-10.8 ahead=10.19 lat=2.0 ang=13.5 along=10.0 gait=3 v=3.09 rein=-1
+RIDEAI sit n=12 phase=approach pos=-1.0,-11.6 ahead=3.34 lat=0.06 ang=64.6 along=7.9 gait=3 v=3.09 rein=1
+RIDEAI sit n=12 phase=approach pos=1.4,-12.6 ahead=5.84 lat=1.6 ang=0.1 along=5.8 gait=3 v=1.34 rein=1
+RIDEAI sit n=12 phase=approach pos=1.7,-15.0 ahead=3.69 lat=0.74 ang=19.9 along=3.7 gait=3 v=3.44 rein=0
+RIDEAI ASK n=12 ahead=2.54 lat=0.06 ang=8.2 charge=1.0
+RIDEAI fence 12 -> 13 t=87.33 leave=straight
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_adv_001_clear.jsonl n=94
+RIDECERT hk_adv_001 style=clear success=false faults=2 jumped=12/12 t=91.33 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=86.5 scope=82.5
+RIDECERT track FAIL hk_adv_001 { "id": "hk_adv_001", "class_id": "advanced", "jump_off": false, "style": "clear", "fences_needed": 12, "fences_jumped": 12, "faults": 2, "time_sec": 91.33, "refused": [], "rails": 0, "rail_fences": [], "rail_in_air": [], "confidence": 86.5, "scope": 82.5, "teleported": false, "teleport_why": "", "max_speed": 5.55, "inputs_pressed": { "gait_up": 3, "gait_down": 0, "turn_left": 28, "turn_right": 18, "jump": 27, "halt": 0 }, "round_complete": true, "eliminated": false, "eliminate_reason": "", "loaded_id": "hk_adv_001", "success": false }
+RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_results.json
+RIDECERT done pass=false board=0/1 filter=hk_adv_001 fresh=false

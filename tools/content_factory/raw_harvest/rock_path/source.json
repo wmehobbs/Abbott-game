@@ -1,0 +1,23 @@
+{
+  "slug": "rock_path",
+  "source": "polyhaven",
+  "source_id": "rock_path",
+  "page": "https://polyhaven.com/a/rock_path",
+  "author": "Amal Kumar",
+  "license": "CC0 1.0",
+  "license_url": "https://polyhaven.com/license",
+  "tags": [
+    "drive",
+    "gravel"
+  ],
+  "maps": {
+    "albedo": "rock_path_albedo_1k.jpg",
+    "albedo_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_path/rock_path_diff_1k.jpg",
+    "normal": "rock_path_normal_1k.jpg",
+    "normal_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_path/rock_path_nor_gl_1k.jpg",
+    "rough": "rock_path_rough_1k.jpg",
+    "rough_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_path/rock_path_rough_1k.jpg"
+  },
+  "date_fetched": "2026-09-16",
+  "use_for": "drive, gravel"
+}

@@ -1,0 +1,143 @@
+{
+  "id": "hk_beg_24308",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, right, Wednesday 7330",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.593,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.9
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.608,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        -14.859
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        -4.094
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.636,
+      "sp": 0.0,
+      "pos": [
+        -6.6,
+        0.0,
+        6.671
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.652,
+      "sp": 0.0,
+      "pos": [
+        7.18,
+        0.0,
+        17.435
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.667,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.681,
+      "sp": 0.0,
+      "pos": [
+        -6.072,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.16394,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.687,
+      "sp": 0.307,
+      "pos": [
+        6.606,
+        0.0,
+        11.0
+      ],
+      "yaw": 3.15508,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven thousand three hundred hk_beg_24308 thirty in the outdoor ring on morning hk_beg_24308 for beginner. Height 2'3\", 8 fences, pattern hk_beg_24308 liverpool lookalike flower, side right. Fence one hk_beg_24308 of walk seven thousand three hundred thirty hk_beg_24308 is a natural vertical at seven point hk_beg_24308 two by minus twenty-five point eight. Walk hk_beg_24308 seven thousand three hundred thirty meat is hk_beg_24308 a labeled related. Sit after the in hk_beg_24308 of walk seven thousand three hundred thirty. hk_beg_24308 Last of walk seven thousand three hk_beg_24308.",
+  "michelle_brief": "Walk seven thousand three hundred thirty. Quiet to the first."
+}

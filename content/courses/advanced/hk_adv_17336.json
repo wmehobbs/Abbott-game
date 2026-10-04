@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17336",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "rollback long, right, quiet 1010",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.852,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -25.67
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.69
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -14.983
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.2
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.865,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -7.786
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.887,
+      "sp": 0.0,
+      "pos": [
+        -9.3,
+        0.0,
+        -0.588
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.895,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        6.609
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.911,
+      "sp": 0.0,
+      "pos": [
+        -9.3,
+        0.0,
+        13.806
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.912,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        21.003
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.915,
+      "sp": 0.567,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.924,
+      "sp": 0.0,
+      "pos": [
+        7.172,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.09266,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        -7.44,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.1909,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.945,
+      "sp": 0.0,
+      "pos": [
+        7.172,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.20028,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.948,
+      "sp": 0.567,
+      "pos": [
+        -7.44,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.18401,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "rollback_long",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand ten in hk_adv_17336 the outdoor ring on Wednesday for advanced. hk_adv_17336 Height 3'0\", 12 fences, pattern rollback long, hk_adv_17336 side left. Fence one of walk one hk_adv_17336 thousand ten is a brush vertical at hk_adv_17336 nine by minus twenty-five point seven. Walk hk_adv_17336 one thousand ten meat is a labeled hk_adv_17336 related. Sit after the in of walk hk_adv_17336 one thousand ten. Last of walk one hk_adv_17336 thousand ten is a white oxer at hk_adv_17336 minus seven point four by minus hk_adv_17336.",
+  "michelle_brief": "Walk one thousand ten. Quiet to the first."
+}

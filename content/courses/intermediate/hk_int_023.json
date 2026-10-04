@@ -1,0 +1,178 @@
+{
+  "id": "hk_int_023",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, right, the other way 14253",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Ten fences. One related. Don't cut the corners.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.733,
+      "sp": 0.0,
+      "pos": [
+        6.62,
+        0.0,
+        -22.997
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 3,
+        "distance_m": 14.59
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.754,
+      "sp": 0.0,
+      "pos": [
+        6.62,
+        0.0,
+        -8.411
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.754,
+      "sp": 0.0,
+      "pos": [
+        6.62,
+        0.0,
+        3.759
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 4,
+        "strides": 3,
+        "distance_m": 15.06
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.789,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        10.79
+      ],
+      "yaw": 0.07,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.819,
+      "sp": 0.606,
+      "pos": [
+        6.62,
+        0.0,
+        20.74
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.819,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        28.975
+      ],
+      "yaw": 0.07,
+      "name": "brush vertical",
+      "related": {
+        "to": 7,
+        "strides": 1,
+        "distance_m": 7.16
+      }
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.821,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.511
+      ],
+      "yaw": -0.03045,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        19.073
+      ],
+      "yaw": 3.07425,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.853,
+      "sp": 0.606,
+      "pos": [
+        6.09,
+        0.0,
+        14.435
+      ],
+      "yaw": 3.12995,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.89,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        -1.43
+      ],
+      "yaw": 3.21606,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_int_023 fifty-three in the outdoor ring on morning hk_int_023 for intermediate. Height 2'6\", 10 fences, pattern hk_int_023 outside track, side inside. Fence one of hk_int_023 walk fourteen thousand two hundred fifty-three is hk_int_023 a white vertical at six point six hk_int_023 by minus twenty-three. Walk fourteen thousand two hk_int_023 hundred fifty-three meat is a labeled related. hk_int_023 Sit after the in of walk fourteen hk_int_023 thousand two hundred fifty-three. Last of walk hk_int_023 fourteen thousand two hundred fifty-three is hk_int_023.",
+  "michelle_brief": "Walk fourteen thousand two hundred fifty-three. Quiet to the first."
+}

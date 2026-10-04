@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35478",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, right, first school 13972",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.433,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -10.92
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.533,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -3.572
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.626,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand nine hundred hk_in_les_35478 seventy-two in the indoor on first school hk_in_les_35478 for lesson. Height poles to 2'3\", 3 hk_in_les_35478 fences, pattern lesson single then line, side hk_in_les_35478 right. Fence one of walk thirteen thousand hk_in_les_35478 nine hundred seventy-two is a brush vertical hk_in_les_35478 at four point five by minus ten hk_in_les_35478 point nine. Walk thirteen thousand nine hundred hk_in_les_35478 seventy-two meat is a labeled related. Sit hk_in_les_35478 after the in of walk thirteen thousand hk_in_les_35478 nine hundred seventy-two. Last of walk hk_in_les_35478.",
+  "michelle_brief": "Walk thirteen thousand nine hundred seventy-two. Quiet to the first."
+}

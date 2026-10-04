@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_32937",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, Thursday 21322",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.59,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.41
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -18.087
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.659,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.691,
+      "sp": 0.0,
+      "pos": [
+        -8.096,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.14313,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand three hundred hk_jo_beg_32937 twenty-two in the outdoor ring on the hk_jo_beg_32937 other way for beginner. Height 2'3\", 4 hk_jo_beg_32937 fences, pattern jump off tight, side left. hk_jo_beg_32937 Fence one of walk twenty-one thousand three hk_jo_beg_32937 hundred twenty-two is a brush vertical at hk_jo_beg_32937 eight point nine by minus twenty-five point hk_jo_beg_32937 five. Walk twenty-one thousand three hundred twenty-two hk_jo_beg_32937 meat is a labeled related. Sit after hk_jo_beg_32937 the in of walk twenty-one thousand three hk_jo_beg_32937 hundred twenty-two. Last of walk twenty-one hk_jo_beg_32937.",
+  "michelle_brief": "Walk twenty-one thousand three hundred twenty-two. Quiet to the first."
+}

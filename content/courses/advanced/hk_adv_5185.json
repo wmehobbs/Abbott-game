@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_5185",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, outside, before the show 4044",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.851,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -24.905
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.84
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.868,
+      "sp": 0.791,
+      "pos": [
+        8.965,
+        0.0,
+        -14.069
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.05
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.868,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -7.024
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.887,
+      "sp": 0.0,
+      "pos": [
+        -9.3,
+        0.0,
+        0.021
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.896,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        7.066
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.89,
+      "sp": 0.791,
+      "pos": [
+        -9.3,
+        0.0,
+        14.11
+      ],
+      "yaw": 0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        21.155
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.917,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        7.172,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.16654,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        -8.556,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.14263,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.939,
+      "sp": 0.791,
+      "pos": [
+        7.172,
+        0.0,
+        1.1
+      ],
+      "yaw": 3.12654,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.949,
+      "sp": 0.0,
+      "pos": [
+        -7.44,
+        0.0,
+        -6.1
+      ],
+      "yaw": 3.18455,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand forty-four in hk_adv_5185 the outdoor ring on first school for hk_adv_5185 advanced. Height 3'0\", 12 fences, pattern liverpool hk_adv_5185 lookalike flower, side inside. Fence one of hk_adv_5185 walk four thousand forty-four is a brush hk_adv_5185 vertical at nine by minus twenty-four point hk_adv_5185 nine. Walk four thousand forty-four meat is hk_adv_5185 a labeled related. Sit after the in hk_adv_5185 of walk four thousand forty-four. Last of hk_adv_5185 walk four thousand forty-four is a white hk_adv_5185 vertical at minus seven point four hk_adv_5185.",
+  "michelle_brief": "Walk four thousand forty-four. Quiet to the first."
+}

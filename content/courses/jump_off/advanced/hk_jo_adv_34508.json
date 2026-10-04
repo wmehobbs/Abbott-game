@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_34508",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, after work 20605",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -26.01
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.887,
+      "sp": 0.485,
+      "pos": [
+        9.385,
+        0.0,
+        -18.659
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.919,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.947,
+      "sp": 0.0,
+      "pos": [
+        8.634,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.14592,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand six hundred hk_jo_adv_34508 five in the outdoor ring on first hk_jo_adv_34508 school for advanced. Height 3'0\", 4 fences, hk_jo_adv_34508 pattern jump off tight, side outside. Fence hk_jo_adv_34508 one of walk twenty thousand six hundred hk_jo_adv_34508 five is a plank vertical at nine hk_jo_adv_34508 point four by minus twenty-six. Walk twenty hk_jo_adv_34508 thousand six hundred five meat is a hk_jo_adv_34508 labeled related. Sit after the in of hk_jo_adv_34508 walk twenty thousand six hundred five. Last hk_jo_adv_34508 of walk twenty thousand six hundred hk_jo_adv_34508.",
+  "michelle_brief": "Walk twenty thousand six hundred five. Quiet to the first."
+}

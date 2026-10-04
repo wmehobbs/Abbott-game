@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_31281",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "diagonal both ways, left, Thursday 3013",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.849,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.9
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.87,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -14.859
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.876,
+      "sp": 0.0,
+      "pos": [
+        4.018,
+        0.0,
+        -7.682
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.882,
+      "sp": 0.0,
+      "pos": [
+        1.754,
+        0.0,
+        -0.506
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.889,
+      "sp": 0.556,
+      "pos": [
+        -0.509,
+        0.0,
+        6.671
+      ],
+      "yaw": -0.22,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.897,
+      "sp": 0.556,
+      "pos": [
+        -2.773,
+        0.0,
+        13.847
+      ],
+      "yaw": -0.22,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        -5.036,
+        0.0,
+        21.024
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.924,
+      "sp": 0.0,
+      "pos": [
+        -7.3,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.93,
+      "sp": 0.556,
+      "pos": [
+        7.861,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.18341,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.927,
+      "sp": 0.556,
+      "pos": [
+        7.861,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.10117,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.939,
+      "sp": 0.0,
+      "pos": [
+        -6.716,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.09969,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.951,
+      "sp": 0.0,
+      "pos": [
+        6.836,
+        0.0,
+        6.05
+      ],
+      "yaw": 3.1319,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "diagonal_both_ways",
+  "indoor": false,
+  "walk_text": "Hidden K walk three thousand thirteen in hk_adv_31281 the outdoor ring on quiet for advanced. hk_adv_31281 Height 3'0\", 12 fences, pattern diagonal both hk_adv_31281 ways, side inside. Fence one of walk hk_adv_31281 three thousand thirteen is a natural vertical hk_adv_31281 at eight point five by minus twenty-five hk_adv_31281 point eight. Walk three thousand thirteen meat hk_adv_31281 is a labeled related. Sit after the hk_adv_31281 in of walk three thousand thirteen. Last hk_adv_31281 of walk three thousand thirteen is a hk_adv_31281 natural vertical at six point eight hk_adv_31281.",
+  "michelle_brief": "Walk three thousand thirteen. Quiet to the first."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_18484",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, quiet 20935",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.584,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -17.511
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.671,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.697,
+      "sp": 0.0,
+      "pos": [
+        -8.372,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.13456,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand nine hundred hk_jo_beg_18484 thirty-five in the outdoor ring on late hk_jo_beg_18484 for beginner. Height 2'3\", 4 fences, pattern hk_jo_beg_18484 jump off tight, side right. Fence one hk_jo_beg_18484 of walk twenty thousand nine hundred thirty-five hk_jo_beg_18484 is a brush vertical at seven point hk_jo_beg_18484 seven by minus twenty-five. Walk twenty thousand hk_jo_beg_18484 nine hundred thirty-five meat is a labeled hk_jo_beg_18484 related. Sit after the in of walk hk_jo_beg_18484 twenty thousand nine hundred thirty-five. Last of hk_jo_beg_18484 walk twenty thousand nine hundred thirty-five hk_jo_beg_18484.",
+  "michelle_brief": "Walk twenty thousand nine hundred thirty-five. Quiet to the first."
+}

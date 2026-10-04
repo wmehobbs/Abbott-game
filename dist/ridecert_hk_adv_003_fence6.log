@@ -1,0 +1,189 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+RIDECERT begin
+RIDECERT filter hk_adv_003
+RIDECERT round hk_adv_003 class=advanced seed=2 jo=false style=clear
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=1 phase=approach pos=8.1,-30.5 ahead=7.68 lat=0.04 ang=3.7 along=7.7 gait=3 v=1.48 rein=-1
+MICHELLE soft | One. Wait.
+RIDEAI sit n=1 phase=approach pos=8.2,-28.3 ahead=5.46 lat=0.06 ang=2.6 along=5.5 gait=3 v=3.29 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=1 ahead=2.57 lat=0.2 ang=0.2 charge=1.0
+RIDEAI fence 1 -> 2 t=4.18 leave=
+MICHELLE soft | One. Wait.
+RIDEAI sit n=2 phase=approach pos=8.3,-21.8 ahead=6.33 lat=0.2 ang=0.2 along=6.3 gait=3 v=2.11 rein=0
+MICHELLE soft | One. Early.
+RIDEAI sit n=2 phase=approach pos=8.3,-19.9 ahead=4.41 lat=0.2 ang=0.2 along=4.4 gait=3 v=2.25 rein=0
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=2 ahead=2.57 lat=0.22 ang=0.2 charge=1.0
+RIDEAI fence 2 -> 3 t=7.65 leave=
+MICHELLE soft | One. Wait.
+RIDEAI sit n=3 phase=approach pos=8.3,-14.5 ahead=6.49 lat=0.22 ang=0.2 along=6.5 gait=3 v=2.54 rein=0
+MICHELLE soft | One. Early.
+RIDEAI sit n=3 phase=approach pos=8.3,-12.6 ahead=4.56 lat=0.24 ang=0.2 along=4.6 gait=3 v=2.25 rein=0
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=3 ahead=2.57 lat=0.26 ang=0.2 charge=1.0
+RIDEAI fence 3 -> 4 t=11.13 leave=
+RIDEAI sit n=4 phase=land pos=8.3,-7.2 ahead=9.54 lat=16.74 ang=9.9 along=6.8 gait=3 v=3.59 rein=-1
+RIDEAI sit n=4 phase=land pos=6.6,-4.8 ahead=15.46 lat=14.8 ang=71.2 along=4.5 gait=3 v=3.09 rein=-1
+RIDEAI sit n=4 phase=land pos=3.6,-5.2 ahead=5.55 lat=11.92 ang=131.4 along=5.1 gait=3 v=3.09 rein=0
+RIDEAI sit n=4 phase=setup pos=0.5,-7.7 ahead=0.7 lat=9.0 ang=135.5 along=7.9 gait=3 v=5.12 rein=0
+RIDEAI sit n=4 phase=setup pos=-2.7,-9.7 ahead=5.51 lat=5.94 ang=92.4 along=10.0 gait=3 v=2.31 rein=0
+RIDEAI sit n=4 phase=setup pos=-5.7,-9.6 ahead=2.51 lat=2.94 ang=92.4 along=10.1 gait=3 v=3.31 rein=0
+RIDEAI sit n=4 phase=approach pos=-8.1,-8.9 ahead=6.09 lat=0.52 ang=53.6 along=9.6 gait=3 v=3.45 rein=1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=4 phase=approach pos=-9.0,-6.9 ahead=7.71 lat=0.52 ang=1.1 along=7.7 gait=3 v=1.69 rein=0
+MICHELLE soft | One. Wait.
+MICHELLE soft | One. Early.
+RIDEAI sit n=4 phase=approach pos=-8.7,-4.1 ahead=4.91 lat=0.46 ang=1.1 along=4.9 gait=3 v=3.88 rein=0
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=4 ahead=2.58 lat=0.36 ang=1.1 charge=1.0
+RIDEAI fence 4 -> 5 t=21.27 leave=leave
+RIDEAI sit n=5 phase=land pos=-7.9,2.4 ahead=14.09 lat=15.94 ang=28.6 along=7.3 gait=3 v=3.09 rein=1
+RIDEAI sit n=5 phase=land pos=-5.3,3.9 ahead=13.42 lat=13.4 ang=89.9 along=5.9 gait=3 v=3.09 rein=1
+RIDEAI sit n=5 phase=setup pos=-2.2,3.1 ahead=6.86 lat=10.34 ang=113.4 along=6.7 gait=3 v=3.47 rein=0
+RIDEAI sit n=5 phase=setup pos=0.0,2.2 ahead=4.69 lat=8.04 ang=111.6 along=7.6 gait=3 v=2.13 rein=0
+RIDEAI sit n=5 phase=setup pos=3.0,1.1 ahead=1.96 lat=5.1 ang=109.3 along=8.7 gait=3 v=3.88 rein=0
+RIDEAI sit n=5 phase=setup pos=5.6,0.3 ahead=-0.17 lat=2.5 ang=105.8 along=9.5 gait=3 v=2.84 rein=0
+RIDEAI sit n=5 phase=approach pos=8.3,0.4 ahead=5.22 lat=0.24 ang=54.6 along=9.4 gait=3 v=2.11 rein=-1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=5 phase=approach pos=9.3,2.2 ahead=7.61 lat=1.16 ang=10.2 along=7.5 gait=3 v=1.57 rein=0
+MICHELLE soft | One. Wait.
+MICHELLE soft | One. Early.
+RIDEAI sit n=5 phase=approach pos=8.8,4.9 ahead=4.92 lat=0.68 ang=10.2 along=4.9 gait=3 v=3.79 rein=0
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=5 ahead=2.53 lat=0.2 ang=10.2 charge=1.0
+RIDEAI fence 5 -> 6 t=31.7 leave=leave
+RIDEAI sit n=6 phase=land pos=7.4,11.3 ahead=11.75 lat=3.68 ang=2.7 along=11.6 gait=3 v=3.09 rein=-1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=6 phase=land pos=4.7,12.6 ahead=5.85 lat=2.04 ang=63.9 along=9.1 gait=3 v=3.09 rein=-1
+RIDEAI sit n=6 phase=approach pos=2.3,10.9 ahead=-5.38 lat=0.94 ang=119.1 along=9.4 gait=3 v=3.44 rein=1
+RIDEAI sit n=6 phase=setup pos=0.8,8.7 ahead=-10.27 lat=3.3 ang=141.0 along=10.5 gait=3 v=2.68 rein=-1
+RIDEAI sit n=6 phase=setup pos=1.7,6.2 ahead=-10.13 lat=3.82 ang=153.8 along=13.2 gait=3 v=1.38 rein=-1
+RIDEAI sit n=6 phase=approach pos=4.0,6.4 ahead=2.55 lat=1.7 ang=86.5 along=14.1 gait=3 v=3.5 rein=-1
+RIDEAI sit n=6 phase=approach pos=4.9,8.2 ahead=12.15 lat=0.02 ang=21.9 along=13.1 gait=3 v=2.31 rein=-1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=6 phase=approach pos=3.5,11.3 ahead=9.65 lat=0.26 ang=2.5 along=9.7 gait=3 v=4.57 rein=0
+MICHELLE soft | One. Wait.
+RIDEAI sit n=6 phase=approach pos=2.3,13.4 ahead=7.21 lat=0.36 ang=2.5 along=7.2 gait=3 v=2.45 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+RIDEAI sit n=6 phase=approach pos=0.6,16.4 ahead=3.79 lat=0.34 ang=1.0 along=3.8 gait=3 v=3.88 rein=0
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=6 ahead=2.56 lat=0.28 ang=1.0 charge=1.0
+RIDEAI fence 6 -> 7 t=42.79 leave=leave
+RIDEAI sit n=7 phase=land pos=-2.3,22.6 ahead=8.17 lat=10.4 ang=9.9 along=6.5 gait=3 v=3.09 rein=1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=7 phase=land pos=-0.4,24.8 ahead=9.38 lat=8.46 ang=71.1 along=4.3 gait=3 v=3.09 rein=1
+RIDEAI come again n=7 rein=1 pos=1.6,24.8
+RIDEAI sit n=7 phase=away pos=2.2,24.4 ahead=0.79 lat=5.88 ang=135.4 along=4.7 gait=3 v=1.34 rein=1
+RIDEAI sit n=7 phase=again pos=3.4,22.5 ahead=-3.44 lat=4.74 ang=150.5 along=6.6 gait=3 v=3.33 rein=0
+RIDEAI sit n=7 phase=again pos=5.6,18.6 ahead=-7.93 lat=2.54 ang=150.5 along=10.5 gait=3 v=5.55 rein=0
+RIDEAI sit n=7 phase=approach pos=7.9,15.6 ahead=-3.71 lat=0.24 ang=106.9 along=13.5 gait=3 v=2.31 rein=-1
+RIDEAI sit n=7 phase=setup pos=10.6,16.5 ahead=7.51 lat=2.5 ang=43.1 along=12.6 gait=3 v=3.01 rein=-1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=7 phase=setup pos=11.0,18.8 ahead=10.64 lat=2.86 ang=18.3 along=10.3 gait=3 v=3.45 rein=-1
+RIDEAI sit n=7 phase=approach pos=9.5,21.0 ahead=8.03 lat=1.38 ang=23.0 along=8.1 gait=3 v=2.0 rein=1
+MICHELLE soft | Two. Wait.
+MICHELLE soft | One. Wait.
+RIDEAI sit n=7 phase=approach pos=9.0,22.7 ahead=6.4 lat=0.88 ang=13.7 along=6.4 gait=3 v=2.68 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI sit n=7 phase=approach pos=8.3,26.2 ahead=2.85 lat=0.24 ang=9.0 along=2.9 gait=3 v=3.88 rein=0
+RIDEAI ASK n=7 ahead=2.54 lat=0.1 ang=6.7 charge=1.0
+RIDEAI fence 7 -> 8 t=55.0 leave=leave
+RIDEAI sit n=8 phase=land pos=6.4,31.8 ahead=8.59 lat=2.34 ang=28.2 along=11.0 gait=3 v=3.09 rein=-1
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=8 phase=land pos=3.5,31.7 ahead=7.94 lat=2.18 ang=33.1 along=8.1 gait=3 v=3.09 rein=-1
+MICHELLE soft | One. Wait.
+RIDEAI sit n=8 phase=approach pos=1.5,30.7 ahead=6.16 lat=1.22 ang=21.0 along=6.1 gait=3 v=2.01 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+RIDEAI sit n=8 phase=approach pos=-1.4,29.9 ahead=3.22 lat=0.44 ang=7.0 along=3.2 gait=3 v=3.88 rein=1
+MICHELLE soft | Now.
+RIDEAI ASK n=8 ahead=2.58 lat=0.04 ang=7.0 charge=1.0
+RIDEAI fence 8 -> 9 t=60.51 leave=leave
+RIDEAI sit n=9 phase=land pos=-7.8,28.1 ahead=15.25 lat=4.58 ang=29.5 along=20.1 gait=3 v=3.09 rein=-1
+RIDEAI sit n=9 phase=land pos=-7.9,25.1 ahead=17.3 lat=4.5 ang=27.6 along=17.2 gait=3 v=3.09 rein=0
+RIDEAI sit n=9 phase=setup pos=-6.3,21.9 ahead=13.35 lat=2.72 ang=31.7 along=14.0 gait=3 v=4.6 rein=0
+MICHELLE soft | Two. Wait.
+RIDEAI sit n=9 phase=approach pos=-4.8,16.9 ahead=9.12 lat=0.9 ang=12.3 along=9.1 gait=3 v=5.07 rein=0
+MICHELLE soft | One. Wait.
+RIDEAI sit n=9 phase=approach pos=-4.5,14.2 ahead=6.48 lat=0.46 ang=6.5 along=6.5 gait=3 v=2.68 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI sit n=9 phase=approach pos=-4.3,10.6 ahead=2.9 lat=0.06 ang=6.5 along=2.9 gait=3 v=3.88 rein=0
+RIDEAI ASK n=9 ahead=2.53 lat=0.04 ang=1.8 charge=1.0
+RIDEAI fence 9 -> 10 t=67.86 leave=leave
+RIDEAI sit n=10 phase=land pos=-3.2,4.8 ahead=7.62 lat=7.44 ang=49.4 along=3.0 gait=3 v=3.09 rein=-1
+MICHELLE soft | One. Wait.
+RIDEAI sit n=10 phase=land pos=-0.3,4.5 ahead=3.36 lat=4.54 ang=110.6 along=2.5 gait=3 v=3.09 rein=-1
+RIDEAI come again n=10 rein=-1 pos=0.8,5.3
+RIDEAI sit n=10 phase=again pos=1.3,6.4 ahead=-3.42 lat=2.9 ang=164.3 along=4.4 gait=3 v=2.19 rein=0
+RIDEAI sit n=10 phase=again pos=2.0,9.7 ahead=-6.78 lat=2.0 ang=164.3 along=7.6 gait=3 v=4.49 rein=0
+RIDEAI sit n=10 phase=approach pos=3.2,14.8 ahead=-11.36 lat=0.52 ang=156.1 along=12.7 gait=3 v=4.64 rein=1
+RIDEAI sit n=10 phase=approach pos=5.3,16.4 ahead=-2.45 lat=1.7 ang=93.0 along=14.1 gait=3 v=3.45 rein=1
+RIDEAI sit n=10 phase=setup pos=7.4,15.6 ahead=10.44 lat=3.7 ang=24.9 along=13.2 gait=3 v=2.15 rein=1
+RIDEAI sit n=10 phase=setup pos=6.8,12.7 ahead=9.48 lat=3.0 ang=44.9 along=10.4 gait=3 v=3.73 rein=1
+RIDEAI sit n=10 phase=approach pos=4.8,10.9 ahead=8.21 lat=0.9 ang=26.2 along=8.7 gait=3 v=2.54 rein=-1
+MICHELLE soft | Two. Wait.
+MICHELLE soft | One. Wait.
+RIDEAI sit n=10 phase=approach pos=4.6,9.1 ahead=6.93 lat=0.56 ang=8.8 along=6.9 gait=3 v=2.56 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+MICHELLE soft | Wait.
+RIDEAI sit n=10 phase=approach pos=4.4,5.6 ahead=3.44 lat=0.14 ang=5.3 along=3.4 gait=3 v=3.88 rein=0
+MICHELLE soft | Now.
+RIDEAI ASK n=10 ahead=2.53 lat=0.16 ang=5.3 charge=1.0
+RIDEAI fence 10 -> 11 t=80.41 leave=leave
+RIDEAI sit n=11 phase=land pos=3.2,-0.4 ahead=10.71 lat=7.82 ang=49.5 along=7.3 gait=3 v=3.09 rein=1
+RIDEAI sit n=11 phase=land pos=0.3,-1.0 ahead=2.16 lat=4.92 ang=110.8 along=6.9 gait=3 v=3.09 rein=1
+RIDEAI sit n=11 phase=setup pos=-2.5,0.6 ahead=-2.83 lat=2.12 ang=123.0 along=8.5 gait=3 v=2.0 rein=0
+RIDEAI sit n=11 phase=approach pos=-4.4,0.5 ahead=4.39 lat=0.22 ang=60.2 along=8.4 gait=3 v=2.96 rein=-1
+MICHELLE soft | One. Wait.
+RIDEAI sit n=11 phase=approach pos=-5.7,-1.8 ahead=6.26 lat=1.14 ang=8.9 along=6.2 gait=3 v=1.5 rein=-1
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+RIDEAI sit n=11 phase=approach pos=-5.0,-4.3 ahead=3.65 lat=0.52 ang=11.3 along=3.6 gait=3 v=3.71 rein=1
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=11 ahead=2.56 lat=0.04 ang=8.9 charge=1.0
+RIDEAI fence 11 -> 12 t=87.87 leave=leave
+RIDEAI sit n=12 phase=approach pos=-4.2,-10.1 ahead=8.66 lat=0.54 ang=6.6 along=8.7 gait=3 v=1.4 rein=0
+MICHELLE soft | One. Wait.
+RIDEAI sit n=12 phase=approach pos=-4.0,-12.2 ahead=6.56 lat=0.3 ang=6.6 along=6.6 gait=3 v=2.25 rein=0
+MICHELLE soft | One. Early.
+MICHELLE soft | Early.
+RIDEAI sit n=12 phase=approach pos=-3.9,-14.7 ahead=4.07 lat=0.04 ang=3.1 along=4.1 gait=3 v=3.11 rein=0
+MICHELLE soft | Wait.
+MICHELLE soft | Now.
+RIDEAI ASK n=12 ahead=2.59 lat=0.18 ang=3.1 charge=1.0
+RIDEAI fence 12 -> 13 t=92.42 leave=leave
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_adv_003_clear.jsonl n=99
+RIDECERT hk_adv_003 style=clear success=false faults=4 jumped=12/12 t=96.41 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=86.5 scope=82.5
+RIDECERT track FAIL hk_adv_003 { "id": "hk_adv_003", "class_id": "advanced", "jump_off": false, "style": "clear", "fences_needed": 12, "fences_jumped": 12, "faults": 4, "time_sec": 96.41, "refused": [], "rails": 0, "rail_fences": [], "rail_in_air": [], "confidence": 86.5, "scope": 82.5, "teleported": false, "teleport_why": "", "max_speed": 5.55, "inputs_pressed": { "gait_up": 3, "gait_down": 0, "turn_left": 33, "turn_right": 23, "jump": 30, "halt": 0 }, "round_complete": true, "eliminated": false, "eliminate_reason": "", "loaded_id": "hk_adv_003", "success": false }
+RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_results.json
+RIDECERT done pass=false board=0/1 filter=hk_adv_003 fresh=false

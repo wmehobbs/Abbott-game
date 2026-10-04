@@ -1,0 +1,206 @@
+{
+  "id": "hk_adv_027",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, Tuesday 27",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Two rollbacks. Sit down and wait. Don't pull him around.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        6.717,
+        0.0,
+        -22.926
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.876,
+      "sp": 0.0,
+      "pos": [
+        -7.505,
+        0.0,
+        -11.647
+      ],
+      "yaw": 0.06,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.47
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.855,
+      "sp": 0.72,
+      "pos": [
+        -7.058,
+        0.0,
+        -4.194
+      ],
+      "yaw": 0.06,
+      "name": "plank oxer",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.44
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.9,
+      "sp": 0.72,
+      "pos": [
+        -7.505,
+        0.0,
+        3.229
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        6.717,
+        0.0,
+        12.565
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.877,
+      "sp": 0.0,
+      "pos": [
+        -7.505,
+        0.0,
+        22.262
+      ],
+      "yaw": 0.07,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.912,
+      "sp": 0.0,
+      "pos": [
+        6.717,
+        0.0,
+        28.95
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 8,
+        "strides": 1,
+        "distance_m": 7.11
+      }
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.908,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.269
+      ],
+      "yaw": 0.02202,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.923,
+      "sp": 0.0,
+      "pos": [
+        -6.905,
+        0.0,
+        15.322
+      ],
+      "yaw": 3.13968,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.944,
+      "sp": 0.72,
+      "pos": [
+        6.18,
+        0.0,
+        -4.124
+      ],
+      "yaw": 3.19524,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.942,
+      "sp": 0.0,
+      "pos": [
+        6.905,
+        0.0,
+        -10.396
+      ],
+      "yaw": 3.13462,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.96,
+      "sp": 0.72,
+      "pos": [
+        6.18,
+        0.0,
+        -16.633
+      ],
+      "yaw": 3.16102,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-seven in the outdoor hk_adv_027 ring on late for advanced. Height 3'0\", hk_adv_027 12 fences, pattern outside track, side inside. hk_adv_027 Fence one of walk twenty-seven is a hk_adv_027 white vertical at six point seven by hk_adv_027 minus twenty-two point nine. Walk twenty-seven meat hk_adv_027 is a labeled related. Sit after the hk_adv_027 in of walk twenty-seven. Last of walk hk_adv_027 twenty-seven is a gate oxer at six hk_adv_027 point two by minus sixteen point six. hk_adv_027 Same leave on walk twenty-seven. Then hk_adv_027.",
+  "michelle_brief": "Walk twenty-seven. Quiet to the first."
+}

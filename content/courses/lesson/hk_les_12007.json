@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_12007",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, Tuesday 23089",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.42,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -24.82
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.73
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.524,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -14.089
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.635,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-three thousand eighty-nine in hk_les_12007 the outdoor ring on Tuesday for lesson. hk_les_12007 Height poles to 2'3\", 3 fences, pattern hk_les_12007 lesson single then line, side inside. Fence hk_les_12007 one of walk twenty-three thousand eighty-nine is hk_les_12007 a brush vertical at six point seven hk_les_12007 by minus twenty-four point eight. Walk twenty-three hk_les_12007 thousand eighty-nine meat is a labeled related. hk_les_12007 Sit after the in of walk twenty-three hk_les_12007 thousand eighty-nine. Last of walk twenty-three thousand hk_les_12007 eighty-nine is a white vertical at hk_les_12007.",
+  "michelle_brief": "Walk twenty-three thousand eighty-nine. Quiet to the first."
+}

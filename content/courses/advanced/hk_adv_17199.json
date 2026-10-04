@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17199",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, Tuesday 873",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.846,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -26.01
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.85
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -15.157
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.23
+      }
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.879,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -7.931
+      ],
+      "yaw": -0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.89,
+      "sp": 0.761,
+      "pos": [
+        -7.5,
+        0.0,
+        -0.705
+      ],
+      "yaw": 0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.88,
+      "sp": 0.761,
+      "pos": [
+        6.76,
+        0.0,
+        6.521
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.898,
+      "sp": 0.761,
+      "pos": [
+        -7.5,
+        0.0,
+        13.748
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.916,
+      "sp": 0.761,
+      "pos": [
+        6.76,
+        0.0,
+        20.974
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.912,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.937,
+      "sp": 0.0,
+      "pos": [
+        6.219,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.18908,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.08574,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.761,
+      "pos": [
+        6.219,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.14156,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.947,
+      "sp": 0.761,
+      "pos": [
+        -6.9,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.19075,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "outside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk eight hundred seventy-three in hk_adv_17199 the outdoor ring on Tuesday for advanced. hk_adv_17199 Height 3'0\", 12 fences, pattern outside track, hk_adv_17199 side inside. Fence one of walk eight hk_adv_17199 hundred seventy-three is a natural vertical at hk_adv_17199 six point eight by minus twenty-six. Walk hk_adv_17199 eight hundred seventy-three meat is a labeled hk_adv_17199 related. Sit after the in of walk hk_adv_17199 eight hundred seventy-three. Last of walk eight hk_adv_17199 hundred seventy-three is a gate oxer at hk_adv_17199 minus six point nine by minus hk_adv_17199.",
+  "michelle_brief": "Walk eight hundred seventy-three. Quiet to the first."
+}

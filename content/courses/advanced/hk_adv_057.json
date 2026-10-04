@@ -1,0 +1,202 @@
+{
+  "id": "hk_adv_057",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, inside, quiet 57",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Open jumpers. Eyes up. Leave with him.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.861,
+      "sp": 0.0,
+      "pos": [
+        7.784,
+        0.0,
+        -21.913
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        -8.581,
+        0.0,
+        -12.202
+      ],
+      "yaw": 0.07,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        7.784,
+        0.0,
+        -4.946
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 6.99
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        7.784,
+        0.0,
+        2.049
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 5,
+        "strides": 2,
+        "distance_m": 10.69
+      }
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        7.784,
+        0.0,
+        12.744
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.908,
+      "sp": 0.753,
+      "pos": [
+        -8.581,
+        0.0,
+        22.137
+      ],
+      "yaw": 0.07,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.901,
+      "sp": 0.753,
+      "pos": [
+        7.784,
+        0.0,
+        28.959
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.919,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.24
+      ],
+      "yaw": 0.03714,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.912,
+      "sp": 0.0,
+      "pos": [
+        -7.895,
+        0.0,
+        8.471
+      ],
+      "yaw": 3.21315,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.923,
+      "sp": 0.0,
+      "pos": [
+        -7.161,
+        0.0,
+        -4.592
+      ],
+      "yaw": 3.05849,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        7.895,
+        0.0,
+        -11.624
+      ],
+      "yaw": 3.1039,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.938,
+      "sp": 0.0,
+      "pos": [
+        -7.161,
+        0.0,
+        -22.234
+      ],
+      "yaw": 3.0684,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fifty-seven in the outdoor hk_adv_057 ring on the other way for advanced. hk_adv_057 Height 3'0\", 12 fences, pattern outside track, hk_adv_057 side left. Fence one of walk fifty-seven hk_adv_057 is a white vertical at seven point hk_adv_057 eight by minus twenty-one point nine. Walk hk_adv_057 fifty-seven meat is a labeled related. Sit hk_adv_057 after the in of walk fifty-seven. Last hk_adv_057 of walk fifty-seven is a white vertical hk_adv_057 at minus seven point two by minus hk_adv_057 twenty-two point two. Same leave on hk_adv_057.",
+  "michelle_brief": "Walk fifty-seven. Quiet to the first."
+}

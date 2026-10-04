@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_11631",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "fan three, right, late 355",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -26.095
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.75
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.857,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -15.346
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.875,
+      "sp": 0.529,
+      "pos": [
+        -7.5,
+        0.0,
+        -8.088
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.882,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -0.831
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.898,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        6.427
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 6,
+        "strides": 2,
+        "distance_m": 10.44
+      }
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.89,
+      "sp": 0.0,
+      "pos": [
+        -7.5,
+        0.0,
+        13.685
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.913,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        20.942
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.923,
+      "sp": 0.529,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.937,
+      "sp": 0.0,
+      "pos": [
+        6.219,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.15797,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        6.219,
+        0.0,
+        8.3
+      ],
+      "yaw": 3.18273,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.944,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        4.7
+      ],
+      "yaw": 3.12537,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.957,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        -1.6
+      ],
+      "yaw": 3.08317,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "fan_three",
+  "indoor": false,
+  "walk_text": "Hidden K walk three hundred fifty-five in hk_adv_11631 the outdoor ring on first school for hk_adv_11631 advanced. Height 3'0\", 12 fences, pattern fan hk_adv_11631 three, side left. Fence one of walk hk_adv_11631 three hundred fifty-five is a plank vertical hk_adv_11631 at six point eight by minus twenty-six hk_adv_11631 point one. Walk three hundred fifty-five meat hk_adv_11631 is a labeled related. Sit after the hk_adv_11631 in of walk three hundred fifty-five. Last hk_adv_11631 of walk three hundred fifty-five is a hk_adv_11631 natural vertical at minus six point hk_adv_11631.",
+  "michelle_brief": "Walk three hundred fifty-five. Quiet to the first."
+}

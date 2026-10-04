@@ -1,0 +1,79 @@
+{
+	"board": "style 1",
+	"extra": [],
+	"flower_look": "abbott_confidence=85 so _might_look is false (p=0)",
+	"pass": true,
+	"style": [
+		{
+			"class_id": "lesson",
+			"confidence": 83.0,
+			"eliminate_reason": "",
+			"eliminated": false,
+			"faults": 4,
+			"fences_jumped": 3,
+			"fences_needed": 3,
+			"id": "hk_les_001",
+			"inputs_pressed": {
+				"gait_down": 0,
+				"gait_up": 6,
+				"halt": 0,
+				"jump": 7,
+				"turn_left": 1,
+				"turn_right": 7
+			},
+			"jump_off": false,
+			"loaded_id": "hk_les_001",
+			"max_speed": 5.36,
+			"rail_fences": [],
+			"rail_in_air": [],
+			"rails": 0,
+			"refused": [
+				1
+			],
+			"round_complete": true,
+			"scope": 82.5,
+			"style": "refuse_early",
+			"style_fence": 1,
+			"success": true,
+			"teleport_why": "",
+			"teleported": false,
+			"time_sec": 21.27
+		},
+		{
+			"class_id": "lesson",
+			"confidence": 86.5,
+			"eliminate_reason": "",
+			"eliminated": false,
+			"faults": 4,
+			"fences_jumped": 3,
+			"fences_needed": 3,
+			"id": "hk_les_001",
+			"inputs_pressed": {
+				"gait_down": 0,
+				"gait_up": 3,
+				"halt": 0,
+				"jump": 5,
+				"turn_left": 1,
+				"turn_right": 7
+			},
+			"jump_off": false,
+			"loaded_id": "hk_les_001",
+			"max_speed": 5.36,
+			"rail_fences": [
+				3
+			],
+			"rail_in_air": [],
+			"rails": 1,
+			"refused": [],
+			"round_complete": true,
+			"scope": 81.0,
+			"style": "rail_late",
+			"style_fence": 3,
+			"success": true,
+			"teleport_why": "",
+			"teleported": false,
+			"time_sec": 18.1
+		}
+	],
+	"tracks": []
+}

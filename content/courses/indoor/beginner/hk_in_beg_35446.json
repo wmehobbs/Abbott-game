@@ -1,0 +1,115 @@
+{
+  "id": "hk_in_beg_35446",
+  "class_id": "beginner",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor outside track, outside, late 11567",
+  "height_label": "2'3\"",
+  "pattern": "outside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.598,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -10.92
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.618,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -3.567
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.629,
+      "sp": 0.355,
+      "pos": [
+        5.0,
+        0.0,
+        3.916
+      ],
+      "yaw": -0.04,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.662,
+      "sp": 0.0,
+      "pos": [
+        -5.0,
+        0.0,
+        11.4
+      ],
+      "yaw": 0.04,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.684,
+      "sp": 0.355,
+      "pos": [
+        4.6,
+        0.0,
+        9.15
+      ],
+      "yaw": 3.16826,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.691,
+      "sp": 0.0,
+      "pos": [
+        -4.6,
+        0.0,
+        6.45
+      ],
+      "yaw": 3.17034,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "walk_text": "Hidden K walk eleven thousand five hundred hk_in_beg_35446 sixty-seven in the indoor on Thursday for hk_in_beg_35446 beginner. Height 2'3\", 6 fences, pattern outside hk_in_beg_35446 track, side left. Fence one of walk hk_in_beg_35446 eleven thousand five hundred sixty-seven is a hk_in_beg_35446 white vertical at five by minus ten hk_in_beg_35446 point nine. Walk eleven thousand five hundred hk_in_beg_35446 sixty-seven meat is a labeled related. Sit hk_in_beg_35446 after the in of walk eleven thousand hk_in_beg_35446 five hundred sixty-seven. Last of walk eleven hk_in_beg_35446 thousand five hundred sixty-seven is a hk_in_beg_35446.",
+  "michelle_brief": "Walk eleven thousand five hundred sixty-seven. Quiet to the first."
+}

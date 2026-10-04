@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35060",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, right, before the show 13824",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.42,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -11.08
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.32
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.533,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -3.76
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.617,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand eight hundred hk_in_les_35060 twenty-four in the indoor on first school hk_in_les_35060 for lesson. Height poles to 2'3\", 3 hk_in_les_35060 fences, pattern related out, side right. Fence hk_in_les_35060 one of walk thirteen thousand eight hundred hk_in_les_35060 twenty-four is a brush vertical at four hk_in_les_35060 point eight by minus eleven point one. hk_in_les_35060 Walk thirteen thousand eight hundred twenty-four meat hk_in_les_35060 is a labeled related. Sit after the hk_in_les_35060 in of walk thirteen thousand eight hundred hk_in_les_35060 twenty-four. Last of walk thirteen thousand hk_in_les_35060.",
+  "michelle_brief": "Walk thirteen thousand eight hundred twenty-four. Quiet to the first."
+}

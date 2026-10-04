@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35205",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, left, Wednesday 13879",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.43,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.45
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.527,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.555
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.619,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand eight hundred hk_in_les_35205 seventy-nine in the indoor on first school hk_in_les_35205 for lesson. Height poles to 2'3\", 3 hk_in_les_35205 fences, pattern related out, side left. Fence hk_in_les_35205 one of walk thirteen thousand eight hundred hk_in_les_35205 seventy-nine is a white vertical at four hk_in_les_35205 point nine by minus eleven. Walk thirteen hk_in_les_35205 thousand eight hundred seventy-nine meat is a hk_in_les_35205 labeled related. Sit after the in of hk_in_les_35205 walk thirteen thousand eight hundred seventy-nine. Last hk_in_les_35205 of walk thirteen thousand eight hundred hk_in_les_35205.",
+  "michelle_brief": "Walk thirteen thousand eight hundred seventy-nine. Quiet to the first."
+}

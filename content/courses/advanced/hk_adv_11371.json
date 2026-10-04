@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_11371",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "fan three, inside, first school 95",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.86,
+      "sp": 0.0,
+      "pos": [
+        6.865,
+        0.0,
+        -25.585
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.72
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.858,
+      "sp": 0.716,
+      "pos": [
+        6.865,
+        0.0,
+        -14.864
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        -8.0,
+        0.0,
+        -7.686
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.889,
+      "sp": 0.0,
+      "pos": [
+        6.865,
+        0.0,
+        -0.509
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.89,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        6.668
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 6,
+        "strides": 2,
+        "distance_m": 10.75
+      }
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.897,
+      "sp": 0.0,
+      "pos": [
+        -8.0,
+        0.0,
+        13.845
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.917,
+      "sp": 0.0,
+      "pos": [
+        6.865,
+        0.0,
+        21.023
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.934,
+      "sp": 0.0,
+      "pos": [
+        6.316,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.14944,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.936,
+      "sp": 0.716,
+      "pos": [
+        6.316,
+        0.0,
+        8.3
+      ],
+      "yaw": 3.18946,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.947,
+      "sp": 0.0,
+      "pos": [
+        -6.4,
+        0.0,
+        6.05
+      ],
+      "yaw": 3.17392,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.951,
+      "sp": 0.0,
+      "pos": [
+        -7.36,
+        0.0,
+        -0.25
+      ],
+      "yaw": 3.19549,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "fan_three",
+  "indoor": false,
+  "walk_text": "Hidden K walk ninety-five in the outdoor hk_adv_11371 ring on quiet for advanced. Height 3'0\", hk_adv_11371 12 fences, pattern fan three, side inside. hk_adv_11371 Fence one of walk ninety-five is a hk_adv_11371 natural vertical at six point nine by hk_adv_11371 minus twenty-five point six. Walk ninety-five meat hk_adv_11371 is a labeled related. Sit after the hk_adv_11371 in of walk ninety-five. Last of walk hk_adv_11371 ninety-five is a natural vertical at minus hk_adv_11371 seven point four by minus zero point hk_adv_11371 two. Same leave on walk ninety-five. hk_adv_11371.",
+  "michelle_brief": "Walk ninety-five. Quiet to the first."
+}

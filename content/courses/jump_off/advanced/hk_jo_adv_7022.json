@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_7022",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, the other way 20745",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        6.97,
+        0.0,
+        -25.415
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.43
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.895,
+      "sp": 0.46,
+      "pos": [
+        6.97,
+        0.0,
+        -17.989
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.916,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.96,
+      "sp": 0.0,
+      "pos": [
+        -7.82,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.1795,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand seven hundred hk_jo_adv_7022 forty-five in the outdoor ring on quiet hk_jo_adv_7022 for advanced. Height 3'0\", 4 fences, pattern hk_jo_adv_7022 jump off tight, side left. Fence one hk_jo_adv_7022 of walk twenty thousand seven hundred forty-five hk_jo_adv_7022 is a natural vertical at seven by hk_jo_adv_7022 minus twenty-five point four. Walk twenty thousand hk_jo_adv_7022 seven hundred forty-five meat is a labeled hk_jo_adv_7022 related. Sit after the in of walk hk_jo_adv_7022 twenty thousand seven hundred forty-five. Last of hk_jo_adv_7022 walk twenty thousand seven hundred forty-five hk_jo_adv_7022.",
+  "michelle_brief": "Walk twenty thousand seven hundred forty-five. Quiet to the first."
+}

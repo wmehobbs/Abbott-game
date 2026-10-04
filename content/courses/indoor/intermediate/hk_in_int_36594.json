@@ -1,0 +1,143 @@
+{
+  "id": "hk_in_int_36594",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor jump off tight, inside, quiet 13081",
+  "height_label": "2'6\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.739,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.33
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.755,
+      "sp": 0.426,
+      "pos": [
+        4.52,
+        0.0,
+        -3.908
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.783,
+      "sp": 0.426,
+      "pos": [
+        4.52,
+        0.0,
+        1.194
+      ],
+      "yaw": -0.04,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.807,
+      "sp": 0.426,
+      "pos": [
+        -4.52,
+        0.0,
+        6.297
+      ],
+      "yaw": 0.04,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.814,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.853,
+      "sp": 0.426,
+      "pos": [
+        -4.158,
+        0.0,
+        1.5
+      ],
+      "yaw": 3.09378,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.875,
+      "sp": 0.426,
+      "pos": [
+        -4.158,
+        0.0,
+        -3.45
+      ],
+      "yaw": 3.19179,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.895,
+      "sp": 0.0,
+      "pos": [
+        -4.158,
+        0.0,
+        -8.4
+      ],
+      "yaw": 3.13049,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "walk_text": "Hidden K walk thirteen thousand eighty-one in hk_in_int_36594 the indoor on Wednesday for intermediate. Height hk_in_int_36594 2'6\", 8 fences, pattern jump off tight, hk_in_int_36594 side left. Fence one of walk thirteen hk_in_int_36594 thousand eighty-one is a natural vertical at hk_in_int_36594 four point five by minus eleven point hk_in_int_36594 two. Walk thirteen thousand eighty-one meat is hk_in_int_36594 a labeled related. Sit after the in hk_in_int_36594 of walk thirteen thousand eighty-one. Last of hk_in_int_36594 walk thirteen thousand eighty-one is a plank hk_in_int_36594 vertical at minus four point two hk_in_int_36594.",
+  "michelle_brief": "Walk thirteen thousand eighty-one. Quiet to the first."
+}

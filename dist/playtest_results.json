@@ -1,0 +1,27 @@
+{
+	"pass": true,
+	"rounds": [
+		{
+			"complete": true,
+			"faults": 0,
+			"jumped": 8,
+			"name": "clear",
+			"ok": true,
+			"time": 12.44
+		},
+		{
+			"complete": true,
+			"faults": 4,
+			"name": "refuse",
+			"ok": true,
+			"time": 12.62
+		},
+		{
+			"complete": true,
+			"faults": 4,
+			"name": "rail",
+			"ok": true,
+			"time": 12.49
+		}
+	]
+}

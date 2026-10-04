@@ -1,0 +1,174 @@
+{
+  "id": "hk_int_001",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "Classic, outside",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Classic. Keep the outside track. He canters this ring.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.731,
+      "sp": 0.0,
+      "pos": [
+        8.172,
+        0.0,
+        -24.468
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.8
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.739,
+      "sp": 0.0,
+      "pos": [
+        8.172,
+        0.0,
+        -13.668
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.45
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.76,
+      "sp": 0.406,
+      "pos": [
+        8.172,
+        0.0,
+        -6.218
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.775,
+      "sp": 0.0,
+      "pos": [
+        -6.899,
+        0.0,
+        0.488
+      ],
+      "yaw": 0.07,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.81,
+      "sp": 0.0,
+      "pos": [
+        8.172,
+        0.0,
+        10.589
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.835,
+      "sp": 0.0,
+      "pos": [
+        -6.899,
+        0.0,
+        20.736
+      ],
+      "yaw": 0.07,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.835,
+      "sp": 0.406,
+      "pos": [
+        0.0,
+        0.0,
+        31.144
+      ],
+      "yaw": 0.02961,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.849,
+      "sp": 0.0,
+      "pos": [
+        -2.05,
+        0.0,
+        14.44
+      ],
+      "yaw": 3.04896,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.858,
+      "sp": 0.406,
+      "pos": [
+        3.922,
+        0.0,
+        0.701
+      ],
+      "yaw": 3.08195,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.879,
+      "sp": 0.0,
+      "pos": [
+        -4.35,
+        0.0,
+        -11.682
+      ],
+      "yaw": 3.12117,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_int_001 thirty-one in the outdoor ring on after hk_int_001 work for intermediate. Height 2'6\", 10 fences, hk_int_001 pattern outside track, side left. Fence one hk_int_001 of walk fourteen thousand two hundred thirty-one hk_int_001 is a white vertical at eight point hk_int_001 two by minus twenty-four point five. Walk hk_int_001 fourteen thousand two hundred thirty-one meat is hk_int_001 a labeled related. Sit after the in hk_int_001 of walk fourteen thousand two hundred thirty-one. hk_int_001 Last of walk fourteen thousand two hk_int_001.",
+  "michelle_brief": "Walk fourteen thousand two hundred thirty-one. Quiet to the first."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35769",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor jump off tight, left, first school 14038",
+  "height_label": "poles to 2'3\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.419,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.32
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.533,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.972
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.631,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand thirty-eight in hk_in_les_35769 the indoor on Thursday for lesson. Height hk_in_les_35769 poles to 2'3\", 3 fences, pattern jump hk_in_les_35769 off tight, side right. Fence one of hk_in_les_35769 walk fourteen thousand thirty-eight is a brush hk_in_les_35769 vertical at four point nine by minus hk_in_les_35769 eleven point three. Walk fourteen thousand thirty-eight hk_in_les_35769 meat is a labeled related. Sit after hk_in_les_35769 the in of walk fourteen thousand thirty-eight. hk_in_les_35769 Last of walk fourteen thousand thirty-eight is hk_in_les_35769 a natural vertical at four point hk_in_les_35769.",
+  "michelle_brief": "Walk fourteen thousand thirty-eight. Quiet to the first."
+}

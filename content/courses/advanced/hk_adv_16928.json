@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_16928",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "figure eight, outside, Wednesday 602",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -24.82
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.76
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.872,
+      "sp": 0.689,
+      "pos": [
+        8.755,
+        0.0,
+        -14.056
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.884,
+      "sp": 0.0,
+      "pos": [
+        -8.3,
+        0.0,
+        -7.013
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.04
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.877,
+      "sp": 0.689,
+      "pos": [
+        -8.3,
+        0.0,
+        0.03
+      ],
+      "yaw": 0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.888,
+      "sp": 0.689,
+      "pos": [
+        8.755,
+        0.0,
+        7.072
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        14.115
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "flower",
+      "h": 0.907,
+      "sp": 0.0,
+      "pos": [
+        -8.3,
+        0.0,
+        21.157
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.928,
+      "sp": 0.689,
+      "pos": [
+        -8.3,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.937,
+      "sp": 0.0,
+      "pos": [
+        -6.64,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.18193,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.928,
+      "sp": 0.0,
+      "pos": [
+        -7.636,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.12364,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.949,
+      "sp": 0.0,
+      "pos": [
+        7.004,
+        0.0,
+        1.1
+      ],
+      "yaw": 3.19811,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.953,
+      "sp": 0.689,
+      "pos": [
+        8.055,
+        0.0,
+        -5.2
+      ],
+      "yaw": 3.19086,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "figure_eight",
+  "indoor": false,
+  "walk_text": "Hidden K walk six hundred two in hk_adv_16928 the outdoor ring on first school for hk_adv_16928 advanced. Height 3'0\", 12 fences, pattern figure hk_adv_16928 eight, side inside. Fence one of walk hk_adv_16928 six hundred two is a white vertical hk_adv_16928 at eight point eight by minus twenty-four hk_adv_16928 point eight. Walk six hundred two meat hk_adv_16928 is a labeled related. Sit after the hk_adv_16928 in of walk six hundred two. Last hk_adv_16928 of walk six hundred two is a hk_adv_16928 brush oxer at eight point one hk_adv_16928.",
+  "michelle_brief": "Walk six hundred two. Quiet to the first."
+}

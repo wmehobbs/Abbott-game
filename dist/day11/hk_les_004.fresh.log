@@ -1,0 +1,75 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+RIDECERT begin
+RIDECERT filter hk_les_004
+RIDECERT round hk_les_004 class=lesson seed=3 jo=false style=clear
+MICHELLE soft | Two. Wait.
+COUNT fence=1 ahead=10.87 lateral=0.62 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=0.0,-30.4 ahead=10.73 lat=0.62 ang=0.0 along=10.7 gait=3 v=4.22 rein=0
+RIDEAI sit n=1 phase=approach pos=0.0,-27.3 ahead=7.63 lat=0.62 ang=0.0 along=7.6 gait=3 v=2.01 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=1 ahead=7.56 lateral=0.62 stride=1 word=One. Wait. kept=true
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=5.38 lateral=0.20 stride=1 word=One. Early. kept=true
+RIDEAI sit n=1 phase=approach pos=-0.1,-24.2 ahead=4.61 lat=0.48 ang=3.5 along=4.6 gait=3 v=3.88 rein=0
+MICHELLE soft | Early.
+COUNT fence=1 ahead=4.22 lateral=0.20 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=1 ahead=3.83 lateral=0.20 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=1 ahead=3.18 lateral=0.20 stride=0 word=Now. kept=true
+RIDEAI ASK n=1 ahead=2.53 lat=0.2 ang=3.5 charge=1.0
+MICHELLE spot | You found it. Don't chase the next.
+RIDEAI fence 1 -> 2 t=4.95 leave=spot
+RIDEAI sit n=2 phase=land pos=-0.9,-17.8 ahead=12.49 lat=7.54 ang=33.9 along=10.0 gait=3 v=3.09 rein=-1
+COUNT fence=2 ahead=10.93 lateral=3.54 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=2 phase=land pos=-3.5,-16.4 ahead=4.06 lat=4.86 ang=95.2 along=8.7 gait=3 v=3.09 rein=-1
+RIDEAI sit n=2 phase=approach pos=-6.7,-16.8 ahead=0.31 lat=1.66 ang=98.2 along=9.3 gait=3 v=3.76 rein=1
+RIDEAI sit n=2 phase=approach pos=-8.9,-15.8 ahead=6.46 lat=0.56 ang=36.0 along=8.4 gait=3 v=3.03 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=2 ahead=7.26 lateral=1.58 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=2 phase=approach pos=-9.1,-13.8 ahead=6.51 lat=0.9 ang=8.3 along=6.4 gait=3 v=2.3 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=2 ahead=5.37 lateral=0.04 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=2 ahead=4.18 lateral=0.04 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=2 ahead=3.79 lateral=0.04 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=2 ahead=3.21 lateral=0.04 stride=0 word=Now. kept=true
+RIDEAI sit n=2 phase=approach pos=-8.5,-10.6 ahead=3.21 lat=0.42 ang=8.3 along=3.2 gait=3 v=3.88 rein=0
+RIDEAI ASK n=2 ahead=2.56 lat=0.04 ang=8.3 charge=1.0
+MICHELLE spot | You waited, then asked. That's it.
+RIDEAI fence 2 -> 3 t=12.0 leave=spot
+MICHELLE soft | Two. Wait.
+COUNT fence=3 ahead=10.19 lateral=1.41 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=-7.6,-5.1 ahead=8.45 lat=0.2 ang=2.1 along=8.5 gait=3 v=1.67 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=3 ahead=7.55 lateral=0.51 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=-7.4,-2.9 ahead=6.27 lat=0.28 ang=2.1 along=6.3 gait=3 v=2.25 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=3 ahead=5.37 lateral=0.51 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=3 ahead=4.17 lateral=0.51 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=3 ahead=3.83 lateral=0.27 stride=0 word=Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=-7.2,-0.3 ahead=3.67 lat=0.36 ang=1.4 along=3.7 gait=3 v=3.34 rein=0
+MICHELLE soft | Now.
+COUNT fence=3 ahead=3.20 lateral=0.27 stride=0 word=Now. kept=true
+RIDEAI ASK n=3 ahead=2.56 lat=0.26 ang=1.4 charge=1.0
+MICHELLE spot | That's the spot. Eyes up now.
+RIDEAI fence 3 -> 4 t=16.55 leave=spot
+MICHELLE clear | Clear. Walk him. Let him blow.
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_les_004_clear.jsonl n=19
+RIDECERT hk_les_004 style=clear success=true faults=0 refusal_faults=0 rail_faults=0 time_faults=0 jumped=3/3 t=17.95 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=54.0 scope=44.5 eliminated=false reason= ribbon=
+RIDECERT result Clear.  17.95s
+RIDECERT offer false
+RIDECERT done round=first offer=false
+RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_fresh_one.json

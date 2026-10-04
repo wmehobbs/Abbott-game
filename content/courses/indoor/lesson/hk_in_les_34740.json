@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_34740",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, inside, after work 13673",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.422,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -11.08
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.34
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.517,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -3.739
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.628,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand six hundred hk_in_les_34740 seventy-three in the indoor on first school hk_in_les_34740 for lesson. Height poles to 2'3\", 3 hk_in_les_34740 fences, pattern related out, side right. Fence hk_in_les_34740 one of walk thirteen thousand six hundred hk_in_les_34740 seventy-three is a plank vertical at three hk_in_les_34740 point eight by minus eleven point one. hk_in_les_34740 Walk thirteen thousand six hundred seventy-three meat hk_in_les_34740 is a labeled related. Sit after the hk_in_les_34740 in of walk thirteen thousand six hundred hk_in_les_34740 seventy-three. Last of walk thirteen thousand hk_in_les_34740.",
+  "michelle_brief": "Walk thirteen thousand six hundred seventy-three. Quiet to the first."
+}

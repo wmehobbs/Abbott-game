@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_18588",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, left, quiet 21039",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.592,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -25.84
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.31
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.617,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -18.532
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.653,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.695,
+      "sp": 0.0,
+      "pos": [
+        8.731,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.15785,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand thirty-nine in hk_jo_beg_18588 the outdoor ring on first school for hk_jo_beg_18588 beginner. Height 2'3\", 4 fences, pattern jump hk_jo_beg_18588 off tight, side inside. Fence one of hk_jo_beg_18588 walk twenty-one thousand thirty-nine is a plank hk_jo_beg_18588 vertical at nine point five by minus hk_jo_beg_18588 twenty-five point eight. Walk twenty-one thousand thirty-nine hk_jo_beg_18588 meat is a labeled related. Sit after hk_jo_beg_18588 the in of walk twenty-one thousand thirty-nine. hk_jo_beg_18588 Last of walk twenty-one thousand thirty-nine is hk_jo_beg_18588 a white vertical at eight point hk_jo_beg_18588.",
+  "michelle_brief": "Walk twenty-one thousand thirty-nine. Quiet to the first."
+}

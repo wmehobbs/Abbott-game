@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17064",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "bending five, left, Thursday 738",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.861,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -26.18
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.69
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.866,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -15.49
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.87,
+      "sp": 0.0,
+      "pos": [
+        3.664,
+        0.0,
+        -8.208
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.57
+      }
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.876,
+      "sp": 0.0,
+      "pos": [
+        1.591,
+        0.0,
+        -0.927
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.885,
+      "sp": 0.774,
+      "pos": [
+        -0.481,
+        0.0,
+        6.355
+      ],
+      "yaw": -0.22,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.896,
+      "sp": 0.774,
+      "pos": [
+        -2.554,
+        0.0,
+        13.637
+      ],
+      "yaw": -0.22,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.919,
+      "sp": 0.0,
+      "pos": [
+        -4.627,
+        0.0,
+        20.918
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.928,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.919,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.11013,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.933,
+      "sp": 0.774,
+      "pos": [
+        7.185,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.11494,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.09838,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.953,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        3.8
+      ],
+      "yaw": 3.16331,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "bending_five",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven hundred thirty-eight in hk_adv_17064 the outdoor ring on late for advanced. hk_adv_17064 Height 3'0\", 12 fences, pattern bending five, hk_adv_17064 side outside. Fence one of walk seven hk_adv_17064 hundred thirty-eight is a natural vertical at hk_adv_17064 seven point eight by minus twenty-six point hk_adv_17064 two. Walk seven hundred thirty-eight meat is hk_adv_17064 a labeled related. Sit after the in hk_adv_17064 of walk seven hundred thirty-eight. Last of hk_adv_17064 walk seven hundred thirty-eight is a flower hk_adv_17064 box at minus six point two hk_adv_17064.",
+  "michelle_brief": "Walk seven hundred thirty-eight. Quiet to the first."
+}

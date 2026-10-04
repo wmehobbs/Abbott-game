@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_30319",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "diagonal both ways, right, morning 2051",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.863,
+      "sp": 0.0,
+      "pos": [
+        8.02,
+        0.0,
+        -25.16
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.87
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        8.02,
+        0.0,
+        -14.291
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        3.529,
+        0.0,
+        -7.209
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.878,
+      "sp": 0.737,
+      "pos": [
+        1.283,
+        0.0,
+        -0.127
+      ],
+      "yaw": -0.22,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.89,
+      "sp": 0.0,
+      "pos": [
+        -0.963,
+        0.0,
+        6.955
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -3.209,
+        0.0,
+        14.036
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.911,
+      "sp": 0.0,
+      "pos": [
+        -5.454,
+        0.0,
+        21.118
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.923,
+      "sp": 0.0,
+      "pos": [
+        -7.7,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.918,
+      "sp": 0.0,
+      "pos": [
+        7.378,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.19522,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.937,
+      "sp": 0.0,
+      "pos": [
+        7.378,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.11921,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        -7.084,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.17846,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.954,
+      "sp": 0.0,
+      "pos": [
+        6.416,
+        0.0,
+        5.6
+      ],
+      "yaw": 3.13832,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "diagonal_both_ways",
+  "indoor": false,
+  "walk_text": "Hidden K walk two thousand fifty-one in hk_adv_30319 the outdoor ring on quiet for advanced. hk_adv_30319 Height 3'0\", 12 fences, pattern diagonal both hk_adv_30319 ways, side inside. Fence one of walk hk_adv_30319 two thousand fifty-one is a plank vertical hk_adv_30319 at eight by minus twenty-five point two. hk_adv_30319 Walk two thousand fifty-one meat is a hk_adv_30319 labeled related. Sit after the in of hk_adv_30319 walk two thousand fifty-one. Last of walk hk_adv_30319 two thousand fifty-one is a brush vertical hk_adv_30319 at six point four by five hk_adv_30319.",
+  "michelle_brief": "Walk two thousand fifty-one. Quiet to the first."
+}

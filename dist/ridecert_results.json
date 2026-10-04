@@ -1,0 +1,74 @@
+{
+	"board": "jumpoff",
+	"extra": [
+		{
+			"class_id": "beginner",
+			"confidence": 91.0,
+			"eliminate_reason": "",
+			"eliminated": false,
+			"faults": 0,
+			"fences_jumped": 4,
+			"fences_needed": 4,
+			"id": "hk_beg_035",
+			"inputs_pressed": {
+				"gait_down": 0,
+				"gait_up": 3,
+				"halt": 0,
+				"jump": 6,
+				"turn_left": 11,
+				"turn_right": 8
+			},
+			"jump_off": true,
+			"loaded_id": "hk_jo_beg_001",
+			"max_speed": 5.55,
+			"rail_fences": [],
+			"rail_in_air": [],
+			"rails": 0,
+			"refused": [],
+			"round_complete": true,
+			"scope": 84.5,
+			"style": "clear",
+			"success": false,
+			"teleport_why": "",
+			"teleported": false,
+			"time_sec": 35.3
+		}
+	],
+	"flower_look": "abbott_confidence=85 so _might_look is false (p=0)",
+	"pass": true,
+	"style": [],
+	"tracks": [
+		{
+			"class_id": "beginner",
+			"confidence": 91.0,
+			"eliminate_reason": "",
+			"eliminated": false,
+			"faults": 0,
+			"fences_jumped": 8,
+			"fences_needed": 8,
+			"id": "hk_beg_035",
+			"inputs_pressed": {
+				"gait_down": 0,
+				"gait_up": 3,
+				"halt": 0,
+				"jump": 18,
+				"turn_left": 14,
+				"turn_right": 16
+			},
+			"jump_off": false,
+			"loaded_id": "hk_beg_035",
+			"max_speed": 5.55,
+			"rail_fences": [],
+			"rail_in_air": [],
+			"rails": 0,
+			"refused": [],
+			"round_complete": true,
+			"scope": 84.5,
+			"style": "clear",
+			"success": true,
+			"teleport_why": "",
+			"teleported": false,
+			"time_sec": 67.27
+		}
+	]
+}

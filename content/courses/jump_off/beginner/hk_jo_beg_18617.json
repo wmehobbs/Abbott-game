@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_18617",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, morning 21068",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.604,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.32
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -17.668
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.664,
+      "sp": 0.384,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.695,
+      "sp": 0.0,
+      "pos": [
+        8.731,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.18083,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand sixty-eight in hk_jo_beg_18617 the outdoor ring on before the show hk_jo_beg_18617 for beginner. Height 2'3\", 4 fences, pattern hk_jo_beg_18617 jump off tight, side right. Fence one hk_jo_beg_18617 of walk twenty-one thousand sixty-eight is a hk_jo_beg_18617 plank vertical at nine point five by hk_jo_beg_18617 minus twenty-five. Walk twenty-one thousand sixty-eight meat hk_jo_beg_18617 is a labeled related. Sit after the hk_jo_beg_18617 in of walk twenty-one thousand sixty-eight. Last hk_jo_beg_18617 of walk twenty-one thousand sixty-eight is a hk_jo_beg_18617 flower box at eight point seven hk_jo_beg_18617.",
+  "michelle_brief": "Walk twenty-one thousand sixty-eight. Quiet to the first."
+}

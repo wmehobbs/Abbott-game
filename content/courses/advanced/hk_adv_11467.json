@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_11467",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "inside track, outside, after work 191",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.861,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.72
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -14.783
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.872,
+      "sp": 0.653,
+      "pos": [
+        -6.7,
+        0.0,
+        -7.619
+      ],
+      "yaw": 0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.873,
+      "sp": 0.653,
+      "pos": [
+        7.81,
+        0.0,
+        -0.455
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.899,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        6.709
+      ],
+      "yaw": 0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.908,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        13.872
+      ],
+      "yaw": -0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.919,
+      "sp": 0.0,
+      "pos": [
+        -6.7,
+        0.0,
+        21.036
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.918,
+      "sp": 0.653,
+      "pos": [
+        7.81,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.925,
+      "sp": 0.0,
+      "pos": [
+        -6.164,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.1655,
+      "name": "brush vertical",
+      "related": {
+        "to": 10,
+        "strides": 3,
+        "distance_m": 14.13
+      }
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.93,
+      "sp": 0.0,
+      "pos": [
+        6.248,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.1486,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.947,
+      "sp": 0.653,
+      "pos": [
+        -5.36,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.10593,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.951,
+      "sp": 0.653,
+      "pos": [
+        6.248,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.11017,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "inside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk one hundred ninety-one in hk_adv_11467 the outdoor ring on the other way hk_adv_11467 for advanced. Height 3'0\", 12 fences, pattern hk_adv_11467 inside track, side outside. Fence one of hk_adv_11467 walk one hundred ninety-one is a brush hk_adv_11467 vertical at seven point eight by minus hk_adv_11467 twenty-five point five. Walk one hundred ninety-one hk_adv_11467 meat is a labeled related. Sit after hk_adv_11467 the in of walk one hundred ninety-one. hk_adv_11467 Last of walk one hundred ninety-one is hk_adv_11467 a white oxer at six point hk_adv_11467.",
+  "michelle_brief": "Walk one hundred ninety-one. Quiet to the first."
+}

@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17063",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "rollback long, inside, first school 737",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.855,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.92
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -15.347
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.26
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -8.089
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.884,
+      "sp": 0.0,
+      "pos": [
+        -9.1,
+        0.0,
+        -0.831
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        6.426
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.896,
+      "sp": 0.0,
+      "pos": [
+        -9.1,
+        0.0,
+        13.684
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.907,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        20.942
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.911,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.928,
+      "sp": 0.633,
+      "pos": [
+        7.089,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.15697,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.939,
+      "sp": 0.0,
+      "pos": [
+        -8.372,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.15795,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.954,
+      "sp": 0.633,
+      "pos": [
+        7.089,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.12096,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.948,
+      "sp": 0.0,
+      "pos": [
+        -8.372,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.16761,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "rollback_long",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven hundred thirty-seven in hk_adv_17063 the outdoor ring on late for advanced. hk_adv_17063 Height 3'0\", 12 fences, pattern rollback long, hk_adv_17063 side right. Fence one of walk seven hk_adv_17063 hundred thirty-seven is a plank vertical at hk_adv_17063 seven point seven by minus twenty-six point hk_adv_17063 three. Walk seven hundred thirty-seven meat is hk_adv_17063 a labeled related. Sit after the in hk_adv_17063 of walk seven hundred thirty-seven. Last of hk_adv_17063 walk seven hundred thirty-seven is a natural hk_adv_17063 vertical at minus eight point four hk_adv_17063.",
+  "michelle_brief": "Walk seven hundred thirty-seven. Quiet to the first."
+}

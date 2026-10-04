@@ -1,0 +1,171 @@
+{
+  "id": "hk_int_4427",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "rollback long, right, Wednesday 19550",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.749,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.76
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.756,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -15.594
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.776,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -6.835
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.786,
+      "sp": 0.0,
+      "pos": [
+        -7.3,
+        0.0,
+        1.923
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.801,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        10.682
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.819,
+      "sp": 0.0,
+      "pos": [
+        -7.3,
+        0.0,
+        19.441
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.839,
+      "sp": 0.584,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.86,
+      "sp": 0.0,
+      "pos": [
+        7.861,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.10208,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.865,
+      "sp": 0.584,
+      "pos": [
+        -6.716,
+        0.0,
+        13.25
+      ],
+      "yaw": 3.10455,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.89,
+      "sp": 0.584,
+      "pos": [
+        6.836,
+        0.0,
+        4.7
+      ],
+      "yaw": 3.10783,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "rollback_long",
+  "indoor": false,
+  "walk_text": "Hidden K walk nineteen thousand five hundred hk_int_4427 fifty in the outdoor ring on Thursday hk_int_4427 for intermediate. Height 2'6\", 10 fences, pattern hk_int_4427 rollback long, side right. Fence one of hk_int_4427 walk nineteen thousand five hundred fifty is hk_int_4427 a natural vertical at eight point five hk_int_4427 by minus twenty-six point four. Walk nineteen hk_int_4427 thousand five hundred fifty meat is a hk_int_4427 labeled related. Sit after the in of hk_int_4427 walk nineteen thousand five hundred fifty. Last hk_int_4427 of walk nineteen thousand five hundred hk_int_4427.",
+  "michelle_brief": "Walk nineteen thousand five hundred fifty. Quiet to the first."
+}

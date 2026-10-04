@@ -1,0 +1,175 @@
+{
+  "voice": "Hunt only. Do not attach these to Abbott. Live seat is Rider/Body/{Head,LLeg,RLeg} in horse.gd.",
+  "madison_height_m": 1.68,
+  "seat_contract": ["Rider", "Rider/Body", "Rider/Body/Head", "Rider/Body/LLeg", "Rider/Body/RLeg"],
+  "date": "2026-09-16",
+  "saddle": [
+    {
+      "rank": 1,
+      "id": "sketchfab_yared_saddle",
+      "name": "Saddle",
+      "author": "YaredGmGm",
+      "license": "CC-BY",
+      "url": "https://sketchfab.com/3d-models/saddle-e03a431c3c2a44ec9b9dced31b9cc066",
+      "format": "glTF/GLB after Sketchfab login",
+      "polycount": "7.7k triangles / 3.8k verts",
+      "downloaded": false,
+      "keep": false,
+      "why": "Small generic riding saddle, CC-BY. Best legal English-ish candidate. Needs a human Sketchfab download. Not on disk."
+    },
+    {
+      "rank": 2,
+      "id": "sketchfab_bryopsida_saddle",
+      "name": "Saddle",
+      "author": "bryopsida",
+      "license": "CC-BY",
+      "url": "https://sketchfab.com/3d-models/saddle-88f15df698b44b7191f4e93ceff79859",
+      "format": "glTF/GLB after Sketchfab login",
+      "polycount": "16.2k triangles / 8.1k verts",
+      "downloaded": false,
+      "keep": false,
+      "why": "CC-BY student saddle. Login required. Verify it is English, not Western, before import."
+    },
+    {
+      "rank": 3,
+      "id": "printables_odd_inventor_saddle",
+      "name": "Horse Saddle (Accurate)",
+      "author": "Odd Inventor / Aileen",
+      "license": "CC-BY 4.0",
+      "url": "https://www.printables.com/model/411449-horse-saddle-accurate",
+      "format": "STL (convert to GLB later)",
+      "polycount": "print mesh, unknown until fetch",
+      "downloaded": false,
+      "keep": false,
+      "why": "Marked original + CC-BY 4.0 commercial. Printables returned 403 without a browser session. Convert STL later; not GLB tonight."
+    },
+    {
+      "rank": 4,
+      "id": "sketchfab_ayan_horse_saddle",
+      "name": "Animated Rigged Horse With Saddle",
+      "author": "Ayan",
+      "license": "CC-BY",
+      "url": "https://sketchfab.com/3d-models/animated-rigged-horse-with-saddle-b08743c2c4734fb98a4e0a2f5767c318",
+      "format": "glTF/GLB after Sketchfab login",
+      "polycount": "32.1k triangles",
+      "downloaded": false,
+      "keep": false,
+      "why": "Extract the saddle only. Do not replace Abbott. Login required."
+    },
+    {
+      "rank": 5,
+      "id": "ramm_saddle_cloth",
+      "name": "Saddle Cloth",
+      "author": "Royal Albert Memorial Museum / University of Exeter Digital Humanities Lab",
+      "license": "CC0 1.0",
+      "url": "https://sketchfab.com/3d-models/saddle-cloth-da0e7edecad44a8c9ef1162c5736a2b9",
+      "format": "glTF (photogrammetry)",
+      "polycount": "1.7M triangles",
+      "downloaded": false,
+      "keep": false,
+      "why": "CC0 but historic side-saddle cloth 1680-1750. Wrong tack, too heavy. Listed so nobody hunts it again."
+    }
+  ],
+  "rider": [
+    {
+      "rank": 1,
+      "id": "quaternius_modular_casual",
+      "name": "Ultimate Modular Women — Casual",
+      "author": "Quaternius",
+      "license": "CC0 1.0",
+      "url": "https://quaternius.com/packs/ultimatemodularwomen.html",
+      "fetched_from": "https://cdn.cinevva.com/assets/packs/quaternius/ultimate-modular-women/Casual.glb",
+      "path": "content/meshes/raw/quaternius_modular_casual/Casual.glb",
+      "format": "GLB",
+      "polycount": "~12968 position verts, 9 meshes, 24 clips",
+      "height_hint_m": 1.84,
+      "downloaded": true,
+      "keep": true,
+      "why": "Best scale to Madison 1.68m. Modular young female, CC0, Godot-ready. Casual clothes — dress later. Do not wire tonight."
+    },
+    {
+      "rank": 2,
+      "id": "quaternius_casual_female",
+      "name": "Ultimate Animated Characters — Casual Female",
+      "author": "Quaternius",
+      "license": "CC0 1.0",
+      "url": "https://quaternius.com/packs/ultimateanimatedcharacters.html",
+      "fetched_from": "https://cdn.cinevva.com/assets/packs/quaternius/ultimate-animated-characters/Casual_Female.glb",
+      "path": "content/meshes/raw/quaternius_casual_female/Casual_Female.glb",
+      "format": "GLB",
+      "polycount": "~8958 position verts, 17 clips (Idle, Walk, Jump, SitDown)",
+      "height_hint_m": null,
+      "downloaded": true,
+      "keep": true,
+      "why": "Same author family. Has SitDown and Jump. Animation bbox is oversized — scale in Godot. Still not hunt-seat."
+    },
+    {
+      "rank": 3,
+      "id": "kenney_female_a",
+      "name": "Mini Characters — female a",
+      "author": "Kenney",
+      "license": "CC0 1.0",
+      "url": "https://kenney.nl/assets/mini-characters",
+      "fetched_from": "https://cdn.cinevva.com/assets/packs/kenney/mini-characters/character-female-a.glb",
+      "path": "content/meshes/raw/kenney_female_a/character-female-a.glb",
+      "format": "GLB",
+      "polycount": "~1576 position verts, 32 clips including sit",
+      "height_hint_m": 2.0,
+      "downloaded": true,
+      "keep": true,
+      "why": "Tiny CC0 stand-in with a sit clip and head/leg nodes. Blocky. Useful for wiring tests, not the shipped Madison."
+    },
+    {
+      "rank": 4,
+      "id": "kenney_female_b",
+      "name": "Mini Characters — female b",
+      "author": "Kenney",
+      "license": "CC0 1.0",
+      "url": "https://kenney.nl/assets/mini-characters",
+      "fetched_from": "https://cdn.cinevva.com/assets/packs/kenney/mini-characters/character-female-b.glb",
+      "path": "content/meshes/raw/kenney_female_b/character-female-b.glb",
+      "format": "GLB",
+      "polycount": "same family as female-a, 252 KB",
+      "downloaded": true,
+      "keep": true,
+      "why": "Second Kenney skin. Quota raise. Same limits as rank 3."
+    },
+    {
+      "rank": 5,
+      "id": "quaternius_universal_base_female",
+      "name": "Universal Base Characters — female",
+      "author": "Quaternius",
+      "license": "CC0 1.0",
+      "url": "https://quaternius.com/packs/universalbasecharacters.html",
+      "format": "FBX/glTF via Quaternius download (Google Drive, not fetched)",
+      "polycount": "~13k tris claimed",
+      "downloaded": false,
+      "keep": false,
+      "why": "Humanoid base meant for Mixamo-style retarget. Download is a Drive folder, not a raw GLB. Fetch in a later human pass if Casual is not enough."
+    }
+  ],
+  "keepers_on_disk": [
+    "content/meshes/raw/quaternius_modular_casual/Casual.glb",
+    "content/meshes/raw/quaternius_casual_female/Casual_Female.glb",
+    "content/meshes/raw/kenney_female_a/character-female-a.glb",
+    "content/meshes/raw/kenney_female_b/character-female-b.glb"
+  ],
+  "rejected_on_disk": [
+    "content/meshes/raw/oga_saddle_bedroll/saddle_with_bedroll.zip",
+    "content/meshes/raw/vroid_base_female/base_female.zip"
+  ],
+  "mixamo": {
+    "redistribute_raw": false,
+    "reason": "Mixamo ToS: use in a game is OK; do not ship raw FBX as a content pack.",
+    "search": ["Sitting Idle", "Idle", "Jump", "Walking"],
+    "missing": ["hunt-seat two-point", "posting trot", "canter on horseback"],
+    "retarget": "See RIDER_HUNT.md. Do not retarget tonight. Do not bind to Abbott."
+  },
+  "quota": {
+    "rejected_min": 8,
+    "rejected_listed": 17,
+    "keepers_min": 3,
+    "keepers_on_disk": 4,
+    "english_saddle_glb_on_disk": 0
+  }
+}

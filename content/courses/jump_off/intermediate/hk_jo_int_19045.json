@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_19045",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, quiet 22004",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.734,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.51
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.795,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -18.246
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.841,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.892,
+      "sp": 0.0,
+      "pos": [
+        8.055,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.15602,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand four in hk_jo_int_19045 the outdoor ring on morning for intermediate. hk_jo_int_19045 Height 2'6\", 4 fences, pattern jump off hk_jo_int_19045 tight, side inside. Fence one of walk hk_jo_int_19045 twenty-two thousand four is a natural vertical hk_jo_int_19045 at eight point eight by minus twenty-five hk_jo_int_19045 point eight. Walk twenty-two thousand four meat hk_jo_int_19045 is a labeled related. Sit after the hk_jo_int_19045 in of walk twenty-two thousand four. Last hk_jo_int_19045 of walk twenty-two thousand four is a hk_jo_int_19045 white vertical at eight point one hk_jo_int_19045.",
+  "michelle_brief": "Walk twenty-two thousand four. Quiet to the first."
+}

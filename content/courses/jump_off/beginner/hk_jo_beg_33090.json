@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_33090",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, left, the other way 21474",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.585,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -25.415
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.36
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.63,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -18.053
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.665,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.692,
+      "sp": 0.303,
+      "pos": [
+        -6.44,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.11341,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand four hundred hk_jo_beg_33090 seventy-four in the outdoor ring on after hk_jo_beg_33090 work for beginner. Height 2'3\", 4 fences, hk_jo_beg_33090 pattern jump off tight, side left. Fence hk_jo_beg_33090 one of walk twenty-one thousand four hundred hk_jo_beg_33090 seventy-four is a plank vertical at six hk_jo_beg_33090 point seven by minus twenty-five point four. hk_jo_beg_33090 Walk twenty-one thousand four hundred seventy-four meat hk_jo_beg_33090 is a labeled related. Sit after the hk_jo_beg_33090 in of walk twenty-one thousand four hundred hk_jo_beg_33090 seventy-four. Last of walk twenty-one thousand hk_jo_beg_33090.",
+  "michelle_brief": "Walk twenty-one thousand four hundred seventy-four. Quiet to the first."
+}

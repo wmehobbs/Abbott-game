@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abbott</title>
+<style>
+  :root {
+    --ink: #1c1410;
+    --muted: #5c4a3e;
+    --rule: #cbb9a4;
+    --paper: #f4eee4;
+    --card: #fbf7f0;
+    --wood: #6b3d28;
+    --wood-dark: #3a2418;
+    --blush: #c98978;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.45;
+  }
+  a { color: var(--wood); }
+  header {
+    padding: 1.1rem 1.4rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--card);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  header p {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    margin-top: 0.85rem;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 0.92rem;
+  }
+  nav button {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    cursor: pointer;
+    font: inherit;
+    border-bottom: 2px solid transparent;
+  }
+  nav button[aria-current="page"] {
+    color: var(--ink);
+    border-bottom-color: var(--wood);
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 1.2rem 1.2rem 3rem; }
+  .page { display: none; }
+  .page.on { display: block; }
+  figure { margin: 0 0 1.1rem; }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ddd4c8;
+  }
+  figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+  }
+  p { margin: 0 0 0.85rem; }
+  .mark-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem;
+  }
+  .mark-list li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mark-list strong { display: inline-block; min-width: 8.5rem; }
+  .grid {
+    display: grid;
+    gap: 0.9rem;
+  }
+  @media (min-width: 720px) {
+    .grid.two { grid-template-columns: 1fr 1fr; }
+  }
+  form {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0 0 1.2rem;
+    padding: 0.9rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+  }
+  label {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  input, textarea, select {
+    width: 100%;
+    font: inherit;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--ink);
+  }
+  textarea { min-height: 5.5rem; resize: vertical; }
+  .row {
+    display: grid;
+    gap: 0.6rem;
+  }
+  @media (min-width: 640px) {
+    .row.three { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  button.save {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    justify-self: start;
+    background: var(--wood-dark);
+    color: #f7f1ea;
+    border: 0;
+    padding: 0.5rem 0.95rem;
+    cursor: pointer;
+  }
+  .log { list-style: none; padding: 0; margin: 0; }
+  .log li {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 0.8rem 0.9rem;
+    margin: 0 0 0.65rem;
+  }
+  .log header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  .log h3 { margin: 0; font-size: 1rem; }
+  .log .meta { color: var(--muted); font-size: 0.85rem; }
+  .log p { margin: 0.45rem 0 0; white-space: pre-wrap; }
+  .log button {
+    background: none;
+    border: 0;
+    color: var(--blush);
+    cursor: pointer;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 0.8rem;
+    padding: 0;
+  }
+  .empty { color: var(--muted); font-style: italic; }
+  footer {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 1.2rem 2rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Abbott</h1>
+    <p>Hidden K Stables · Pfafftown, North Carolina</p>
+    <nav aria-label="Book">
+      <button type="button" data-page="face" aria-current="page">Face</button>
+      <button type="button" data-page="markings">Markings</button>
+      <button type="button" data-page="barn">Barn</button>
+      <button type="button" data-page="log">Lesson log</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="face" class="page on">
+      <figure>
+        <img src="photos_jpg/IMG_3412.jpg" alt="Abbott looking out of his stall. Chestnut face, crooked white blaze, pink muzzle, flaxen forelock.">
+        <figcaption>Over the stall door.</figcaption>
+      </figure>
+      <figure>
+        <img src="photos_jpg/IMG_3409.jpg" alt="Abbott in three-quarter view, flaxen forelock and crooked blaze, hay in his mouth.">
+        <figcaption>Same horse. Flaxen forelock, blaze that does not run straight.</figcaption>
+      </figure>
+    </section>
+
+    <section id="markings" class="page">
+      <h2>What he is</h2>
+      <ul class="mark-list">
+        <li><strong>Color</strong> Chestnut.</li>
+        <li><strong>Blaze</strong> Crooked. Wide at the forehead, then it wanders. Dark islands in the white.</li>
+        <li><strong>Muzzle</strong> Pink.</li>
+        <li><strong>Forelock</strong> Flaxen.</li>
+        <li><strong>Mane</strong> Dark with flaxen mixed through it.</li>
+        <li><strong>Hind</strong> White on the left hind, from the outdoor photograph.</li>
+      </ul>
+      <figure>
+        <img src="photos_jpg/IMG_3408.jpg" alt="Close face: crooked blaze with dark spots, pink muzzle, flaxen forelock.">
+        <figcaption>Blaze, the spots in the white, pink muzzle.</figcaption>
+      </figure>
+      <div class="grid two">
+        <figure>
+          <img src="photos_jpg/IMG_3407.jpg" alt="Abbott eating hay. Flaxen and dark mane falling over the poll.">
+          <figcaption>Forelock and mane from above.</figcaption>
+        </figure>
+        <figure>
+          <img src="photos_jpg/IMG_3416.jpg" alt="Profile at the stall. Blaze along the nasal bone, flaxen forelock.">
+          <figcaption>How the blaze sits on the profile.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="barn" class="page">
+      <h2>Hidden K Stables</h2>
+      <p>4725 Montford Road, Pfafftown, NC 27040 · 336-403-7131<br>
+      <a href="https://www.hiddenkstables.com/">hiddenkstables.com</a></p>
+      <p>Michelle Hargreaves. British Horse Society instructor. Boarding, training, hunter/jumper, dressage, eventing. Home of the Wake Forest and Salem College teams.</p>
+      <figure>
+        <img src="photos_jpg/IMG_3411.jpg" alt="Abbott looking out of a wooden stall with iron bars at Hidden K.">
+        <figcaption>His stall.</figcaption>
+      </figure>
+      <figure>
+        <img src="photos_jpg/IMG_9535.jpg" alt="Madison standing with Abbott on the gravel at Hidden K. Chestnut horse, white blaze, trees and paddock behind them.">
+        <figcaption>Yard at Hidden K. Madison and Abbott.</figcaption>
+      </figure>
+      <figure>
+        <img src="photos_jpg/IMG_3417.jpg" alt="Abbott eating from the stall, wooden boards and a blue bucket.">
+        <figcaption>Same stall, hay in the bucket.</figcaption>
+      </figure>
+    </section>
+
+    <section id="log" class="page">
+      <h2>Lesson log</h2>
+      <p>Typed here, kept on this computer. Nothing is sent anywhere.</p>
+      <form id="entry">
+        <div class="row three">
+          <div>
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+          <div>
+            <label for="kind">Kind</label>
+            <select id="kind" name="kind">
+              <option>Lesson</option>
+              <option>Schooling</option>
+              <option>Hack</option>
+              <option>Show</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="work">Work</label>
+            <input id="work" name="work" type="text" placeholder="flat, poles, fences…">
+          </div>
+        </div>
+        <div>
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" placeholder="How he felt. What to remember next time."></textarea>
+        </div>
+        <button class="save" type="submit">Save entry</button>
+      </form>
+      <ul class="log" id="entries"></ul>
+    </section>
+  </main>
+
+  <footer>Photographs from Hidden K. Open this file directly. No server.</footer>
+
+<script>
+(function () {
+  var KEY = "abbott-lesson-log-v1";
+  var pages = document.querySelectorAll(".page");
+  var buttons = document.querySelectorAll("nav button");
+
+  function show(id) {
+    pages.forEach(function (p) { p.classList.toggle("on", p.id === id); });
+    buttons.forEach(function (b) {
+      if (b.getAttribute("data-page") === id) b.setAttribute("aria-current", "page");
+      else b.removeAttribute("aria-current");
+    });
+    location.hash = id;
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () { show(b.getAttribute("data-page")); });
+  });
+
+  var start = (location.hash || "#face").slice(1);
+  if (!document.getElementById(start)) start = "face";
+  show(start);
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || "[]"); }
+    catch (e) { return []; }
+  }
+  function save(rows) {
+    localStorage.setItem(KEY, JSON.stringify(rows));
+  }
+
+  var list = document.getElementById("entries");
+  var form = document.getElementById("entry");
+  var dateInput = document.getElementById("date");
+
+  function today() {
+    var d = new Date();
+    var m = String(d.getMonth() + 1).padStart(2, "0");
+    var day = String(d.getDate()).padStart(2, "0");
+    dateInput.value = d.getFullYear() + "-" + m + "-" + day;
+  }
+
+  function draw() {
+    var rows = load().slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    list.innerHTML = "";
+    if (!rows.length) {
+      list.innerHTML = '<li class="empty">No lessons yet.</li>';
+      return;
+    }
+    rows.forEach(function (row) {
+      var li = document.createElement("li");
+      var work = row.work ? " · " + row.work : "";
+      var notes = row.notes ? "<p></p>" : "";
+      li.innerHTML =
+        "<header><h3></h3><button type='button'>Remove</button></header>" +
+        "<div class='meta'></div>" + notes;
+      li.querySelector("h3").textContent = row.date;
+      li.querySelector(".meta").textContent = row.kind + work;
+      if (row.notes) li.querySelector("p").textContent = row.notes;
+      li.querySelector("button").addEventListener("click", function () {
+        save(load().filter(function (r) { return r.id !== row.id; }));
+        draw();
+      });
+      list.appendChild(li);
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var rows = load();
+    rows.push({
+      id: String(Date.now()),
+      date: dateInput.value,
+      kind: document.getElementById("kind").value,
+      work: document.getElementById("work").value.trim(),
+      notes: document.getElementById("notes").value.trim()
+    });
+    save(rows);
+    document.getElementById("work").value = "";
+    document.getElementById("notes").value = "";
+    draw();
+  });
+
+  today();
+  draw();
+})();
+</script>
+</body>
+</html>

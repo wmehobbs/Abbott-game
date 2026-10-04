@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_16781",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, inside, Tuesday 455",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -26.01
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.88
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.858,
+      "sp": 0.795,
+      "pos": [
+        8.545,
+        0.0,
+        -15.133
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.22
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        -7.911
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.883,
+      "sp": 0.0,
+      "pos": [
+        -7.3,
+        0.0,
+        -0.689
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        8.545,
+        0.0,
+        6.533
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.892,
+      "sp": 0.0,
+      "pos": [
+        -7.3,
+        0.0,
+        13.756
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.904,
+      "sp": 0.795,
+      "pos": [
+        8.545,
+        0.0,
+        20.978
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.923,
+      "sp": 0.795,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        7.861,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.19652,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.934,
+      "sp": 0.795,
+      "pos": [
+        -6.716,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.14458,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        7.861,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.18512,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.795,
+      "pos": [
+        -6.716,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.14229,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk four hundred fifty-five in hk_adv_16781 the outdoor ring on late for advanced. hk_adv_16781 Height 3'0\", 12 fences, pattern liverpool lookalike hk_adv_16781 flower, side left. Fence one of walk hk_adv_16781 four hundred fifty-five is a natural vertical hk_adv_16781 at eight point five by minus twenty-six. hk_adv_16781 Walk four hundred fifty-five meat is a hk_adv_16781 labeled related. Sit after the in of hk_adv_16781 walk four hundred fifty-five. Last of walk hk_adv_16781 four hundred fifty-five is a brush oxer hk_adv_16781 at minus six point seven by hk_adv_16781.",
+  "michelle_brief": "Walk four hundred fifty-five. Quiet to the first."
+}

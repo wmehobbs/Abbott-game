@@ -1,0 +1,73 @@
+{
+  "id": "hk_in_jo_int_8374",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "show"
+  ],
+  "name": "indoor jump-off jump off tight, inside, Tuesday 13471",
+  "height_label": "2'6\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.746,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -10.92
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.4
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.813,
+      "sp": 0.574,
+      "pos": [
+        5.0,
+        0.0,
+        -3.525
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.893,
+      "sp": 0.574,
+      "pos": [
+        -4.6,
+        0.0,
+        -5.7
+      ],
+      "yaw": 3.17664,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "walk_text": "Hidden K walk thirteen thousand four hundred hk_in_jo_int_8374 seventy-one in the indoor on the other hk_in_jo_int_8374 way for intermediate. Height 2'6\", 3 fences, hk_in_jo_int_8374 pattern jump off tight, side left. Fence hk_in_jo_int_8374 one of walk thirteen thousand four hundred hk_in_jo_int_8374 seventy-one is a plank vertical at five hk_in_jo_int_8374 by minus ten point nine. Walk thirteen hk_in_jo_int_8374 thousand four hundred seventy-one meat is a hk_in_jo_int_8374 labeled related. Sit after the in of hk_in_jo_int_8374 walk thirteen thousand four hundred seventy-one. Last hk_in_jo_int_8374 of walk thirteen thousand four hundred hk_in_jo_int_8374.",
+  "michelle_brief": "Walk thirteen thousand four hundred seventy-one. Quiet to the first."
+}

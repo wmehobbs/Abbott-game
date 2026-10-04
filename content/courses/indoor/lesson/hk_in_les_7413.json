@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_7413",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, outside, after work 14220",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.422,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.4
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.527,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.597
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.624,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_in_les_7413 twenty in the indoor on after work hk_in_les_7413 for lesson. Height poles to 2'3\", 3 hk_in_les_7413 fences, pattern lesson single then line, side hk_in_les_7413 left. Fence one of walk fourteen thousand hk_in_les_7413 two hundred twenty is a white vertical hk_in_les_7413 at four point nine by minus eleven. hk_in_les_7413 Walk fourteen thousand two hundred twenty meat hk_in_les_7413 is a labeled related. Sit after the hk_in_les_7413 in of walk fourteen thousand two hundred hk_in_les_7413 twenty. Last of walk fourteen thousand hk_in_les_7413.",
+  "michelle_brief": "Walk fourteen thousand two hundred twenty. Quiet to the first."
+}

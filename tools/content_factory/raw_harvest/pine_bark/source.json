@@ -1,0 +1,24 @@
+{
+  "slug": "pine_bark",
+  "source": "polyhaven",
+  "source_id": "pine_bark",
+  "page": "https://polyhaven.com/a/pine_bark",
+  "author": "Dimitrios Savva",
+  "license": "CC0 1.0",
+  "license_url": "https://polyhaven.com/license",
+  "tags": [
+    "trees",
+    "bark",
+    "pine"
+  ],
+  "maps": {
+    "albedo": "pine_bark_albedo_1k.jpg",
+    "albedo_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/pine_bark/pine_bark_diff_1k.jpg",
+    "normal": "pine_bark_normal_1k.jpg",
+    "normal_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/pine_bark/pine_bark_nor_gl_1k.jpg",
+    "rough": "pine_bark_rough_1k.jpg",
+    "rough_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/pine_bark/pine_bark_rough_1k.jpg"
+  },
+  "date_fetched": "2026-09-16",
+  "use_for": "trees, bark, pine"
+}

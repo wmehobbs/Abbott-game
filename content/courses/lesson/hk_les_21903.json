@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_21903",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, right, morning 24274",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.42,
+      "sp": 0.0,
+      "pos": [
+        7.39,
+        0.0,
+        -25.075
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.89
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.523,
+      "sp": 0.0,
+      "pos": [
+        7.39,
+        0.0,
+        -14.183
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.633,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-four thousand two hundred hk_les_21903 seventy-four in the outdoor ring on quiet hk_les_21903 for lesson. Height poles to 2'3\", 3 hk_les_21903 fences, pattern lesson single then line, side hk_les_21903 outside. Fence one of walk twenty-four thousand hk_les_21903 two hundred seventy-four is a plank vertical hk_les_21903 at seven point four by minus twenty-five hk_les_21903 point one. Walk twenty-four thousand two hundred hk_les_21903 seventy-four meat is a labeled related. Sit hk_les_21903 after the in of walk twenty-four thousand hk_les_21903 two hundred seventy-four. Last of walk hk_les_21903.",
+  "michelle_brief": "Walk twenty-four thousand two hundred seventy-four. Quiet to the first."
+}

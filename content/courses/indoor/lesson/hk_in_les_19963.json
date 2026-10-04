@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19963",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, left, before the show 13642",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.437,
+      "sp": 0.0,
+      "pos": [
+        4.64,
+        0.0,
+        -11.16
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.37
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.515,
+      "sp": 0.0,
+      "pos": [
+        4.64,
+        0.0,
+        -3.794
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.617,
+      "sp": 0.0,
+      "pos": [
+        4.64,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand six hundred hk_in_les_19963 forty-two in the indoor on Thursday for hk_in_les_19963 lesson. Height poles to 2'3\", 3 fences, hk_in_les_19963 pattern lesson single then line, side outside. hk_in_les_19963 Fence one of walk thirteen thousand six hk_in_les_19963 hundred forty-two is a brush vertical at hk_in_les_19963 four point six by minus eleven point hk_in_les_19963 two. Walk thirteen thousand six hundred forty-two hk_in_les_19963 meat is a labeled related. Sit after hk_in_les_19963 the in of walk thirteen thousand six hk_in_les_19963 hundred forty-two. Last of walk thirteen hk_in_les_19963.",
+  "michelle_brief": "Walk thirteen thousand six hundred forty-two. Quiet to the first."
+}

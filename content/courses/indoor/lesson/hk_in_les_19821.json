@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19821",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor outside track, inside, the other way 13545",
+  "height_label": "poles to 2'3\"",
+  "pattern": "outside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.427,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.31
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.524,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.685
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.629,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand five hundred hk_in_les_19821 forty-five in the indoor on the other hk_in_les_19821 way for lesson. Height poles to 2'3\", hk_in_les_19821 3 fences, pattern outside track, side outside. hk_in_les_19821 Fence one of walk thirteen thousand five hk_in_les_19821 hundred forty-five is a plank vertical at hk_in_les_19821 four point nine by minus eleven. Walk hk_in_les_19821 thirteen thousand five hundred forty-five meat is hk_in_les_19821 a labeled related. Sit after the in hk_in_les_19821 of walk thirteen thousand five hundred forty-five. hk_in_les_19821 Last of walk thirteen thousand five hk_in_les_19821.",
+  "michelle_brief": "Walk thirteen thousand five hundred forty-five. Quiet to the first."
+}

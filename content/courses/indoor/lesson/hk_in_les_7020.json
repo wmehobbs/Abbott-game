@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_7020",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, outside, after work 14052",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.415,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -11.08
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.36
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.516,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        -3.715
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        3.8,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand fifty-two in hk_in_les_7020 the indoor on first school for lesson. hk_in_les_7020 Height poles to 2'3\", 3 fences, pattern hk_in_les_7020 related out, side right. Fence one of hk_in_les_7020 walk fourteen thousand fifty-two is a natural hk_in_les_7020 vertical at three point eight by minus hk_in_les_7020 eleven point one. Walk fourteen thousand fifty-two hk_in_les_7020 meat is a labeled related. Sit after hk_in_les_7020 the in of walk fourteen thousand fifty-two. hk_in_les_7020 Last of walk fourteen thousand fifty-two is hk_in_les_7020 a natural vertical at three point hk_in_les_7020.",
+  "michelle_brief": "Walk fourteen thousand fifty-two. Quiet to the first."
+}

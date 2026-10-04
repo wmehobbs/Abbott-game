@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17415",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "bending five, inside, Thursday 1089",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.852,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -25.415
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.69
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -14.724
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        3.461,
+        0.0,
+        -7.57
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.52
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.887,
+      "sp": 0.0,
+      "pos": [
+        1.129,
+        0.0,
+        -0.416
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.902,
+      "sp": 0.596,
+      "pos": [
+        -1.204,
+        0.0,
+        6.738
+      ],
+      "yaw": -0.22,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -3.536,
+        0.0,
+        13.892
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.907,
+      "sp": 0.596,
+      "pos": [
+        -5.868,
+        0.0,
+        21.046
+      ],
+      "yaw": -0.22,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        -8.2,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.933,
+      "sp": 0.596,
+      "pos": [
+        7.475,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.129,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.935,
+      "sp": 0.596,
+      "pos": [
+        7.475,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.20097,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.954,
+      "sp": 0.596,
+      "pos": [
+        -7.544,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.16745,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.944,
+      "sp": 0.0,
+      "pos": [
+        6.5,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.09676,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "bending_five",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand eighty-nine in hk_adv_17415 the outdoor ring on morning for advanced. hk_adv_17415 Height 3'0\", 12 fences, pattern bending five, hk_adv_17415 side left. Fence one of walk one hk_adv_17415 thousand eighty-nine is a natural vertical at hk_adv_17415 eight point one by minus twenty-five point hk_adv_17415 four. Walk one thousand eighty-nine meat is hk_adv_17415 a labeled related. Sit after the in hk_adv_17415 of walk one thousand eighty-nine. Last of hk_adv_17415 walk one thousand eighty-nine is a natural hk_adv_17415 vertical at six point five by hk_adv_17415.",
+  "michelle_brief": "Walk one thousand eighty-nine. Quiet to the first."
+}

@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+RIDECERT begin
+RIDECERT filter hk_int_002
+RIDECERT round hk_int_002 class=intermediate seed=1 jo=false style=refuse_three
+COUNT fence=1 ahead=6.13 lateral=8.58 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+MICHELLE soft | Two. Wait.
+COUNT fence=1 ahead=7.99 lateral=1.53 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=8.6,-30.5 ahead=7.91 lat=0.12 ang=3.7 along=7.9 gait=3 v=1.48 rein=-1
+MICHELLE soft | One. Wait.
+COUNT fence=1 ahead=7.56 lateral=0.24 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=8.7,-28.3 ahead=5.69 lat=0.02 ang=2.6 along=5.7 gait=3 v=3.29 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=5.35 lateral=0.24 stride=1 word=One. Early. kept=true
+RIDEAI ASK n=1 ahead=4.27 lat=0.24 ang=2.6 charge=1.0
+RIDECERT refuse fence=1 why=early
+RIDEAI sit n=1 phase=approach pos=8.7,-27.1 ahead=4.43 lat=0.04 ang=2.6 along=4.4 gait=2 v=0.97 rein=0
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=4.41 lateral=0.24 stride=1 word=One. Early. kept=true
+RIDEAI ASK n=1 ahead=4.32 lat=0.24 ang=2.6 charge=0.24
+RIDECERT refuse fence=1 why=early
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=4.45 lateral=0.24 stride=1 word=One. Early. kept=true
+RIDEAI ASK n=1 ahead=4.32 lat=0.24 ang=2.6 charge=0.32
+RIDECERT refuse fence=1 why=three
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_int_002_refuse_three.jsonl n=10
+RIDECERT hk_int_002 style=refuse_three success=false faults=12 refusal_faults=12 rail_faults=0 time_faults=0 jumped=0/10 t=7.13 teleported=false complete=true refused=[1, 1, 1] rail_fences=[] rail_air=[] conf=71.5 scope=80.0 eliminated=true reason=three ribbon=
+RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_results.json
+RIDECERT done pass=true board=refuse_three refusals=3

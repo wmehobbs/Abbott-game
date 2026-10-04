@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_34242",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, before the show 20339",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.86,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -26.01
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.45
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.892,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -18.563
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.927,
+      "sp": 0.599,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        -8.096,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.17803,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand three hundred hk_jo_adv_34242 thirty-nine in the outdoor ring on the hk_jo_adv_34242 other way for advanced. Height 3'0\", 4 hk_jo_adv_34242 fences, pattern jump off tight, side outside. hk_jo_adv_34242 Fence one of walk twenty thousand three hk_jo_adv_34242 hundred thirty-nine is a brush vertical at hk_jo_adv_34242 eight point nine by minus twenty-six. Walk hk_jo_adv_34242 twenty thousand three hundred thirty-nine meat is hk_jo_adv_34242 a labeled related. Sit after the in hk_jo_adv_34242 of walk twenty thousand three hundred thirty-nine. hk_jo_adv_34242 Last of walk twenty thousand three hk_jo_adv_34242.",
+  "michelle_brief": "Walk twenty thousand three hundred thirty-nine. Quiet to the first."
+}

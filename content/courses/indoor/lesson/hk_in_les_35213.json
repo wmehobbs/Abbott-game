@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35213",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, right, Thursday 13882",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.414,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.53,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -3.517
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.631,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand eight hundred hk_in_les_35213 eighty-two in the indoor on Tuesday for hk_in_les_35213 lesson. Height poles to 2'3\", 3 fences, hk_in_les_35213 pattern lesson single then line, side inside. hk_in_les_35213 Fence one of walk thirteen thousand eight hk_in_les_35213 hundred eighty-two is a plank vertical at hk_in_les_35213 four point four by minus eleven. Walk hk_in_les_35213 thirteen thousand eight hundred eighty-two meat is hk_in_les_35213 a labeled related. Sit after the in hk_in_les_35213 of walk thirteen thousand eight hundred eighty-two. hk_in_les_35213 Last of walk thirteen thousand eight hk_in_les_35213.",
+  "michelle_brief": "Walk thirteen thousand eight hundred eighty-two. Quiet to the first."
+}

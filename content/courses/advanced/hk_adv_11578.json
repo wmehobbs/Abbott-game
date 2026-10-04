@@ -1,0 +1,207 @@
+{
+  "id": "hk_adv_11578",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "bending five, outside, Tuesday 302",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.86,
+      "sp": 0.0,
+      "pos": [
+        7.285,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.86
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.871,
+      "sp": 0.547,
+      "pos": [
+        7.285,
+        0.0,
+        -14.895
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        3.175,
+        0.0,
+        -7.712
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.47
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.893,
+      "sp": 0.547,
+      "pos": [
+        1.12,
+        0.0,
+        -0.53
+      ],
+      "yaw": -0.22,
+      "name": "brush oxer",
+      "related": {
+        "to": 5,
+        "strides": 1,
+        "distance_m": 7.47
+      }
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        -0.935,
+        0.0,
+        6.653
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.904,
+      "sp": 0.0,
+      "pos": [
+        -2.99,
+        0.0,
+        13.835
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        -5.045,
+        0.0,
+        21.018
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.913,
+      "sp": 0.0,
+      "pos": [
+        -7.1,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.928,
+      "sp": 0.547,
+      "pos": [
+        6.702,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.12938,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.945,
+      "sp": 0.0,
+      "pos": [
+        6.702,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.13132,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.947,
+      "sp": 0.547,
+      "pos": [
+        6.702,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.11173,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.547,
+      "pos": [
+        -6.532,
+        0.0,
+        3.8
+      ],
+      "yaw": 3.16616,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "bending_five",
+  "indoor": false,
+  "walk_text": "Hidden K walk three hundred two in hk_adv_11578 the outdoor ring on Thursday for advanced. hk_adv_11578 Height 3'0\", 12 fences, pattern bending five, hk_adv_11578 side outside. Fence one of walk three hk_adv_11578 hundred two is a natural vertical at hk_adv_11578 seven point three by minus twenty-five point hk_adv_11578 eight. Walk three hundred two meat is hk_adv_11578 a labeled related. Sit after the in hk_adv_11578 of walk three hundred two. Last of hk_adv_11578 walk three hundred two is a plank hk_adv_11578 oxer at minus six point five hk_adv_11578.",
+  "michelle_brief": "Walk three hundred two. Quiet to the first."
+}

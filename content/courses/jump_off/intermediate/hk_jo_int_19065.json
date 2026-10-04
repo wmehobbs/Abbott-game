@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_19065",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, before the show 22024",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.728,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -25.67
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.33
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.79,
+      "sp": 0.0,
+      "pos": [
+        7.81,
+        0.0,
+        -18.342
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.832,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        7.185,
+        0.0,
+        18.2
+      ],
+      "yaw": 3.19335,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand twenty-four in hk_jo_int_19065 the outdoor ring on late for intermediate. hk_jo_int_19065 Height 2'6\", 4 fences, pattern jump off hk_jo_int_19065 tight, side right. Fence one of walk hk_jo_int_19065 twenty-two thousand twenty-four is a brush vertical hk_jo_int_19065 at seven point eight by minus twenty-five hk_jo_int_19065 point seven. Walk twenty-two thousand twenty-four meat hk_jo_int_19065 is a labeled related. Sit after the hk_jo_int_19065 in of walk twenty-two thousand twenty-four. Last hk_jo_int_19065 of walk twenty-two thousand twenty-four is a hk_jo_int_19065 flower box at seven point two hk_jo_int_19065.",
+  "michelle_brief": "Walk twenty-two thousand twenty-four. Quiet to the first."
+}

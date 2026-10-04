@@ -1,0 +1,146 @@
+{
+  "id": "hk_beg_014",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, the other way 4734",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Long approaches. Half-halt, last stride, then ask.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.587,
+      "sp": 0.0,
+      "pos": [
+        7.223,
+        0.0,
+        -22.463
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.608,
+      "sp": 0.0,
+      "pos": [
+        -7.26,
+        0.0,
+        -14.229
+      ],
+      "yaw": 0.07,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.634,
+      "sp": 0.0,
+      "pos": [
+        7.223,
+        0.0,
+        -6.843
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.618,
+      "sp": 0.0,
+      "pos": [
+        -7.26,
+        0.0,
+        0.522
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": {
+        "to": 5,
+        "strides": 2,
+        "distance_m": 10.91
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.638,
+      "sp": 0.0,
+      "pos": [
+        -6.606,
+        0.0,
+        11.415
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.68,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        18.889
+      ],
+      "yaw": 0.03243,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.677,
+      "sp": 0.0,
+      "pos": [
+        6.679,
+        0.0,
+        0.876
+      ],
+      "yaw": 3.14566,
+      "name": "white vertical",
+      "related": {
+        "to": 8,
+        "strides": 3,
+        "distance_m": 15.2
+      }
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.668,
+      "sp": 0.0,
+      "pos": [
+        6.645,
+        0.0,
+        -14.324
+      ],
+      "yaw": 3.16885,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk four thousand seven hundred hk_beg_014 thirty-four in the outdoor ring on late hk_beg_014 for beginner. Height 2'3\", 8 fences, pattern hk_beg_014 outside track, side right. Fence one of hk_beg_014 walk four thousand seven hundred thirty-four is hk_beg_014 a white vertical at seven point two hk_beg_014 by minus twenty-two point five. Walk four hk_beg_014 thousand seven hundred thirty-four meat is a hk_beg_014 labeled related. Sit after the in of hk_beg_014 walk four thousand seven hundred thirty-four. Last hk_beg_014 of walk four thousand seven hundred hk_beg_014.",
+  "michelle_brief": "Walk four thousand seven hundred thirty-four. Quiet to the first."
+}

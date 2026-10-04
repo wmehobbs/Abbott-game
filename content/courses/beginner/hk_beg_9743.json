@@ -1,0 +1,151 @@
+{
+  "id": "hk_beg_9743",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "rollback short, outside, quiet 10308",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.588,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -25.075
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.75
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.61,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -14.329
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.63
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.623,
+      "sp": 0.455,
+      "pos": [
+        9.49,
+        0.0,
+        -3.697
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.64,
+      "sp": 0.0,
+      "pos": [
+        -8.9,
+        0.0,
+        6.936
+      ],
+      "yaw": 0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.649,
+      "sp": 0.455,
+      "pos": [
+        9.49,
+        0.0,
+        17.568
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": {
+        "to": 6,
+        "strides": 3,
+        "distance_m": 14.25
+      }
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.664,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.687,
+      "sp": 0.0,
+      "pos": [
+        -8.188,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.1155,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.699,
+      "sp": 0.0,
+      "pos": [
+        7.592,
+        0.0,
+        11.45
+      ],
+      "yaw": 3.10383,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "rollback_short",
+  "indoor": false,
+  "walk_text": "Hidden K walk ten thousand three hundred hk_beg_9743 eight in the outdoor ring on Thursday hk_beg_9743 for beginner. Height 2'3\", 8 fences, pattern hk_beg_9743 rollback short, side right. Fence one of hk_beg_9743 walk ten thousand three hundred eight is hk_beg_9743 a white vertical at nine point five hk_beg_9743 by minus twenty-five point one. Walk ten hk_beg_9743 thousand three hundred eight meat is a hk_beg_9743 labeled related. Sit after the in of hk_beg_9743 walk ten thousand three hundred eight. Last hk_beg_9743 of walk ten thousand three hundred hk_beg_9743.",
+  "michelle_brief": "Walk ten thousand three hundred eight. Quiet to the first."
+}

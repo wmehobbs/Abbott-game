@@ -1,0 +1,71 @@
+{
+  "id": "hk_les_002",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "Single then the line",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 10.25,
+  "notes": "Same three as the lesson. Walk him in. Don't chase the line.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.419,
+      "sp": 0.0,
+      "pos": [
+        3.102,
+        0.0,
+        -19.289
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.528,
+      "sp": 0.0,
+      "pos": [
+        8.863,
+        0.0,
+        -6.968
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.81
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.606,
+      "sp": 0.0,
+      "pos": [
+        8.863,
+        0.0,
+        3.847
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "lesson_single_then_line",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-two thousand seven hundred hk_les_002 twenty-eight in the outdoor ring on Tuesday hk_les_002 for lesson. Height poles to 2'3\", 3 hk_les_002 fences, pattern lesson single then line, side hk_les_002 right. Fence one of walk twenty-two thousand hk_les_002 seven hundred twenty-eight is a white vertical hk_les_002 at three point one by minus nineteen hk_les_002 point three. Walk twenty-two thousand seven hundred hk_les_002 twenty-eight meat is a labeled related. Sit hk_les_002 after the in of walk twenty-two thousand hk_les_002 seven hundred twenty-eight. Last of walk hk_les_002.",
+  "michelle_brief": "Walk twenty-two thousand seven hundred twenty-eight. Quiet to the first."
+}

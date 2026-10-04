@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_7082",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor inside track, right, first school 14114",
+  "height_label": "poles to 2'3\"",
+  "pattern": "inside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.423,
+      "sp": 0.0,
+      "pos": [
+        4.04,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.33
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.522,
+      "sp": 0.0,
+      "pos": [
+        4.04,
+        0.0,
+        -3.905
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.629,
+      "sp": 0.0,
+      "pos": [
+        4.04,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand one hundred hk_in_les_7082 fourteen in the indoor on Tuesday for hk_in_les_7082 lesson. Height poles to 2'3\", 3 fences, hk_in_les_7082 pattern inside track, side outside. Fence one hk_in_les_7082 of walk fourteen thousand one hundred fourteen hk_in_les_7082 is a brush vertical at four by hk_in_les_7082 minus eleven point two. Walk fourteen thousand hk_in_les_7082 one hundred fourteen meat is a labeled hk_in_les_7082 related. Sit after the in of walk hk_in_les_7082 fourteen thousand one hundred fourteen. Last of hk_in_les_7082 walk fourteen thousand one hundred fourteen hk_in_les_7082.",
+  "michelle_brief": "Walk fourteen thousand one hundred fourteen. Quiet to the first."
+}

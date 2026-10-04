@@ -1,0 +1,20 @@
+# Godot rebuilds this cache the first time the project is opened.
+.godot/
+
+# Godot export templates. Several of these are over GitHub's 100 MB file limit.
+# Install them from the Godot editor: Editor → Manage Export Templates.
+/tools/templates/
+/tools/Godot_v4.7.2-stable_export_templates.tpz
+
+# Built players. The exported exe is larger than GitHub allows.
+/dist/*.exe
+/dist/*.tmp
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+*.pem
+credentials.json

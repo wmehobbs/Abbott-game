@@ -1,0 +1,180 @@
+| hk_les_001 | 0 | 18.53 | false | 3/3 | 1 2 3 | — | 2 | 2 |
+SILENT_DETAIL hk_les_001
+  fence 2 ahead=10.41 lateral=1.75
+| hk_les_002 | 0 | 16.54 | false | 3/3 | 1 2 3 | — | 2 | 1 |
+SILENT_DETAIL hk_les_002
+  fence 2 ahead=10.94 lateral=2.42
+| hk_les_003 | 0 | 18.21 | false | 3/3 | 1 2 3 | — | 2 | 2 |
+SILENT_DETAIL hk_les_003
+  fence 2 ahead=10.72 lateral=1.71
+| hk_les_004 | 0 | 17.95 | false | 3/3 | 1 2 3 | — | 2 | 1 |
+SILENT_DETAIL hk_les_004
+  fence 2 ahead=10.93 lateral=3.54
+| hk_beg_035 | 0 | 67.28 | false | 8/8 | 1 2 3 4 5 6 7 8 | — | 1 2 3 6 7 8 | 1 |
+SILENT_DETAIL hk_beg_035
+  fence 1 ahead=5.83 lateral=8.24
+  fence 2 ahead=10.13 lateral=16.29
+  fence 3 ahead=10.86 lateral=4.70
+  fence 6 ahead=5.39 lateral=1.68
+  fence 7 ahead=0.86 lateral=25.39
+  fence 8 ahead=10.95 lateral=7.16
+| hk_beg_039 | 0 | 70.74 | false | 8/8 | 1 2 3 4 5 6 7 8 | — | 1 3 4 5 6 7 8 | 2 |
+SILENT_DETAIL hk_beg_039
+  fence 1 ahead=6.33 lateral=9.37
+  fence 3 ahead=10.83 lateral=8.57
+  fence 4 ahead=11.00 lateral=8.93
+  fence 5 ahead=10.96 lateral=9.05
+  fence 6 ahead=5.95 lateral=1.65
+  fence 7 ahead=0.81 lateral=14.98
+  fence 8 ahead=10.87 lateral=7.40
+| hk_beg_004 | 0 | 70.32 | false | 8/8 | 1 2 3 4 5 6 7 8 | — | 1 2 3 5 6 7 8 | 4 |
+SILENT_DETAIL hk_beg_004
+  fence 1 ahead=7.88 lateral=2.52
+  fence 2 ahead=10.52 lateral=14.73
+  fence 3 ahead=10.99 lateral=9.09
+  fence 5 ahead=10.84 lateral=9.48
+  fence 6 ahead=6.77 lateral=1.68
+  fence 7 ahead=0.99 lateral=23.18
+  fence 8 ahead=10.94 lateral=7.68
+| hk_beg_034 | 0 | 63.43 | false | 8/8 | 1 2 3 4 5 6 7 8 | — | 1 2 3 4 6 7 8 | 2 |
+SILENT_DETAIL hk_beg_034
+  fence 1 ahead=6.32 lateral=9.24
+  fence 2 ahead=7.20 lateral=16.01
+  fence 3 ahead=10.98 lateral=8.88
+  fence 4 ahead=10.21 lateral=1.87
+  fence 6 ahead=10.89 lateral=4.54
+  fence 7 ahead=0.94 lateral=15.46
+  fence 8 ahead=10.98 lateral=6.02
+| hk_beg_007 | 0 | 65.54 | false | 8/8 | 1 2 3 4 5 6 7 8 | — | 1 2 5 6 7 8 | 2 |
+SILENT_DETAIL hk_beg_007
+  fence 1 ahead=6.29 lateral=8.43
+  fence 2 ahead=6.96 lateral=15.56
+  fence 5 ahead=10.93 lateral=8.54
+  fence 6 ahead=10.90 lateral=4.99
+  fence 7 ahead=1.05 lateral=18.67
+  fence 8 ahead=8.81 lateral=12.32
+| hk_beg_033 | 0 | 59.87 | false | 8/8 | 1 2 3 4 5 6 7 8 | — | 1 4 5 6 7 8 | 2 |
+SILENT_DETAIL hk_beg_033
+  fence 1 ahead=6.23 lateral=8.77
+  fence 4 ahead=10.98 lateral=8.99
+  fence 5 ahead=10.98 lateral=8.06
+  fence 6 ahead=10.97 lateral=4.37
+  fence 7 ahead=1.03 lateral=17.44
+  fence 8 ahead=10.99 lateral=6.84
+| hk_int_001 | 0 | 90.84 | false | 10/10 | 1 2 3 4 5 6 7 8 9 10 | — | 1 4 5 6 7 8 9 10 | 4 |
+SILENT_DETAIL hk_int_001
+  fence 1 ahead=7.82 lateral=4.19
+  fence 4 ahead=10.44 lateral=1.63
+  fence 5 ahead=9.50 lateral=15.00
+  fence 6 ahead=8.72 lateral=15.87
+  fence 7 ahead=10.23 lateral=1.65
+  fence 8 ahead=1.04 lateral=20.74
+  fence 9 ahead=10.86 lateral=5.95
+  fence 10 ahead=10.58 lateral=9.55
+| hk_int_002 | 0 | 80.3 | false | 10/10 | 1 2 3 4 5 6 7 8 9 10 | — | 1 2 3 6 7 8 | 3 |
+SILENT_DETAIL hk_int_002
+  fence 1 ahead=6.13 lateral=8.58
+  fence 2 ahead=10.87 lateral=16.92
+  fence 3 ahead=10.50 lateral=14.03
+  fence 6 ahead=5.22 lateral=16.21
+  fence 7 ahead=7.63 lateral=1.62
+  fence 8 ahead=1.16 lateral=30.05
+| hk_int_005 | 0 | 92.28 | false | 10/10 | 1 2 3 4 5 6 7 8 9 10 | — | 1 2 3 5 6 7 8 9 | 0 |
+SILENT_DETAIL hk_int_005
+  fence 1 ahead=6.44 lateral=8.28
+  fence 2 ahead=8.40 lateral=15.58
+  fence 3 ahead=10.18 lateral=1.76
+  fence 5 ahead=9.43 lateral=13.75
+  fence 6 ahead=10.87 lateral=15.71
+  fence 7 ahead=5.16 lateral=1.64
+  fence 8 ahead=0.98 lateral=17.75
+  fence 9 ahead=4.05 lateral=1.66
+| hk_int_006 | 0 | 79.02 | false | 10/10 | 1 2 3 4 5 6 7 8 9 10 | — | 1 2 3 6 7 8 9 10 | 5 |
+SILENT_DETAIL hk_int_006
+  fence 1 ahead=7.99 lateral=2.47
+  fence 2 ahead=6.99 lateral=16.13
+  fence 3 ahead=10.97 lateral=9.03
+  fence 6 ahead=11.00 lateral=8.86
+  fence 7 ahead=6.57 lateral=1.66
+  fence 8 ahead=0.98 lateral=23.74
+  fence 9 ahead=10.99 lateral=3.66
+  fence 10 ahead=10.98 lateral=3.56
+| hk_int_007 | 0 | 84.95 | false | 10/10 | 1 2 3 4 5 6 7 8 9 10 | — | 1 2 5 6 7 8 9 10 | 3 |
+SILENT_DETAIL hk_int_007
+  fence 1 ahead=6.14 lateral=8.84
+  fence 2 ahead=10.95 lateral=10.46
+  fence 5 ahead=6.34 lateral=14.38
+  fence 6 ahead=10.95 lateral=8.78
+  fence 7 ahead=4.84 lateral=1.66
+  fence 8 ahead=0.83 lateral=14.29
+  fence 9 ahead=10.98 lateral=7.55
+  fence 10 ahead=10.95 lateral=7.98
+| hk_int_009 | 0 | 84.99 | false | 10/10 | 1 2 3 4 5 6 7 8 9 10 | — | 1 2 5 6 7 8 9 10 | 1 |
+SILENT_DETAIL hk_int_009
+  fence 1 ahead=7.84 lateral=2.51
+  fence 2 ahead=7.64 lateral=16.01
+  fence 5 ahead=10.98 lateral=8.93
+  fence 6 ahead=8.76 lateral=14.42
+  fence 7 ahead=2.85 lateral=1.62
+  fence 8 ahead=0.86 lateral=14.82
+  fence 9 ahead=10.88 lateral=5.49
+  fence 10 ahead=10.95 lateral=7.00
+| hk_adv_001 | 2 | 91.6 | false | 12/12 | 1 2 3 4 5 6 7 8 9 10 11 12 | — | 1 2 3 6 7 8 9 12 | 4 |
+SILENT_DETAIL hk_adv_001
+  fence 1 ahead=7.46 lateral=5.81
+  fence 2 ahead=8.07 lateral=13.79
+  fence 3 ahead=3.04 lateral=16.39
+  fence 6 ahead=8.34 lateral=14.55
+  fence 7 ahead=8.89 lateral=1.64
+  fence 8 ahead=0.92 lateral=17.59
+  fence 9 ahead=3.98 lateral=5.13
+  fence 12 ahead=9.64 lateral=1.72
+| hk_adv_002 | 0 | 83.14 | false | 12/12 | 1 2 3 4 5 6 7 8 9 10 11 12 | — | 1 2 5 6 7 8 9 10 | 7 |
+SILENT_DETAIL hk_adv_002
+  fence 1 ahead=8.10 lateral=2.38
+  fence 2 ahead=7.90 lateral=15.76
+  fence 5 ahead=6.50 lateral=13.34
+  fence 6 ahead=9.49 lateral=1.76
+  fence 7 ahead=9.24 lateral=1.63
+  fence 8 ahead=8.93 lateral=1.68
+  fence 9 ahead=1.07 lateral=20.52
+  fence 10 ahead=7.49 lateral=1.71
+| hk_adv_003 | 3 | 94.0 | false | 12/12 | 1 2 3 4 5 6 7 8 9 10 11 12 | — | 1 4 5 6 7 8 9 10 11 | 3 |
+SILENT_DETAIL hk_adv_003
+  fence 1 ahead=5.96 lateral=8.41
+  fence 4 ahead=8.44 lateral=16.14
+  fence 5 ahead=10.20 lateral=15.31
+  fence 6 ahead=9.55 lateral=14.12
+  fence 7 ahead=11.00 lateral=8.94
+  fence 8 ahead=8.68 lateral=1.60
+  fence 9 ahead=1.73 lateral=21.65
+  fence 10 ahead=6.19 lateral=1.61
+  fence 11 ahead=10.29 lateral=1.63
+| hk_adv_005 | 0 | 78.91 | false | 12/12 | 1 2 3 4 5 6 7 8 9 10 11 12 | — | 1 2 3 6 7 8 9 12 | 6 |
+SILENT_DETAIL hk_adv_005
+  fence 1 ahead=6.44 lateral=8.73
+  fence 2 ahead=11.00 lateral=8.91
+  fence 3 ahead=10.86 lateral=8.42
+  fence 6 ahead=8.49 lateral=16.44
+  fence 7 ahead=8.94 lateral=1.73
+  fence 8 ahead=8.20 lateral=1.73
+  fence 9 ahead=4.92 lateral=17.63
+  fence 12 ahead=8.62 lateral=1.75
+| hk_jo_beg_001 | 0 | 35.31 | false | 4/4 | 1 2 3 4 | — | 1 2 3 4 | 0 |
+SILENT_DETAIL hk_jo_beg_001
+  fence 1 ahead=7.56 lateral=11.32
+  fence 2 ahead=10.96 lateral=7.61
+  fence 3 ahead=10.99 lateral=5.52
+  fence 4 ahead=1.22 lateral=35.44
+| hk_jo_int_001 | 0 | 36.5 | false | 4/4 | 1 2 3 4 | — | 1 2 3 4 | 0 |
+SILENT_DETAIL hk_jo_int_001
+  fence 1 ahead=7.05 lateral=12.13
+  fence 2 ahead=10.98 lateral=5.44
+  fence 3 ahead=10.99 lateral=6.17
+  fence 4 ahead=1.02 lateral=34.20
+| hk_jo_adv_001 | 0 | 35.82 | false | 4/4 | 1 3 4 | 2 | 1 2 3 4 | 0 |
+SILENT_DETAIL hk_jo_adv_001
+  fence 1 ahead=7.21 lateral=14.51
+  fence 2 ahead=11.00 lateral=6.57
+  fence 3 ahead=10.97 lateral=5.18
+  fence 4 ahead=1.31 lateral=34.19

@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_22021",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, Tuesday 24391",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.425,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.89
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.53,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -15.46
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.623,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-four thousand three hundred hk_les_22021 ninety-one in the outdoor ring on Wednesday hk_les_22021 for lesson. Height poles to 2'3\", 3 hk_les_22021 fences, pattern lesson single then line, side hk_les_22021 left. Fence one of walk twenty-four thousand hk_les_22021 three hundred ninety-one is a plank vertical hk_les_22021 at seven point six by minus twenty-six hk_les_22021 point four. Walk twenty-four thousand three hundred hk_les_22021 ninety-one meat is a labeled related. Sit hk_les_22021 after the in of walk twenty-four thousand hk_les_22021 three hundred ninety-one. Last of walk hk_les_22021.",
+  "michelle_brief": "Walk twenty-four thousand three hundred ninety-one. Quiet to the first."
+}

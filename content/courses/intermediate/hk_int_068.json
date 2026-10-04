@@ -1,0 +1,174 @@
+{
+  "id": "hk_int_068",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, morning 14298",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Ten fences. One related. Don't cut the corners.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.738,
+      "sp": 0.0,
+      "pos": [
+        7.264,
+        0.0,
+        -24.459
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.754,
+      "sp": 0.0,
+      "pos": [
+        -7.759,
+        0.0,
+        -14.14
+      ],
+      "yaw": 0.07,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.768,
+      "sp": 0.0,
+      "pos": [
+        7.264,
+        0.0,
+        -4.549
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.61
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.777,
+      "sp": 0.0,
+      "pos": [
+        7.264,
+        0.0,
+        3.064
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 5,
+        "strides": 2,
+        "distance_m": 10.89
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.805,
+      "sp": 0.0,
+      "pos": [
+        7.264,
+        0.0,
+        13.958
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.803,
+      "sp": 0.0,
+      "pos": [
+        -7.759,
+        0.0,
+        25.307
+      ],
+      "yaw": 0.07,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.818,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.291
+      ],
+      "yaw": -0.03113,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.848,
+      "sp": 0.658,
+      "pos": [
+        -7.138,
+        0.0,
+        5.592
+      ],
+      "yaw": 3.04727,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        -6.683,
+        0.0,
+        -4.402
+      ],
+      "yaw": 3.10783,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.866,
+      "sp": 0.658,
+      "pos": [
+        -7.138,
+        0.0,
+        -23.727
+      ],
+      "yaw": 3.06885,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_int_068 ninety-eight in the outdoor ring on Wednesday hk_int_068 for intermediate. Height 2'6\", 10 fences, pattern hk_int_068 outside track, side left. Fence one of hk_int_068 walk fourteen thousand two hundred ninety-eight is hk_int_068 a white vertical at seven point three hk_int_068 by minus twenty-four point five. Walk fourteen hk_int_068 thousand two hundred ninety-eight meat is a hk_int_068 labeled related. Sit after the in of hk_int_068 walk fourteen thousand two hundred ninety-eight. Last hk_int_068 of walk fourteen thousand two hundred hk_int_068.",
+  "michelle_brief": "Walk fourteen thousand two hundred ninety-eight. Quiet to the first."
+}

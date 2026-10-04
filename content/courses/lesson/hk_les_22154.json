@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_22154",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, late 24522",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.415,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.83
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.518,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -15.521
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.628,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-four thousand five hundred hk_les_22154 twenty-two in the outdoor ring on Wednesday hk_les_22154 for lesson. Height poles to 2'3\", 3 hk_les_22154 fences, pattern lesson single then line, side hk_les_22154 right. Fence one of walk twenty-four thousand hk_les_22154 five hundred twenty-two is a natural vertical hk_les_22154 at nine point four by minus twenty-six hk_les_22154 point four. Walk twenty-four thousand five hundred hk_les_22154 twenty-two meat is a labeled related. Sit hk_les_22154 after the in of walk twenty-four thousand hk_les_22154 five hundred twenty-two. Last of walk hk_les_22154.",
+  "michelle_brief": "Walk twenty-four thousand five hundred twenty-two. Quiet to the first."
+}

@@ -1,0 +1,171 @@
+{
+  "id": "hk_int_29118",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, inside, first school 18836",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.745,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.69
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.762,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -14.812
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.785,
+      "sp": 0.0,
+      "pos": [
+        6.76,
+        0.0,
+        -6.21
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.778,
+      "sp": 0.0,
+      "pos": [
+        -7.5,
+        0.0,
+        2.393
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.803,
+      "sp": 0.655,
+      "pos": [
+        6.76,
+        0.0,
+        10.995
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.83,
+      "sp": 0.0,
+      "pos": [
+        -7.5,
+        0.0,
+        19.598
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.836,
+      "sp": 0.655,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.866,
+      "sp": 0.0,
+      "pos": [
+        6.219,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.15924,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.865,
+      "sp": 0.655,
+      "pos": [
+        -6.9,
+        0.0,
+        13.25
+      ],
+      "yaw": 3.1158,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.896,
+      "sp": 0.655,
+      "pos": [
+        6.219,
+        0.0,
+        4.7
+      ],
+      "yaw": 3.08255,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk eighteen thousand eight hundred hk_int_29118 thirty-six in the outdoor ring on Thursday hk_int_29118 for intermediate. Height 2'6\", 10 fences, pattern hk_int_29118 liverpool lookalike flower, side inside. Fence one hk_int_29118 of walk eighteen thousand eight hundred thirty-six hk_int_29118 is a white vertical at six point hk_int_29118 eight by minus twenty-five point five. Walk hk_int_29118 eighteen thousand eight hundred thirty-six meat is hk_int_29118 a labeled related. Sit after the in hk_int_29118 of walk eighteen thousand eight hundred thirty-six. hk_int_29118 Last of walk eighteen thousand eight hk_int_29118.",
+  "michelle_brief": "Walk eighteen thousand eight hundred thirty-six. Quiet to the first."
+}

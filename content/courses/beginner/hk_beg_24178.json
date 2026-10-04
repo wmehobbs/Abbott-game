@@ -1,0 +1,143 @@
+{
+  "id": "hk_beg_24178",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, left, Thursday 7200",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.595,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.81
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.611,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -14.692
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -3.969
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.634,
+      "sp": 0.0,
+      "pos": [
+        -8.3,
+        0.0,
+        6.754
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.655,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        17.477
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.677,
+      "sp": 0.365,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.672,
+      "sp": 0.365,
+      "pos": [
+        -7.636,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.15762,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.697,
+      "sp": 0.0,
+      "pos": [
+        7.004,
+        0.0,
+        11.45
+      ],
+      "yaw": 3.11367,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven thousand two hundred hk_beg_24178 in the outdoor ring on morning for hk_beg_24178 beginner. Height 2'3\", 8 fences, pattern liverpool hk_beg_24178 lookalike flower, side inside. Fence one of hk_beg_24178 walk seven thousand two hundred is a hk_beg_24178 white vertical at eight point eight by hk_beg_24178 minus twenty-five point five. Walk seven thousand hk_beg_24178 two hundred meat is a labeled related. hk_beg_24178 Sit after the in of walk seven hk_beg_24178 thousand two hundred. Last of walk seven hk_beg_24178 thousand two hundred is a flower hk_beg_24178.",
+  "michelle_brief": "Walk seven thousand two hundred. Quiet to the first."
+}

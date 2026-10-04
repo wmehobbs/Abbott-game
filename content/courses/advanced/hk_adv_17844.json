@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17844",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "bending five, inside, Wednesday 1518",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        -26.095
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.71
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        -15.384
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.865,
+      "sp": 0.0,
+      "pos": [
+        3.039,
+        0.0,
+        -8.12
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.6
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.879,
+      "sp": 0.456,
+      "pos": [
+        0.811,
+        0.0,
+        -0.856
+      ],
+      "yaw": -0.22,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.897,
+      "sp": 0.0,
+      "pos": [
+        -1.416,
+        0.0,
+        6.408
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.889,
+      "sp": 0.0,
+      "pos": [
+        -3.644,
+        0.0,
+        13.672
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.901,
+      "sp": 0.456,
+      "pos": [
+        -5.872,
+        0.0,
+        20.936
+      ],
+      "yaw": -0.22,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.92,
+      "sp": 0.456,
+      "pos": [
+        -8.1,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.937,
+      "sp": 0.456,
+      "pos": [
+        6.895,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.1069,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.935,
+      "sp": 0.0,
+      "pos": [
+        6.895,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.14785,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.954,
+      "sp": 0.456,
+      "pos": [
+        -7.452,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.15502,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.953,
+      "sp": 0.456,
+      "pos": [
+        5.996,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.08935,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "bending_five",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand five hundred hk_adv_17844 eighteen in the outdoor ring on Tuesday hk_adv_17844 for advanced. Height 3'0\", 12 fences, pattern hk_adv_17844 bending five, side right. Fence one of hk_adv_17844 walk one thousand five hundred eighteen is hk_adv_17844 a natural vertical at seven point five hk_adv_17844 by minus twenty-six point one. Walk one hk_adv_17844 thousand five hundred eighteen meat is a hk_adv_17844 labeled related. Sit after the in of hk_adv_17844 walk one thousand five hundred eighteen. Last hk_adv_17844 of walk one thousand five hundred hk_adv_17844.",
+  "michelle_brief": "Walk one thousand five hundred eighteen. Quiet to the first."
+}

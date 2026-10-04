@@ -1,0 +1,206 @@
+{
+  "id": "hk_adv_031",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, Tuesday 31",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "One-stride and home. Don't chip the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.845,
+      "sp": 0.0,
+      "pos": [
+        8.604,
+        0.0,
+        -21.946
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.875,
+      "sp": 0.415,
+      "pos": [
+        -8.254,
+        0.0,
+        -12.281
+      ],
+      "yaw": 0.07,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.879,
+      "sp": 0.0,
+      "pos": [
+        8.604,
+        0.0,
+        -1.625
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.18
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.871,
+      "sp": 0.0,
+      "pos": [
+        8.604,
+        0.0,
+        5.552
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 5,
+        "strides": 1,
+        "distance_m": 7.43
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        8.604,
+        0.0,
+        12.986
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.88,
+      "sp": 0.415,
+      "pos": [
+        -8.254,
+        0.0,
+        21.511
+      ],
+      "yaw": 0.07,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.901,
+      "sp": 0.0,
+      "pos": [
+        8.604,
+        0.0,
+        29.205
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.911,
+      "sp": 0.415,
+      "pos": [
+        0.0,
+        0.0,
+        31.413
+      ],
+      "yaw": 0.02855,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.933,
+      "sp": 0.0,
+      "pos": [
+        -7.593,
+        0.0,
+        13.368
+      ],
+      "yaw": 3.16198,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.945,
+      "sp": 0.0,
+      "pos": [
+        -7.916,
+        0.0,
+        4.573
+      ],
+      "yaw": 3.21598,
+      "name": "white vertical",
+      "related": {
+        "to": 11,
+        "strides": 1,
+        "distance_m": 7.75
+      }
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.942,
+      "sp": 0.415,
+      "pos": [
+        -7.593,
+        0.0,
+        -3.166
+      ],
+      "yaw": 3.1731,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.938,
+      "sp": 0.0,
+      "pos": [
+        7.916,
+        0.0,
+        -8.856
+      ],
+      "yaw": 3.23218,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk thirty-one in the outdoor hk_adv_031 ring on after work for advanced. Height hk_adv_031 3'0\", 12 fences, pattern outside track, side hk_adv_031 inside. Fence one of walk thirty-one is hk_adv_031 a white vertical at eight point six hk_adv_031 by minus twenty-one point nine. Walk thirty-one hk_adv_031 meat is a labeled related. Sit after hk_adv_031 the in of walk thirty-one. Last of hk_adv_031 walk thirty-one is a white vertical at hk_adv_031 seven point nine by minus eight point hk_adv_031 nine. Same leave on walk thirty-one. hk_adv_031.",
+  "michelle_brief": "Walk thirty-one. Quiet to the first."
+}

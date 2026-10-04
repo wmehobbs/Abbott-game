@@ -1,0 +1,171 @@
+{
+  "id": "hk_int_27133",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "figure eight, left, quiet 16851",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.738,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.7
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.747,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -15.564
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.772,
+      "sp": 0.556,
+      "pos": [
+        -6.8,
+        0.0,
+        -6.811
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.795,
+      "sp": 0.0,
+      "pos": [
+        -6.8,
+        0.0,
+        1.942
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.811,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        10.694
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.83,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        19.447
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.841,
+      "sp": 0.0,
+      "pos": [
+        -6.8,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.856,
+      "sp": 0.556,
+      "pos": [
+        -6.256,
+        0.0,
+        15.95
+      ],
+      "yaw": 3.09138,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.872,
+      "sp": 0.556,
+      "pos": [
+        -6.256,
+        0.0,
+        9.65
+      ],
+      "yaw": 3.1601,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.893,
+      "sp": 0.556,
+      "pos": [
+        6.752,
+        0.0,
+        4.7
+      ],
+      "yaw": 3.15689,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "figure_eight",
+  "indoor": false,
+  "walk_text": "Hidden K walk sixteen thousand eight hundred hk_int_27133 fifty-one in the outdoor ring on late hk_int_27133 for intermediate. Height 2'6\", 10 fences, pattern hk_int_27133 figure eight, side left. Fence one of hk_int_27133 walk sixteen thousand eight hundred fifty-one is hk_int_27133 a brush vertical at eight point four hk_int_27133 by minus twenty-six point three. Walk sixteen hk_int_27133 thousand eight hundred fifty-one meat is a hk_int_27133 labeled related. Sit after the in of hk_int_27133 walk sixteen thousand eight hundred fifty-one. Last hk_int_27133 of walk sixteen thousand eight hundred hk_int_27133.",
+  "michelle_brief": "Walk sixteen thousand eight hundred fifty-one. Quiet to the first."
+}

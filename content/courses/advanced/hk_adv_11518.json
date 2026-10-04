@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_11518",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, before the show 242",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.857,
+      "sp": 0.0,
+      "pos": [
+        7.075,
+        0.0,
+        -26.01
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.85
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.862,
+      "sp": 0.619,
+      "pos": [
+        7.075,
+        0.0,
+        -15.161
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.23
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.876,
+      "sp": 0.0,
+      "pos": [
+        7.075,
+        0.0,
+        -7.934
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.87,
+      "sp": 0.619,
+      "pos": [
+        -9.0,
+        0.0,
+        -0.707
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.891,
+      "sp": 0.0,
+      "pos": [
+        7.075,
+        0.0,
+        6.52
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.901,
+      "sp": 0.0,
+      "pos": [
+        -9.0,
+        0.0,
+        13.746
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.917,
+      "sp": 0.0,
+      "pos": [
+        7.075,
+        0.0,
+        20.973
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        6.509,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.1717,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.938,
+      "sp": 0.619,
+      "pos": [
+        -8.28,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.14026,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.948,
+      "sp": 0.0,
+      "pos": [
+        6.509,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.11089,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.956,
+      "sp": 0.0,
+      "pos": [
+        -8.28,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.13859,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "outside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk two hundred forty-two in hk_adv_11518 the outdoor ring on quiet for advanced. hk_adv_11518 Height 3'0\", 12 fences, pattern outside track, hk_adv_11518 side outside. Fence one of walk two hk_adv_11518 hundred forty-two is a white vertical at hk_adv_11518 seven point one by minus twenty-six. Walk hk_adv_11518 two hundred forty-two meat is a labeled hk_adv_11518 related. Sit after the in of walk hk_adv_11518 two hundred forty-two. Last of walk two hk_adv_11518 hundred forty-two is a plank vertical at hk_adv_11518 minus eight point three by minus hk_adv_11518.",
+  "michelle_brief": "Walk two hundred forty-two. Quiet to the first."
+}

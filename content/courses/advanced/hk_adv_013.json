@@ -1,0 +1,202 @@
+{
+  "id": "hk_adv_013",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, right, morning 13",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Twelve. Related early. Don't get busy after the first leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        7.252,
+        0.0,
+        -21.507
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        -8.267,
+        0.0,
+        -14.363
+      ],
+      "yaw": 0.07,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.863,
+      "sp": 0.0,
+      "pos": [
+        7.252,
+        0.0,
+        -5.114
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.41
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.886,
+      "sp": 0.435,
+      "pos": [
+        7.252,
+        0.0,
+        2.293
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        7.252,
+        0.0,
+        9.237
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.903,
+      "sp": 0.0,
+      "pos": [
+        -8.267,
+        0.0,
+        19.428
+      ],
+      "yaw": 0.07,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.889,
+      "sp": 0.0,
+      "pos": [
+        7.252,
+        0.0,
+        27.06
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.898,
+      "sp": 0.435,
+      "pos": [
+        0.0,
+        0.0,
+        31.471
+      ],
+      "yaw": -0.01498,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.937,
+      "sp": 0.0,
+      "pos": [
+        -7.605,
+        0.0,
+        6.937
+      ],
+      "yaw": 3.0472,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        -6.672,
+        0.0,
+        -6.483
+      ],
+      "yaw": 3.23219,
+      "name": "flower box",
+      "related": {
+        "to": 11,
+        "strides": 3,
+        "distance_m": 15.18
+      }
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.923,
+      "sp": 0.435,
+      "pos": [
+        7.605,
+        0.0,
+        -11.637
+      ],
+      "yaw": 3.07346,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.435,
+      "pos": [
+        -6.672,
+        0.0,
+        -27.626
+      ],
+      "yaw": 3.2131,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk thirteen in the outdoor hk_adv_013 ring on morning for advanced. Height 3'0\", hk_adv_013 12 fences, pattern outside track, side inside. hk_adv_013 Fence one of walk thirteen is a hk_adv_013 white vertical at seven point three by hk_adv_013 minus twenty-one point five. Walk thirteen meat hk_adv_013 is a labeled related. Sit after the hk_adv_013 in of walk thirteen. Last of walk hk_adv_013 thirteen is a gate oxer at minus hk_adv_013 six point seven by minus twenty-seven point hk_adv_013 six. Same leave on walk thirteen. hk_adv_013.",
+  "michelle_brief": "Walk thirteen. Quiet to the first."
+}

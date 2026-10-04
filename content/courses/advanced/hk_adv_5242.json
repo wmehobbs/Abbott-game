@@ -1,0 +1,215 @@
+{
+  "id": "hk_adv_5242",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "diagonal both ways, left, Tuesday 4101",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.858,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -24.905
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.75
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.856,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -14.155
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.876,
+      "sp": 0.0,
+      "pos": [
+        3.814,
+        0.0,
+        -7.096
+      ],
+      "yaw": -0.22,
+      "name": "plank vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.891,
+      "sp": 0.0,
+      "pos": [
+        1.291,
+        0.0,
+        -0.037
+      ],
+      "yaw": -0.22,
+      "name": "plank vertical",
+      "related": {
+        "to": 5,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        -1.231,
+        0.0,
+        7.022
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": {
+        "to": 6,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.904,
+      "sp": 0.0,
+      "pos": [
+        -3.754,
+        0.0,
+        14.082
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": {
+        "to": 7,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.902,
+      "sp": 0.0,
+      "pos": [
+        -6.277,
+        0.0,
+        21.141
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        -8.8,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.932,
+      "sp": 0.0,
+      "pos": [
+        8.151,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.19144,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        8.151,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.13083,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.947,
+      "sp": 0.0,
+      "pos": [
+        -8.096,
+        0.0,
+        9.65
+      ],
+      "yaw": 3.13357,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.668,
+      "pos": [
+        8.151,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.08763,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "diagonal_both_ways",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand one hundred hk_adv_5242 one in the outdoor ring on quiet hk_adv_5242 for advanced. Height 3'0\", 12 fences, pattern hk_adv_5242 diagonal both ways, side outside. Fence one hk_adv_5242 of walk four thousand one hundred one hk_adv_5242 is a natural vertical at eight point hk_adv_5242 nine by minus twenty-four point nine. Walk hk_adv_5242 four thousand one hundred one meat is hk_adv_5242 a labeled related. Sit after the in hk_adv_5242 of walk four thousand one hundred one. hk_adv_5242 Last of walk four thousand one hk_adv_5242.",
+  "michelle_brief": "Walk four thousand one hundred one. Quiet to the first."
+}

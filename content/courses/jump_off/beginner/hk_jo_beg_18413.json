@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_18413",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, Thursday 20864",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.597,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -26.18
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.34
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -18.843
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.669,
+      "sp": 0.46,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.693,
+      "sp": 0.46,
+      "pos": [
+        8.634,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.09572,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand eight hundred hk_jo_beg_18413 sixty-four in the outdoor ring on Tuesday hk_jo_beg_18413 for beginner. Height 2'3\", 4 fences, pattern hk_jo_beg_18413 jump off tight, side left. Fence one hk_jo_beg_18413 of walk twenty thousand eight hundred sixty-four hk_jo_beg_18413 is a plank vertical at nine point hk_jo_beg_18413 four by minus twenty-six point two. Walk hk_jo_beg_18413 twenty thousand eight hundred sixty-four meat is hk_jo_beg_18413 a labeled related. Sit after the in hk_jo_beg_18413 of walk twenty thousand eight hundred sixty-four. hk_jo_beg_18413 Last of walk twenty thousand eight hk_jo_beg_18413.",
+  "michelle_brief": "Walk twenty thousand eight hundred sixty-four. Quiet to the first."
+}

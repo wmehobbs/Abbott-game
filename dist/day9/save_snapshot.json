@@ -1,0 +1,76 @@
+{
+	"abbott_confidence": 86.5,
+	"abbott_rideability": 45.5,
+	"abbott_scope": 81.0,
+	"best_by_class": {
+		"advanced": {
+			"faults": 0.0,
+			"time": 35.2868846666672
+		},
+		"beginner": {
+			"faults": 0.0,
+			"time": 5.85741601587301
+		},
+		"intermediate": {
+			"faults": 0.0,
+			"time": 34.6497563939396
+		},
+		"lesson": {
+			"faults": 0.0,
+			"time": 14.6533810000002
+		}
+	},
+	"best_faults": 0,
+	"best_time": 5.85741601587301,
+	"bindings": {
+		"gait_down": [
+			83.0,
+			4194322.0
+		],
+		"gait_up": [
+			87.0,
+			4194320.0
+		],
+		"halt": [
+			4194325.0
+		],
+		"jump": [
+			32.0
+		],
+		"mount": [
+			4194309.0
+		],
+		"pause": [
+			4194305.0
+		],
+		"turn_left": [
+			65.0,
+			4194319.0
+		],
+		"turn_right": [
+			68.0,
+			4194321.0
+		],
+		"walk_mode": [
+			4194309.0
+		]
+	},
+	"clears": {
+		"advanced": 138.0,
+		"beginner": 878.0,
+		"intermediate": 357.0,
+		"lesson": 419.0
+	},
+	"course_seed": 0,
+	"lesson_done": true,
+	"madison_feel": 37.0,
+	"madison_timing": 40.0,
+	"rounds_posted": {
+		"advanced": 483,
+		"beginner": 1913.0,
+		"intermediate": 449.0,
+		"lesson": 435.0
+	},
+	"show_best": {},
+	"show_ribbons": []
+}

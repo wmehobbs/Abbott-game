@@ -1,0 +1,25 @@
+| id | B faults | B refused | B knocked | C faults | C rails | C fence | C air | C finished | keep |
+| --- | ---: | --- | --- | ---: | ---: | --- | --- | --- | --- |
+| hk_les_001 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_les_002 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_les_003 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_les_004 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_beg_035 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_beg_039 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_beg_004 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_beg_034 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_beg_007 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_beg_033 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_int_001 | 4 | 1 | — | 4 | 1 | 3 | no | yes | no |
+| hk_int_002 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_int_005 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_int_006 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_int_007 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_int_009 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_adv_001 | 11 | 1 | 6,9 | 6 | 1 | 3 | yes | yes | yes |
+| hk_adv_002 | 5 | 1 | — | 5 | 1 | 3 | yes | yes | yes |
+| hk_adv_003 | 11 | 1 | — | 10 | 1 | 3 | yes | yes | yes |
+| hk_adv_005 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_jo_beg_001 | 4 | 1 | — | 4 | 1 | 3 | yes | yes | yes |
+| hk_jo_int_001 | 11 | 1 | 1 | 5 | 1 | 3 | yes | yes | no |
+| hk_jo_adv_001 | 19 | 1 | 1,2 | 4 | 1 | 3 | yes | yes | no |

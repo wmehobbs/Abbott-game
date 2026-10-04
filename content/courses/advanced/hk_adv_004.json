@@ -1,0 +1,198 @@
+{
+  "id": "hk_adv_004",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, inside, late 4",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Twelve. Related early. Don't get busy after the first leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.871,
+      "sp": 0.0,
+      "pos": [
+        8.823,
+        0.0,
+        -23.379
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.72
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        8.823,
+        0.0,
+        -12.663
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.866,
+      "sp": 0.0,
+      "pos": [
+        8.823,
+        0.0,
+        -6.136
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.891,
+      "sp": 0.0,
+      "pos": [
+        -8.729,
+        0.0,
+        1.262
+      ],
+      "yaw": 0.07,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.906,
+      "sp": 0.0,
+      "pos": [
+        8.823,
+        0.0,
+        11.961
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.883,
+      "sp": 0.771,
+      "pos": [
+        -8.729,
+        0.0,
+        19.807
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.911,
+      "sp": 0.771,
+      "pos": [
+        8.823,
+        0.0,
+        26.406
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.901,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.332
+      ],
+      "yaw": -0.00417,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.933,
+      "sp": 0.0,
+      "pos": [
+        -8.031,
+        0.0,
+        13.568
+      ],
+      "yaw": 3.1874,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        8.117,
+        0.0,
+        3.495
+      ],
+      "yaw": 3.09884,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.958,
+      "sp": 0.0,
+      "pos": [
+        -8.031,
+        0.0,
+        -5.163
+      ],
+      "yaw": 3.15384,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.96,
+      "sp": 0.0,
+      "pos": [
+        -8.117,
+        0.0,
+        -13.103
+      ],
+      "yaw": 3.08175,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk four in the outdoor hk_adv_004 ring on before the show for advanced. hk_adv_004 Height 3'0\", 12 fences, pattern outside track, hk_adv_004 side outside. Fence one of walk four hk_adv_004 is a white vertical at eight point hk_adv_004 eight by minus twenty-three point four. Walk hk_adv_004 four meat is a labeled related. Sit hk_adv_004 after the in of walk four. Last hk_adv_004 of walk four is a flower box hk_adv_004 at minus eight point one by minus hk_adv_004 thirteen point one. Same leave on hk_adv_004.",
+  "michelle_brief": "Walk four. Quiet to the first."
+}

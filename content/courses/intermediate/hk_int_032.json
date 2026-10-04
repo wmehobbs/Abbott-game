@@ -1,0 +1,170 @@
+{
+  "id": "hk_int_032",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, quiet 14262",
+  "height_label": "2'6\"",
+  "time_allowed_school": 73.8,
+  "time_allowed_show": 69.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Ten fences. One related. Don't cut the corners.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.744,
+      "sp": 0.0,
+      "pos": [
+        7.517,
+        0.0,
+        -24.781
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.756,
+      "sp": 0.0,
+      "pos": [
+        -6.914,
+        0.0,
+        -15.351
+      ],
+      "yaw": 0.06,
+      "name": "flower box",
+      "related": {
+        "to": 3,
+        "strides": 3,
+        "distance_m": 14.51
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.768,
+      "sp": 0.603,
+      "pos": [
+        -6.044,
+        0.0,
+        -0.871
+      ],
+      "yaw": 0.06,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.803,
+      "sp": 0.0,
+      "pos": [
+        -6.914,
+        0.0,
+        7.72
+      ],
+      "yaw": 0.07,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.82,
+      "sp": 0.0,
+      "pos": [
+        7.517,
+        0.0,
+        17.699
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.805,
+      "sp": 0.0,
+      "pos": [
+        -6.914,
+        0.0,
+        24.989
+      ],
+      "yaw": 0.07,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "flower",
+      "h": 0.848,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.489
+      ],
+      "yaw": 0.02046,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.87,
+      "sp": 0.603,
+      "pos": [
+        -6.361,
+        0.0,
+        15.135
+      ],
+      "yaw": 3.15643,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.86,
+      "sp": 0.0,
+      "pos": [
+        6.916,
+        0.0,
+        1.137
+      ],
+      "yaw": 3.2385,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        -6.361,
+        0.0,
+        -7.848
+      ],
+      "yaw": 3.18514,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_int_032 sixty-two in the outdoor ring on first hk_int_032 school for intermediate. Height 2'6\", 10 fences, hk_int_032 pattern outside track, side right. Fence one hk_int_032 of walk fourteen thousand two hundred sixty-two hk_int_032 is a white vertical at seven point hk_int_032 five by minus twenty-four point eight. Walk hk_int_032 fourteen thousand two hundred sixty-two meat is hk_int_032 a labeled related. Sit after the in hk_int_032 of walk fourteen thousand two hundred sixty-two. hk_int_032 Last of walk fourteen thousand two hk_int_032.",
+  "michelle_brief": "Walk fourteen thousand two hundred sixty-two. Quiet to the first."
+}

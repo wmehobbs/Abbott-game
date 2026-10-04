@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_19394",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, after work 20029",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.861,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -25.16
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.888,
+      "sp": 0.582,
+      "pos": [
+        8.86,
+        0.0,
+        -17.676
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.919,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.948,
+      "sp": 0.0,
+      "pos": [
+        -8.096,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.18997,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand twenty-nine in hk_jo_adv_19394 the outdoor ring on before the show hk_jo_adv_19394 for advanced. Height 3'0\", 4 fences, pattern hk_jo_adv_19394 jump off tight, side left. Fence one hk_jo_adv_19394 of walk twenty thousand twenty-nine is a hk_jo_adv_19394 brush vertical at eight point nine by hk_jo_adv_19394 minus twenty-five point two. Walk twenty thousand hk_jo_adv_19394 twenty-nine meat is a labeled related. Sit hk_jo_adv_19394 after the in of walk twenty thousand hk_jo_adv_19394 twenty-nine. Last of walk twenty thousand twenty-nine hk_jo_adv_19394 is a flower box at minus hk_jo_adv_19394.",
+  "michelle_brief": "Walk twenty thousand twenty-nine. Quiet to the first."
+}

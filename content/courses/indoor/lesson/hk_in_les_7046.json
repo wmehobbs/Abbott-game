@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_7046",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor outside track, right, first school 14078",
+  "height_label": "poles to 2'3\"",
+  "pattern": "outside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.419,
+      "sp": 0.0,
+      "pos": [
+        4.04,
+        0.0,
+        -10.92
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.38
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.524,
+      "sp": 0.0,
+      "pos": [
+        4.04,
+        0.0,
+        -3.541
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.633,
+      "sp": 0.0,
+      "pos": [
+        4.04,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand seventy-eight in hk_in_les_7046 the indoor on after work for lesson. hk_in_les_7046 Height poles to 2'3\", 3 fences, pattern hk_in_les_7046 outside track, side right. Fence one of hk_in_les_7046 walk fourteen thousand seventy-eight is a brush hk_in_les_7046 vertical at four by minus ten point hk_in_les_7046 nine. Walk fourteen thousand seventy-eight meat is hk_in_les_7046 a labeled related. Sit after the in hk_in_les_7046 of walk fourteen thousand seventy-eight. Last of hk_in_les_7046 walk fourteen thousand seventy-eight is a natural hk_in_les_7046 vertical at four by eleven point hk_in_les_7046.",
+  "michelle_brief": "Walk fourteen thousand seventy-eight. Quiet to the first."
+}

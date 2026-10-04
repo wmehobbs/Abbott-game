@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19813",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, outside, late 13541",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.426,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.39
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.525,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        -3.612
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.625,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand five hundred hk_in_les_19813 forty-one in the indoor on quiet for hk_in_les_19813 lesson. Height poles to 2'3\", 3 fences, hk_in_les_19813 pattern lesson single then line, side right. hk_in_les_19813 Fence one of walk thirteen thousand five hk_in_les_19813 hundred forty-one is a natural vertical at hk_in_les_19813 three point nine by minus eleven. Walk hk_in_les_19813 thirteen thousand five hundred forty-one meat is hk_in_les_19813 a labeled related. Sit after the in hk_in_les_19813 of walk thirteen thousand five hundred forty-one. hk_in_les_19813 Last of walk thirteen thousand five hk_in_les_19813.",
+  "michelle_brief": "Walk thirteen thousand five hundred forty-one. Quiet to the first."
+}

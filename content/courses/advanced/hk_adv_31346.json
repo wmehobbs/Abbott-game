@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_31346",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "diagonal both ways, outside, first school 3078",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        9.28,
+        0.0,
+        -25.075
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.89
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        9.28,
+        0.0,
+        -14.186
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.873,
+      "sp": 0.0,
+      "pos": [
+        4.371,
+        0.0,
+        -7.121
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.875,
+      "sp": 0.0,
+      "pos": [
+        1.917,
+        0.0,
+        -0.057
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        -0.537,
+        0.0,
+        7.007
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.904,
+      "sp": 0.0,
+      "pos": [
+        -2.991,
+        0.0,
+        14.071
+      ],
+      "yaw": -0.22,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.918,
+      "sp": 0.0,
+      "pos": [
+        -5.446,
+        0.0,
+        21.136
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.911,
+      "sp": 0.0,
+      "pos": [
+        -7.9,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.918,
+      "sp": 0.0,
+      "pos": [
+        8.538,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.18831,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.942,
+      "sp": 0.784,
+      "pos": [
+        8.538,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.09053,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.955,
+      "sp": 0.0,
+      "pos": [
+        -7.268,
+        0.0,
+        9.2
+      ],
+      "yaw": 3.15106,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.957,
+      "sp": 0.784,
+      "pos": [
+        7.424,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.1057,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "diagonal_both_ways",
+  "indoor": false,
+  "walk_text": "Hidden K walk three thousand seventy-eight in hk_adv_31346 the outdoor ring on morning for advanced. hk_adv_31346 Height 3'0\", 12 fences, pattern diagonal both hk_adv_31346 ways, side left. Fence one of walk hk_adv_31346 three thousand seventy-eight is a white vertical hk_adv_31346 at nine point three by minus twenty-five hk_adv_31346 point one. Walk three thousand seventy-eight meat hk_adv_31346 is a labeled related. Sit after the hk_adv_31346 in of walk three thousand seventy-eight. Last hk_adv_31346 of walk three thousand seventy-eight is a hk_adv_31346 gate oxer at seven point four hk_adv_31346.",
+  "michelle_brief": "Walk three thousand seventy-eight. Quiet to the first."
+}

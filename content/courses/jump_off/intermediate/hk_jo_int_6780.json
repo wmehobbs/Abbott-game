@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_6780",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, left, morning 22709",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.733,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.32
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.792,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -17.671
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.848,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.895,
+      "sp": 0.0,
+      "pos": [
+        -8.556,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.1139,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand seven hundred hk_jo_int_6780 nine in the outdoor ring on late hk_jo_int_6780 for intermediate. Height 2'6\", 4 fences, pattern hk_jo_int_6780 jump off tight, side right. Fence one hk_jo_int_6780 of walk twenty-two thousand seven hundred nine hk_jo_int_6780 is a brush vertical at nine by hk_jo_int_6780 minus twenty-five. Walk twenty-two thousand seven hundred hk_jo_int_6780 nine meat is a labeled related. Sit hk_jo_int_6780 after the in of walk twenty-two thousand hk_jo_int_6780 seven hundred nine. Last of walk twenty-two hk_jo_int_6780 thousand seven hundred nine is a hk_jo_int_6780.",
+  "michelle_brief": "Walk twenty-two thousand seven hundred nine. Quiet to the first."
+}

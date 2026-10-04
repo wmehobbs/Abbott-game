@@ -1,0 +1,71 @@
+{
+  "id": "hk_les_041",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, right, Wednesday 22767",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 7.66,
+  "notes": "Related two-stride on the right. Make the last canter stride.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.419,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        -21.297
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.514,
+      "sp": 0.0,
+      "pos": [
+        -7.414,
+        0.0,
+        -9.566
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.84
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.582,
+      "sp": 0.0,
+      "pos": [
+        -6.872,
+        0.0,
+        1.263
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "lesson_single_then_line",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-two thousand seven hundred hk_les_041 sixty-seven in the outdoor ring on Wednesday hk_les_041 for lesson. Height poles to 2'3\", 3 hk_les_041 fences, pattern lesson single then line, side hk_les_041 right. Fence one of walk twenty-two thousand hk_les_041 seven hundred sixty-seven is a white vertical hk_les_041 at zero by minus twenty-one point three. hk_les_041 Walk twenty-two thousand seven hundred sixty-seven meat hk_les_041 is a labeled related. Sit after the hk_les_041 in of walk twenty-two thousand seven hundred hk_les_041 sixty-seven. Last of walk twenty-two thousand hk_les_041.",
+  "michelle_brief": "Walk twenty-two thousand seven hundred sixty-seven. Quiet to the first."
+}

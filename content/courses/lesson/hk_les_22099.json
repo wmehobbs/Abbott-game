@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_22099",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, right, the other way 24467",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.418,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -26.18
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.76
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.53,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -15.422
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.63,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-four thousand four hundred hk_les_22099 sixty-seven in the outdoor ring on Thursday hk_les_22099 for lesson. Height poles to 2'3\", 3 hk_les_22099 fences, pattern lesson single then line, side hk_les_22099 left. Fence one of walk twenty-four thousand hk_les_22099 four hundred sixty-seven is a plank vertical hk_les_22099 at six point seven by minus twenty-six hk_les_22099 point two. Walk twenty-four thousand four hundred hk_les_22099 sixty-seven meat is a labeled related. Sit hk_les_22099 after the in of walk twenty-four thousand hk_les_22099 four hundred sixty-seven. Last of walk hk_les_22099.",
+  "michelle_brief": "Walk twenty-four thousand four hundred sixty-seven. Quiet to the first."
+}

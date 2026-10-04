@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_32826",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, after work 21211",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.589,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -25.245
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.3
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.625,
+      "sp": 0.355,
+      "pos": [
+        9.385,
+        0.0,
+        -17.944
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.669,
+      "sp": 0.355,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.696,
+      "sp": 0.0,
+      "pos": [
+        8.634,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.17319,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand two hundred hk_jo_beg_32826 eleven in the outdoor ring on after hk_jo_beg_32826 work for beginner. Height 2'3\", 4 fences, hk_jo_beg_32826 pattern jump off tight, side inside. Fence hk_jo_beg_32826 one of walk twenty-one thousand two hundred hk_jo_beg_32826 eleven is a plank vertical at nine hk_jo_beg_32826 point four by minus twenty-five point two. hk_jo_beg_32826 Walk twenty-one thousand two hundred eleven meat hk_jo_beg_32826 is a labeled related. Sit after the hk_jo_beg_32826 in of walk twenty-one thousand two hundred hk_jo_beg_32826 eleven. Last of walk twenty-one thousand hk_jo_beg_32826.",
+  "michelle_brief": "Walk twenty-one thousand two hundred eleven. Quiet to the first."
+}

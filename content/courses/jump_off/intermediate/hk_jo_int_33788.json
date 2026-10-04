@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_33788",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, the other way 22445",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.749,
+      "sp": 0.0,
+      "pos": [
+        6.865,
+        0.0,
+        -25.84
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.37
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.781,
+      "sp": 0.515,
+      "pos": [
+        6.865,
+        0.0,
+        -18.471
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.845,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.894,
+      "sp": 0.515,
+      "pos": [
+        -7.36,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.14146,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand four hundred hk_jo_int_33788 forty-five in the outdoor ring on first hk_jo_int_33788 school for intermediate. Height 2'6\", 4 fences, hk_jo_int_33788 pattern jump off tight, side right. Fence hk_jo_int_33788 one of walk twenty-two thousand four hundred hk_jo_int_33788 forty-five is a brush vertical at six hk_jo_int_33788 point nine by minus twenty-five point eight. hk_jo_int_33788 Walk twenty-two thousand four hundred forty-five meat hk_jo_int_33788 is a labeled related. Sit after the hk_jo_int_33788 in of walk twenty-two thousand four hundred hk_jo_int_33788 forty-five. Last of walk twenty-two thousand hk_jo_int_33788.",
+  "michelle_brief": "Walk twenty-two thousand four hundred forty-five. Quiet to the first."
+}

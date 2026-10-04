@@ -1,0 +1,115 @@
+{
+  "id": "hk_in_beg_7389",
+  "class_id": "beginner",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor jump off tight, outside, Thursday 12073",
+  "height_label": "2'3\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.601,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.44
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.61,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.56
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.645,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        3.92
+      ],
+      "yaw": -0.04,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.666,
+      "sp": 0.0,
+      "pos": [
+        -4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": 0.04,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.673,
+      "sp": 0.0,
+      "pos": [
+        4.49,
+        0.0,
+        9.15
+      ],
+      "yaw": 3.17442,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.686,
+      "sp": 0.0,
+      "pos": [
+        -4.49,
+        0.0,
+        6.45
+      ],
+      "yaw": 3.19089,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "walk_text": "Hidden K walk twelve thousand seventy-three in hk_in_beg_7389 the indoor on first school for beginner. hk_in_beg_7389 Height 2'3\", 6 fences, pattern jump off hk_in_beg_7389 tight, side left. Fence one of walk hk_in_beg_7389 twelve thousand seventy-three is a white vertical hk_in_beg_7389 at four point nine by minus eleven. hk_in_beg_7389 Walk twelve thousand seventy-three meat is a hk_in_beg_7389 labeled related. Sit after the in of hk_in_beg_7389 walk twelve thousand seventy-three. Last of walk hk_in_beg_7389 twelve thousand seventy-three is a flower box hk_in_beg_7389 at minus four point five by hk_in_beg_7389.",
+  "michelle_brief": "Walk twelve thousand seventy-three. Quiet to the first."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_18970",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, morning 21929",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.737,
+      "sp": 0.0,
+      "pos": [
+        6.97,
+        0.0,
+        -25.67
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.42
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.797,
+      "sp": 0.0,
+      "pos": [
+        6.97,
+        0.0,
+        -18.251
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.84,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.897,
+      "sp": 0.638,
+      "pos": [
+        -7.82,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.10008,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand nine hundred hk_jo_int_18970 twenty-nine in the outdoor ring on Tuesday hk_jo_int_18970 for intermediate. Height 2'6\", 4 fences, pattern hk_jo_int_18970 jump off tight, side outside. Fence one hk_jo_int_18970 of walk twenty-one thousand nine hundred twenty-nine hk_jo_int_18970 is a plank vertical at seven by hk_jo_int_18970 minus twenty-five point seven. Walk twenty-one thousand hk_jo_int_18970 nine hundred twenty-nine meat is a labeled hk_jo_int_18970 related. Sit after the in of walk hk_jo_int_18970 twenty-one thousand nine hundred twenty-nine. Last of hk_jo_int_18970 walk twenty-one thousand nine hundred twenty-nine hk_jo_int_18970.",
+  "michelle_brief": "Walk twenty-one thousand nine hundred twenty-nine. Quiet to the first."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_19890",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, left, the other way 13589",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.425,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.521,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        -3.743
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.622,
+      "sp": 0.0,
+      "pos": [
+        4.52,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand five hundred hk_in_les_19890 eighty-nine in the indoor on Thursday for hk_in_les_19890 lesson. Height poles to 2'3\", 3 fences, hk_in_les_19890 pattern related out, side inside. Fence one hk_in_les_19890 of walk thirteen thousand five hundred eighty-nine hk_in_les_19890 is a plank vertical at four point hk_in_les_19890 five by minus eleven point two. Walk hk_in_les_19890 thirteen thousand five hundred eighty-nine meat is hk_in_les_19890 a labeled related. Sit after the in hk_in_les_19890 of walk thirteen thousand five hundred eighty-nine. hk_in_les_19890 Last of walk thirteen thousand five hk_in_les_19890.",
+  "michelle_brief": "Walk thirteen thousand five hundred eighty-nine. Quiet to the first."
+}

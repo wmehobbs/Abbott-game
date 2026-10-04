@@ -1,0 +1,82 @@
+{
+  "id": "hk_jo_adv_001",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "Jump-off, Mini Prix",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Inside turns. Sit. He knows the way home.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.874,
+      "sp": 0.0,
+      "pos": [
+        -8.765,
+        0.0,
+        -16.814
+      ],
+      "yaw": 0.04,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.893,
+      "sp": 0.0,
+      "pos": [
+        8.369,
+        0.0,
+        -5.545
+      ],
+      "yaw": -0.1,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.926,
+      "sp": 0.0,
+      "pos": [
+        -8.765,
+        0.0,
+        15.317
+      ],
+      "yaw": 0.08,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.952,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -13.819
+      ],
+      "yaw": 3.20159,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "pattern": "jump_off_tight",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk nineteen thousand eight hundred hk_jo_adv_001 ninety-five in the outdoor ring on Wednesday hk_jo_adv_001 for advanced. Height 3'0\", 4 fences, pattern hk_jo_adv_001 jump off tight, side right. Fence one hk_jo_adv_001 of walk nineteen thousand eight hundred ninety-five hk_jo_adv_001 is a white vertical at minus eight hk_jo_adv_001 point eight by minus sixteen point eight. hk_jo_adv_001 Walk nineteen thousand eight hundred ninety-five meat hk_jo_adv_001 is singles, no related. Sit after the hk_jo_adv_001 in of walk nineteen thousand eight hundred hk_jo_adv_001 ninety-five. Last of walk nineteen thousand hk_jo_adv_001.",
+  "michelle_brief": "Walk nineteen thousand eight hundred ninety-five. Quiet to the first."
+}

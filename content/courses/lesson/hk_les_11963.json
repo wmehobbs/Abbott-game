@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_11963",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, first school 23048",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.427,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -25.33
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.79
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.529,
+      "sp": 0.0,
+      "pos": [
+        8.125,
+        0.0,
+        -14.543
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.633,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-three thousand forty-eight in hk_les_11963 the outdoor ring on morning for lesson. hk_les_11963 Height poles to 2'3\", 3 fences, pattern hk_les_11963 lesson single then line, side outside. Fence hk_les_11963 one of walk twenty-three thousand forty-eight is hk_les_11963 a brush vertical at eight point one hk_les_11963 by minus twenty-five point three. Walk twenty-three hk_les_11963 thousand forty-eight meat is a labeled related. hk_les_11963 Sit after the in of walk twenty-three hk_les_11963 thousand forty-eight. Last of walk twenty-three thousand hk_les_11963 forty-eight is a plank vertical at hk_les_11963.",
+  "michelle_brief": "Walk twenty-three thousand forty-eight. Quiet to the first."
+}

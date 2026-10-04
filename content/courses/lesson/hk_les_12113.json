@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_12113",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, after work 23186",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.416,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.81
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.53,
+      "sp": 0.0,
+      "pos": [
+        8.65,
+        0.0,
+        -14.69
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.627,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-three thousand one hundred hk_les_12113 eighty-six in the outdoor ring on late hk_les_12113 for lesson. Height poles to 2'3\", 3 hk_les_12113 fences, pattern lesson single then line, side hk_les_12113 outside. Fence one of walk twenty-three thousand hk_les_12113 one hundred eighty-six is a white vertical hk_les_12113 at eight point seven by minus twenty-five hk_les_12113 point five. Walk twenty-three thousand one hundred hk_les_12113 eighty-six meat is a labeled related. Sit hk_les_12113 after the in of walk twenty-three thousand hk_les_12113 one hundred eighty-six. Last of walk hk_les_12113.",
+  "michelle_brief": "Walk twenty-three thousand one hundred eighty-six. Quiet to the first."
+}

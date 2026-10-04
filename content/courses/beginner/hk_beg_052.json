@@ -1,0 +1,146 @@
+{
+  "id": "hk_beg_052",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, left, before the show 4771",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Outside track. Find the canter and leave him alone to the first.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.58,
+      "sp": 0.0,
+      "pos": [
+        7.082,
+        0.0,
+        -24.093
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.596,
+      "sp": 0.0,
+      "pos": [
+        -7.259,
+        0.0,
+        -11.467
+      ],
+      "yaw": 0.07,
+      "name": "natural vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.35
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.632,
+      "sp": 0.0,
+      "pos": [
+        -7.259,
+        0.0,
+        -4.119
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": {
+        "to": 4,
+        "strides": 2,
+        "distance_m": 10.79
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.646,
+      "sp": 0.0,
+      "pos": [
+        -6.612,
+        0.0,
+        6.649
+      ],
+      "yaw": 0.06,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.657,
+      "sp": 0.0,
+      "pos": [
+        7.082,
+        0.0,
+        15.596
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.667,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        24.355
+      ],
+      "yaw": 0.01009,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.668,
+      "sp": 0.0,
+      "pos": [
+        -6.678,
+        0.0,
+        13.712
+      ],
+      "yaw": 3.13417,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.653,
+      "sp": 0.44,
+      "pos": [
+        6.515,
+        0.0,
+        -7.295
+      ],
+      "yaw": 3.17133,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk four thousand seven hundred hk_beg_052 seventy-one in the outdoor ring on Thursday hk_beg_052 for beginner. Height 2'3\", 8 fences, pattern hk_beg_052 outside track, side inside. Fence one of hk_beg_052 walk four thousand seven hundred seventy-one is hk_beg_052 a white vertical at seven point one hk_beg_052 by minus twenty-four point one. Walk four hk_beg_052 thousand seven hundred seventy-one meat is a hk_beg_052 labeled related. Sit after the in of hk_beg_052 walk four thousand seven hundred seventy-one. Last hk_beg_052 of walk four thousand seven hundred hk_beg_052.",
+  "michelle_brief": "Walk four thousand seven hundred seventy-one. Quiet to the first."
+}

@@ -1,0 +1,199 @@
+{
+  "id": "hk_adv_31327",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "in and out two, right, morning 3059",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 1-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.85,
+      "sp": 0.0,
+      "pos": [
+        7.285,
+        0.0,
+        -25.075
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.33
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.863,
+      "sp": 0.0,
+      "pos": [
+        7.285,
+        0.0,
+        -17.749
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.884,
+      "sp": 0.0,
+      "pos": [
+        7.285,
+        0.0,
+        -10.09
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.876,
+      "sp": 0.685,
+      "pos": [
+        -7.1,
+        0.0,
+        -2.432
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.889,
+      "sp": 0.685,
+      "pos": [
+        7.285,
+        0.0,
+        5.226
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        -7.1,
+        0.0,
+        12.884
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.903,
+      "sp": 0.685,
+      "pos": [
+        7.285,
+        0.0,
+        20.542
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.928,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.93,
+      "sp": 0.685,
+      "pos": [
+        6.702,
+        0.0,
+        14.15
+      ],
+      "yaw": 3.17592,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        -6.532,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.13563,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.95,
+      "sp": 0.0,
+      "pos": [
+        6.702,
+        0.0,
+        -1.15
+      ],
+      "yaw": 3.08575,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.948,
+      "sp": 0.0,
+      "pos": [
+        -6.532,
+        0.0,
+        -8.8
+      ],
+      "yaw": 3.12572,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "in_and_out_two",
+  "indoor": false,
+  "walk_text": "Hidden K walk three thousand fifty-nine in hk_adv_31327 the outdoor ring on Tuesday for advanced. hk_adv_31327 Height 3'0\", 12 fences, pattern in and hk_adv_31327 out two, side outside. Fence one of hk_adv_31327 walk three thousand fifty-nine is a brush hk_adv_31327 vertical at seven point three by minus hk_adv_31327 twenty-five point one. Walk three thousand fifty-nine hk_adv_31327 meat is a labeled related. Sit after hk_adv_31327 the in of walk three thousand fifty-nine. hk_adv_31327 Last of walk three thousand fifty-nine is hk_adv_31327 a white vertical at minus six hk_adv_31327.",
+  "michelle_brief": "Walk three thousand fifty-nine. Quiet to the first."
+}

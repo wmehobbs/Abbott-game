@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_11899",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, morning 22987",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.42,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        -25.925
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.92
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.527,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        -15.009
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.635,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand nine hundred hk_les_11899 eighty-seven in the outdoor ring on Tuesday hk_les_11899 for lesson. Height poles to 2'3\", 3 hk_les_11899 fences, pattern lesson single then line, side hk_les_11899 left. Fence one of walk twenty-two thousand hk_les_11899 nine hundred eighty-seven is a plank vertical hk_les_11899 at seven point five by minus twenty-five hk_les_11899 point nine. Walk twenty-two thousand nine hundred hk_les_11899 eighty-seven meat is a labeled related. Sit hk_les_11899 after the in of walk twenty-two thousand hk_les_11899 nine hundred eighty-seven. Last of walk hk_les_11899.",
+  "michelle_brief": "Walk twenty-two thousand nine hundred eighty-seven. Quiet to the first."
+}

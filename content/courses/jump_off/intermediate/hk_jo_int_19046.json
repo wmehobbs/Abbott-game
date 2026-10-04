@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_19046",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, first school 22005",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.747,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -25.67
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.787,
+      "sp": 0.0,
+      "pos": [
+        8.86,
+        0.0,
+        -18.169
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.843,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        -8.096,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.10003,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand five in hk_jo_int_19046 the outdoor ring on morning for intermediate. hk_jo_int_19046 Height 2'6\", 4 fences, pattern jump off hk_jo_int_19046 tight, side left. Fence one of walk hk_jo_int_19046 twenty-two thousand five is a brush vertical hk_jo_int_19046 at eight point nine by minus twenty-five hk_jo_int_19046 point seven. Walk twenty-two thousand five meat hk_jo_int_19046 is a labeled related. Sit after the hk_jo_int_19046 in of walk twenty-two thousand five. Last hk_jo_int_19046 of walk twenty-two thousand five is a hk_jo_int_19046 brush vertical at minus eight point hk_jo_int_19046.",
+  "michelle_brief": "Walk twenty-two thousand five. Quiet to the first."
+}

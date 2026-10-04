@@ -1,0 +1,71 @@
+{
+  "id": "hk_les_028",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, outside, the other way 22754",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 8.61,
+  "notes": "Left-hand line. Straight and quiet. He'll tell you.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.435,
+      "sp": 0.0,
+      "pos": [
+        -0.077,
+        0.0,
+        -20.556
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.523,
+      "sp": 0.0,
+      "pos": [
+        -6.675,
+        0.0,
+        -8.572
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": {
+        "to": 3,
+        "strides": 2,
+        "distance_m": 10.79
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.61,
+      "sp": 0.0,
+      "pos": [
+        -6.136,
+        0.0,
+        2.205
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "lesson_single_then_line",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-two thousand seven hundred hk_les_028 fifty-four in the outdoor ring on Tuesday hk_les_028 for lesson. Height poles to 2'3\", 3 hk_les_028 fences, pattern lesson single then line, side hk_les_028 outside. Fence one of walk twenty-two thousand hk_les_028 seven hundred fifty-four is a white vertical hk_les_028 at minus zero point one by minus hk_les_028 twenty point six. Walk twenty-two thousand seven hk_les_028 hundred fifty-four meat is a labeled related. hk_les_028 Sit after the in of walk twenty-two hk_les_028 thousand seven hundred fifty-four. Last of hk_les_028.",
+  "michelle_brief": "Walk twenty-two thousand seven hundred fifty-four. Quiet to the first."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35313",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor lesson single then line, right, morning 13917",
+  "height_label": "poles to 2'3\"",
+  "pattern": "lesson_single_then_line",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.433,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.32
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.37
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.521,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.948
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.628,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand nine hundred hk_in_les_35313 seventeen in the indoor on after work hk_in_les_35313 for lesson. Height poles to 2'3\", 3 hk_in_les_35313 fences, pattern lesson single then line, side hk_in_les_35313 outside. Fence one of walk thirteen thousand hk_in_les_35313 nine hundred seventeen is a brush vertical hk_in_les_35313 at four point nine by minus eleven hk_in_les_35313 point three. Walk thirteen thousand nine hundred hk_in_les_35313 seventeen meat is a labeled related. Sit hk_in_les_35313 after the in of walk thirteen thousand hk_in_les_35313 nine hundred seventeen. Last of walk hk_in_les_35313.",
+  "michelle_brief": "Walk thirteen thousand nine hundred seventeen. Quiet to the first."
+}

@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17186",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, inside, after work 860",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.853,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -25.5
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.71
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.865,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        -14.794
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.17
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.874,
+      "sp": 0.658,
+      "pos": [
+        8.44,
+        0.0,
+        -7.629
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        -6.8,
+        0.0,
+        -0.463
+      ],
+      "yaw": 0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.892,
+      "sp": 0.658,
+      "pos": [
+        8.44,
+        0.0,
+        6.703
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.9,
+      "sp": 0.658,
+      "pos": [
+        -6.8,
+        0.0,
+        13.869
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.91,
+      "sp": 0.0,
+      "pos": [
+        8.44,
+        0.0,
+        21.034
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.936,
+      "sp": 0.658,
+      "pos": [
+        6.752,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.15034,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.94,
+      "sp": 0.658,
+      "pos": [
+        -6.256,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.09611,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.938,
+      "sp": 0.658,
+      "pos": [
+        6.752,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.1428,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.95,
+      "sp": 0.0,
+      "pos": [
+        -5.44,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.14238,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "outside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk eight hundred sixty in hk_adv_17186 the outdoor ring on after work for hk_adv_17186 advanced. Height 3'0\", 12 fences, pattern outside hk_adv_17186 track, side right. Fence one of walk hk_adv_17186 eight hundred sixty is a natural vertical hk_adv_17186 at eight point four by minus twenty-five hk_adv_17186 point five. Walk eight hundred sixty meat hk_adv_17186 is a labeled related. Sit after the hk_adv_17186 in of walk eight hundred sixty. Last hk_adv_17186 of walk eight hundred sixty is a hk_adv_17186 natural vertical at minus five point hk_adv_17186.",
+  "michelle_brief": "Walk eight hundred sixty. Quiet to the first."
+}

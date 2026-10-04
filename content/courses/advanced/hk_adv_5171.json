@@ -1,0 +1,207 @@
+{
+  "id": "hk_adv_5171",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "in and out two, outside, before the show 4030",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 1-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.85,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        -26.095
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.39
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        -18.709
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.82
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.883,
+      "sp": 0.789,
+      "pos": [
+        7.495,
+        0.0,
+        -10.891
+      ],
+      "yaw": -0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.883,
+      "sp": 0.0,
+      "pos": [
+        -8.1,
+        0.0,
+        -3.073
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.89,
+      "sp": 0.789,
+      "pos": [
+        7.495,
+        0.0,
+        4.745
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.899,
+      "sp": 0.789,
+      "pos": [
+        -8.1,
+        0.0,
+        12.564
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        7.495,
+        0.0,
+        20.382
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": {
+        "to": 8,
+        "strides": 2,
+        "distance_m": 10.83
+      }
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.923,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.924,
+      "sp": 0.0,
+      "pos": [
+        6.895,
+        0.0,
+        14.15
+      ],
+      "yaw": 3.19298,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.941,
+      "sp": 0.0,
+      "pos": [
+        -6.48,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.15929,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.953,
+      "sp": 0.0,
+      "pos": [
+        6.895,
+        0.0,
+        -1.6
+      ],
+      "yaw": 3.13747,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.96,
+      "sp": 0.789,
+      "pos": [
+        -7.452,
+        0.0,
+        -9.25
+      ],
+      "yaw": 3.1648,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "in_and_out_two",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand thirty in hk_adv_5171 the outdoor ring on before the show hk_adv_5171 for advanced. Height 3'0\", 12 fences, pattern hk_adv_5171 in and out two, side inside. Fence hk_adv_5171 one of walk four thousand thirty is hk_adv_5171 a plank vertical at seven point five hk_adv_5171 by minus twenty-six point one. Walk four hk_adv_5171 thousand thirty meat is a labeled related. hk_adv_5171 Sit after the in of walk four hk_adv_5171 thousand thirty. Last of walk four thousand hk_adv_5171 thirty is a plank oxer at hk_adv_5171.",
+  "michelle_brief": "Walk four thousand thirty. Quiet to the first."
+}

@@ -1,0 +1,41 @@
+{
+	"board": "first",
+	"extra": [],
+	"flower_look": "abbott_confidence=85 so _might_look is false (p=0)",
+	"pass": true,
+	"style": [],
+	"tracks": [
+		{
+			"class_id": "advanced",
+			"confidence": 49.5,
+			"eliminate_reason": "",
+			"eliminated": false,
+			"faults": 1,
+			"fences_jumped": 4,
+			"fences_needed": 4,
+			"id": "hk_jo_adv_001",
+			"inputs_pressed": {
+				"gait_down": 0,
+				"gait_up": 3,
+				"halt": 0,
+				"jump": 6,
+				"turn_left": 14,
+				"turn_right": 6
+			},
+			"jump_off": true,
+			"loaded_id": "hk_jo_adv_001",
+			"max_speed": 5.55,
+			"rail_fences": [],
+			"rail_in_air": [],
+			"rails": 0,
+			"refused": [],
+			"round_complete": true,
+			"scope": 42.5,
+			"style": "clear",
+			"success": false,
+			"teleport_why": "",
+			"teleported": false,
+			"time_sec": 35.81
+		}
+	]
+}

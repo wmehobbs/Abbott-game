@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_34163",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, first school 20260",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.85,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.52
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.892,
+      "sp": 0.472,
+      "pos": [
+        6.655,
+        0.0,
+        -18.749
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.93,
+      "sp": 0.472,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.955,
+      "sp": 0.0,
+      "pos": [
+        -6.44,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.09745,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand two hundred hk_jo_adv_34163 sixty in the outdoor ring on Thursday hk_jo_adv_34163 for advanced. Height 3'0\", 4 fences, pattern hk_jo_adv_34163 jump off tight, side inside. Fence one hk_jo_adv_34163 of walk twenty thousand two hundred sixty hk_jo_adv_34163 is a brush vertical at six point hk_jo_adv_34163 seven by minus twenty-six point three. Walk hk_jo_adv_34163 twenty thousand two hundred sixty meat is hk_jo_adv_34163 a labeled related. Sit after the in hk_jo_adv_34163 of walk twenty thousand two hundred sixty. hk_jo_adv_34163 Last of walk twenty thousand two hk_jo_adv_34163.",
+  "michelle_brief": "Walk twenty thousand two hundred sixty. Quiet to the first."
+}

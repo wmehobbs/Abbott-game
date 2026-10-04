@@ -1,0 +1,215 @@
+{
+  "id": "hk_adv_5143",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "bending five, left, Tuesday 4002",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.852,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -25.245
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.71
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.872,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -14.539
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.873,
+      "sp": 0.0,
+      "pos": [
+        2.971,
+        0.0,
+        -7.416
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.883,
+      "sp": 0.0,
+      "pos": [
+        0.657,
+        0.0,
+        -0.293
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": {
+        "to": 5,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.879,
+      "sp": 0.0,
+      "pos": [
+        -1.657,
+        0.0,
+        6.831
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": {
+        "to": 6,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.905,
+      "sp": 0.519,
+      "pos": [
+        -3.971,
+        0.0,
+        13.954
+      ],
+      "yaw": -0.22,
+      "name": "gate oxer",
+      "related": {
+        "to": 7,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.911,
+      "sp": 0.0,
+      "pos": [
+        -6.286,
+        0.0,
+        21.077
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.921,
+      "sp": 0.0,
+      "pos": [
+        -8.6,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.932,
+      "sp": 0.0,
+      "pos": [
+        6.992,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.12637,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.936,
+      "sp": 0.519,
+      "pos": [
+        6.992,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.12614,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.942,
+      "sp": 0.0,
+      "pos": [
+        -7.912,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.12431,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.955,
+      "sp": 0.0,
+      "pos": [
+        6.08,
+        0.0,
+        5.6
+      ],
+      "yaw": 3.15853,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "bending_five",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand two in hk_adv_5143 the outdoor ring on Wednesday for advanced. hk_adv_5143 Height 3'0\", 12 fences, pattern bending five, hk_adv_5143 side right. Fence one of walk four hk_adv_5143 thousand two is a brush vertical at hk_adv_5143 seven point six by minus twenty-five point hk_adv_5143 two. Walk four thousand two meat is hk_adv_5143 a labeled related. Sit after the in hk_adv_5143 of walk four thousand two. Last of hk_adv_5143 walk four thousand two is a brush hk_adv_5143 vertical at six point one by hk_adv_5143.",
+  "michelle_brief": "Walk four thousand two. Quiet to the first."
+}

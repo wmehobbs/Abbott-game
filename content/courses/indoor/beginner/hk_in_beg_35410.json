@@ -1,0 +1,115 @@
+{
+  "id": "hk_in_beg_35410",
+  "class_id": "beginner",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "indoor related out, left, first school 11531",
+  "height_label": "2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.589,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -11.24
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.3
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.621,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        -3.938
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.636,
+      "sp": 0.0,
+      "pos": [
+        5.0,
+        0.0,
+        3.731
+      ],
+      "yaw": -0.04,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.658,
+      "sp": 0.0,
+      "pos": [
+        -5.0,
+        0.0,
+        11.4
+      ],
+      "yaw": 0.04,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.679,
+      "sp": 0.392,
+      "pos": [
+        4.0,
+        0.0,
+        9.15
+      ],
+      "yaw": 3.12728,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.694,
+      "sp": 0.392,
+      "pos": [
+        -4.6,
+        0.0,
+        6.45
+      ],
+      "yaw": 3.14011,
+      "name": "gate oxer",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "walk_text": "Hidden K walk eleven thousand five hundred hk_in_beg_35410 thirty-one in the indoor on Tuesday for hk_in_beg_35410 beginner. Height 2'3\", 6 fences, pattern related hk_in_beg_35410 out, side right. Fence one of walk hk_in_beg_35410 eleven thousand five hundred thirty-one is a hk_in_beg_35410 plank vertical at five by minus eleven hk_in_beg_35410 point two. Walk eleven thousand five hundred hk_in_beg_35410 thirty-one meat is a labeled related. Sit hk_in_beg_35410 after the in of walk eleven thousand hk_in_beg_35410 five hundred thirty-one. Last of walk eleven hk_in_beg_35410 thousand five hundred thirty-one is a hk_in_beg_35410.",
+  "michelle_brief": "Walk eleven thousand five hundred thirty-one. Quiet to the first."
+}

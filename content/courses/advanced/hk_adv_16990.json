@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_16990",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "jump off tight, inside, quiet 664",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 1-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.851,
+      "sp": 0.0,
+      "pos": [
+        9.175,
+        0.0,
+        -26.01
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.41
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.871,
+      "sp": 0.0,
+      "pos": [
+        9.175,
+        0.0,
+        -18.604
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.8
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.869,
+      "sp": 0.582,
+      "pos": [
+        9.175,
+        0.0,
+        -10.804
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.88,
+      "sp": 0.582,
+      "pos": [
+        -7.4,
+        0.0,
+        -3.003
+      ],
+      "yaw": 0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.894,
+      "sp": 0.582,
+      "pos": [
+        9.175,
+        0.0,
+        4.798
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "flower",
+      "h": 0.893,
+      "sp": 0.0,
+      "pos": [
+        -7.4,
+        0.0,
+        12.599
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.906,
+      "sp": 0.0,
+      "pos": [
+        9.175,
+        0.0,
+        20.399
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.924,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.929,
+      "sp": 0.582,
+      "pos": [
+        8.441,
+        0.0,
+        14.15
+      ],
+      "yaw": 3.1371,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.582,
+      "pos": [
+        -5.92,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.14258,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.943,
+      "sp": 0.582,
+      "pos": [
+        7.34,
+        0.0,
+        -1.15
+      ],
+      "yaw": 3.11691,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.95,
+      "sp": 0.0,
+      "pos": [
+        -6.808,
+        0.0,
+        -9.25
+      ],
+      "yaw": 3.11598,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk six hundred sixty-four in hk_adv_16990 the outdoor ring on late for advanced. hk_adv_16990 Height 3'0\", 12 fences, pattern jump off hk_adv_16990 tight, side right. Fence one of walk hk_adv_16990 six hundred sixty-four is a brush vertical hk_adv_16990 at nine point two by minus twenty-six. hk_adv_16990 Walk six hundred sixty-four meat is a hk_adv_16990 labeled related. Sit after the in of hk_adv_16990 walk six hundred sixty-four. Last of walk hk_adv_16990 six hundred sixty-four is a white vertical hk_adv_16990 at minus six point eight by hk_adv_16990.",
+  "michelle_brief": "Walk six hundred sixty-four. Quiet to the first."
+}

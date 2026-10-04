@@ -1,0 +1,206 @@
+{
+  "id": "hk_adv_045",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, the other way 45",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Twelve. Related early. Don't get busy after the first leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.852,
+      "sp": 0.0,
+      "pos": [
+        7.916,
+        0.0,
+        -23.026
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.88,
+      "sp": 0.0,
+      "pos": [
+        -7.329,
+        0.0,
+        -15.912
+      ],
+      "yaw": 0.07,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.861,
+      "sp": 0.0,
+      "pos": [
+        7.916,
+        0.0,
+        -5.678
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.41
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.873,
+      "sp": 0.0,
+      "pos": [
+        7.916,
+        0.0,
+        1.734
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 5,
+        "strides": 2,
+        "distance_m": 10.83
+      }
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.888,
+      "sp": 0.54,
+      "pos": [
+        7.916,
+        0.0,
+        12.569
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.882,
+      "sp": 0.0,
+      "pos": [
+        -7.329,
+        0.0,
+        22.955
+      ],
+      "yaw": 0.07,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.909,
+      "sp": 0.0,
+      "pos": [
+        7.916,
+        0.0,
+        29.628
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.901,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.587
+      ],
+      "yaw": 0.01373,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.934,
+      "sp": 0.0,
+      "pos": [
+        -6.742,
+        0.0,
+        15.624
+      ],
+      "yaw": 3.18542,
+      "name": "natural vertical",
+      "related": {
+        "to": 10,
+        "strides": 3,
+        "distance_m": 14.56
+      }
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.921,
+      "sp": 0.54,
+      "pos": [
+        -7.283,
+        0.0,
+        1.077
+      ],
+      "yaw": 3.05873,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.95,
+      "sp": 0.0,
+      "pos": [
+        -6.742,
+        0.0,
+        -6.783
+      ],
+      "yaw": 3.09437,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.952,
+      "sp": 0.0,
+      "pos": [
+        7.283,
+        0.0,
+        -14.878
+      ],
+      "yaw": 3.10505,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk forty-five in the outdoor hk_adv_045 ring on the other way for advanced. hk_adv_045 Height 3'0\", 12 fences, pattern outside track, hk_adv_045 side left. Fence one of walk forty-five hk_adv_045 is a white vertical at seven point hk_adv_045 nine by minus twenty-three. Walk forty-five meat hk_adv_045 is a labeled related. Sit after the hk_adv_045 in of walk forty-five. Last of walk hk_adv_045 forty-five is a plank vertical at seven hk_adv_045 point three by minus fourteen point nine. hk_adv_045 Same leave on walk forty-five. Then hk_adv_045.",
+  "michelle_brief": "Walk forty-five. Quiet to the first."
+}

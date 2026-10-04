@@ -1,0 +1,143 @@
+{
+  "id": "hk_beg_24561",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "related out, outside, first school 7583",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 3-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.593,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -25.245
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 3,
+        "distance_m": 14.71
+      }
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.608,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -10.539
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.625,
+      "sp": 0.343,
+      "pos": [
+        9.385,
+        0.0,
+        -0.854
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.639,
+      "sp": 0.0,
+      "pos": [
+        -8.4,
+        0.0,
+        8.831
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.649,
+      "sp": 0.343,
+      "pos": [
+        9.385,
+        0.0,
+        18.515
+      ],
+      "yaw": -0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.663,
+      "sp": 0.343,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.675,
+      "sp": 0.0,
+      "pos": [
+        -7.728,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.16053,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.699,
+      "sp": 0.343,
+      "pos": [
+        8.634,
+        0.0,
+        12.35
+      ],
+      "yaw": 3.16197,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "related_out",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven thousand five hundred hk_beg_24561 eighty-three in the outdoor ring on first hk_beg_24561 school for beginner. Height 2'3\", 8 fences, hk_beg_24561 pattern related out, side inside. Fence one hk_beg_24561 of walk seven thousand five hundred eighty-three hk_beg_24561 is a white vertical at nine point hk_beg_24561 four by minus twenty-five point two. Walk hk_beg_24561 seven thousand five hundred eighty-three meat is hk_beg_24561 a labeled related. Sit after the in hk_beg_24561 of walk seven thousand five hundred eighty-three. hk_beg_24561 Last of walk seven thousand five hk_beg_24561.",
+  "michelle_brief": "Walk seven thousand five hundred eighty-three. Quiet to the first."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_19076",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, Thursday 22035",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.732,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.51
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.789,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -18.842
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.84,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.887,
+      "sp": 0.472,
+      "pos": [
+        -8.556,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.16149,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand thirty-five in hk_jo_int_19076 the outdoor ring on Thursday for intermediate. hk_jo_int_19076 Height 2'6\", 4 fences, pattern jump off hk_jo_int_19076 tight, side right. Fence one of walk hk_jo_int_19076 twenty-two thousand thirty-five is a plank vertical hk_jo_int_19076 at nine by minus twenty-six point four. hk_jo_int_19076 Walk twenty-two thousand thirty-five meat is a hk_jo_int_19076 labeled related. Sit after the in of hk_jo_int_19076 walk twenty-two thousand thirty-five. Last of walk hk_jo_int_19076 twenty-two thousand thirty-five is a brush oxer hk_jo_int_19076 at minus eight point six by hk_jo_int_19076.",
+  "michelle_brief": "Walk twenty-two thousand thirty-five. Quiet to the first."
+}

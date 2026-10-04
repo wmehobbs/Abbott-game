@@ -1,0 +1,211 @@
+{
+  "id": "hk_adv_5852",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "figure eight, left, late 4711",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.852,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.87
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.855,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -15.485
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.875,
+      "sp": 0.0,
+      "pos": [
+        -9.3,
+        0.0,
+        -8.204
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.28
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        -9.3,
+        0.0,
+        -0.923
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.901,
+      "sp": 0.574,
+      "pos": [
+        8.965,
+        0.0,
+        6.358
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": {
+        "to": 6,
+        "strides": 1,
+        "distance_m": 7.28
+      }
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.908,
+      "sp": 0.574,
+      "pos": [
+        8.965,
+        0.0,
+        13.638
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.904,
+      "sp": 0.0,
+      "pos": [
+        -9.3,
+        0.0,
+        20.919
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": {
+        "to": 8,
+        "strides": 1,
+        "distance_m": 7.28
+      }
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.916,
+      "sp": 0.574,
+      "pos": [
+        -9.3,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.933,
+      "sp": 0.574,
+      "pos": [
+        8.248,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.11897,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.947,
+      "sp": 0.0,
+      "pos": [
+        -8.556,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.09261,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.95,
+      "sp": 0.0,
+      "pos": [
+        -8.556,
+        0.0,
+        8.3
+      ],
+      "yaw": 3.15571,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.956,
+      "sp": 0.0,
+      "pos": [
+        7.172,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.08266,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "figure_eight",
+  "indoor": false,
+  "walk_text": "Hidden K walk four thousand seven hundred hk_adv_5852 eleven in the outdoor ring on before hk_adv_5852 the show for advanced. Height 3'0\", 12 hk_adv_5852 fences, pattern figure eight, side left. Fence hk_adv_5852 one of walk four thousand seven hundred hk_adv_5852 eleven is a natural vertical at nine hk_adv_5852 by minus twenty-six point four. Walk four hk_adv_5852 thousand seven hundred eleven meat is a hk_adv_5852 labeled related. Sit after the in of hk_adv_5852 walk four thousand seven hundred eleven. Last hk_adv_5852 of walk four thousand seven hundred hk_adv_5852.",
+  "michelle_brief": "Walk four thousand seven hundred eleven. Quiet to the first."
+}

@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_17458",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "jump off tight, outside, before the show 1132",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 1-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.854,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        -24.99
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.862,
+      "sp": 0.591,
+      "pos": [
+        6.55,
+        0.0,
+        -17.509
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.62
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        -9.89
+      ],
+      "yaw": -0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.884,
+      "sp": 0.591,
+      "pos": [
+        -6.5,
+        0.0,
+        -2.272
+      ],
+      "yaw": 0.05,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        5.346
+      ],
+      "yaw": -0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.908,
+      "sp": 0.591,
+      "pos": [
+        -6.5,
+        0.0,
+        12.964
+      ],
+      "yaw": 0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.913,
+      "sp": 0.591,
+      "pos": [
+        6.55,
+        0.0,
+        20.582
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.93,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.923,
+      "sp": 0.0,
+      "pos": [
+        6.026,
+        0.0,
+        14.15
+      ],
+      "yaw": 3.16649,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.928,
+      "sp": 0.0,
+      "pos": [
+        -5.98,
+        0.0,
+        6.5
+      ],
+      "yaw": 3.09269,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.945,
+      "sp": 0.0,
+      "pos": [
+        6.026,
+        0.0,
+        -1.15
+      ],
+      "yaw": 3.15579,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.954,
+      "sp": 0.0,
+      "pos": [
+        -5.2,
+        0.0,
+        -8.35
+      ],
+      "yaw": 3.12004,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk one thousand one hundred hk_adv_17458 thirty-two in the outdoor ring on before hk_adv_17458 the show for advanced. Height 3'0\", 12 hk_adv_17458 fences, pattern jump off tight, side left. hk_adv_17458 Fence one of walk one thousand one hk_adv_17458 hundred thirty-two is a white vertical at hk_adv_17458 six point five by minus twenty-five. Walk hk_adv_17458 one thousand one hundred thirty-two meat is hk_adv_17458 a labeled related. Sit after the in hk_adv_17458 of walk one thousand one hundred thirty-two. hk_adv_17458 Last of walk one thousand one hk_adv_17458.",
+  "michelle_brief": "Walk one thousand one hundred thirty-two. Quiet to the first."
+}

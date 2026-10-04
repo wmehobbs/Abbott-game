@@ -1,0 +1,198 @@
+{
+  "id": "hk_adv_048",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, morning 48",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Two rollbacks. Sit down and wait. Don't pull him around.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.864,
+      "sp": 0.0,
+      "pos": [
+        -8.364,
+        0.0,
+        -22.784
+      ],
+      "yaw": 0.06,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.49
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.866,
+      "sp": 0.0,
+      "pos": [
+        -7.915,
+        0.0,
+        -15.305
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.883,
+      "sp": 0.0,
+      "pos": [
+        8.855,
+        0.0,
+        -6.391
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.863,
+      "sp": 0.525,
+      "pos": [
+        -8.364,
+        0.0,
+        1.801
+      ],
+      "yaw": 0.07,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        8.855,
+        0.0,
+        9.929
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.915,
+      "sp": 0.525,
+      "pos": [
+        -8.364,
+        0.0,
+        21.539
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.921,
+      "sp": 0.0,
+      "pos": [
+        8.855,
+        0.0,
+        29.717
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.894,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.546
+      ],
+      "yaw": -0.02856,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.908,
+      "sp": 0.0,
+      "pos": [
+        -7.695,
+        0.0,
+        11.821
+      ],
+      "yaw": 3.19982,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.943,
+      "sp": 0.0,
+      "pos": [
+        8.147,
+        0.0,
+        2.993
+      ],
+      "yaw": 3.06862,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.959,
+      "sp": 0.0,
+      "pos": [
+        -7.695,
+        0.0,
+        -5.772
+      ],
+      "yaw": 3.17051,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.939,
+      "sp": 0.0,
+      "pos": [
+        8.147,
+        0.0,
+        -14.494
+      ],
+      "yaw": 3.14938,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk forty-eight in the outdoor hk_adv_048 ring on late for advanced. Height 3'0\", hk_adv_048 12 fences, pattern outside track, side outside. hk_adv_048 Fence one of walk forty-eight is a hk_adv_048 white vertical at minus eight point four hk_adv_048 by minus twenty-two point eight. Walk forty-eight hk_adv_048 meat is a labeled related. Sit after hk_adv_048 the in of walk forty-eight. Last of hk_adv_048 walk forty-eight is a white vertical at hk_adv_048 eight point one by minus fourteen point hk_adv_048 five. Same leave on walk forty-eight. hk_adv_048.",
+  "michelle_brief": "Walk forty-eight. Quiet to the first."
+}

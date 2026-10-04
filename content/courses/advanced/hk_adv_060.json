@@ -1,0 +1,198 @@
+{
+  "id": "hk_adv_060",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, quiet 60",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Twelve. Related early. Don't get busy after the first leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.87,
+      "sp": 0.0,
+      "pos": [
+        7.958,
+        0.0,
+        -25.402
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "flower",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        -8.184,
+        0.0,
+        -17.212
+      ],
+      "yaw": 0.07,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.876,
+      "sp": 0.0,
+      "pos": [
+        7.958,
+        0.0,
+        -8.534
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        -8.184,
+        0.0,
+        -0.651
+      ],
+      "yaw": 0.06,
+      "name": "plank vertical",
+      "related": {
+        "to": 5,
+        "strides": 2,
+        "distance_m": 10.78
+      }
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.892,
+      "sp": 0.0,
+      "pos": [
+        -7.538,
+        0.0,
+        10.108
+      ],
+      "yaw": 0.06,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.896,
+      "sp": 0.697,
+      "pos": [
+        -8.184,
+        0.0,
+        19.448
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.91,
+      "sp": 0.0,
+      "pos": [
+        7.958,
+        0.0,
+        27.254
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.9,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.363
+      ],
+      "yaw": -0.00676,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.922,
+      "sp": 0.0,
+      "pos": [
+        7.529,
+        0.0,
+        17.938
+      ],
+      "yaw": 3.22712,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.924,
+      "sp": 0.0,
+      "pos": [
+        7.321,
+        0.0,
+        6.298
+      ],
+      "yaw": 3.19102,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.947,
+      "sp": 0.697,
+      "pos": [
+        -7.529,
+        0.0,
+        -7.911
+      ],
+      "yaw": 3.18804,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.942,
+      "sp": 0.0,
+      "pos": [
+        7.321,
+        0.0,
+        -18.219
+      ],
+      "yaw": 3.08168,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk sixty in the outdoor hk_adv_060 ring on the other way for advanced. hk_adv_060 Height 3'0\", 12 fences, pattern outside track, hk_adv_060 side left. Fence one of walk sixty hk_adv_060 is a white vertical at eight by hk_adv_060 minus twenty-five point four. Walk sixty meat hk_adv_060 is a labeled related. Sit after the hk_adv_060 in of walk sixty. Last of walk hk_adv_060 sixty is a white vertical at seven hk_adv_060 point three by minus eighteen point two. hk_adv_060 Same leave on walk sixty. Then hk_adv_060.",
+  "michelle_brief": "Walk sixty. Quiet to the first."
+}

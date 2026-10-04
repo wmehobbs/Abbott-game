@@ -1,0 +1,222 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+LEAVE course=hk_les_001 session=lesson class=lesson fence=1 kind=vertical window_scale=1.24 balance_need=0.101 charge_set=0.05
+FENCE knock 1 by horse at -1.1,-19.5 next=1 jumping=false
+MICHELLE rail | Rail. Make the last stride next time.
+LEAVE target=0.4 ahead=0.4 charge=0.05 key=rail rail=false refused=false
+MICHELLE deep | Deep leave. Come again with more canter.
+LEAVE target=0.5 ahead=0.5 charge=0.05 key=deep rail=true refused=false
+MICHELLE deep | Deep to the base. Make the canter.
+LEAVE target=0.6 ahead=0.6 charge=0.05 key=deep rail=true refused=false
+MICHELLE deep | Late to the spot. Make the stride.
+LEAVE target=0.7 ahead=0.7 charge=0.05 key=deep rail=true refused=false
+MICHELLE deep | Late to the spot. Make the stride.
+LEAVE target=0.8 ahead=0.8 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | He chipped from deep. Ride forward.
+LEAVE target=0.9 ahead=0.9 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | Deep. Don't add when it's gone.
+LEAVE target=1.0 ahead=1.0 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | Make the last canter stride.
+LEAVE target=1.1 ahead=1.1 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | Deep leave. Come again with more canter.
+LEAVE target=1.2 ahead=1.2 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | Deep leave. Come again with more canter.
+LEAVE target=1.3 ahead=1.3 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | You got there late. Ride the last one.
+LEAVE target=1.4 ahead=1.4 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE deep | You waited too long. Ask sooner.
+LEAVE target=1.5 ahead=1.5 charge=0.05 key=deep rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE chip | He added a short one. Ride forward.
+LEAVE target=1.6 ahead=1.6 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE chip | He chipped. Sit and come again.
+LEAVE target=1.7 ahead=1.7 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE chip | He chipped. Make the last one next time.
+LEAVE target=1.8 ahead=1.8 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Too deep.
+MICHELLE spot | Yes. That's the leave.
+LEAVE target=1.9 ahead=1.9 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | That leave was true.
+LEAVE target=2.0 ahead=2.0 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | Right stride. Pat him later.
+LEAVE target=2.1 ahead=2.1 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | That's the one. Don't fuss after.
+LEAVE target=2.2 ahead=2.2 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | You saw it. Leave like that.
+LEAVE target=2.3 ahead=2.3 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | Yes. That's the leave.
+LEAVE target=2.4 ahead=2.4 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | That's seeing it. Do it again.
+LEAVE target=2.5 ahead=2.5 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | That's seeing it. Do it again.
+LEAVE target=2.6 ahead=2.6 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | That was the spot.
+LEAVE target=2.7 ahead=2.7 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | Yes. That's the leave.
+LEAVE target=2.8 ahead=2.8 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | You found it. Don't chase the next.
+LEAVE target=2.9 ahead=2.9 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | You saw it. Leave like that.
+LEAVE target=3.0 ahead=3.0 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | You saw it. Leave like that.
+LEAVE target=3.1 ahead=3.1 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE spot | Spot. Sit still on the other side.
+LEAVE target=3.2 ahead=3.2 charge=0.05 key=spot rail=false refused=false
+MICHELLE soft | Now.
+MICHELLE chip | Chip. That's not the leave.
+LEAVE target=3.3 ahead=3.3 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Wait.
+MICHELLE chip | Don't chip. Wait or leave. Not both.
+LEAVE target=3.4 ahead=3.4 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Wait.
+MICHELLE chip | He added a short one. Ride forward.
+LEAVE target=3.5 ahead=3.5 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Wait.
+MICHELLE chip | Chip. You didn't make the last stride.
+LEAVE target=3.6 ahead=3.6 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Wait.
+MICHELLE chip | Don't chip. Wait or leave. Not both.
+LEAVE target=3.7 ahead=3.7 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Wait.
+MICHELLE chip | He chipped. Sit and come again.
+LEAVE target=3.8 ahead=3.8 charge=0.05 key=chip rail=true refused=false
+MICHELLE soft | Wait.
+MICHELLE halt | Halt and stand. That's the whole thing.
+MICHELLE early | Sit quiet. Let the last one come.
+LEAVE target=3.9 ahead=3.9 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | Early.
+MICHELLE early | Don't throw your hand at it early.
+LEAVE target=4.0 ahead=4.0 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | Early.
+MICHELLE early | Wait. He wasn't there yet.
+LEAVE target=4.1 ahead=4.1 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | Early.
+MICHELLE early | Early. Sit. The stride isn't there yet.
+LEAVE target=4.2 ahead=4.2 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | Early.
+MICHELLE halt | Whoa. Keep your eyes up.
+MICHELLE early | Wait for him. Then ask.
+LEAVE target=4.3 ahead=4.3 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | Don't launch. The stride is later.
+LEAVE target=4.4 ahead=4.4 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE halt | Halt. Don't wiggle him into it.
+MICHELLE early | Sit quiet. Let the last one come.
+LEAVE target=4.5 ahead=4.5 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | Sit quiet. Let the last one come.
+LEAVE target=4.6 ahead=4.6 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | You asked a stride too soon.
+LEAVE target=4.7 ahead=4.7 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE halt | Halt. Leg off, sit, then the hand.
+MICHELLE early | Too soon. Wait for the last stride, then ask.
+LEAVE target=4.8 ahead=4.8 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | Too soon off the ground.
+LEAVE target=4.9 ahead=4.9 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | Don't launch. The stride is later.
+LEAVE target=5.0 ahead=5.0 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | You jumped first. He wasn't ready.
+LEAVE target=5.1 ahead=5.1 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | Too soon off the ground.
+LEAVE target=5.2 ahead=5.2 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE early | That was early. Come again quieter.
+LEAVE target=5.3 ahead=5.3 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Early.
+MICHELLE halt | Halt. Don't wiggle him into it.
+MICHELLE early | Don't throw your hand at it early.
+LEAVE target=5.4 ahead=5.4 charge=0.05 key=early rail=false refused=true
+MICHELLE soft | One. Wait.
+LEAVE target=5.5 ahead=5.5 charge=0.05 key=none rail=false refused=false
+LEAVE target=5.6 ahead=5.6 charge=0.05 key=none rail=false refused=false
+LEAVE course=hk_beg_033 session=schooling class=beginner fence=1 kind=vertical window_scale=1.16 balance_need=0.101 charge_set=0.05
+FENCE knock 1 by horse at 8.7,-22.7 next=1 jumping=false
+LEAVE target=0.4 ahead=0.4 charge=0.05 key=none rail=false refused=false
+LEAVE target=0.5 ahead=0.5 charge=0.05 key=deep rail=true refused=false
+LEAVE target=0.6 ahead=0.6 charge=0.05 key=deep rail=true refused=false
+LEAVE target=0.7 ahead=0.7 charge=0.05 key=deep rail=true refused=false
+LEAVE target=0.8 ahead=0.8 charge=0.05 key=deep rail=true refused=false
+LEAVE target=0.9 ahead=0.9 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.0 ahead=1.0 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.1 ahead=1.1 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.2 ahead=1.2 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.3 ahead=1.3 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.4 ahead=1.4 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.5 ahead=1.5 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.6 ahead=1.6 charge=0.05 key=deep rail=true refused=false
+LEAVE target=1.7 ahead=1.7 charge=0.05 key=chip rail=true refused=false
+LEAVE target=1.8 ahead=1.8 charge=0.05 key=chip rail=true refused=false
+LEAVE target=1.9 ahead=1.9 charge=0.05 key=chip rail=true refused=false
+LEAVE target=2.0 ahead=2.0 charge=0.05 key=none rail=false refused=false
+LEAVE target=2.1 ahead=2.1 charge=0.05 key=straight rail=false refused=false
+LEAVE target=2.2 ahead=2.2 charge=0.05 key=straight rail=false refused=false
+LEAVE target=2.3 ahead=2.3 charge=0.05 key=leave rail=false refused=false
+LEAVE target=2.4 ahead=2.4 charge=0.05 key=leave rail=false refused=false
+LEAVE target=2.5 ahead=2.5 charge=0.05 key=none rail=false refused=false
+LEAVE target=2.6 ahead=2.6 charge=0.05 key=straight rail=false refused=false
+LEAVE target=2.7 ahead=2.7 charge=0.05 key=none rail=false refused=false
+LEAVE target=2.8 ahead=2.8 charge=0.05 key=leave rail=false refused=false
+LEAVE target=2.9 ahead=2.9 charge=0.05 key=none rail=false refused=false
+LEAVE target=3.0 ahead=3.0 charge=0.05 key=leave rail=false refused=false
+LEAVE target=3.1 ahead=3.1 charge=0.05 key=leave rail=false refused=false
+LEAVE target=3.2 ahead=3.2 charge=0.05 key=chip rail=true refused=false
+LEAVE target=3.3 ahead=3.3 charge=0.05 key=chip rail=true refused=false
+LEAVE target=3.4 ahead=3.4 charge=0.05 key=chip rail=true refused=false
+LEAVE target=3.5 ahead=3.5 charge=0.05 key=chip rail=true refused=false
+LEAVE target=3.6 ahead=3.6 charge=0.05 key=chip rail=true refused=false
+LEAVE target=3.7 ahead=3.7 charge=0.05 key=chip rail=true refused=false
+LEAVE target=3.8 ahead=3.8 charge=0.05 key=early rail=false refused=true
+LEAVE target=3.9 ahead=3.9 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.0 ahead=4.0 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.1 ahead=4.1 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.2 ahead=4.2 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.3 ahead=4.3 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.4 ahead=4.4 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.5 ahead=4.5 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.6 ahead=4.6 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.7 ahead=4.7 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.8 ahead=4.8 charge=0.05 key=early rail=false refused=true
+LEAVE target=4.9 ahead=4.9 charge=0.05 key=early rail=false refused=true
+LEAVE target=5.0 ahead=5.0 charge=0.05 key=early rail=false refused=true
+LEAVE target=5.1 ahead=5.1 charge=0.05 key=early rail=false refused=true
+LEAVE target=5.2 ahead=5.2 charge=0.05 key=early rail=false refused=true
+LEAVE target=5.3 ahead=5.3 charge=0.05 key=early rail=false refused=true
+LEAVE target=5.4 ahead=5.4 charge=0.05 key=early rail=false refused=true
+LEAVE target=5.5 ahead=5.5 charge=0.05 key=none rail=false refused=false
+LEAVE target=5.6 ahead=5.6 charge=0.05 key=none rail=false refused=false
+LEAVE done

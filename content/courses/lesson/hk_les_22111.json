@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_22111",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, right, late 24479",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.431,
+      "sp": 0.0,
+      "pos": [
+        7.915,
+        0.0,
+        -25.16
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.77
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.533,
+      "sp": 0.0,
+      "pos": [
+        7.915,
+        0.0,
+        -14.393
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.635,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-four thousand four hundred hk_les_22111 seventy-nine in the outdoor ring on Wednesday hk_les_22111 for lesson. Height poles to 2'3\", 3 hk_les_22111 fences, pattern lesson single then line, side hk_les_22111 left. Fence one of walk twenty-four thousand hk_les_22111 four hundred seventy-nine is a brush vertical hk_les_22111 at seven point nine by minus twenty-five hk_les_22111 point two. Walk twenty-four thousand four hundred hk_les_22111 seventy-nine meat is a labeled related. Sit hk_les_22111 after the in of walk twenty-four thousand hk_les_22111 four hundred seventy-nine. Last of walk hk_les_22111.",
+  "michelle_brief": "Walk twenty-four thousand four hundred seventy-nine. Quiet to the first."
+}

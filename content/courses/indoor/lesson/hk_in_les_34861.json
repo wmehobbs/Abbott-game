@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_34861",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor outside track, outside, first school 13731",
+  "height_label": "poles to 2'3\"",
+  "pattern": "outside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.413,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.52,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        -3.502
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.629,
+      "sp": 0.0,
+      "pos": [
+        3.92,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand seven hundred hk_in_les_34861 thirty-one in the indoor on after work hk_in_les_34861 for lesson. Height poles to 2'3\", 3 hk_in_les_34861 fences, pattern outside track, side left. Fence hk_in_les_34861 one of walk thirteen thousand seven hundred hk_in_les_34861 thirty-one is a brush vertical at three hk_in_les_34861 point nine by minus eleven. Walk thirteen hk_in_les_34861 thousand seven hundred thirty-one meat is a hk_in_les_34861 labeled related. Sit after the in of hk_in_les_34861 walk thirteen thousand seven hundred thirty-one. Last hk_in_les_34861 of walk thirteen thousand seven hundred hk_in_les_34861.",
+  "michelle_brief": "Walk thirteen thousand seven hundred thirty-one. Quiet to the first."
+}

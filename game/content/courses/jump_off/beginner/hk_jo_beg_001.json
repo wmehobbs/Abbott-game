@@ -1,0 +1,82 @@
+{
+  "id": "hk_jo_beg_001",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "Jump-off, four",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Four fences. Don't chase him. The clock is already running.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.614,
+      "sp": 0.0,
+      "pos": [
+        -6.967,
+        0.0,
+        -19.47
+      ],
+      "yaw": 0.04,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.619,
+      "sp": 0.0,
+      "pos": [
+        8.484,
+        0.0,
+        -2.753
+      ],
+      "yaw": -0.1,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.668,
+      "sp": 0.0,
+      "pos": [
+        -6.967,
+        0.0,
+        19.791
+      ],
+      "yaw": 0.08,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.668,
+      "sp": 0.342,
+      "pos": [
+        4.4,
+        0.0,
+        -11.044
+      ],
+      "yaw": 3.20159,
+      "name": "brush oxer",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "pattern": "jump_off_tight",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty thousand eight hundred hk_jo_beg_001 thirty-nine in the outdoor ring on after hk_jo_beg_001 work for beginner. Height 2'3\", 4 fences, hk_jo_beg_001 pattern jump off tight, side right. Fence hk_jo_beg_001 one of walk twenty thousand eight hundred hk_jo_beg_001 thirty-nine is a white vertical at minus hk_jo_beg_001 seven by minus nineteen point five. Walk hk_jo_beg_001 twenty thousand eight hundred thirty-nine meat is hk_jo_beg_001 singles, no related. Sit after the in hk_jo_beg_001 of walk twenty thousand eight hundred thirty-nine. hk_jo_beg_001 Last of walk twenty thousand eight hk_jo_beg_001.",
+  "michelle_brief": "Walk twenty thousand eight hundred thirty-nine. Quiet to the first."
+}

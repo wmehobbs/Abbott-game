@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_7424",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor jump off tight, left, after work 14230",
+  "height_label": "poles to 2'3\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.427,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -11.4
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.39
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.532,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        -4.009
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.626,
+      "sp": 0.0,
+      "pos": [
+        4.76,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk fourteen thousand two hundred hk_in_les_7424 thirty in the indoor on Thursday for hk_in_les_7424 lesson. Height poles to 2'3\", 3 fences, hk_in_les_7424 pattern jump off tight, side outside. Fence hk_in_les_7424 one of walk fourteen thousand two hundred hk_in_les_7424 thirty is a brush vertical at four hk_in_les_7424 point eight by minus eleven point four. hk_in_les_7424 Walk fourteen thousand two hundred thirty meat hk_in_les_7424 is a labeled related. Sit after the hk_in_les_7424 in of walk fourteen thousand two hundred hk_in_les_7424 thirty. Last of walk fourteen thousand hk_in_les_7424.",
+  "michelle_brief": "Walk fourteen thousand two hundred thirty. Quiet to the first."
+}

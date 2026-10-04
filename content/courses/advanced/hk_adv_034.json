@@ -1,0 +1,206 @@
+{
+  "id": "hk_adv_034",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, outside, morning 34",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Mini Prix. Keep the canter. He has the scope if you wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.84,
+      "sp": 0.0,
+      "pos": [
+        6.876,
+        0.0,
+        -21.624
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.78
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.844,
+      "sp": 0.0,
+      "pos": [
+        6.876,
+        0.0,
+        -10.843
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.862,
+      "sp": 0.0,
+      "pos": [
+        6.876,
+        0.0,
+        -2.299
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.9,
+      "sp": 0.548,
+      "pos": [
+        -7.631,
+        0.0,
+        7.3
+      ],
+      "yaw": 0.07,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.899,
+      "sp": 0.0,
+      "pos": [
+        6.876,
+        0.0,
+        14.875
+      ],
+      "yaw": 0.0,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.909,
+      "sp": 0.548,
+      "pos": [
+        -7.631,
+        0.0,
+        22.224
+      ],
+      "yaw": 0.07,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.92,
+      "sp": 0.0,
+      "pos": [
+        6.876,
+        0.0,
+        29.589
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 8,
+        "strides": 1,
+        "distance_m": 7.07
+      }
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.932,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        31.24
+      ],
+      "yaw": -0.01509,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "flower",
+      "h": 0.922,
+      "sp": 0.0,
+      "pos": [
+        -7.021,
+        0.0,
+        14.965
+      ],
+      "yaw": 3.14577,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "flower",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        6.326,
+        0.0,
+        5.063
+      ],
+      "yaw": 3.23528,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        -7.021,
+        0.0,
+        -4.906
+      ],
+      "yaw": 3.06972,
+      "name": "brush vertical",
+      "related": {
+        "to": 12,
+        "strides": 2,
+        "distance_m": 11.0
+      }
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.954,
+      "sp": 0.0,
+      "pos": [
+        -6.326,
+        0.0,
+        -15.887
+      ],
+      "yaw": 3.16982,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk thirty-four in the outdoor hk_adv_034 ring on Tuesday for advanced. Height 3'0\", hk_adv_034 12 fences, pattern outside track, side inside. hk_adv_034 Fence one of walk thirty-four is a hk_adv_034 white vertical at six point nine by hk_adv_034 minus twenty-one point six. Walk thirty-four meat hk_adv_034 is a labeled related. Sit after the hk_adv_034 in of walk thirty-four. Last of walk hk_adv_034 thirty-four is a flower box at minus hk_adv_034 six point three by minus fifteen point hk_adv_034 nine. Same leave on walk thirty-four. hk_adv_034.",
+  "michelle_brief": "Walk thirty-four. Quiet to the first."
+}

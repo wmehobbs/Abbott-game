@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_34252",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, the other way 20349",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.859,
+      "sp": 0.0,
+      "pos": [
+        6.865,
+        0.0,
+        -25.16
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.34
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.882,
+      "sp": 0.458,
+      "pos": [
+        6.865,
+        0.0,
+        -17.816
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.927,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.949,
+      "sp": 0.0,
+      "pos": [
+        -7.36,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.12079,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand three hundred hk_jo_adv_34252 forty-nine in the outdoor ring on first hk_jo_adv_34252 school for advanced. Height 3'0\", 4 fences, hk_jo_adv_34252 pattern jump off tight, side left. Fence hk_jo_adv_34252 one of walk twenty thousand three hundred hk_jo_adv_34252 forty-nine is a natural vertical at six hk_jo_adv_34252 point nine by minus twenty-five point two. hk_jo_adv_34252 Walk twenty thousand three hundred forty-nine meat hk_jo_adv_34252 is a labeled related. Sit after the hk_jo_adv_34252 in of walk twenty thousand three hundred hk_jo_adv_34252 forty-nine. Last of walk twenty thousand hk_jo_adv_34252.",
+  "michelle_brief": "Walk twenty thousand three hundred forty-nine. Quiet to the first."
+}

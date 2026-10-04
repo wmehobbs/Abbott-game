@@ -1,0 +1,207 @@
+{
+  "id": "hk_adv_11338",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "figure eight, inside, the other way 62",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.848,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -25.16
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.87
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.869,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -14.292
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.875,
+      "sp": 0.0,
+      "pos": [
+        -8.9,
+        0.0,
+        -7.21
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.08
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.892,
+      "sp": 0.567,
+      "pos": [
+        -8.9,
+        0.0,
+        -0.128
+      ],
+      "yaw": 0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "flower",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        6.954
+      ],
+      "yaw": -0.05,
+      "name": "flower box",
+      "related": {
+        "to": 6,
+        "strides": 1,
+        "distance_m": 7.08
+      }
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.898,
+      "sp": 0.567,
+      "pos": [
+        9.49,
+        0.0,
+        14.036
+      ],
+      "yaw": -0.05,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.902,
+      "sp": 0.0,
+      "pos": [
+        -8.9,
+        0.0,
+        21.118
+      ],
+      "yaw": 0.05,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.925,
+      "sp": 0.567,
+      "pos": [
+        -8.9,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.936,
+      "sp": 0.567,
+      "pos": [
+        7.592,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.19363,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.931,
+      "sp": 0.0,
+      "pos": [
+        -7.12,
+        0.0,
+        15.05
+      ],
+      "yaw": 3.14909,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.949,
+      "sp": 0.567,
+      "pos": [
+        -8.188,
+        0.0,
+        8.75
+      ],
+      "yaw": 3.19711,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.953,
+      "sp": 0.567,
+      "pos": [
+        8.731,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.11801,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "figure_eight",
+  "indoor": false,
+  "walk_text": "Hidden K walk sixty-two in the outdoor hk_adv_11338 ring on late for advanced. Height 3'0\", hk_adv_11338 12 fences, pattern figure eight, side left. hk_adv_11338 Fence one of walk sixty-two is a hk_adv_11338 plank vertical at nine point five by hk_adv_11338 minus twenty-five point two. Walk sixty-two meat hk_adv_11338 is a labeled related. Sit after the hk_adv_11338 in of walk sixty-two. Last of walk hk_adv_11338 sixty-two is a white oxer at eight hk_adv_11338 point seven by zero point six. Same hk_adv_11338 leave on walk sixty-two. Then walk hk_adv_11338.",
+  "michelle_brief": "Walk sixty-two. Quiet to the first."
+}

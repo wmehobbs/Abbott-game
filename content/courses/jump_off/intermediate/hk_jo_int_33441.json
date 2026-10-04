@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_33441",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, before the show 22098",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.739,
+      "sp": 0.0,
+      "pos": [
+        6.97,
+        0.0,
+        -26.265
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.29
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.79,
+      "sp": 0.489,
+      "pos": [
+        6.97,
+        0.0,
+        -18.971
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.845,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.891,
+      "sp": 0.0,
+      "pos": [
+        -7.82,
+        0.0,
+        18.65
+      ],
+      "yaw": 3.13035,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand ninety-eight in hk_jo_int_33441 the outdoor ring on before the show hk_jo_int_33441 for intermediate. Height 2'6\", 4 fences, pattern hk_jo_int_33441 jump off tight, side right. Fence one hk_jo_int_33441 of walk twenty-two thousand ninety-eight is a hk_jo_int_33441 plank vertical at seven by minus twenty-six hk_jo_int_33441 point three. Walk twenty-two thousand ninety-eight meat hk_jo_int_33441 is a labeled related. Sit after the hk_jo_int_33441 in of walk twenty-two thousand ninety-eight. Last hk_jo_int_33441 of walk twenty-two thousand ninety-eight is a hk_jo_int_33441 white vertical at minus seven point hk_jo_int_33441.",
+  "michelle_brief": "Walk twenty-two thousand ninety-eight. Quiet to the first."
+}

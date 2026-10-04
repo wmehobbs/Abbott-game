@@ -1,0 +1,99 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+RIDECERT begin
+RIDECERT filter hk_jo_beg_001
+RIDECERT round hk_jo_beg_001 class=beginner seed=0 jo=true style=clear
+COUNT fence=1 ahead=7.56 lateral=11.32 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+MICHELLE soft | Two. Wait.
+COUNT fence=1 ahead=10.49 lateral=1.48 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=1 phase=approach pos=-7.4,-29.9 ahead=10.36 lat=0.06 ang=5.8 along=10.4 gait=3 v=5.02 rein=1
+MICHELLE soft | One. Wait.
+COUNT fence=1 ahead=7.52 lateral=0.56 stride=1 word=One. Wait. kept=true
+MICHELLE soft | One. Early.
+COUNT fence=1 ahead=5.39 lateral=0.56 stride=1 word=One. Early. kept=true
+RIDEAI sit n=1 phase=approach pos=-7.5,-24.4 ahead=4.93 lat=0.32 ang=2.7 along=4.9 gait=3 v=5.55 rein=0
+MICHELLE soft | Early.
+COUNT fence=1 ahead=4.22 lateral=0.22 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=1 ahead=3.75 lateral=0.22 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=1 ahead=3.16 lateral=0.22 stride=0 word=Now. kept=true
+RIDEAI ASK n=1 ahead=2.56 lat=0.22 ang=1.5 charge=1.0
+RIDEAI fence 1 -> 2 t=4.1 leave=
+RIDEAI sit n=2 phase=setup pos=-6.9,-18.1 ahead=20.02 lat=16.88 ang=27.9 along=13.7 gait=3 v=3.09 rein=1
+RIDEAI sit n=2 phase=setup pos=-4.6,-16.2 ahead=17.16 lat=14.36 ang=73.8 along=12.1 gait=3 v=3.22 rein=0
+RIDEAI sit n=2 phase=setup pos=-1.6,-15.0 ahead=13.93 lat=11.26 ang=73.8 along=11.2 gait=3 v=3.41 rein=0
+COUNT fence=2 ahead=10.96 lateral=7.61 stride=-1 word=silent kept=false
+RIDEAI sit n=2 phase=setup pos=2.6,-13.3 ahead=9.35 lat=6.86 ang=73.8 along=9.9 gait=3 v=5.55 rein=0
+MICHELLE soft | Come again.
+RIDEAI sit n=2 phase=setup pos=6.6,-11.4 ahead=6.04 lat=2.78 ang=65.4 along=8.4 gait=3 v=2.23 rein=0
+RIDEAI sit n=2 phase=approach pos=8.8,-9.0 ahead=5.81 lat=0.3 ang=24.5 along=6.2 gait=3 v=4.53 rein=-1
+MICHELLE soft | One. Wait.
+COUNT fence=2 ahead=5.46 lateral=1.51 stride=1 word=One. Wait. kept=true
+MICHELLE soft | One. Early.
+COUNT fence=2 ahead=5.34 lateral=1.31 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=2 ahead=4.22 lateral=0.16 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=2 ahead=3.71 lateral=0.16 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=2 ahead=3.17 lateral=0.16 stride=0 word=Now. kept=true
+RIDEAI sit n=2 phase=approach pos=8.9,-5.3 ahead=2.62 lat=0.12 ang=0.9 along=2.6 gait=3 v=1.97 rein=0
+RIDEAI ASK n=2 ahead=2.58 lat=0.16 ang=0.9 charge=1.0
+RIDEAI fence 2 -> 3 t=11.85 leave=leave
+RIDEAI sit n=3 phase=setup pos=7.0,0.2 ahead=23.65 lat=15.52 ang=51.3 along=18.4 gait=3 v=3.22 rein=0
+RIDEAI sit n=3 phase=setup pos=4.7,2.4 ahead=20.43 lat=13.02 ang=51.3 along=16.4 gait=3 v=3.22 rein=0
+RIDEAI sit n=3 phase=setup pos=1.9,5.0 ahead=16.55 lat=9.98 ang=51.3 along=14.0 gait=3 v=4.94 rein=0
+COUNT fence=3 ahead=10.99 lateral=5.52 stride=-1 word=silent kept=false
+RIDEAI sit n=3 phase=setup pos=-2.2,8.7 ahead=10.71 lat=5.68 ang=55.4 along=10.6 gait=3 v=5.55 rein=0
+MICHELLE soft | Come again.
+RIDEAI sit n=3 phase=setup pos=-5.1,11.1 ahead=6.92 lat=2.56 ang=55.4 along=8.5 gait=3 v=2.65 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=3 ahead=6.03 lateral=1.54 stride=1 word=One. Wait. kept=true
+RIDEAI sit n=3 phase=approach pos=-7.0,14.3 ahead=5.48 lat=0.4 ang=10.4 along=5.5 gait=3 v=4.95 rein=1
+MICHELLE soft | One. Early.
+COUNT fence=3 ahead=5.33 lateral=0.42 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=3 ahead=4.22 lateral=0.14 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=3 ahead=3.77 lateral=0.14 stride=0 word=Wait. kept=true
+MICHELLE soft | Now.
+COUNT fence=3 ahead=3.17 lateral=0.14 stride=0 word=Now. kept=true
+RIDEAI ASK n=3 ahead=2.58 lat=0.14 ang=5.3 charge=1.0
+RIDEAI fence 3 -> 4 t=20.1 leave=straight
+RIDEAI sit n=4 phase=setup pos=-7.1,20.7 ahead=-30.49 lat=13.36 ang=178.1 along=31.0 gait=3 v=3.22 rein=1
+RIDEAI sit n=4 phase=setup pos=-5.3,23.0 ahead=-4.57 lat=11.76 ang=116.8 along=33.4 gait=3 v=3.09 rein=1
+COUNT fence=4 ahead=1.22 lateral=35.44 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+RIDEAI sit n=4 phase=setup pos=-2.4,22.6 ahead=26.07 lat=8.82 ang=55.5 along=33.2 gait=3 v=3.09 rein=1
+RIDEAI sit n=4 phase=setup pos=-0.7,19.0 ahead=30.27 lat=6.94 ang=19.8 along=29.7 gait=3 v=5.2 rein=0
+RIDEAI sit n=4 phase=setup pos=0.8,13.7 ahead=24.75 lat=5.06 ang=19.8 along=24.5 gait=3 v=5.55 rein=0
+RIDEAI sit n=4 phase=setup pos=2.4,8.4 ahead=19.2 lat=3.18 ang=19.8 along=19.3 gait=3 v=5.55 rein=0
+RIDEAI sit n=4 phase=approach pos=3.6,3.0 ahead=13.85 lat=1.6 ang=15.7 along=13.9 gait=3 v=5.55 rein=0
+MICHELLE soft | Two. Wait.
+COUNT fence=4 ahead=10.85 lateral=1.06 stride=2 word=Two. Wait. kept=true
+RIDEAI sit n=4 phase=approach pos=4.4,-2.5 ahead=8.45 lat=0.52 ang=10.6 along=8.5 gait=3 v=5.55 rein=0
+MICHELLE soft | One. Wait.
+COUNT fence=4 ahead=7.49 lateral=0.37 stride=1 word=One. Wait. kept=true
+MICHELLE soft | One. Early.
+COUNT fence=4 ahead=5.37 lateral=0.23 stride=1 word=One. Early. kept=true
+MICHELLE soft | Early.
+COUNT fence=4 ahead=4.18 lateral=0.23 stride=0 word=Early. kept=true
+MICHELLE soft | Wait.
+COUNT fence=4 ahead=3.71 lateral=0.23 stride=0 word=Wait. kept=true
+RIDEAI sit n=4 phase=approach pos=4.6,-7.8 ahead=3.27 lat=0.02 ang=4.5 along=3.3 gait=3 v=3.35 rein=0
+MICHELLE soft | Now.
+COUNT fence=4 ahead=3.16 lateral=0.23 stride=0 word=Now. kept=true
+RIDEAI ASK n=4 ahead=2.59 lat=0.24 ang=4.5 charge=1.0
+RIDEAI fence 4 -> 5 t=29.97 leave=straight
+RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_jo_beg_001_clear.jsonl n=37
+RIDECERT hk_jo_beg_001 style=clear success=true faults=0 jumped=4/4 t=35.31 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=91.0 scope=84.5
+RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_results.json
+RIDECERT done pass=true board=1/1 filter=hk_jo_beg_001 fresh=false

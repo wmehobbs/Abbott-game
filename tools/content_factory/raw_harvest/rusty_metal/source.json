@@ -1,0 +1,23 @@
+{
+  "slug": "rusty_metal",
+  "source": "polyhaven",
+  "source_id": "rusty_metal",
+  "page": "https://polyhaven.com/a/rusty_metal",
+  "author": "Rob Tuytel",
+  "license": "CC0 1.0",
+  "license_url": "https://polyhaven.com/license",
+  "tags": [
+    "metal",
+    "hydrant"
+  ],
+  "maps": {
+    "albedo": "rusty_metal_albedo_1k.jpg",
+    "albedo_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rusty_metal/rusty_metal_diff_1k.jpg",
+    "normal": "rusty_metal_normal_1k.jpg",
+    "normal_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rusty_metal/rusty_metal_nor_gl_1k.jpg",
+    "rough": "rusty_metal_rough_1k.jpg",
+    "rough_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rusty_metal/rusty_metal_rough_1k.jpg"
+  },
+  "date_fetched": "2026-09-16",
+  "use_for": "metal, hydrant"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "sparse_grass",
+  "source": "polyhaven",
+  "source_id": "sparse_grass",
+  "page": "https://polyhaven.com/a/sparse_grass",
+  "author": "Amal Kumar",
+  "license": "CC0 1.0",
+  "license_url": "https://polyhaven.com/license",
+  "tags": [
+    "sod",
+    "grass",
+    "dry"
+  ],
+  "maps": {
+    "albedo": "sparse_grass_albedo_1k.jpg",
+    "albedo_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sparse_grass/sparse_grass_diff_1k.jpg",
+    "normal": "sparse_grass_normal_1k.jpg",
+    "normal_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sparse_grass/sparse_grass_nor_gl_1k.jpg",
+    "rough": "sparse_grass_rough_1k.jpg",
+    "rough_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sparse_grass/sparse_grass_rough_1k.jpg"
+  },
+  "date_fetched": "2026-09-16",
+  "use_for": "sod, grass, dry"
+}

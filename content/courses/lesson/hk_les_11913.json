@@ -1,0 +1,72 @@
+{
+  "id": "hk_les_11913",
+  "class_id": "lesson",
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "lesson single then line, left, morning 23001",
+  "height_label": "poles to 2'3\"",
+  "time_allowed_school": 180.0,
+  "time_allowed_show": 180.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 32.4,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.415,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.77
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.521,
+      "sp": 0.0,
+      "pos": [
+        8.965,
+        0.0,
+        -15.585
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.628,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "lesson_single_then_line",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-three thousand one in hk_les_11913 the outdoor ring on Tuesday for lesson. hk_les_11913 Height poles to 2'3\", 3 fences, pattern hk_les_11913 lesson single then line, side right. Fence hk_les_11913 one of walk twenty-three thousand one is hk_les_11913 a brush vertical at nine by minus hk_les_11913 twenty-six point four. Walk twenty-three thousand one hk_les_11913 meat is a labeled related. Sit after hk_les_11913 the in of walk twenty-three thousand one. hk_les_11913 Last of walk twenty-three thousand one is hk_les_11913 a natural vertical at zero by hk_les_11913.",
+  "michelle_brief": "Walk twenty-three thousand one. Quiet to the first."
+}

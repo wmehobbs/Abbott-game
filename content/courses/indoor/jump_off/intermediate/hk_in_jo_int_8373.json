@@ -1,0 +1,73 @@
+{
+  "id": "hk_in_jo_int_8373",
+  "class_id": "intermediate",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "show"
+  ],
+  "name": "indoor jump-off jump off tight, right, the other way 13470",
+  "height_label": "2'6\"",
+  "pattern": "jump_off_tight",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -13.4,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.738,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.36
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.814,
+      "sp": 0.0,
+      "pos": [
+        4.88,
+        0.0,
+        -3.635
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "flower",
+      "h": 0.893,
+      "sp": 0.0,
+      "pos": [
+        -3.904,
+        0.0,
+        -5.25
+      ],
+      "yaw": 3.18056,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "walk_text": "Hidden K walk thirteen thousand four hundred hk_in_jo_int_8373 seventy in the indoor on quiet for hk_in_jo_int_8373 intermediate. Height 2'6\", 3 fences, pattern jump hk_in_jo_int_8373 off tight, side inside. Fence one of hk_in_jo_int_8373 walk thirteen thousand four hundred seventy is hk_in_jo_int_8373 a natural vertical at four point nine hk_in_jo_int_8373 by minus eleven. Walk thirteen thousand four hk_in_jo_int_8373 hundred seventy meat is a labeled related. hk_in_jo_int_8373 Sit after the in of walk thirteen hk_in_jo_int_8373 thousand four hundred seventy. Last of walk hk_in_jo_int_8373 thirteen thousand four hundred seventy is hk_in_jo_int_8373.",
+  "michelle_brief": "Walk thirteen thousand four hundred seventy. Quiet to the first."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_19342",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, outside, before the show 19977",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.858,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -26.35
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.42
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.891,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -18.932
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.917,
+      "sp": 0.565,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.955,
+      "sp": 0.0,
+      "pos": [
+        8.731,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.19055,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk nineteen thousand nine hundred hk_jo_adv_19342 seventy-seven in the outdoor ring on before hk_jo_adv_19342 the show for advanced. Height 3'0\", 4 hk_jo_adv_19342 fences, pattern jump off tight, side inside. hk_jo_adv_19342 Fence one of walk nineteen thousand nine hk_jo_adv_19342 hundred seventy-seven is a brush vertical at hk_jo_adv_19342 nine point five by minus twenty-six point hk_jo_adv_19342 four. Walk nineteen thousand nine hundred seventy-seven hk_jo_adv_19342 meat is a labeled related. Sit after hk_jo_adv_19342 the in of walk nineteen thousand nine hk_jo_adv_19342 hundred seventy-seven. Last of walk nineteen hk_jo_adv_19342.",
+  "michelle_brief": "Walk nineteen thousand nine hundred seventy-seven. Quiet to the first."
+}

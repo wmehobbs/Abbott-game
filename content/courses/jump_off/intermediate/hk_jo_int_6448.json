@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_6448",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, Tuesday 22546",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.733,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -25.755
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.784,
+      "sp": 0.0,
+      "pos": [
+        7.6,
+        0.0,
+        -18.278
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.848,
+      "sp": 0.474,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.89,
+      "sp": 0.0,
+      "pos": [
+        -7.912,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.15199,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand five hundred hk_jo_int_6448 forty-six in the outdoor ring on the hk_jo_int_6448 other way for intermediate. Height 2'6\", 4 hk_jo_int_6448 fences, pattern jump off tight, side left. hk_jo_int_6448 Fence one of walk twenty-two thousand five hk_jo_int_6448 hundred forty-six is a white vertical at hk_jo_int_6448 seven point six by minus twenty-five point hk_jo_int_6448 eight. Walk twenty-two thousand five hundred forty-six hk_jo_int_6448 meat is a labeled related. Sit after hk_jo_int_6448 the in of walk twenty-two thousand five hk_jo_int_6448 hundred forty-six. Last of walk twenty-two hk_jo_int_6448.",
+  "michelle_brief": "Walk twenty-two thousand five hundred forty-six. Quiet to the first."
+}

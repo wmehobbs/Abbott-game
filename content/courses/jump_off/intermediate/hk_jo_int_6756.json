@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_int_6756",
+  "class_id": "intermediate",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, inside, late 22685",
+  "height_label": "2'6\"",
+  "time_allowed_school": 31.0,
+  "time_allowed_show": 29.3,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.739,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -25.415
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.39
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.791,
+      "sp": 0.0,
+      "pos": [
+        9.49,
+        0.0,
+        -18.021
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.834,
+      "sp": 0.574,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.888,
+      "sp": 0.0,
+      "pos": [
+        8.731,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.17469,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-two thousand six hundred hk_jo_int_6756 eighty-five in the outdoor ring on morning hk_jo_int_6756 for intermediate. Height 2'6\", 4 fences, pattern hk_jo_int_6756 jump off tight, side inside. Fence one hk_jo_int_6756 of walk twenty-two thousand six hundred eighty-five hk_jo_int_6756 is a natural vertical at nine point hk_jo_int_6756 five by minus twenty-five point four. Walk hk_jo_int_6756 twenty-two thousand six hundred eighty-five meat is hk_jo_int_6756 a labeled related. Sit after the in hk_jo_int_6756 of walk twenty-two thousand six hundred eighty-five. hk_jo_int_6756 Last of walk twenty-two thousand six hk_jo_int_6756.",
+  "michelle_brief": "Walk twenty-two thousand six hundred eighty-five. Quiet to the first."
+}

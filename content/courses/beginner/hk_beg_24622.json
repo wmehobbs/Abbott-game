@@ -1,0 +1,143 @@
+{
+  "id": "hk_beg_24622",
+  "class_id": "beginner",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, inside, quiet 7644",
+  "height_label": "2'3\"",
+  "time_allowed_school": 82.0,
+  "time_allowed_show": 77.9,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.584,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        -24.905
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.71
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.601,
+      "sp": 0.306,
+      "pos": [
+        6.655,
+        0.0,
+        -14.198
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.627,
+      "sp": 0.306,
+      "pos": [
+        6.655,
+        0.0,
+        -3.599
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.638,
+      "sp": 0.0,
+      "pos": [
+        -7.0,
+        0.0,
+        7.001
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.665,
+      "sp": 0.0,
+      "pos": [
+        6.655,
+        0.0,
+        17.6
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "oxer",
+      "h": 0.662,
+      "sp": 0.306,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.672,
+      "sp": 0.0,
+      "pos": [
+        -6.44,
+        0.0,
+        17.75
+      ],
+      "yaw": 3.16828,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.696,
+      "sp": 0.306,
+      "pos": [
+        5.324,
+        0.0,
+        11.45
+      ],
+      "yaw": 3.12637,
+      "name": "plank oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "outside_track",
+  "indoor": false,
+  "walk_text": "Hidden K walk seven thousand six hundred hk_beg_24622 forty-four in the outdoor ring on Tuesday hk_beg_24622 for beginner. Height 2'3\", 8 fences, pattern hk_beg_24622 outside track, side right. Fence one of hk_beg_24622 walk seven thousand six hundred forty-four is hk_beg_24622 a brush vertical at six point seven hk_beg_24622 by minus twenty-four point nine. Walk seven hk_beg_24622 thousand six hundred forty-four meat is a hk_beg_24622 labeled related. Sit after the in of hk_beg_24622 walk seven thousand six hundred forty-four. Last hk_beg_24622 of walk seven thousand six hundred hk_beg_24622.",
+  "michelle_brief": "Walk seven thousand six hundred forty-four. Quiet to the first."
+}

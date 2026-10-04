@@ -1,0 +1,203 @@
+{
+  "id": "hk_adv_16989",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "liverpool lookalike flower, inside, late 663",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.863,
+      "sp": 0.0,
+      "pos": [
+        9.07,
+        0.0,
+        -26.095
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.91
+      }
+    },
+    {
+      "num": 2,
+      "kind": "oxer",
+      "h": 0.862,
+      "sp": 0.691,
+      "pos": [
+        9.07,
+        0.0,
+        -15.189
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.23
+      }
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.875,
+      "sp": 0.691,
+      "pos": [
+        9.07,
+        0.0,
+        -7.957
+      ],
+      "yaw": -0.05,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "flower",
+      "h": 0.886,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        -0.726
+      ],
+      "yaw": 0.05,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "vertical",
+      "h": 0.892,
+      "sp": 0.0,
+      "pos": [
+        9.07,
+        0.0,
+        6.506
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.895,
+      "sp": 0.0,
+      "pos": [
+        -6.9,
+        0.0,
+        13.737
+      ],
+      "yaw": 0.05,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "oxer",
+      "h": 0.906,
+      "sp": 0.691,
+      "pos": [
+        9.07,
+        0.0,
+        20.969
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.911,
+      "sp": 0.691,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.924,
+      "sp": 0.691,
+      "pos": [
+        8.344,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.09059,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "oxer",
+      "h": 0.934,
+      "sp": 0.691,
+      "pos": [
+        -6.348,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.17524,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        8.344,
+        0.0,
+        0.2
+      ],
+      "yaw": 3.10858,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "flower",
+      "h": 0.96,
+      "sp": 0.0,
+      "pos": [
+        -6.348,
+        0.0,
+        -7.0
+      ],
+      "yaw": 3.10804,
+      "name": "flower box",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "liverpool_lookalike_flower",
+  "indoor": false,
+  "walk_text": "Hidden K walk six hundred sixty-three in hk_adv_16989 the outdoor ring on quiet for advanced. hk_adv_16989 Height 3'0\", 12 fences, pattern liverpool lookalike hk_adv_16989 flower, side right. Fence one of walk hk_adv_16989 six hundred sixty-three is a plank vertical hk_adv_16989 at nine point one by minus twenty-six hk_adv_16989 point one. Walk six hundred sixty-three meat hk_adv_16989 is a labeled related. Sit after the hk_adv_16989 in of walk six hundred sixty-three. Last hk_adv_16989 of walk six hundred sixty-three is a hk_adv_16989 flower box at minus six point hk_adv_16989.",
+  "michelle_brief": "Walk six hundred sixty-three. Quiet to the first."
+}

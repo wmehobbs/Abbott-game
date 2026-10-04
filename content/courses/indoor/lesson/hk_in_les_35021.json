@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35021",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor outside track, outside, after work 13807",
+  "height_label": "poles to 2'3\"",
+  "pattern": "outside_track",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.422,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -11.0
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.48
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.519,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -3.521
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.631,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand eight hundred hk_in_les_35021 seven in the indoor on after work hk_in_les_35021 for lesson. Height poles to 2'3\", 3 hk_in_les_35021 fences, pattern outside track, side outside. Fence hk_in_les_35021 one of walk thirteen thousand eight hundred hk_in_les_35021 seven is a brush vertical at four hk_in_les_35021 point four by minus eleven. Walk thirteen hk_in_les_35021 thousand eight hundred seven meat is a hk_in_les_35021 labeled related. Sit after the in of hk_in_les_35021 walk thirteen thousand eight hundred seven. Last hk_in_les_35021 of walk thirteen thousand eight hundred hk_in_les_35021.",
+  "michelle_brief": "Walk thirteen thousand eight hundred seven. Quiet to the first."
+}

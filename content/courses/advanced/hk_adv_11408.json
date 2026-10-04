@@ -1,0 +1,207 @@
+{
+  "id": "hk_adv_11408",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "rollback long, inside, after work 132",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.857,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -25.67
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.82
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.875,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -14.848
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.18
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.883,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        -7.673
+      ],
+      "yaw": -0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.881,
+      "sp": 0.0,
+      "pos": [
+        -9.1,
+        0.0,
+        -0.499
+      ],
+      "yaw": 0.05,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.891,
+      "sp": 0.532,
+      "pos": [
+        7.705,
+        0.0,
+        6.676
+      ],
+      "yaw": -0.05,
+      "name": "gate oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.907,
+      "sp": 0.0,
+      "pos": [
+        -9.1,
+        0.0,
+        13.851
+      ],
+      "yaw": 0.05,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.915,
+      "sp": 0.0,
+      "pos": [
+        7.705,
+        0.0,
+        21.025
+      ],
+      "yaw": -0.05,
+      "name": "white vertical",
+      "related": {
+        "to": 8,
+        "strides": 2,
+        "distance_m": 10.53
+      }
+    },
+    {
+      "num": 8,
+      "kind": "oxer",
+      "h": 0.921,
+      "sp": 0.532,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.921,
+      "sp": 0.532,
+      "pos": [
+        7.089,
+        0.0,
+        14.6
+      ],
+      "yaw": 3.18258,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        -7.28,
+        0.0,
+        7.85
+      ],
+      "yaw": 3.12171,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "vertical",
+      "h": 0.946,
+      "sp": 0.0,
+      "pos": [
+        6.164,
+        0.0,
+        0.65
+      ],
+      "yaw": 3.19776,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "oxer",
+      "h": 0.957,
+      "sp": 0.532,
+      "pos": [
+        -7.28,
+        0.0,
+        -6.55
+      ],
+      "yaw": 3.12249,
+      "name": "white oxer",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "rollback_long",
+  "indoor": false,
+  "walk_text": "Hidden K walk one hundred thirty-two in hk_adv_11408 the outdoor ring on Thursday for advanced. hk_adv_11408 Height 3'0\", 12 fences, pattern rollback long, hk_adv_11408 side inside. Fence one of walk one hk_adv_11408 hundred thirty-two is a white vertical at hk_adv_11408 seven point seven by minus twenty-five point hk_adv_11408 seven. Walk one hundred thirty-two meat is hk_adv_11408 a labeled related. Sit after the in hk_adv_11408 of walk one hundred thirty-two. Last of hk_adv_11408 walk one hundred thirty-two is a white hk_adv_11408 oxer at minus seven point three hk_adv_11408.",
+  "michelle_brief": "Walk one hundred thirty-two. Quiet to the first."
+}

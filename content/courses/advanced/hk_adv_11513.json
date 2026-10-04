@@ -1,0 +1,207 @@
+{
+  "id": "hk_adv_11513",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "bending five, inside, Tuesday 237",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Related 2-stride labeled. Don't move on the in. Rollback on the home stretch. Sit, turn, wait.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.854,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        -24.82
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 2,
+        "distance_m": 10.85
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.863,
+      "sp": 0.0,
+      "pos": [
+        6.55,
+        0.0,
+        -13.968
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.873,
+      "sp": 0.0,
+      "pos": [
+        2.821,
+        0.0,
+        -6.94
+      ],
+      "yaw": -0.22,
+      "name": "plank vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.27
+      }
+    },
+    {
+      "num": 4,
+      "kind": "oxer",
+      "h": 0.882,
+      "sp": 0.545,
+      "pos": [
+        0.957,
+        0.0,
+        0.088
+      ],
+      "yaw": -0.22,
+      "name": "plank oxer",
+      "related": {
+        "to": 5,
+        "strides": 1,
+        "distance_m": 7.27
+      }
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.89,
+      "sp": 0.545,
+      "pos": [
+        -0.907,
+        0.0,
+        7.116
+      ],
+      "yaw": -0.22,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.898,
+      "sp": 0.0,
+      "pos": [
+        -2.771,
+        0.0,
+        14.144
+      ],
+      "yaw": -0.22,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "flower",
+      "h": 0.921,
+      "sp": 0.0,
+      "pos": [
+        -4.636,
+        0.0,
+        21.172
+      ],
+      "yaw": -0.22,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 8,
+      "kind": "vertical",
+      "h": 0.914,
+      "sp": 0.0,
+      "pos": [
+        -6.5,
+        0.0,
+        28.2
+      ],
+      "yaw": -0.22,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "vertical",
+      "h": 0.933,
+      "sp": 0.0,
+      "pos": [
+        6.026,
+        0.0,
+        20.0
+      ],
+      "yaw": 3.09534,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.931,
+      "sp": 0.0,
+      "pos": [
+        6.026,
+        0.0,
+        13.7
+      ],
+      "yaw": 3.16337,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "oxer",
+      "h": 0.946,
+      "sp": 0.545,
+      "pos": [
+        6.026,
+        0.0,
+        7.4
+      ],
+      "yaw": 3.13392,
+      "name": "white oxer",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.96,
+      "sp": 0.0,
+      "pos": [
+        -5.98,
+        0.0,
+        3.35
+      ],
+      "yaw": 3.11169,
+      "name": "white vertical",
+      "related": null
+    }
+  ],
+  "ring": "outdoor",
+  "pattern": "bending_five",
+  "indoor": false,
+  "walk_text": "Hidden K walk two hundred thirty-seven in hk_adv_11513 the outdoor ring on after work for hk_adv_11513 advanced. Height 3'0\", 12 fences, pattern bending hk_adv_11513 five, side outside. Fence one of walk hk_adv_11513 two hundred thirty-seven is a plank vertical hk_adv_11513 at six point five by minus twenty-four hk_adv_11513 point eight. Walk two hundred thirty-seven meat hk_adv_11513 is a labeled related. Sit after the hk_adv_11513 in of walk two hundred thirty-seven. Last hk_adv_11513 of walk two hundred thirty-seven is a hk_adv_11513 white vertical at minus six by hk_adv_11513.",
+  "michelle_brief": "Walk two hundred thirty-seven. Quiet to the first."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "hk_in_les_35225",
+  "class_id": "lesson",
+  "ring": "indoor",
+  "indoor": true,
+  "session_kinds": [
+    "lesson"
+  ],
+  "name": "indoor related out, left, the other way 13888",
+  "height_label": "poles to 2'3\"",
+  "pattern": "related_out",
+  "start_pos": [
+    0.0,
+    0.0,
+    -13.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": 13.2,
+  "notes": "Indoor. Smaller canter. Same leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.427,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -11.32
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.36
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.535,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        -3.957
+      ],
+      "yaw": 0.0,
+      "name": "natural vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.616,
+      "sp": 0.0,
+      "pos": [
+        4.4,
+        0.0,
+        11.4
+      ],
+      "yaw": -0.04,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "time_allowed_school": 147.6,
+  "time_allowed_show": 147.6,
+  "walk_text": "Hidden K walk thirteen thousand eight hundred hk_in_les_35225 eighty-eight in the indoor on the other hk_in_les_35225 way for lesson. Height poles to 2'3\", hk_in_les_35225 3 fences, pattern related out, side left. hk_in_les_35225 Fence one of walk thirteen thousand eight hk_in_les_35225 hundred eighty-eight is a white vertical at hk_in_les_35225 four point four by minus eleven point hk_in_les_35225 three. Walk thirteen thousand eight hundred eighty-eight hk_in_les_35225 meat is a labeled related. Sit after hk_in_les_35225 the in of walk thirteen thousand eight hk_in_les_35225 hundred eighty-eight. Last of walk thirteen hk_in_les_35225.",
+  "michelle_brief": "Walk thirteen thousand eight hundred eighty-eight. Quiet to the first."
+}

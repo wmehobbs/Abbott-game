@@ -1,0 +1,206 @@
+{
+  "id": "hk_adv_026",
+  "class_id": "advanced",
+  "session_kinds": [
+    "schooling",
+    "show"
+  ],
+  "name": "outside track, inside, morning 26",
+  "height_label": "3'0\"",
+  "time_allowed_school": 65.6,
+  "time_allowed_show": 61.5,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Twelve. Related early. Don't get busy after the first leave.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.871,
+      "sp": 0.0,
+      "pos": [
+        8.094,
+        0.0,
+        -22.948
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.846,
+      "sp": 0.0,
+      "pos": [
+        -7.531,
+        0.0,
+        -15.557
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": {
+        "to": 3,
+        "strides": 1,
+        "distance_m": 7.34
+      }
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.86,
+      "sp": 0.0,
+      "pos": [
+        -7.091,
+        0.0,
+        -8.227
+      ],
+      "yaw": 0.06,
+      "name": "brush vertical",
+      "related": {
+        "to": 4,
+        "strides": 1,
+        "distance_m": 7.6
+      }
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.885,
+      "sp": 0.0,
+      "pos": [
+        -7.531,
+        0.0,
+        -0.642
+      ],
+      "yaw": 0.07,
+      "name": "plank vertical",
+      "related": null
+    },
+    {
+      "num": 5,
+      "kind": "oxer",
+      "h": 0.892,
+      "sp": 0.617,
+      "pos": [
+        8.094,
+        0.0,
+        8.44
+      ],
+      "yaw": 0.0,
+      "name": "brush oxer",
+      "related": null
+    },
+    {
+      "num": 6,
+      "kind": "vertical",
+      "h": 0.878,
+      "sp": 0.0,
+      "pos": [
+        -7.531,
+        0.0,
+        16.337
+      ],
+      "yaw": 0.07,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 7,
+      "kind": "vertical",
+      "h": 0.892,
+      "sp": 0.0,
+      "pos": [
+        8.094,
+        0.0,
+        24.123
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": {
+        "to": 8,
+        "strides": 2,
+        "distance_m": 10.61
+      }
+    },
+    {
+      "num": 8,
+      "kind": "flower",
+      "h": 0.901,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        30.988
+      ],
+      "yaw": 0.02685,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 9,
+      "kind": "oxer",
+      "h": 0.92,
+      "sp": 0.617,
+      "pos": [
+        -6.929,
+        0.0,
+        6.054
+      ],
+      "yaw": 3.17912,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 10,
+      "kind": "vertical",
+      "h": 0.929,
+      "sp": 0.0,
+      "pos": [
+        7.446,
+        0.0,
+        -3.675
+      ],
+      "yaw": 3.10485,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 11,
+      "kind": "flower",
+      "h": 0.925,
+      "sp": 0.0,
+      "pos": [
+        6.929,
+        0.0,
+        -10.371
+      ],
+      "yaw": 3.19269,
+      "name": "flower box",
+      "related": null
+    },
+    {
+      "num": 12,
+      "kind": "vertical",
+      "h": 0.94,
+      "sp": 0.0,
+      "pos": [
+        7.446,
+        0.0,
+        -16.768
+      ],
+      "yaw": 3.07263,
+      "name": "brush vertical",
+      "related": null
+    }
+  ],
+  "pattern": "outside_track",
+  "ring": "outdoor",
+  "walk_text": "Hidden K walk twenty-six in the outdoor hk_adv_026 ring on Wednesday for advanced. Height 3'0\", hk_adv_026 12 fences, pattern outside track, side inside. hk_adv_026 Fence one of walk twenty-six is a hk_adv_026 white vertical at eight point one by hk_adv_026 minus twenty-two point nine. Walk twenty-six meat hk_adv_026 is a labeled related. Sit after the hk_adv_026 in of walk twenty-six. Last of walk hk_adv_026 twenty-six is a brush vertical at seven hk_adv_026 point four by minus sixteen point eight. hk_adv_026 Same leave on walk twenty-six. Then hk_adv_026.",
+  "michelle_brief": "Walk twenty-six. Quiet to the first."
+}

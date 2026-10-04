@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_beg_6146",
+  "class_id": "beginner",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, right, late 21600",
+  "height_label": "2'3\"",
+  "time_allowed_school": 34.4,
+  "time_allowed_show": 32.7,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.601,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -25.585
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.4
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.635,
+      "sp": 0.0,
+      "pos": [
+        9.385,
+        0.0,
+        -18.189
+      ],
+      "yaw": 0.0,
+      "name": "brush vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "vertical",
+      "h": 0.671,
+      "sp": 0.0,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.697,
+      "sp": 0.0,
+      "pos": [
+        8.634,
+        0.0,
+        19.55
+      ],
+      "yaw": 3.19938,
+      "name": "natural vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty-one thousand six hundred hk_jo_beg_6146 in the outdoor ring on quiet for hk_jo_beg_6146 beginner. Height 2'3\", 4 fences, pattern jump hk_jo_beg_6146 off tight, side left. Fence one of hk_jo_beg_6146 walk twenty-one thousand six hundred is a hk_jo_beg_6146 plank vertical at nine point four by hk_jo_beg_6146 minus twenty-five point six. Walk twenty-one thousand hk_jo_beg_6146 six hundred meat is a labeled related. hk_jo_beg_6146 Sit after the in of walk twenty-one hk_jo_beg_6146 thousand six hundred. Last of walk twenty-one hk_jo_beg_6146 thousand six hundred is a natural hk_jo_beg_6146.",
+  "michelle_brief": "Walk twenty-one thousand six hundred. Quiet to the first."
+}

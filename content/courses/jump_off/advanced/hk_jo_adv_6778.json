@@ -1,0 +1,87 @@
+{
+  "id": "hk_jo_adv_6778",
+  "class_id": "advanced",
+  "session_kinds": [
+    "show"
+  ],
+  "name": "jump-off jump off tight, left, the other way 20688",
+  "height_label": "3'0\"",
+  "time_allowed_school": 28.0,
+  "time_allowed_show": 28.0,
+  "start_pos": [
+    0.0,
+    0.0,
+    -34.6
+  ],
+  "start_yaw": 3.14159,
+  "finish_z": -36.2,
+  "notes": "Jump-off. Don't chase. Four fences.",
+  "fences": [
+    {
+      "num": 1,
+      "kind": "vertical",
+      "h": 0.851,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -25.16
+      ],
+      "yaw": 0.0,
+      "name": "plank vertical",
+      "related": {
+        "to": 2,
+        "strides": 1,
+        "distance_m": 7.5
+      }
+    },
+    {
+      "num": 2,
+      "kind": "vertical",
+      "h": 0.88,
+      "sp": 0.0,
+      "pos": [
+        8.755,
+        0.0,
+        -17.66
+      ],
+      "yaw": 0.0,
+      "name": "white vertical",
+      "related": null
+    },
+    {
+      "num": 3,
+      "kind": "oxer",
+      "h": 0.922,
+      "sp": 0.635,
+      "pos": [
+        0.0,
+        0.0,
+        28.2
+      ],
+      "yaw": 0.0,
+      "name": "plank oxer",
+      "related": null
+    },
+    {
+      "num": 4,
+      "kind": "vertical",
+      "h": 0.959,
+      "sp": 0.0,
+      "pos": [
+        8.055,
+        0.0,
+        19.1
+      ],
+      "yaw": 3.13888,
+      "name": "plank vertical",
+      "related": null
+    }
+  ],
+  "jump_off": true,
+  "ring": "outdoor",
+  "pattern": "jump_off_tight",
+  "indoor": false,
+  "walk_text": "Hidden K walk twenty thousand six hundred hk_jo_adv_6778 eighty-eight in the outdoor ring on first hk_jo_adv_6778 school for advanced. Height 3'0\", 4 fences, hk_jo_adv_6778 pattern jump off tight, side right. Fence hk_jo_adv_6778 one of walk twenty thousand six hundred hk_jo_adv_6778 eighty-eight is a plank vertical at eight hk_jo_adv_6778 point eight by minus twenty-five point two. hk_jo_adv_6778 Walk twenty thousand six hundred eighty-eight meat hk_jo_adv_6778 is a labeled related. Sit after the hk_jo_adv_6778 in of walk twenty thousand six hundred hk_jo_adv_6778 eighty-eight. Last of walk twenty thousand hk_jo_adv_6778.",
+  "michelle_brief": "Walk twenty thousand six hundred eighty-eight. Quiet to the first."
+}
