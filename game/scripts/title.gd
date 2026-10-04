@@ -70,7 +70,7 @@ func _build() -> void:
 	add_child(title)
 
 	var stamp := Label.new()
-	stamp.text = "THU SEP 24  ·  2.348.0.0"
+	stamp.text = "SUN OCT 4  ·  2.348.0.0"
 	stamp.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	stamp.position = Vector2(72, 36)
 	stamp.size = Vector2(900, 40)

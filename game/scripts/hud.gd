@@ -67,7 +67,7 @@ func _build() -> void:
 	gait_lab = _label(board, "Halt", 24, Vector2(16, 96), Color(0.85, 0.80, 0.70))
 	next_lab = _label(board, "Next  1", 20, Vector2(16, 128), Color(0.80, 0.74, 0.60))
 	best_lab = _label(board, GameState.class_title(), 18, Vector2(16, 158), Color(0.72, 0.66, 0.55))
-	_label(board, "THU SEP 24  ·  2.348.0.0", 16, Vector2(16, 188), Color(0.98, 0.86, 0.32))
+	_label(board, "SUN OCT 4  ·  2.348.0.0", 16, Vector2(16, 188), Color(0.98, 0.86, 0.32))
 
 	trainer_lab = _label(root, "", 22, Vector2(48, 0), Color(0.96, 0.90, 0.72))
 	trainer_lab.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
