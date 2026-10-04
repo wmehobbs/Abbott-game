@@ -2,15 +2,16 @@
 
 A jumping school at Hidden K Stables, Pfafftown, NC.
 
-## Get the game
+## Download
 
-The playable project is already in this repository. There is no separate installer to upload.
+Send someone this page: [github.com/wmehobbs/Abbott-game](https://github.com/wmehobbs/Abbott-game). The green **Code** button on that page is the download. **Download ZIP** is the same file as the link below.
 
-1. Install the standard Windows editor, **Godot 4.7.2**, from [godotengine.org/download/archive/4.7.2-stable](https://godotengine.org/download/archive/4.7.2-stable/). Use **Windows – x86_64**. Skip the .NET download. Godot is one file. Run it. It does not need a setup wizard.
-2. On this GitHub page, choose **Code → Download ZIP**, unzip it, and open `game/project.godot` with that Godot editor. Or clone the repository and open the same file.
-3. Press the Play triangle at the top right, or F5. The first open spends a while importing art. That cache stays on the computer and is not part of the download.
+- [Download the game](https://github.com/wmehobbs/Abbott-game/archive/refs/heads/main.zip)
+- [Download Godot 4.7.2 for Windows](https://godotengine.org/download/archive/4.7.2-stable/) — choose **Windows – x86_64**. Skip the .NET download. Godot is one file. Run it.
 
-`dist\Abbott.exe` is an older exported player and is not in this repository. GitHub will not store a file that large. Play from Godot to get the current game, including Watch a round.
+Unzip the game. In Godot, choose **Import**, then open `game/project.godot`. Press the Play triangle at the top right, or F5. The first open spends a while importing art. After that, the same button plays the game, and the files in the folder are what you edit.
+
+That download is the current game, including Watch a round. An older double-click player, `Abbott.exe`, is too big for GitHub and is not the copy to share.
 
 ## What it is
 
