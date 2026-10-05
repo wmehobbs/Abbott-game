@@ -96,13 +96,16 @@ func _process_modification_with_delta(_delta: float) -> void:
 		return
 	# Degrees, tip up positive. Each child inherits its parent's bend, so the
 	# back rounds between the loins and the withers, not at one pivot.
-	_bend(sk, "Torso", 12.0 * round)
-	_bend(sk, "Torso2", -5.0 * round)
-	_bend(sk, "Torso3", -10.0 * round + 3.0 * open)
-	_bend(sk, "Neck1", 10.0 * up - 24.0 * round - 6.0 * open)
+	# A round back and a folded forearm. The old bend left him flat, both
+	# ends leaving together, which reads as a hop.
+	_bend(sk, "Torso", 20.0 * round)
+	_bend(sk, "Torso2", -8.0 * round)
+	_bend(sk, "Torso3", -16.0 * round + 4.0 * open)
+	_bend(sk, "Neck1", 14.0 * up - 32.0 * round - 8.0 * open)
 	for s in [".L", ".R"]:
-		_bend(sk, "FrontLowerLeg" + s, -35.0 * round + 8.0 * open)
-		_bend(sk, "BackLowerLeg" + s, -14.0 * round + 12.0 * open)
+		_bend(sk, "FrontUpperLeg" + s, -18.0 * round + 6.0 * open)
+		_bend(sk, "FrontLowerLeg" + s, -50.0 * round + 10.0 * open)
+		_bend(sk, "BackLowerLeg" + s, -10.0 * round + 16.0 * open)
 	_legs(sk, false, true, 0.0, smoothstep(0.90, 1.0, u))
 	_keep_withers(sk)
 

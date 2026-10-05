@@ -54,6 +54,7 @@ func setup(packed_root: Node3D) -> void:
 	_gloves()
 	_crop()
 	_boot_nodes()
+	_tuck_fingers()
 
 
 func _process(_delta: float) -> void:
@@ -82,8 +83,10 @@ func _process(_delta: float) -> void:
 	for side in [["L", -1.0], ["R", 1.0]]:
 		_give_shoulder(side[0], -side[1] * give, body)
 		_pose_leg(side[0], side[1], hip_x, shin_x)
-		var hand := Vector3(side[1] * 0.05, 0.09, -0.22)
-		var pole := Vector3(side[1] * 0.20, 0.16, -0.04)
+		# Fists just in front of the pommel, elbows soft. The old point sat
+		# on her lap, a metre and a half short of the bit.
+		var hand := Vector3(side[1] * 0.055, 0.30, -0.48)
+		var pole := Vector3(side[1] * 0.20, 0.20, -0.06)
 		var target := body.to_global(hand)
 		if neck != null:
 			if on_neck < 0.0:
@@ -91,7 +94,6 @@ func _process(_delta: float) -> void:
 			elif _hand_on_neck.has(side[0]):
 				target = target.lerp((neck as Transform3D) * (_hand_on_neck[side[0]] as Vector3), on_neck)
 		_ik2("UpperArm" + side[0], "LowerArm" + side[0], "Wrist" + side[0], target, body.to_global(pole))
-	_tuck_fingers()
 	_pose_head(body)
 	_place_boots(body)
 	if not _reported:
@@ -177,7 +179,7 @@ func _pose_leg(tag: String, sx: float, hip_x: float, shin_x: float) -> void:
 	var want_heel: Vector3 = pts["heel"]
 	_aim(ui, li, _dir_to_skel(want_knee - upper_b))
 	var full := _body_pos("LowerLeg" + tag).distance_to(upper_b)
-	var s_thigh := clampf(upper_b.distance_to(want_knee) / maxf(full, 0.001), 0.45, 1.0)
+	var s_thigh := clampf(upper_b.distance_to(want_knee) / maxf(full, 0.001), 0.45, 1.25)
 	_scale_along(ui, li, s_thigh)
 	var knee_b := _body_pos("LowerLeg" + tag)
 	var shin_rest := skel.get_bone_global_rest(li).origin.distance_to(skel.get_bone_global_rest(fi).origin) * FIT
@@ -191,7 +193,15 @@ func _spec(hip_x: float, shin_x: float, sx: float) -> Dictionary:
 	var leg := Transform3D(Basis(Vector3(1, 0, 0), deg_to_rad(hip_x)), Vector3(sx * 0.122, -0.018, -0.012))
 	var shin := Transform3D(Basis(Vector3(1, 0, 0), deg_to_rad(shin_x - hip_x)), Vector3(sx * 0.028, -0.148, -0.210))
 	var knee: Vector3 = leg * Vector3(sx * 0.028, -0.148, -0.210)
-	var heel: Vector3 = leg * (shin * Vector3(sx * 0.004, -0.378, 0.078))
+	# The barrel is 33 cm wide. These used to land at 15 cm, inside him.
+	knee.x = sx * 0.42
+	# Sitting, the heel is on the iron, outside the skin. In the two-point
+	# the hip opens and the body rises, so the shin reaches back down.
+	var stand := clampf((hip_x - 14.0) / 16.0, 0.0, 1.0)
+	var drop := lerpf(-0.32, -0.36, stand)
+	var fwd := lerpf(0.130, -0.14, stand)
+	var heel: Vector3 = leg * (shin * Vector3(sx * 0.010, drop, fwd))
+	heel.x = sx * 0.45
 	return {"knee": knee, "heel": heel}
 
 

@@ -43,6 +43,8 @@ var jump_dur: float = 0.62
 var jump_start: Vector3
 var jump_land: Vector3
 var jump_apex: float = 0.0
+## Where along the flight the fence is. The arc peaks just before this.
+var jump_fence_u: float = 0.55
 var jump_fence: JumpFence = null
 var will_rail: bool = false
 var phase: float = 0.0
@@ -105,6 +107,9 @@ var rider_lleg: Node3D
 var rider_rleg: Node3D
 var cam_look: Vector3 = Vector3.ZERO
 var cam_look_ready: bool = false
+## Chase boom trails his yaw by a fraction so a turn does not whip the lens.
+var _rig_yaw: float = 0.0
+var _rig_ready: bool = false
 ## The top rail of the fence he last jumped: the look hands back from it
 ## over the start of land_recover instead of cutting to the canter look.
 var _look_rail: Vector3 = Vector3.ZERO
@@ -302,7 +307,12 @@ func _process_ride(delta: float) -> void:
 	if absf(stick_x) > 0.25:
 		turn -= stick_x
 	turn = clampf(turn, -1.0, 1.0)
-	last_turn = move_toward(last_turn, turn, 4.0 * delta)
+	# The auto rider keeps the old ramp. A person gets a slower bend and a
+	# slower release, so the turn comes on like a horse instead of a hinge.
+	var ramp := 4.0
+	if not _at_ai_reins():
+		ramp = 2.6 if absf(turn) + 0.05 >= absf(last_turn) else 1.8
+	last_turn = move_toward(last_turn, turn, ramp * delta)
 	var turn_rate: float = GAIT_TURN[gait] * GameState.turn_scale()
 	if gait == 0:
 		turn_rate = 1.4
@@ -383,9 +393,29 @@ func _apply_gravity(delta: float) -> void:
 		velocity.y = 0.0
 
 
+func _at_ai_reins() -> bool:
+	var p := get_parent()
+	if p == null:
+		return false
+	for n in ["RideAI", "DemoRider"]:
+		var ai := p.get_node_or_null(n)
+		if ai != null and bool(ai.get("enabled")):
+			return true
+	return false
+
+
 func _place_cam() -> void:
 	if cam == null:
 		return
+	var dt := maxf(get_process_delta_time(), 0.001)
+	var horse_yaw := global_rotation.y
+	if not _rig_ready:
+		_rig_yaw = horse_yaw
+		_rig_ready = true
+	else:
+		var dy := wrapf(horse_yaw - _rig_yaw, -PI, PI)
+		_rig_yaw += dy * (1.0 - pow(0.0015, dt))
+		_rig_yaw = wrapf(_rig_yaw, -PI, PI)
 	var yaw := deg_to_rad(cam_yaw)
 	var halted := gait == 0 and speed < 0.35 and not jumping
 	# The half-halt's lens (0.40 in, 0.20 up, look 0.16 up) eases in and out
@@ -402,7 +432,8 @@ func _place_cam() -> void:
 		0.0,
 		-CAM_RIGHT * sin(yaw) + back * cos(yaw)
 	)
-	var world: Vector3 = global_transform * local
+	var boom := Transform3D(Basis(Vector3.UP, _rig_yaw), global_position)
+	var world: Vector3 = boom * local
 	var height := CAM_HEIGHT
 	var look_y := CAM_LOOK_Y
 	height += 0.20 * _cam_col
@@ -455,6 +486,9 @@ func _place_cam() -> void:
 				if gait == CANTER:
 					k += 0.08
 				k = minf(k, 0.88)
+				# Ease onto the fence as it comes into the window, instead of
+				# the look jumping the moment it is 24 m ahead.
+				k *= smoothstep(24.0, 10.0, ahead)
 				look = look.lerp(nf.global_position + Vector3(0.0, 0.85, 0.0), k)
 	if jumping and jump_fence:
 		# Over the fence he is jumping, not a stride past it: from the aim he
@@ -785,10 +819,11 @@ func _begin_schooling_jump() -> void:
 	var dir := -transform.basis.z
 	dir.y = 0.0
 	dir = dir.normalized()
-	jump_land = jump_start + dir * 2.20
+	jump_land = jump_start + dir * 4.2
 	jump_land.y = 0.0
 	jump_apex = 0.55
-	jump_dur = _clip_length("Gallop_Jump")
+	jump_fence_u = 0.55
+	jump_dur = clampf(4.2 / 5.2, 0.70, 1.05)
 	_play_named("Gallop_Jump", 1.0, false, true)
 	_play_sfx("jump")
 	_horse_voice("grunt")
@@ -804,11 +839,18 @@ func _begin_jump(fence: JumpFence, ch: float, rail: bool) -> void:
 	var dir := -transform.basis.z
 	dir.y = 0
 	dir = dir.normalized()
-	var land_d := 2.55 + fence.spread + ch * 0.45
+	# Takeoff is a stride out. Land a stride past the rail, not on it.
+	# The old flight ended at the fence, so the hop finished in front of it.
+	var along := fence.global_position - jump_start
+	along.y = 0.0
+	var to_fence := maxf(along.dot(dir), 1.2)
+	var past := 1.55 + fence.spread * 0.65
+	var land_d := to_fence + past
 	jump_land = jump_start + dir * land_d
 	jump_land.y = 0.0
+	jump_fence_u = clampf(to_fence / land_d, 0.40, 0.72)
 	jump_apex = fence.height + (0.18 if rail else 0.38) + ch * 0.22 + GameState.scope_bonus()
-	jump_dur = maxf(0.62 + 0.12 * ch + fence.spread * 0.10, _clip_length("Gallop_Jump") * 0.96)
+	jump_dur = clampf(land_d / 5.2 + fence.spread * 0.06, 0.70, 1.10)
 	_play_named("Gallop_Jump", _clip_length("Gallop_Jump") / max(jump_dur, 0.01), false, true)
 	_play_sfx("jump")
 	_horse_voice("grunt")
@@ -821,12 +863,13 @@ func _process_jump(delta: float) -> void:
 	jump_t += delta
 	var u := clampf(jump_t / jump_dur, 0.0, 1.0)
 	var p := jump_start.lerp(jump_land, u)
-	# Leave the last stride first. Height waits until he is off the ground.
-	var leave := smoothstep(0.42, 0.96, u)
-	p.y = 4.0 * leave * (1.0 - leave) * jump_apex
+	# Off the ground with the clip, then a ballistic arc. The peak is the
+	# middle of the flight, just before the fence, and he lands beyond it.
+	var t := clampf((u - 0.30) / 0.70, 0.0, 1.0)
+	p.y = 4.0 * t * (1.0 - t) * jump_apex
 	global_position = p
 	velocity = Vector3.ZERO
-	if jump_fence and u > 0.42 and u < 0.62:
+	if jump_fence and u > jump_fence_u - 0.08 and u < jump_fence_u + 0.08:
 		if will_rail or jump_apex < jump_fence.height + 0.10:
 			if not jump_fence.knocked:
 				jump_fence.knock("late" if will_rail else "short")
@@ -967,31 +1010,35 @@ func _animate(delta: float, _spd: float) -> void:
 	_air_sounds(delta)
 	if jumping:
 		var u := clampf(jump_t / maxf(jump_dur, 0.01), 0.0, 1.0)
-		# The whole horse tipping −0.30 → +0.36 on one pivot was a seesaw, and
-		# negative here is forehand down: it pushed the planted fore feet 7 cm
-		# into the sand at the leave. The clip carries the attitude and the back
-		# bends on it (bascule.gd). Only ease into the land pose (0.16) coming
-		# down, so nothing pops when jumping goes false.
-		visual.rotation.x = LAND_X * smoothstep(0.69, 1.0, u)
+		# Forehand up off the hocks, round over the fence, reach for the
+		# landing. Flat again before the hooves look for the sand.
+		# Negative is forehand down. It stays positive until he is in the air.
+		var nose := 0.0
+		if u < 0.30:
+			nose = lerpf(0.02, 0.16, u / 0.30)
+		elif u < 0.62:
+			nose = lerpf(0.16, 0.05, (u - 0.30) / 0.32)
+		elif u < 0.86:
+			nose = lerpf(0.05, -0.10, (u - 0.62) / 0.24)
+		else:
+			nose = lerpf(-0.10, LAND_X, (u - 0.86) / 0.14)
+		visual.rotation.x = nose
 		visual.rotation.z = last_turn * 0.05
-		# Gallop_Jump leaves at 0.20 of itself, crests at 0.52 and has the fore
-		# feet down at 0.80. The root leaves at 0.42, crests at 0.69, lands at 1.
-		# Played straight through he folds on the ground and lands in the air.
+		# Gallop_Jump leaves at 0.18 of itself, crests at 0.52 and has the fore
+		# feet down at 0.80. The root leaves at 0.30, crests at 0.65, lands at 1.
 		# Hold the clip to the root, the way the trot holds Walk to the post.
 		if anim and gait_clip == "Gallop_Jump":
-			# Run it at the rate of this leg (a zero rate stalls the 0.05 s blend
-			# in from Gallop), then pin it so it cannot drift.
 			var f := 0.0
 			var rate := 0.0
-			if u < 0.42:
-				f = lerpf(0.0, 0.20, u / 0.42)
-				rate = 0.20 / 0.42
-			elif u < 0.69:
-				f = lerpf(0.20, 0.52, (u - 0.42) / 0.27)
-				rate = 0.32 / 0.27
+			if u < 0.30:
+				f = lerpf(0.0, 0.18, u / 0.30)
+				rate = 0.18 / 0.30
+			elif u < 0.65:
+				f = lerpf(0.18, 0.52, (u - 0.30) / 0.35)
+				rate = 0.34 / 0.35
 			else:
-				f = lerpf(0.52, 0.82, (u - 0.69) / 0.31)
-				rate = 0.30 / 0.31
+				f = lerpf(0.52, 0.82, (u - 0.65) / 0.35)
+				rate = 0.30 / 0.35
 			var clip_len := _clip_length("Gallop_Jump")
 			anim.speed_scale = clip_len * rate / maxf(jump_dur, 0.01)
 			anim.seek(clip_len * f, true)
@@ -1013,14 +1060,16 @@ func _animate(delta: float, _spd: float) -> void:
 		visual.position.y = sin(stride_u * TAU * 2.0) * 0.008
 		want_x += sin(stride_u * TAU) * 0.012
 	elif gait == CANTER:
-		rock_z += sin(stride_u * TAU) * 0.086
-		# stride_u stood still in the air. Written straight in, the bob jumped
-		# up to 9 cm on the landing frame. Let it come back over a quarter second.
+		rock_z += sin(stride_u * TAU) * 0.036
+		# The clip already has the canter. The old extra 9 cm and 6° on the
+		# whole mesh threw her out of the saddle on top of that.
+		# stride_u stood still in the air. Let the bob come back over a quarter
+		# second so the landing frame does not pop.
 		var bob_in := 1.0
 		if land_recover > 0.0:
 			bob_in = clampf((2.72 - land_recover) / 0.25, 0.0, 1.0)
-		visual.position.y = sin(stride_u * TAU) * 0.092 * bob_in
-		want_x += sin(stride_u * TAU) * 0.112
+		visual.position.y = sin(stride_u * TAU) * 0.032 * bob_in
+		want_x += sin(stride_u * TAU) * 0.040
 	elif gait == 2:
 		visual.position.y = absf(sin(stride_u * TAU)) * 0.012
 	else:
@@ -1214,28 +1263,30 @@ func _update_rider(delta: float) -> void:
 		_bind_rider()
 	if rider_body == null:
 		return
-	var pitch := -27.0
-	var rest := Vector3(0.0, 0.014, 0.010)
-	var hip_x := 3.5
-	var shin_x := -5.0
-	var head_x := 12.0
+	# Following seat: a little in front of the vertical, thigh on the flap,
+	# heel down. The old -27° fold parked her on his neck at the canter.
+	var pitch := -13.0
+	var rest := Vector3(0.0, -0.008, 0.016)
+	var hip_x := 14.0
+	var shin_x := -8.0
+	var head_x := 18.0
 	if gait == 0 and not jumping and land_recover <= 0.0:
-		pitch = -16.0
-		rest = Vector3(0.0, 0.034, 0.036)
-		hip_x = 8.0
+		pitch = -6.0
+		rest = Vector3(0.0, -0.004, 0.028)
+		hip_x = 12.0
 		shin_x = -10.0
-		head_x = 8.0
+		head_x = 14.0
 		# Standing, her head still reads him: a worried horse or a green seat
 		# and she looks down at his neck. Constant, not a nod.
-		head_x -= 20.0 * _hand_unrest()
+		head_x -= 8.0 * _hand_unrest()
 		# And her seat closes a little with it: the hip, the shin still countered.
 		hip_x += 9.0 * _hand_unrest()
 	if collecting:
-		pitch = -10.0
-		rest = Vector3(0.0, 0.048, 0.008)
-		hip_x = 6.0
-		shin_x = -5.0
-		head_x = 8.0
+		pitch = -6.0
+		rest = Vector3(0.0, -0.006, 0.022)
+		hip_x = 16.0
+		shin_x = -10.0
+		head_x = 12.0
 	if collect_pulse > 0.10:
 		pitch = 3.0
 		rest = Vector3(0.0, 0.008, 0.034)
@@ -1301,67 +1352,54 @@ func _update_rider(delta: float) -> void:
 		match gait:
 			1:
 				var w := sin(stride_u * TAU)
-				pitch += w * 1.28
-				rest.y += w * 0.014
-				hip_x += w * 3.6
-				shin_x -= w * 2.0
-				head_x -= w * 1.8
-				# The walk's share of the canter's unrest: her hands nod more on a
-				# worried horse or a green seat, smaller than at the canter.
-				# On the stride, not twice it: her body eases in over ~0.4 s and a
-				# faster nod never reached her hands.
+				pitch += w * 1.1
+				rest.y += w * 0.008
+				hip_x += w * 1.8
+				shin_x -= w * 0.8
+				head_x -= w * 1.2
+				# A worried horse still moves her. The walk's share stays small
+				# enough that she nods with him instead of pecking.
 				var walk_unrest := _hand_unrest()
-				pitch += w * 10.0 * walk_unrest
-				rest.y += w * 0.050 * walk_unrest
-				# Her head nods on her neck with it, the walk's small share.
-				head_x -= w * 26.0 * walk_unrest
-				# Her hip swings with the walk's unrest too, on the same stride.
-				hip_x += w * 12.0 * walk_unrest
-				# Her foot swings with it: a share beside the walk's shin line.
-				shin_x -= w * 4.0 * walk_unrest
+				pitch += w * 3.0 * walk_unrest
+				rest.y += w * 0.012 * walk_unrest
+				head_x -= w * 8.0 * walk_unrest
+				hip_x += w * 3.0 * walk_unrest
+				shin_x -= w * 1.2 * walk_unrest
 			2:
+				# Rising trot: the hip opens and the seat leaves the saddle a
+				# few inches. The torso stays quiet.
 				var post := maxf(0.0, sin(stride_u * TAU))
 				var sit := maxf(0.0, -sin(stride_u * TAU))
-				pitch += -post * 26.4 + sit * 7.2
-				rest.y += post * 0.228 - sit * 0.038
-				rest.z -= post * 0.072 - sit * 0.022
-				hip_x += post * 32.0 + sit * 5.0
-				shin_x -= post * 9.6 + sit * 2.8
-				head_x += post * 8.4 - sit * 3.0
-				# The trot takes the same unrest the canter rock takes, on the beat:
-				# on top of the post, not in its constants.
+				pitch += -post * 6.0 + sit * 2.0
+				rest.y += post * 0.055 - sit * 0.010
+				rest.z -= post * 0.022 - sit * 0.006
+				hip_x += post * 10.0 + sit * 2.0
+				shin_x -= post * 3.0 + sit * 1.0
+				head_x += post * 2.4 - sit * 1.0
 				var trot_unrest := _hand_unrest()
 				var swing := sin(stride_u * TAU)
-				pitch += swing * 14.0 * trot_unrest
-				rest.y += swing * 0.070 * trot_unrest
-				# And her head nods on her neck with it, not only her body.
-				head_x += swing * 48.0 * trot_unrest
-				# Her seat takes the unrest too: a term beside the post, not in it.
-				hip_x += swing * 18.0 * trot_unrest
-				# Her foot swings with it: a share beside the post's shin line.
-				shin_x -= (post * 9.6 + sit * 2.8) * 1.0 * trot_unrest
+				pitch += swing * 3.0 * trot_unrest
+				rest.y += swing * 0.016 * trot_unrest
+				head_x += swing * 6.0 * trot_unrest
+				hip_x += swing * 3.0 * trot_unrest
+				shin_x -= (post * 3.0 + sit * 1.0) * 0.5 * trot_unrest
 			3:
 				var rock := sin(stride_u * TAU)
 				var sit := maxf(0.0, -rock)
-				pitch += rock * (2.8 if collecting else 11.0) - sit * 5.8
-				rest.y += rock * 0.072 - sit * 0.050
-				# A worried horse and a green seat both move her hands: more
-				# bounce through her when he is tense or her feel is low.
+				pitch += rock * (1.4 if collecting else 2.8) - sit * 1.6
+				rest.y += rock * 0.016 - sit * 0.010
 				var unrest := _hand_unrest()
-				pitch += rock * 14.0 * unrest
-				rest.y += rock * 0.090 * unrest
-				rest.z += rock * 0.060 * unrest
-				# Her head nods on her neck with the rock's share of it.
-				head_x -= rock * 64.0 * unrest
-				rest.z += rock * 0.034
-				hip_x += rock * 12.6 + sit * 6.8
-				# Her seat reads his unrest on the rock, the same share her hands take.
-				hip_x += rock * 22.0 * unrest
-				shin_x -= rock * 4.8 + sit * 3.8
-				# Her foot swings with it: a share beside the rock's shin line.
-				shin_x -= (rock * 4.8 + sit * 3.8) * 2.5 * unrest
-				head_x -= rock * 3.6
-				head_x += 6.0
+				pitch += rock * 3.5 * unrest
+				rest.y += rock * 0.010 * unrest
+				rest.z += rock * 0.012 * unrest
+				head_x -= rock * 8.0 * unrest
+				rest.z += rock * 0.010
+				hip_x += rock * 2.4 + sit * 1.6
+				hip_x += rock * 3.0 * unrest
+				shin_x -= rock * 1.2 + sit * 0.8
+				shin_x -= (rock * 1.2 + sit * 0.8) * 1.0 * unrest
+				head_x -= rock * 1.2
+				head_x += 4.0
 	var roll := last_turn * (4.2 if gait >= 2 else 2.4)
 	var k := 1.0 - pow(0.10, delta)
 	rider_body.rotation_degrees.x = lerpf(rider_body.rotation_degrees.x, pitch, k)
