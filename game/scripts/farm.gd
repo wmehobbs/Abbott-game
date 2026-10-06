@@ -1063,11 +1063,12 @@ func _school_yard() -> void:
 		MeshKit.add_child_mi(pile, MeshKit.box(Vector3(0.008, 0.16, 0.008)), barrow_steel, "ForkTine", Vector3(1.78 + float(i) * 0.022, 0.18, 2.28), Vector3(0.85, 0.0, 0.10))
 	var banner := Label3D.new()
 	banner.text = "HIDDEN K  ·  SCHOOLING"
-	banner.font_size = 42
+	banner.font_size = 28
+	banner.pixel_size = 0.0015
 	banner.modulate = Color(0.96, 0.93, 0.86)
 	banner.outline_modulate = Color(0.08, 0.06, 0.04)
 	banner.outline_size = 6
-	banner.position = Vector3(RING_W * 0.5 + 0.22, 2.05, -8.0)
+	banner.position = Vector3(RING_W * 0.5 + 0.22, 1.55, -8.0)
 	banner.rotation.y = -PI * 0.5
 	add_child(banner)
 

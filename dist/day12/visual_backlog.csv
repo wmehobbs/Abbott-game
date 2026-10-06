@@ -13,4 +13,4 @@ rank,shot,problem,likely cause,fix idea,status,attempts,verdict
 12,house,"The sun blows the right side of the sky to pure white. The clouds lose their shape there.",farm.gd _sky and the sun light,Lower the sun and the exposure so the sky keeps detail. Warm late afternoon, not orange.,open,0,
 13,head,"The bridle is thick black rods that float off the face and do not meet the bit.",horse.gd _make_reins and abbott_look tack,Pull the rods onto the head so they meet the bit.,open,0,
 14,hud_mid,"The scoreboard type is small and gray. Fence 1 of 3 is hard to read on the dark panel.",hud.gd scoreboard labels,Larger type and more contrast. Same words.,open,0,
-15,trainer,"HIDDEN K SCHOOLING is a giant banner through the trees beside the rail.",farm.gd banner Label3D font_size 42,Same pixel_size fix as the IN letters, so it reads as a rail sign.,open,0,
+15,trainer,"HIDDEN K SCHOOLING is a giant banner through the trees beside the rail.",farm.gd banner Label3D font_size 42,Same pixel_size fix as the IN letters, so it reads as a rail sign.,closed,2,better: it is a small sign at the rail. Attempt 1 was still huge because the camera stands next to it.
