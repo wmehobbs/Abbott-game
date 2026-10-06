@@ -1,6 +1,7 @@
 extends Node
 
 const SAVE_PATH := "user://abbott_save.json"
+const SAVE_VERSION := 1
 const TrainerLines := preload("res://scripts/trainer.gd")
 
 var indoor: bool = false
@@ -636,16 +637,24 @@ func start_session(kind: String, cid: String) -> bool:
 
 
 func load_save() -> void:
-	if not FileAccess.file_exists(SAVE_PATH):
+	if not FileAccess.file_exists(SAVE_PATH) and not FileAccess.file_exists(SAVE_PATH + ".bak"):
 		return
-	var f := FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if f == null:
+	var d := read_save_migrated(SAVE_PATH)
+	if not _save_usable(d):
+		push_warning("Abbott save missing or bad. Using defaults.")
 		return
-	var data: Variant = JSON.parse_string(f.get_as_text())
-	f.close()
-	if typeof(data) != TYPE_DICTIONARY:
-		return
-	var d: Dictionary = data
+	_apply_save(d)
+
+
+func read_save_migrated(path: String) -> Dictionary:
+	var data := _read_save(path)
+	if not _save_usable(data):
+		push_warning("Abbott save unreadable at %s. Using defaults." % path)
+		return _save_defaults()
+	return _migrate_save(data)
+
+
+func _apply_save(d: Dictionary) -> void:
 	best_faults = int(d.get("best_faults", 999))
 	best_time = float(d.get("best_time", 9999.0))
 	abbott_confidence = float(d.get("abbott_confidence", abbott_confidence))
@@ -676,6 +685,73 @@ func load_save() -> void:
 			bindings[str(k)] = b[k]
 
 
+func _save_defaults() -> Dictionary:
+	return {
+		"save_version": SAVE_VERSION,
+		"best_faults": 999,
+		"best_time": 9999.0,
+		"bindings": {},
+		"abbott_confidence": 48.0,
+		"abbott_scope": 40.0,
+		"abbott_rideability": 44.0,
+		"madison_timing": 38.0,
+		"madison_feel": 36.0,
+		"lesson_done": false,
+		"course_seed": 1,
+		"rounds_posted": {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0},
+		"clears": {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0},
+		"best_by_class": {},
+		"show_best": {},
+		"show_ribbons": [],
+	}
+
+
+func _save_usable(data: Dictionary) -> bool:
+	if data.is_empty():
+		return false
+	for k in ["best_faults", "best_time", "course_seed", "lesson_done", "abbott_confidence"]:
+		if not data.has(k):
+			return false
+	return true
+
+
+func _parse_save_file(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		return {}
+	var f := FileAccess.open(path, FileAccess.READ)
+	if f == null:
+		push_warning("Abbott save could not be opened: %s" % path)
+		return {}
+	var parsed: Variant = JSON.parse_string(f.get_as_text())
+	f.close()
+	if typeof(parsed) != TYPE_DICTIONARY:
+		push_warning("Abbott save is not valid JSON: %s" % path)
+		return {}
+	return parsed
+
+
+func _read_save(path: String) -> Dictionary:
+	var direct := _parse_save_file(path)
+	if _save_usable(direct):
+		return direct
+	if FileAccess.file_exists(path):
+		push_warning("Abbott save rejected. Trying the backup.")
+	var bak := _parse_save_file(path + ".bak")
+	if _save_usable(bak):
+		return bak
+	return {}
+
+
+func _migrate_save(data: Dictionary) -> Dictionary:
+	var out: Dictionary = data.duplicate(true) as Dictionary
+	var defaults := _save_defaults()
+	for k in defaults.keys():
+		if not out.has(k):
+			out[k] = defaults[k]
+	out["save_version"] = SAVE_VERSION
+	return out
+
+
 func _skip_save_reason() -> String:
 	# Watch a round is not her ride. Certs, playtests, shots, and selftests are not either.
 	if demo_ride:
@@ -694,28 +770,47 @@ func save() -> void:
 
 
 func _write_save_file(path: String) -> void:
-	var d := {
-		"best_faults": best_faults,
-		"best_time": best_time,
-		"bindings": bindings,
-		"abbott_confidence": abbott_confidence,
-		"abbott_scope": abbott_scope,
-		"abbott_rideability": abbott_rideability,
-		"madison_timing": madison_timing,
-		"madison_feel": madison_feel,
-		"lesson_done": lesson_done,
-		"course_seed": course_seed,
-		"rounds_posted": rounds_posted,
-		"clears": clears,
-		"best_by_class": best_by_class,
-		"show_best": show_best,
-		"show_ribbons": show_ribbons,
-	}
-	var f := FileAccess.open(path, FileAccess.WRITE)
+	var d := _save_defaults()
+	d["save_version"] = SAVE_VERSION
+	d["best_faults"] = best_faults
+	d["best_time"] = best_time
+	d["bindings"] = bindings
+	d["abbott_confidence"] = abbott_confidence
+	d["abbott_scope"] = abbott_scope
+	d["abbott_rideability"] = abbott_rideability
+	d["madison_timing"] = madison_timing
+	d["madison_feel"] = madison_feel
+	d["lesson_done"] = lesson_done
+	d["course_seed"] = course_seed
+	d["rounds_posted"] = rounds_posted
+	d["clears"] = clears
+	d["best_by_class"] = best_by_class
+	d["show_best"] = show_best
+	d["show_ribbons"] = show_ribbons
+	var tmp := path + ".tmp"
+	var f := FileAccess.open(tmp, FileAccess.WRITE)
 	if f == null:
+		push_warning("Abbott save could not start the temp file.")
 		return
 	f.store_string(JSON.stringify(d, "\t"))
 	f.close()
+	var bak := path + ".bak"
+	var path_os := ProjectSettings.globalize_path(path)
+	var tmp_os := ProjectSettings.globalize_path(tmp)
+	var bak_os := ProjectSettings.globalize_path(bak)
+	if FileAccess.file_exists(path):
+		if FileAccess.file_exists(bak):
+			DirAccess.remove_absolute(bak_os)
+		var kept: Error = DirAccess.rename_absolute(path_os, bak_os)
+		if kept != OK:
+			push_warning("Abbott save could not keep the previous file.")
+	var put: Error = DirAccess.rename_absolute(tmp_os, path_os)
+	if put != OK:
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(path_os)
+		put = DirAccess.rename_absolute(tmp_os, path_os)
+	if put != OK:
+		push_warning("Abbott save replace failed. The backup is still there.")
 
 
 func has_best() -> bool:

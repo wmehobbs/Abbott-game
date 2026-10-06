@@ -23,6 +23,10 @@ func _run() -> void:
 	_actions()
 	_demo_skips_save(before)
 	_round_trip()
+	_bak_recovers()
+	_garbage_defaults()
+	_old_save_migrates()
+	_madison_snapshot()
 	_courses()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
@@ -102,6 +106,93 @@ func _round_trip() -> void:
 		_fail("save_round_trip", "course_seed")
 		return
 	_ok("save_round_trip")
+
+
+func _write_raw(path: String, text: String) -> void:
+	var f := FileAccess.open(path, FileAccess.WRITE)
+	if f == null:
+		return
+	f.store_string(text)
+	f.close()
+
+
+func _bak_recovers() -> void:
+	var path := "user://selftest/trunc.json"
+	var marker := "{\"best_faults\":7,\"best_time\":8.0,\"course_seed\":3,\"lesson_done\":false,\"abbott_confidence\":9}"
+	_write_raw(path, marker)
+	GameState._write_save_file(path)
+	_write_raw(path, "{")
+	var loaded: Dictionary = GameState.read_save_migrated(path)
+	if int(loaded.get("best_faults", -1)) != 7:
+		_fail("truncated_recovers_from_bak", "best_faults=" + str(loaded.get("best_faults", -1)))
+		return
+	_ok("truncated_recovers_from_bak")
+
+
+func _garbage_defaults() -> void:
+	var path := "user://selftest/garbage.json"
+	_write_raw(path, "this is not json")
+	var bak := path + ".bak"
+	if FileAccess.file_exists(bak):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(bak))
+	var loaded: Dictionary = GameState.read_save_migrated(path)
+	if int(loaded.get("best_faults", -1)) != 999:
+		_fail("garbage_uses_defaults", "best_faults")
+		return
+	if int(loaded.get("course_seed", -1)) != 1:
+		_fail("garbage_uses_defaults", "course_seed")
+		return
+	_ok("garbage_uses_defaults")
+
+
+func _old_save_migrates() -> void:
+	var path := "user://selftest/old.json"
+	var old := "{\"best_faults\":4,\"best_time\":12.5,\"course_seed\":2,\"lesson_done\":true,\"abbott_confidence\":50}"
+	_write_raw(path, old)
+	var bak := path + ".bak"
+	if FileAccess.file_exists(bak):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(bak))
+	var loaded: Dictionary = GameState.read_save_migrated(path)
+	if int(loaded.get("save_version", 0)) != 1:
+		_fail("old_save_migrates", "version")
+		return
+	if int(loaded.get("best_faults", -1)) != 4:
+		_fail("old_save_migrates", "best_faults")
+		return
+	if not is_equal_approx(float(loaded.get("madison_feel", -1)), 36.0):
+		_fail("old_save_migrates", "madison_feel")
+		return
+	_ok("old_save_migrates")
+
+
+func _madison_snapshot() -> void:
+	var src := "E:/Workspace/Madison/dist/day12/save_snapshot.json"
+	if not FileAccess.file_exists(src):
+		_fail("madison_snapshot", "snapshot missing")
+		return
+	var text := FileAccess.get_file_as_string(src)
+	var parsed: Variant = JSON.parse_string(text)
+	if typeof(parsed) != TYPE_DICTIONARY:
+		_fail("madison_snapshot", "snapshot is not json")
+		return
+	var path := "user://selftest/madison_copy.json"
+	_write_raw(path, text)
+	var bak := path + ".bak"
+	if FileAccess.file_exists(bak):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(bak))
+	var loaded: Dictionary = GameState.read_save_migrated(path)
+	var original: Dictionary = parsed
+	for k in original.keys():
+		if str(JSON.stringify(loaded.get(k))) != str(JSON.stringify(original[k])):
+			_fail("madison_snapshot", str(k))
+			return
+	if int(loaded.get("best_faults", -1)) != GameState.best_faults:
+		_fail("madison_snapshot", "memory best_faults")
+		return
+	if int(loaded.get("course_seed", -1)) != GameState.course_seed:
+		_fail("madison_snapshot", "memory course_seed")
+		return
+	_ok("madison_snapshot")
 
 
 func _courses() -> void:
