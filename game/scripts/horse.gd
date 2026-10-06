@@ -37,6 +37,7 @@ var speed: float = 0.0
 var charge: float = 0.0
 var charging: bool = false
 var collecting: bool = false
+var ground_shade: MeshInstance3D
 var jumping: bool = false
 var jump_t: float = 0.0
 var jump_dur: float = 0.62
@@ -162,9 +163,38 @@ func _ready() -> void:
 	if rider:
 		_bind_rider()
 	_make_camera()
+	_make_ground_shade()
 	_make_audio()
 	floor_snap_length = 0.4
 	motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
+
+
+func _make_ground_shade() -> void:
+	# A soft oval on the sand. The sun shadow is there; this is the contact
+	# under the belly so he reads as standing on the ring, not floating.
+	ground_shade = MeshInstance3D.new()
+	ground_shade.name = "GroundShade"
+	var plane := PlaneMesh.new()
+	plane.size = Vector2(1.7, 3.4)
+	plane.orientation = PlaneMesh.FACE_Y
+	ground_shade.mesh = plane
+	var sh := Shader.new()
+	sh.code = "shader_type spatial;\nrender_mode unshaded, blend_mix, depth_draw_never, cull_disabled, shadows_disabled;\nvoid fragment() {\n\tvec2 p = UV * 2.0 - 1.0;\n\tfloat d = dot(p, p);\n\tALPHA = smoothstep(1.0, 0.2, d) * 0.38;\n\tALBEDO = vec3(0.04, 0.03, 0.02);\n}\n"
+	var mat := ShaderMaterial.new()
+	mat.shader = sh
+	ground_shade.material_override = mat
+	ground_shade.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	ground_shade.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
+	add_child(ground_shade)
+
+
+func _place_ground_shade() -> void:
+	if ground_shade == null:
+		return
+	ground_shade.global_transform = Transform3D(
+		Basis(Vector3.UP, rotation.y),
+		Vector3(global_position.x, 0.03, global_position.z)
+	)
 
 
 func _make_camera() -> void:
@@ -247,6 +277,7 @@ func _process(delta: float) -> void:
 	if mounted and controllable and not jumping:
 		_camera(delta)
 	_place_cam()
+	_place_ground_shade()
 	_update_reins()
 	_update_rider(delta)
 
@@ -303,9 +334,12 @@ func _process_ride(delta: float) -> void:
 		turn += 1.0
 	if Input.is_action_pressed("turn_right"):
 		turn -= 1.0
-	var stick_x := Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
-	if absf(stick_x) > 0.25:
-		turn -= stick_x
+	# A watched round belongs to the rider on the horse. A stick in a lap
+	# must not bend him while she is showing the round.
+	if not GameState.demo_ride:
+		var stick_x := Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+		if absf(stick_x) > 0.25:
+			turn -= stick_x
 	turn = clampf(turn, -1.0, 1.0)
 	# The auto rider keeps the old ramp. A person gets a slower bend and a
 	# slower release, so the turn comes on like a horse instead of a hinge.
@@ -375,6 +409,8 @@ func _gait_input() -> void:
 	if Input.is_action_just_pressed("gait_down"):
 		_set_gait(maxi(0, gait - 1))
 	# Left stick Y: tap, not hold. Up = gait up.
+	if GameState.demo_ride:
+		return
 	var sy := -Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
 	if absf(sy) < 0.45:
 		stick_gait_armed = true
@@ -589,7 +625,8 @@ func _lesson_count() -> void:
 	# Lesson always hears the count. Schooling and show hear it while timing
 	# is under 55, or until she has two clears at this height. The +4 is unchanged.
 	var hear := (
-		GameState.session_kind == "lesson"
+		GameState.demo_ride
+		or GameState.session_kind == "lesson"
 		or GameState.madison_timing < 55.0
 		or int(GameState.clears.get(GameState.class_id, 0)) < 2
 	)

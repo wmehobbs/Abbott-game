@@ -27,6 +27,13 @@ var font: FontFile
 var font_b: FontFile
 var sans: FontFile
 var waiting_rebind: String = ""
+var callout_lab: Label
+var go_lab: Label
+var capture_lab: Label
+var _seen_callout: int = 0
+var _callout_left: float = 0.0
+var _go_left: float = 0.0
+var _clock_was_on: bool = false
 
 
 func _ready() -> void:
@@ -36,6 +43,7 @@ func _ready() -> void:
 	font_b = load("res://assets/fonts/LibreBaskerville-Bold.ttf")
 	sans = load("res://assets/fonts/SourceSans3-Regular.ttf")
 	_build()
+	_seen_callout = GameState.fault_callout_id
 	GameState.faults_changed.connect(_on_faults)
 	GameState.round_finished.connect(_on_finished)
 	GameState.mode_changed.connect(_on_mode)
@@ -49,7 +57,7 @@ func _build() -> void:
 
 	var board := Panel.new()
 	board.position = Vector2(28, 24)
-	board.size = Vector2(420, 228)
+	board.size = Vector2(460, 196)
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(0.07, 0.05, 0.03, 0.72)
 	sb.border_color = Color(0.72, 0.58, 0.32, 0.85)
@@ -67,7 +75,6 @@ func _build() -> void:
 	gait_lab = _label(board, "Halt", 24, Vector2(16, 96), Color(0.85, 0.80, 0.70))
 	next_lab = _label(board, "Next  1", 20, Vector2(16, 128), Color(0.80, 0.74, 0.60))
 	best_lab = _label(board, GameState.class_title(), 18, Vector2(16, 158), Color(0.72, 0.66, 0.55))
-	_label(board, "SUN OCT 4  ·  2.348.0.0", 16, Vector2(16, 188), Color(0.98, 0.86, 0.32))
 
 	trainer_lab = _label(root, "", 22, Vector2(48, 0), Color(0.96, 0.90, 0.72))
 	trainer_lab.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
@@ -82,13 +89,114 @@ func _build() -> void:
 	walk_hint = _label(root, "Course walk  ·  WASD  ·  Enter to mount  ·  clock starts at the flags", 22, Vector2(48, 96), Color(0.93, 0.9, 0.82))
 	walk_hint.visible = false
 
+	_build_vignette(root)
+	_build_reins(root)
+	_build_watching(root)
+	_build_callout(root)
 	_build_pause(root)
 	_build_result(root)
 	_build_options(root)
 
 
 func _set_ride_hint() -> void:
-	hint.text = "W/S gait   A/D steer   Space half-halt (hold to collect, release to ask)   Shift halt   C walk   Esc pause"
+	hint.text = "W/S gait   A/D steer   Hold Space to collect, release at the canter to ask   Shift halt   C walk   Esc pause"
+
+
+func _build_vignette(root: Control) -> void:
+	var veil := ColorRect.new()
+	veil.set_anchors_preset(Control.PRESET_FULL_RECT)
+	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	veil.color = Color(1, 1, 1, 1)
+	var sh := Shader.new()
+	sh.code = "shader_type canvas_item;\nrender_mode blend_mix, unshaded;\nvoid fragment() {\n\tvec2 p = UV * 2.0 - 1.0;\n\tp.x *= 1.2;\n\tfloat v = smoothstep(0.42, 1.35, dot(p, p));\n\tCOLOR = vec4(0.04, 0.025, 0.015, v * 0.38);\n}\n"
+	var mat := ShaderMaterial.new()
+	mat.shader = sh
+	veil.material = mat
+	root.add_child(veil)
+	root.move_child(veil, 0)
+
+
+func _build_reins(root: Control) -> void:
+	var card := Panel.new()
+	card.name = "Reins"
+	card.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+	card.offset_left = -560
+	card.offset_top = -250
+	card.offset_right = -36
+	card.offset_bottom = 250
+	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	card.visible = false
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.07, 0.05, 0.03, 0.82)
+	sb.border_color = Color(0.72, 0.58, 0.32, 0.9)
+	sb.set_border_width_all(1)
+	sb.corner_radius_top_left = 6
+	sb.corner_radius_top_right = 6
+	sb.corner_radius_bottom_left = 6
+	sb.corner_radius_bottom_right = 6
+	sb.content_margin_left = 22
+	sb.content_margin_top = 18
+	sb.content_margin_right = 22
+	sb.content_margin_bottom = 18
+	card.add_theme_stylebox_override("panel", sb)
+	root.add_child(card)
+	var body := _label(card, "", 22, Vector2(22, 18), Color(0.96, 0.93, 0.86))
+	body.name = "ReinsBody"
+	body.size = Vector2(480, 460)
+	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	if sans:
+		body.add_theme_font_override("font", sans)
+	body.text = "The reins\n\nW  walk, then trot, then canter\nS  come back a gait\nA / D  steer\nHold Space  half-halt. He collects.\nLet Space go at the canter  ask him to leave\nShift  halt\nC  get off and walk the course\nEsc  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThe card goes away at the flags."
+
+
+func _build_watching(root: Control) -> void:
+	var lab := _label(root, "Watching  ·  she has the reins  ·  Esc to pause", 26, Vector2(0, 28), Color(0.96, 0.93, 0.86))
+	lab.name = "Watching"
+	lab.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	lab.offset_left = -420
+	lab.offset_top = 28
+	lab.offset_right = 420
+	lab.offset_bottom = 72
+	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lab.visible = false
+	if font_b:
+		lab.add_theme_font_override("font", font_b)
+
+
+func _build_callout(root: Control) -> void:
+	callout_lab = _label(root, "", 54, Vector2(0, 0), Color(0.96, 0.90, 0.78))
+	callout_lab.name = "Callout"
+	callout_lab.set_anchors_preset(Control.PRESET_CENTER)
+	callout_lab.offset_left = -520
+	callout_lab.offset_top = -80
+	callout_lab.offset_right = 520
+	callout_lab.offset_bottom = -8
+	callout_lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	callout_lab.visible = false
+	if font_b:
+		callout_lab.add_theme_font_override("font", font_b)
+	go_lab = _label(root, "Time", 64, Vector2(0, 0), Color(0.96, 0.93, 0.86))
+	go_lab.name = "Go"
+	go_lab.set_anchors_preset(Control.PRESET_CENTER)
+	go_lab.offset_left = -240
+	go_lab.offset_top = -160
+	go_lab.offset_right = 240
+	go_lab.offset_bottom = -80
+	go_lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	go_lab.visible = false
+	if font_b:
+		go_lab.add_theme_font_override("font", font_b)
+	capture_lab = _label(root, "Click the ring to ride", 28, Vector2(0, 0), Color(0.96, 0.93, 0.86))
+	capture_lab.name = "Capture"
+	capture_lab.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	capture_lab.offset_left = -280
+	capture_lab.offset_top = -150
+	capture_lab.offset_right = 280
+	capture_lab.offset_bottom = -100
+	capture_lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	capture_lab.visible = false
+	if font_b:
+		capture_lab.add_theme_font_override("font", font_b)
 
 
 func _label(parent: Control, text: String, size: int, pos: Vector2, col: Color) -> Label:
@@ -126,6 +234,15 @@ func _build_pause(root: Control) -> void:
 	pause_stats.add_theme_font_size_override("font_size", 24)
 	pause_stats.modulate = Color(0.9, 0.84, 0.72)
 	box.add_child(pause_stats)
+	var reins := Label.new()
+	reins.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	reins.custom_minimum_size = Vector2(640, 96)
+	reins.text = "W / S gait.   A / D steer.\nHold Space to collect. Let it go at the canter to ask.\nShift halt.   C walk the course."
+	if sans:
+		reins.add_theme_font_override("font", sans)
+	reins.add_theme_font_size_override("font_size", 20)
+	reins.modulate = Color(0.86, 0.80, 0.68)
+	box.add_child(reins)
 	_btn(box, "Resume", resume_requested)
 	_btn(box, "Retry", retry_requested)
 	_btn(box, "Options", func() -> void: options_panel.visible = true)
@@ -150,10 +267,19 @@ func _build_result(root: Control) -> void:
 	_label(box, "Round complete", 52, Vector2.ZERO, Color(0.96, 0.93, 0.86))
 	var ribbon := ColorRect.new()
 	ribbon.name = "Ribbon"
-	ribbon.custom_minimum_size = Vector2(220, 14)
+	ribbon.custom_minimum_size = Vector2(22, 72)
 	ribbon.color = Color(0.18, 0.32, 0.72)
 	ribbon.visible = false
 	box.add_child(ribbon)
+	var ribbon_name := Label.new()
+	ribbon_name.name = "RibbonName"
+	ribbon_name.visible = false
+	if font_b:
+		ribbon_name.add_theme_font_override("font", font_b)
+	ribbon_name.add_theme_font_size_override("font_size", 40)
+	ribbon_name.add_theme_color_override("font_outline_color", Color(0.05, 0.04, 0.03, 0.8))
+	ribbon_name.add_theme_constant_override("outline_size", 6)
+	box.add_child(ribbon_name)
 	var stats := Label.new()
 	stats.name = "Stats"
 	if font:
@@ -231,6 +357,10 @@ func _refresh_binds() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and _pointer_is_free():
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_viewport().set_input_as_handled()
+		return
 	if pause_panel != null and pause_panel.visible and event.is_action_pressed("pause"):
 		Engine.time_scale = 1.0
 		resume_requested.emit()
@@ -298,8 +428,10 @@ func _process(_delta: float) -> void:
 		var clock := "%0.2f" % GameState.time_sec
 		if GameState.start_crossed:
 			clock += "  /  %0.0f" % GameState.time_allowed()
+		elif GameState.demo_ride:
+			clock = "She rides him to the flags"
 		else:
-			clock = "Walk to the start flags"
+			clock = "Ride to the start flags"
 		if GameState.time_sec > GameState.time_allowed() and GameState.clock_running:
 			var over := int(floor((GameState.time_sec - GameState.time_allowed()) / 4.0))
 			if over > 0:
@@ -314,8 +446,24 @@ func _process(_delta: float) -> void:
 		else:
 			next_lab.visible = false
 	if trainer_lab:
-		trainer_lab.text = GameState.trainer_line
-		trainer_lab.visible = GameState.trainer_line != ""
+		var line := GameState.trainer_line
+		trainer_lab.text = line
+		trainer_lab.visible = line != ""
+		var loud := (
+			line.begins_with("Two")
+			or line.begins_with("One")
+			or line == "Come again."
+			or line.begins_with("Now")
+			or line.begins_with("Early")
+			or line.begins_with("Wait")
+			or line.begins_with("Too deep")
+		)
+		trainer_lab.add_theme_font_size_override("font_size", 42 if loud else 22)
+		if loud and font_b:
+			trainer_lab.add_theme_font_override("font", font_b)
+		elif font:
+			trainer_lab.add_theme_font_override("font", font)
+		trainer_lab.position = Vector2(48, -156 if loud else -108)
 	if gait_lab:
 		var h := _horse()
 		if h:
@@ -324,6 +472,29 @@ func _process(_delta: float) -> void:
 				g += "  ·  collected"
 			gait_lab.text = g
 	_sync_booth()
+	_sync_callout(_delta)
+	_sync_capture()
+	var reins := find_child("Reins", true, false)
+	if reins:
+		reins.visible = (
+			GameState.mode == "ride"
+			and not GameState.demo_ride
+			and not GameState.start_crossed
+			and not GameState.round_complete
+			and pause_panel != null
+			and not pause_panel.visible
+			and result_panel != null
+			and not result_panel.visible
+		)
+	var watching := find_child("Watching", true, false)
+	if watching:
+		watching.visible = (
+			GameState.demo_ride
+			and GameState.mode == "ride"
+			and not GameState.round_complete
+			and pause_panel != null
+			and not pause_panel.visible
+		)
 
 
 func _sync_booth() -> void:
@@ -339,6 +510,51 @@ func _sync_booth() -> void:
 		lab.text = "TIME"
 
 
+func _sync_callout(delta: float) -> void:
+	if GameState.fault_callout_id != _seen_callout:
+		_seen_callout = GameState.fault_callout_id
+		_callout_left = 1.8
+		if callout_lab:
+			callout_lab.text = GameState.fault_callout
+	if not GameState.start_crossed:
+		_clock_was_on = false
+	elif not _clock_was_on:
+		_clock_was_on = true
+		_go_left = 1.15
+	if _callout_left > 0.0:
+		_callout_left = maxf(0.0, _callout_left - delta)
+	if _go_left > 0.0:
+		_go_left = maxf(0.0, _go_left - delta)
+	var blocked := result_panel != null and result_panel.visible
+	if callout_lab:
+		callout_lab.visible = _callout_left > 0.0 and not blocked
+		if callout_lab.visible:
+			var a := 1.0 if _callout_left > 0.35 else _callout_left / 0.35
+			callout_lab.modulate = Color(0.98, 0.90, 0.72, a)
+	if go_lab:
+		go_lab.visible = _go_left > 0.0 and GameState.start_crossed and not blocked
+		if go_lab.visible:
+			var ga := 1.0 if _go_left > 0.3 else _go_left / 0.3
+			go_lab.modulate = Color(0.96, 0.93, 0.86, ga)
+
+
+func _sync_capture() -> void:
+	if capture_lab:
+		capture_lab.visible = _pointer_is_free()
+
+
+func _pointer_is_free() -> bool:
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		return false
+	if pause_panel != null and pause_panel.visible:
+		return false
+	if result_panel != null and result_panel.visible:
+		return false
+	if options_panel != null and options_panel.visible:
+		return false
+	return GameState.mode == "ride" or GameState.mode == "walk"
+
+
 func _horse() -> Horse:
 	var n := get_tree().get_first_node_in_group("abbott")
 	if n is Horse:
@@ -348,6 +564,7 @@ func _horse() -> Horse:
 
 func _on_faults(f: int) -> void:
 	fault_lab.text = "Faults  %d" % f
+	fault_lab.modulate = Color(0.96, 0.93, 0.86) if f == 0 else Color(0.93, 0.55, 0.38)
 
 
 func _on_finished(f: int, t: float) -> void:
@@ -361,22 +578,29 @@ func _on_finished(f: int, t: float) -> void:
 	if jump_off_btn:
 		jump_off_btn.visible = GameState.can_offer_jump_off()
 	var ribbon: ColorRect = result_panel.find_child("Ribbon", true, false)
+	var ribbon_name: Label = result_panel.find_child("RibbonName", true, false)
 	if ribbon:
 		var name := GameState.last_ribbon
-		ribbon.visible = name != ""
+		var col := Color(0.18, 0.32, 0.72)
 		match name:
 			"Blue":
-				ribbon.color = Color(0.16, 0.32, 0.78)
+				col = Color(0.16, 0.32, 0.78)
 			"Red":
-				ribbon.color = Color(0.72, 0.14, 0.16)
+				col = Color(0.72, 0.14, 0.16)
 			"Yellow":
-				ribbon.color = Color(0.86, 0.72, 0.18)
+				col = Color(0.86, 0.72, 0.18)
 			"White":
-				ribbon.color = Color(0.92, 0.90, 0.86)
+				col = Color(0.92, 0.90, 0.86)
 			"Pink":
-				ribbon.color = Color(0.86, 0.48, 0.58)
+				col = Color(0.86, 0.48, 0.58)
 			_:
-				ribbon.visible = false
+				name = ""
+		ribbon.visible = name != ""
+		ribbon.color = col
+		if ribbon_name:
+			ribbon_name.visible = name != ""
+			ribbon_name.text = "%s ribbon" % name
+			ribbon_name.modulate = col
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 

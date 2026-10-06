@@ -18,6 +18,11 @@ var paused: bool = false
 var _walk_near := ""
 var demo_ai: RideAI
 var _demo_wait: bool = false
+var _reins_muted: bool = false
+
+const _RIDE_KEYS: Array[String] = [
+	"gait_up", "gait_down", "turn_left", "turn_right", "jump", "halt", "walk_mode", "mount",
+]
 
 
 func _ready() -> void:
@@ -109,6 +114,8 @@ func _process(delta: float) -> void:
 	if GameState.mode == "ride":
 		if Input.is_action_just_pressed("walk_mode"):
 			_enter_walk()
+	if GameState.demo_ride and _reins_muted and InputMap.has_action("gait_up") and InputMap.action_get_events("gait_up").size() > 0:
+		_mute_reins(true)
 	if GameState.demo_ride and not _demo_wait and GameState.round_complete and GameState.can_offer_jump_off():
 		_demo_wait = true
 		_take_demo_jump_off()
@@ -239,6 +246,7 @@ func _arm_demo() -> void:
 	demo_ai.reset_brain()
 	demo_ai.enabled = true
 	horse.controllable = true
+	_mute_reins(true)
 
 
 func _take_demo_jump_off() -> void:
@@ -258,4 +266,19 @@ func _release_demo() -> void:
 	if demo_ai and is_instance_valid(demo_ai):
 		demo_ai.enabled = false
 		demo_ai._release_all()
+	_mute_reins(false)
 	GameState.demo_ride = false
+
+
+func _mute_reins(mute: bool) -> void:
+	# The watched round presses the same keys a person does. Take the
+	# keyboard and the pad off those actions so a hand on WASD cannot
+	# fight her. Pause stays. Putting them back rebuilds the saved binds.
+	if mute:
+		for action in _RIDE_KEYS:
+			if InputMap.has_action(action):
+				InputMap.action_erase_events(action)
+		_reins_muted = true
+	elif _reins_muted:
+		GameState._bind_input()
+		_reins_muted = false

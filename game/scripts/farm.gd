@@ -1839,7 +1839,10 @@ func _sky() -> void:
 	we.fog_density = 0.0018
 	we.fog_aerial_perspective = 0.38
 	we.fog_sky_affect = 0.28
-	we.adjustment_enabled = false
+	we.adjustment_enabled = true
+	we.adjustment_brightness = 1.03
+	we.adjustment_contrast = 1.06
+	we.adjustment_saturation = 1.08
 	we.sdfgi_enabled = false
 	we.sdfgi_use_occlusion = false
 	env.environment = we

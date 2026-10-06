@@ -114,7 +114,11 @@ func set_current(on: bool) -> void:
 		num_lab.outline_modulate = Color(0.98, 0.94, 0.86, 0.9) if on else Color(1, 1, 1, 0)
 		num_lab.outline_size = 10 if on else 0
 	if num_plate and num_plate.material_override is StandardMaterial3D:
-		(num_plate.material_override as StandardMaterial3D).albedo_color = Color(0.98, 0.86, 0.42) if on else Color(0.96, 0.95, 0.92)
+		var plate := num_plate.material_override as StandardMaterial3D
+		plate.albedo_color = Color(0.98, 0.86, 0.42) if on else Color(0.96, 0.95, 0.92)
+		plate.emission_enabled = on
+		plate.emission = Color(0.85, 0.62, 0.22)
+		plate.emission_energy_multiplier = 0.45 if on else 0.0
 
 
 func _ground_line() -> void:

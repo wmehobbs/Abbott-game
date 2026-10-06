@@ -31,6 +31,9 @@ var eliminate_reason: String = ""
 var trainer_line: String = ""
 var trainer_until: float = 0.0
 var last_leave: String = ""
+## Shown once on the glass when a fault is added. The numbers stay in note_rail and note_refuse.
+var fault_callout: String = ""
+var fault_callout_id: int = 0
 var lesson_done: bool = false
 var jump_off: bool = false
 ## Title "Watch a round". Not the player's horse. Cert flags still win in save().
@@ -164,13 +167,14 @@ func next_fence_line() -> String:
 			label = ""
 		else:
 			label = "vertical"
+	if next_fence > fences_needed():
+		return "Ride through the finish"
+	var place := "Fence %d of %d" % [next_fence, fences_needed()]
 	if jump_off:
-		if label == "":
-			return "Jump-off  ·  %d" % next_fence
-		return "Jump-off  ·  %d  ·  %s" % [next_fence, label]
+		place = "Jump-off  ·  %s" % place
 	if label == "":
-		return "Next  %d" % next_fence
-	return "Next  %d  ·  %s" % [next_fence, label]
+		return place
+	return "%s  ·  %s" % [place, label]
 
 
 func time_allowed() -> float:
@@ -404,6 +408,11 @@ func start_clock() -> void:
 	clock_running = true
 
 
+func _callout(line: String) -> void:
+	fault_callout = line
+	fault_callout_id += 1
+
+
 func add_faults(n: int) -> void:
 	if round_complete or eliminated:
 		return
@@ -431,13 +440,17 @@ func note_refuse() -> void:
 	refuse_nums.append(next_fence)
 	if is_show():
 		if refusals_this_round == 1:
+			_callout("Refusal  ·  4 faults")
 			add_faults(4)
 		elif refusals_this_round == 2:
+			_callout("Second refusal  ·  8 faults")
 			add_faults(8)
 		else:
+			_callout("Eliminated  ·  three refusals")
 			eliminate("three")
 			return
 	else:
+		_callout("Refusal  ·  4 faults")
 		add_faults(4)
 	if last_leave == "" or last_leave == "refuse":
 		speak("refuse")
@@ -448,6 +461,7 @@ func note_rail(fence_number: int) -> void:
 		return
 	rails_this_round += 1
 	rail_nums.append(fence_number)
+	_callout("Rail  ·  4 faults")
 	add_faults(4)
 	if last_leave != "chip" and last_leave != "deep":
 		speak("rail")

@@ -70,17 +70,27 @@ func _build() -> void:
 	add_child(title)
 
 	var stamp := Label.new()
-	stamp.text = "SUN OCT 4  ·  2.348.0.0"
+	stamp.text = "Hidden K Stables"
 	stamp.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	stamp.position = Vector2(72, 36)
 	stamp.size = Vector2(900, 40)
 	if serif_b:
 		stamp.add_theme_font_override("font", serif_b)
 	stamp.add_theme_font_size_override("font_size", 28)
-	stamp.add_theme_color_override("font_color", Color(0.98, 0.86, 0.32))
+	stamp.add_theme_color_override("font_color", Color(0.93, 0.88, 0.76))
 	stamp.add_theme_color_override("font_outline_color", Color(0.05, 0.04, 0.03, 0.95))
 	stamp.add_theme_constant_override("outline_size", 8)
 	add_child(stamp)
+	var ver := Label.new()
+	ver.text = "2.348.0.0"
+	ver.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	ver.position = Vector2(72, 72)
+	ver.size = Vector2(400, 28)
+	if sans:
+		ver.add_theme_font_override("font", sans)
+	ver.add_theme_font_size_override("font_size", 16)
+	ver.add_theme_color_override("font_color", Color(0.78, 0.72, 0.62, 0.85))
+	add_child(ver)
 
 	var sub := Label.new()
 	sub.text = "See a distance. Leave with him.  ·  Table A  ·  Hidden K Stables  ·  Pfafftown"
