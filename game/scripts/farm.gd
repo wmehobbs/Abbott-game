@@ -1819,6 +1819,8 @@ func _sky() -> void:
 		psky.sun_curve = 0.12
 		sky.sky_material = psky
 	we.sky = sky
+	# The panorama has a hard seam. Turn it off the approach the ride camera uses.
+	we.sky_rotation = Vector3(0.0, 1.6, 0.0)
 	we.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	we.ambient_light_energy = 0.82
 	we.tonemap_mode = Environment.TONE_MAPPER_FILMIC

@@ -12,7 +12,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T1 | done | 7a9ea865 | compile ok, save match, no script error, 31 shots | Official set is dist/day12/shots/baseline. Images are not committed. |
 | T2 | done | 3307d813 | compile ok, SELFTEST SUMMARY pass=8 fail=0, save match | --selftest runs in the real boot. Writes only user://selftest/. |
 | T3 | done | a8e03b41 | compile ok, selftest pass=12 fail=0, playtest 0/4/4, save match | Save writes tmp, keeps bak, then replaces. Old saves migrate. |
-| T4 | in progress | d7b401c0 | letters: playtest 0/4/4. shade: rides match T0, GPU p95 2.872 | Backlog 1 and 5 closed, better. Blue specks are still open. |
+| T4 | in progress | d7b401c0 | letters playtest 0/4/4. shade rides match T0. sky: selftest 12/0, GPU p95 2.976 | Backlog 1, 5, and 7 closed, better. |
 
 ## Decisions
 
@@ -24,8 +24,12 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - GPU time on the baseline ride is the performance number. FPS stayed near 9 while GPU time stayed near 2.8 ms, so the window may have been in the background.
 - T4 attempt 1: the start and finish words were Label3D font 68 with no pixel size, so they filled the sky. They are now font 48, pixel size 0.003, sitting at the flags. Sheet: dist/day12/shots/t4_in_pair.jpg.
 - T4 shade: removed the extra oval under the belly. One horse-shaped sun shadow remains. Lesson 25.43 (T0 25.42), beginner 62.14 and jump-off 33.45, both 0 faults, same offer. Blue specks under the walk are a different bug.
+- T4 sky: rotated the panorama by 1.6 radians so the hard seam leaves the rear view and the approach. The sky photo is unchanged. GPU p95 2.976 ms.
 
 ## NEEDS ERNIE
+
+- Madison's legs stick straight out to the sides in the ride camera and from behind. That is the rig, not a one-line pose tweak. Backlog item 4 is closed for tonight.
+- Abbott's face photo is smeared across the flat planes of the head. A new coat pass will not fix the mesh. Backlog item 3 stays open only if a projection bug turns up. Do not repaint the blaze.
 
 ## STASHED
 
