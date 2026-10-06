@@ -30,6 +30,7 @@ func _run() -> void:
 	_courses()
 	_telemetry_guard()
 	await _layout()
+	await _gamepad()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
 	var after := _save_bytes()
@@ -438,6 +439,63 @@ func _reach_buttons(vp: SubViewport, buttons: Array[Button]) -> String:
 		if not seen.has(b):
 			return "cannot reach " + b.text
 	return ""
+
+
+func _gamepad() -> void:
+	for action in GameState.DEFAULT_BINDINGS.keys():
+		var has_key := false
+		var has_pad := false
+		for ev in InputMap.action_get_events(str(action)):
+			if ev is InputEventKey:
+				has_key = true
+			if ev is InputEventJoypadButton:
+				has_pad = true
+		if not has_key or not has_pad:
+			_fail("gamepad_actions", "%s key=%s pad=%s" % [action, has_key, has_pad])
+			return
+	for action in ["steer", "look_x", "look_y", "gait_stick"]:
+		var has_axis := false
+		for ev in InputMap.action_get_events(action):
+			if ev is InputEventJoypadMotion:
+				has_axis = true
+		if not has_axis:
+			_fail("gamepad_actions", action + " has no stick")
+			return
+	var horse := Horse.new()
+	add_child(horse)
+	await get_tree().process_frame
+	var was_mode := GameState.mode
+	GameState.mode = "ride"
+	horse.gait = 0
+	Input.action_press("gait_up")
+	horse._physics_process(0.05)
+	Input.action_release("gait_up")
+	if horse.gait != 1:
+		var stuck := horse.gait
+		GameState.mode = was_mode
+		horse.free()
+		_fail("gamepad_actions", "gait stayed %d" % stuck)
+		return
+	var yaw0 := horse.rotation.y
+	Input.action_press("turn_left")
+	horse._physics_process(0.2)
+	Input.action_release("turn_left")
+	if absf(horse.rotation.y - yaw0) < 0.001 and absf(horse.last_turn) < 0.001:
+		GameState.mode = was_mode
+		horse.free()
+		_fail("gamepad_actions", "steer did not move")
+		return
+	horse.gait = Horse.CANTER
+	Input.action_press("jump")
+	horse._physics_process(0.05)
+	var held: bool = horse.collecting
+	Input.action_release("jump")
+	GameState.mode = was_mode
+	horse.free()
+	if not held:
+		_fail("gamepad_actions", "collect did not hold")
+		return
+	_ok("gamepad_actions")
 
 
 func _telemetry_guard() -> void:

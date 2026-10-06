@@ -109,6 +109,8 @@ const DEFAULT_BINDINGS := {
 }
 
 var bindings: Dictionary = {}
+## "key" or "pad". Prompts name the buttons for the last device she used.
+var last_device: String = "key"
 
 
 func _ready() -> void:
@@ -336,6 +338,10 @@ func _bind_input() -> void:
 	_pad("pause", JOY_BUTTON_START)
 	_pad("mount", JOY_BUTTON_X)
 	_pad("walk_mode", JOY_BUTTON_Y)
+	_pad("gait_up", JOY_BUTTON_DPAD_UP)
+	_pad("gait_down", JOY_BUTTON_DPAD_DOWN)
+	_pad("turn_left", JOY_BUTTON_DPAD_LEFT)
+	_pad("turn_right", JOY_BUTTON_DPAD_RIGHT)
 	_pad_axis("steer", JOY_AXIS_LEFT_X)
 	_pad_axis("gait_stick", JOY_AXIS_LEFT_Y)
 	_pad_axis("look_x", JOY_AXIS_RIGHT_X)
@@ -364,6 +370,22 @@ func _pad_axis(action: String, axis: int) -> void:
 	ev.axis = axis
 	if not InputMap.action_has_event(action, ev):
 		InputMap.action_add_event(action, ev)
+	InputMap.action_set_deadzone(action, 0.25)
+
+
+func control_line() -> String:
+	if last_device == "pad":
+		return "D-pad up/down gait   Left stick steers   Hold A to collect, release at the canter to ask   B halt   Y walk   Start pause"
+	return "W/S gait   A/D steer   Hold Space to collect, release at the canter to ask   Shift halt   C walk   Esc pause"
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		last_device = "key"
+	elif event is InputEventJoypadButton and event.pressed:
+		last_device = "pad"
+	elif event is InputEventJoypadMotion and absf(event.axis_value) > 0.25:
+		last_device = "pad"
 
 
 func rebind(action: String, keycode: int) -> void:

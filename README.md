@@ -33,6 +33,7 @@ Pony Club, college teams, and bigger championships come later. This version is H
 - **C** — walk the course on foot. **Enter** — mount. Clock starts at the start flags.
 - **Mouse** — look. Camera sits behind the saddle.
 - **Esc** — pause.
+- **Controller** — left stick steers. D-pad up and down change gait. Hold A to collect, release to ask. B halts. X mounts. Y walks the course. Start pauses. Right stick looks.
 
 Early to the fence is a refusal. Late or a chip is a rail (stays down). Schooling is 4 faults a piece. Show day is Table A: first stop 4, second 8, third is out. Time faults are 1 per 4 seconds over.
 

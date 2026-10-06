@@ -108,7 +108,9 @@ func _build() -> void:
 
 
 func _set_ride_hint() -> void:
-	hint.text = "W/S gait   A/D steer   Hold Space to collect, release at the canter to ask   Shift halt   C walk   Esc pause"
+	if hint == null or GameState.mode == "walk":
+		return
+	hint.text = GameState.control_line()
 
 
 func _build_vignette(root: Control) -> void:
@@ -477,6 +479,7 @@ func _fit_root() -> void:
 func _process(_delta: float) -> void:
 	_fit_root()
 	_sync_board()
+	_set_ride_hint()
 	if time_lab:
 		var clock := "%0.2f" % GameState.time_sec
 		if GameState.start_crossed:

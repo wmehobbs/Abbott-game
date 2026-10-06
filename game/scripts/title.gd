@@ -152,7 +152,8 @@ func _build() -> void:
 		lesson.grab_focus()
 
 	var help := Label.new()
-	help.text = "W/S gait   A/D steer   Space half-halt (hold to collect, release to ask)   Shift halt"
+	help.name = "Help"
+	help.text = GameState.control_line()
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		help.add_theme_font_override("font", sans)
