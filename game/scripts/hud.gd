@@ -423,6 +423,7 @@ func _style_btn(b: Button) -> void:
 func _click() -> void:
 	if ResourceLoader.exists("res://assets/audio/ui.wav"):
 		var p := AudioStreamPlayer.new()
+		p.bus = "UI"
 		p.stream = load("res://assets/audio/ui.wav")
 		add_child(p)
 		p.play()

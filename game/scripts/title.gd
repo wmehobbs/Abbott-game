@@ -21,6 +21,7 @@ func _ready() -> void:
 			wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 			a.stream = wav
 		a.volume_db = -6.0
+		a.bus = "Ambience"
 		a.autoplay = true
 		add_child(a)
 	if _selftest_requested() and get_tree().current_scene == self:
@@ -314,6 +315,7 @@ func _shots_requested() -> bool:
 func _ui() -> void:
 	if ResourceLoader.exists("res://assets/audio/ui.wav"):
 		var p := AudioStreamPlayer.new()
+		p.bus = "UI"
 		p.stream = load("res://assets/audio/ui.wav")
 		add_child(p)
 		p.play()

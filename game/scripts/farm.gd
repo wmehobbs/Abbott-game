@@ -1859,4 +1859,5 @@ func _sky() -> void:
 			wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 			amb.stream = wav
 		amb.volume_db = -7.0
+		amb.bus = "Ambience"
 	add_child(amb)

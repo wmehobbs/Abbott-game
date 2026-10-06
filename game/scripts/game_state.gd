@@ -120,7 +120,13 @@ func _ready() -> void:
 	randomize()
 
 
+var _duck: float = 0.0
+## Test seam. Off in play. When true, the mix ducks as if a voice line is playing.
+var voice_hold: bool = false
+
+
 func tick(delta: float) -> void:
+	_mix_voice(delta)
 	if trainer_until > 0.0:
 		trainer_until -= delta
 		if trainer_until <= 0.0:
@@ -371,6 +377,24 @@ func _pad_axis(action: String, axis: int) -> void:
 	if not InputMap.action_has_event(action, ev):
 		InputMap.action_add_event(action, ev)
 	InputMap.action_set_deadzone(action, 0.25)
+
+
+func _mix_voice(delta: float) -> void:
+	var voice := voice_hold
+	var tree := get_tree()
+	if tree:
+		for n in tree.get_nodes_in_group("voice"):
+			if n is AudioStreamPlayer and (n as AudioStreamPlayer).playing:
+				voice = true
+			elif n is AudioStreamPlayer3D and (n as AudioStreamPlayer3D).playing:
+				voice = true
+	var target := 1.0 if voice else 0.0
+	_duck = move_toward(_duck, target, delta / 0.12)
+	var drop := -6.0 * _duck
+	for bus_name in ["Music", "Ambience"]:
+		var idx := AudioServer.get_bus_index(bus_name)
+		if idx >= 0:
+			AudioServer.set_bus_volume_db(idx, drop)
 
 
 func control_line() -> String:

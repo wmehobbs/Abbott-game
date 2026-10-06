@@ -16,7 +16,8 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T5 | done | none | looked, then reverted | Lighting attempts made the picture orange, darker, or the same. Left the T4 sky. |
 | T6 | done | 9f9db59a | selftest 13/0, playtest 0/4/4, rides match T0 with telemetry on | Camera does not pop after the start. No camera edit. |
 | T7 | done | d1c62666 | selftest 14/0, compile ok, playtest 0/4/4, GPU p95 2.909 | Menus sit on a card. Title buttons wrap. Layout checked at six sizes. |
-| T8 | done | this commit | selftest 15/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44 | D-pad gait, stick steer, prompts follow the last device. |
+| T8 | done | e2188895 | selftest 15/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44 | D-pad gait, stick steer, prompts follow the last device. |
+| T9 | done | this commit | selftest 16/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44 | Buses exist. Voice ducks Music and Ambience by 6 dB. Listen in the morning. |
 
 ## Decisions
 
@@ -34,6 +35,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - T6: `--telemetry` writes `dist/day12/telemetry_<id>.csv` at exit, so the round clock is not paying for disk. It is off unless that arg is set, and save() skips it. The ride camera roll is 0. The 14 "pops" are the first half second while the horse is placed at the start.
 - T7: pause, results, and options sit in the center on a dark card. The scoreboard hides while a menu is open. Title buttons are in a flow so they wrap on a short screen. Layout selftest covers 1280x720, 1920x1080, 2560x1440, 3840x2160, 1280x800, and 2560x1080.
 - T8: the keyboard bindings are unchanged. D-pad up and down change gait. D-pad left and right steer, and the left stick still steers with a 0.25 deadzone. Prompts say W or A depending on the last device.
+- T9: hooves, fences, and Abbott's sounds are on SFX. The outdoor bed is on Ambience. Madison's lines and the click are on Voice and UI. Michelle's lines are text, so there is no Voice clip for her yet. A Voice line ducks Music and Ambience by 6 dB and brings them back. Morning: listen to a round with the sound on.
 
 ## NEEDS ERNIE
 

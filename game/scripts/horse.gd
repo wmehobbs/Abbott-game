@@ -245,18 +245,23 @@ func _make_audio() -> void:
 		p.max_distance = 36.0
 		p.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 		p.position = Vector3(0.0, 0.05, 0.15)
+		p.bus = "SFX"
 		add_child(p)
 		hoof_pool.append(p)
 	sfx = AudioStreamPlayer3D.new()
 	sfx.unit_size = 10.0
+	sfx.bus = "SFX"
 	add_child(sfx)
 	voice_horse = AudioStreamPlayer3D.new()
 	voice_horse.unit_size = 9.0
 	voice_horse.max_distance = 28.0
 	voice_horse.position = Vector3(0, 1.35, -0.9)
+	voice_horse.bus = "SFX"
 	add_child(voice_horse)
 	voice_rider = AudioStreamPlayer.new()
 	voice_rider.volume_db = -2.0
+	voice_rider.bus = "Voice"
+	voice_rider.add_to_group("voice")
 	add_child(voice_rider)
 	streams = {
 		"jump": _load_stream("res://assets/audio/jump.wav"),

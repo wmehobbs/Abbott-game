@@ -31,6 +31,7 @@ func _run() -> void:
 	_telemetry_guard()
 	await _layout()
 	await _gamepad()
+	await _buses()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
 	var after := _save_bytes()
@@ -438,6 +439,58 @@ func _reach_buttons(vp: SubViewport, buttons: Array[Button]) -> String:
 	for b in buttons:
 		if not seen.has(b):
 			return "cannot reach " + b.text
+	return ""
+
+
+func _buses() -> void:
+	var horse := Horse.new()
+	add_child(horse)
+	await get_tree().process_frame
+	var why := _bus_walk(horse)
+	horse.free()
+	if why != "":
+		_fail("audio_buses", why)
+		return
+	var music := AudioServer.get_bus_index("Music")
+	var amb := AudioServer.get_bus_index("Ambience")
+	if music < 0 or amb < 0:
+		_fail("audio_buses", "bus missing")
+		return
+	AudioServer.set_bus_volume_db(music, 0.0)
+	AudioServer.set_bus_volume_db(amb, 0.0)
+	GameState._duck = 0.0
+	GameState.voice_hold = true
+	for _i in 12:
+		GameState.tick(0.05)
+	var ducked := AudioServer.get_bus_volume_db(music)
+	var ducked_amb := AudioServer.get_bus_volume_db(amb)
+	GameState.voice_hold = false
+	for _i in 16:
+		GameState.tick(0.05)
+	var back := AudioServer.get_bus_volume_db(music)
+	var back_amb := AudioServer.get_bus_volume_db(amb)
+	if ducked > -5.5 or ducked_amb > -5.5:
+		_fail("audio_buses", "duck music %.2f amb %.2f" % [ducked, ducked_amb])
+		return
+	if absf(back) > 0.4 or absf(back_amb) > 0.4:
+		_fail("audio_buses", "restore music %.2f amb %.2f" % [back, back_amb])
+		return
+	_ok("audio_buses")
+
+
+func _bus_walk(n: Node) -> String:
+	if n is AudioStreamPlayer or n is AudioStreamPlayer3D:
+		var bus := ""
+		if n is AudioStreamPlayer:
+			bus = (n as AudioStreamPlayer).bus
+		else:
+			bus = (n as AudioStreamPlayer3D).bus
+		if bus == "" or bus == "Master":
+			return str(n.name) + " is on " + bus
+	for c in n.get_children():
+		var why := _bus_walk(c)
+		if why != "":
+			return why
 	return ""
 
 
