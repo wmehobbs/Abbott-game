@@ -18,3 +18,7 @@ The fresh-flag wrapper writes `dist/ridecert_fresh.log`, not `dist/ridecert_godo
 T0 jump-off on hk_int_002 is one time fault, ribbon White, complete, not teleported. hk_beg_035 jump-off is 0 faults. Both first rounds offered.
 
 Playtest T0: clear 0, refuse 4, rail 4, pass true. Compile check printed COMPILE ok.
+
+## Performance
+
+Baseline ride, VSync off, 10 seconds, `dist/day12/shots/baseline/perf.csv`. 127 samples. After the first 2 seconds (87 samples): FPS median 9, GPU median 2.831 ms, GPU p95 3.007 ms. The performance rule uses GPU time. A later pass must not push GPU p95 more than 15 percent above 3.007 ms.

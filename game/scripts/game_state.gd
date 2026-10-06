@@ -680,7 +680,7 @@ func save() -> void:
 	# A cert and a playtest are not the player's horse. A normal game still writes.
 	for a in OS.get_cmdline_user_args():
 		var arg := str(a)
-		if arg == "--playtest" or arg.begins_with("--ridecert"):
+		if arg == "--playtest" or arg.begins_with("--ridecert") or arg.begins_with("--shots"):
 			return
 	if demo_ride:
 		return

@@ -22,6 +22,12 @@ func _ready() -> void:
 		a.volume_db = -6.0
 		a.autoplay = true
 		add_child(a)
+	if _shots_requested():
+		var shot_script: GDScript = load("res://scripts/shots.gd") as GDScript
+		var shots: Node = shot_script.new() as Node
+		shots.name = "Shots"
+		add_child(shots)
+		return
 	if (
 		"--playtest" in OS.get_cmdline_user_args()
 		or "--hear" in OS.get_cmdline_user_args()
@@ -279,6 +285,13 @@ func _btn(parent: Node, text: String, cb: Callable, wide: float = 200.0) -> void
 		_ui()
 		cb.call()
 	)
+
+
+func _shots_requested() -> bool:
+	for a in OS.get_cmdline_user_args():
+		if str(a) == "--shots" or str(a).begins_with("--shots-out="):
+			return true
+	return false
 
 
 func _ui() -> void:

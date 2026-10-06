@@ -60,7 +60,10 @@ func _ready() -> void:
 	else:
 		GameState.set_mode("ride")
 		_enter_ride()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if _shots_requested():
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if "--playtest" in OS.get_cmdline_user_args():
 		var pt := PlaytestScript.new()
 		pt.name = "Playtest"
@@ -81,8 +84,20 @@ func _ready() -> void:
 		var shot := ArtShotScript.new()
 		shot.name = "ArtShot"
 		add_child(shot)
+	if _shots_requested():
+		var shot_script: GDScript = load("res://scripts/shots.gd") as GDScript
+		var shots: Node = shot_script.new() as Node
+		shots.name = "Shots"
+		add_child(shots)
 	if GameState.demo_ride:
 		_arm_demo()
+
+
+func _shots_requested() -> bool:
+	for a in OS.get_cmdline_user_args():
+		if str(a) == "--shots" or str(a).begins_with("--shots-out="):
+			return true
+	return false
 
 
 func _place_horse() -> void:
@@ -164,7 +179,8 @@ func _enter_ride() -> void:
 	horse.cam.current = true
 	_place_horse()
 	hud.set_walk_mode(false)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if not _shots_requested():
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GameState.clock_running = false
 	GameState.start_crossed = false
 	if GameState.session_kind == "lesson":

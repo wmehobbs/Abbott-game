@@ -544,6 +544,9 @@ func _sync_capture() -> void:
 
 
 func _pointer_is_free() -> bool:
+	for a in OS.get_cmdline_user_args():
+		if str(a) == "--shots" or str(a).begins_with("--shots-out="):
+			return false
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		return false
 	if pause_panel != null and pause_panel.visible:
