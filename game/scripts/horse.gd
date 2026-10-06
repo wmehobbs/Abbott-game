@@ -163,7 +163,6 @@ func _ready() -> void:
 	if rider:
 		_bind_rider()
 	_make_camera()
-	_make_ground_shade()
 	_make_audio()
 	floor_snap_length = 0.4
 	motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
