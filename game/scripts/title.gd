@@ -10,6 +10,7 @@ func _ready() -> void:
 	serif = load("res://assets/fonts/LibreBaskerville-Regular.ttf")
 	serif_b = load("res://assets/fonts/LibreBaskerville-Bold.ttf")
 	sans = load("res://assets/fonts/SourceSans3-Regular.ttf")
+	theme = load("res://assets/ui/abbott_theme.tres")
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	_build()
 	if ResourceLoader.exists("res://assets/audio/ambient_outdoor.wav"):
@@ -64,22 +65,29 @@ func _build() -> void:
 
 	var bottom := ColorRect.new()
 	bottom.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
-	bottom.offset_top = -340
+	bottom.offset_top = -400
 	bottom.color = Color(0.03, 0.025, 0.018, 0.72)
 	add_child(bottom)
 
+	var stack := VBoxContainer.new()
+	stack.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	stack.offset_left = 64
+	stack.offset_right = -48
+	stack.offset_top = -380
+	stack.offset_bottom = -24
+	stack.add_theme_constant_override("separation", 6)
+	add_child(stack)
+
 	var title := Label.new()
 	title.text = "ABBOTT"
-	title.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	title.position = Vector2(72, -300)
-	title.size = Vector2(900, 90)
+	title.custom_minimum_size = Vector2(0, 96)
 	if serif_b:
 		title.add_theme_font_override("font", serif_b)
 	title.add_theme_font_size_override("font_size", 84)
 	title.add_theme_color_override("font_color", Color(0.96, 0.93, 0.86))
 	title.add_theme_color_override("font_outline_color", Color(0.05, 0.04, 0.03, 0.85))
 	title.add_theme_constant_override("outline_size", 8)
-	add_child(title)
+	stack.add_child(title)
 
 	var stamp := Label.new()
 	stamp.text = "Hidden K Stables"
@@ -106,59 +114,51 @@ func _build() -> void:
 
 	var sub := Label.new()
 	sub.text = "See a distance. Leave with him.  ·  Table A  ·  Hidden K Stables  ·  Pfafftown"
-	sub.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	sub.position = Vector2(76, -214)
-	sub.size = Vector2(900, 40)
 	if serif:
 		sub.add_theme_font_override("font", serif)
 	sub.add_theme_font_size_override("font_size", 22)
 	sub.add_theme_color_override("font_color", Color(0.82, 0.74, 0.58))
-	add_child(sub)
+	stack.add_child(sub)
 
 	var best := Label.new()
 	best.text = GameState.best_line()
-	best.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	best.position = Vector2(76, -178)
-	best.size = Vector2(900, 32)
 	if sans:
 		best.add_theme_font_override("font", sans)
 	best.add_theme_font_size_override("font_size", 20)
 	best.add_theme_color_override("font_color", Color(0.78, 0.72, 0.62))
-	add_child(best)
+	stack.add_child(best)
 
 	var note := Label.new()
 	note.text = GameState.barn_note()
-	note.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	note.position = Vector2(76, -148)
-	note.size = Vector2(1100, 28)
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		note.add_theme_font_override("font", sans)
 	note.add_theme_font_size_override("font_size", 18)
 	note.add_theme_color_override("font_color", Color(0.80, 0.74, 0.60))
-	add_child(note)
+	stack.add_child(note)
 
-	var row := HBoxContainer.new()
-	row.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	row.position = Vector2(72, -112)
-	row.add_theme_constant_override("separation", 14)
-	add_child(row)
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 12)
+	row.add_theme_constant_override("v_separation", 10)
+	stack.add_child(row)
 	_btn(row, "Lesson", _go_lesson)
-	_btn(row, "Watch a round", _watch_round, 260.0)
+	_btn(row, "Watch a round", _watch_round, 240.0)
 	_btn(row, "School Abbott", func() -> void: _open_pick("schooling"))
 	_btn(row, "Show day", func() -> void: _open_pick("show"))
 	_btn(row, "Walk", _walk)
 	_btn(row, "Quit", _quit)
+	var lesson := row.get_child(0) as Button
+	if lesson:
+		lesson.grab_focus()
 
 	var help := Label.new()
 	help.text = "W/S gait   A/D steer   Space half-halt (hold to collect, release to ask)   Shift halt"
-	help.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	help.position = Vector2(76, -48)
-	help.size = Vector2(1200, 32)
+	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		help.add_theme_font_override("font", sans)
 	help.add_theme_font_size_override("font_size", 18)
 	help.add_theme_color_override("font_color", Color(0.78, 0.72, 0.62))
-	add_child(help)
+	stack.add_child(help)
 
 	_build_pick()
 
@@ -176,11 +176,13 @@ func _build_pick() -> void:
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	dim.color = Color(0.02, 0.015, 0.01, 0.72)
 	pick_panel.add_child(dim)
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	pick_panel.add_child(center)
 	var box := VBoxContainer.new()
 	box.name = "PickBox"
-	box.position = Vector2(72, 220)
 	box.add_theme_constant_override("separation", 12)
-	pick_panel.add_child(box)
+	center.add_child(box)
 
 
 func _open_pick(kind: String) -> void:
@@ -268,6 +270,7 @@ func _go_ride(cid: String) -> void:
 
 func _btn(parent: Node, text: String, cb: Callable, wide: float = 200.0) -> void:
 	var b := Button.new()
+	b.name = text
 	b.text = text
 	b.custom_minimum_size = Vector2(wide, 54)
 	if sans:

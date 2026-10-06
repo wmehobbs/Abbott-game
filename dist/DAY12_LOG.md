@@ -14,7 +14,8 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T3 | done | a8e03b41 | compile ok, selftest pass=12 fail=0, playtest 0/4/4, save match | Save writes tmp, keeps bak, then replaces. Old saves migrate. |
 | T4 | done | d7b401c0, 7ee935f4, 27fbb233, 1846feb2, db0b15dd | playtest 0/4/4, shade rides match T0, selftest 12/0 | Letters, shadow oval, sky seam, schooling sign. Face, legs, bridle need Ernie. |
 | T5 | done | none | looked, then reverted | Lighting attempts made the picture orange, darker, or the same. Left the T4 sky. |
-| T6 | done | this commit | selftest 13/0, playtest 0/4/4, rides match T0 with telemetry on | Camera does not pop after the start. No camera edit. |
+| T6 | done | 9f9db59a | selftest 13/0, playtest 0/4/4, rides match T0 with telemetry on | Camera does not pop after the start. No camera edit. |
+| T7 | done | this commit | selftest 14/0, compile ok, playtest 0/4/4, GPU p95 2.909 | Menus sit on a card. Title buttons wrap. Layout checked at six sizes. |
 
 ## Decisions
 
@@ -30,6 +31,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - T4 banner: the schooling words are a small sign at the rail. The first try was still huge because the shot camera stands two meters from it. Second try, pixel size 0.0015, sits at shoulder height. GPU p95 2.948 ms.
 - T5: one lighting pass with eyes. Warm fog went orange. ACES washed the sky. SSIL did not open the black shadow and cost GPU time. Shadow bias did not help. All reverted. Do not chase it again tonight.
 - T6: `--telemetry` writes `dist/day12/telemetry_<id>.csv` at exit, so the round clock is not paying for disk. It is off unless that arg is set, and save() skips it. The ride camera roll is 0. The 14 "pops" are the first half second while the horse is placed at the start.
+- T7: pause, results, and options sit in the center on a dark card. The scoreboard hides while a menu is open. Title buttons are in a flow so they wrap on a short screen. Layout selftest covers 1280x720, 1920x1080, 2560x1440, 3840x2160, 1280x800, and 2560x1080.
 
 ## NEEDS ERNIE
 

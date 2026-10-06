@@ -29,6 +29,7 @@ func _run() -> void:
 	_madison_snapshot()
 	_courses()
 	_telemetry_guard()
+	await _layout()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
 	var after := _save_bytes()
@@ -53,8 +54,8 @@ func _scripts() -> void:
 		if not fn.ends_with(".gd"):
 			continue
 		n += 1
-		var res: Resource = load("res://scripts/" + fn)
-		if res == null:
+		var res: GDScript = load("res://scripts/" + fn) as GDScript
+		if res == null or not res.can_instantiate():
 			_fail("scripts_load", fn + " did not load")
 			return
 	if n < 10:
@@ -262,6 +263,181 @@ func _restore(before: PackedByteArray) -> void:
 		return
 	f.store_buffer(before)
 	f.close()
+
+
+func _layout() -> void:
+	var sizes: Array[Vector2i] = [
+		Vector2i(1280, 720),
+		Vector2i(1920, 1080),
+		Vector2i(2560, 1440),
+		Vector2i(3840, 2160),
+		Vector2i(1280, 800),
+		Vector2i(2560, 1080),
+	]
+	for sz in sizes:
+		var why := await _layout_title(sz)
+		if why != "":
+			_fail("layout", "%dx%d title: %s" % [sz.x, sz.y, why])
+			return
+		why = await _layout_hud(sz)
+		if why != "":
+			_fail("layout", "%dx%d hud: %s" % [sz.x, sz.y, why])
+			return
+	_ok("layout")
+
+
+func _layout_title(sz: Vector2i) -> String:
+	var vp := SubViewport.new()
+	vp.size = sz
+	vp.disable_3d = true
+	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(vp)
+	var packed: PackedScene = load("res://scenes/title.tscn") as PackedScene
+	var title: Node = packed.instantiate()
+	vp.add_child(title)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var why := await _audit_screen(vp, sz, title)
+	title.free()
+	vp.free()
+	return why
+
+
+func _layout_hud(sz: Vector2i) -> String:
+	var vp := SubViewport.new()
+	vp.size = sz
+	vp.disable_3d = true
+	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(vp)
+	var script: GDScript = load("res://scripts/hud.gd") as GDScript
+	if script == null or not script.can_instantiate():
+		vp.free()
+		return "hud script did not compile"
+	var hud: Node = script.new()
+	vp.add_child(hud)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	hud.call("show_pause", true)
+	await get_tree().process_frame
+	var why := await _audit_screen(vp, sz, hud)
+	if why == "":
+		var options := hud.get("options_panel") as Control
+		var pause := hud.get("pause_panel") as Control
+		if options:
+			options.visible = true
+		if pause:
+			pause.visible = false
+		await get_tree().process_frame
+		var first := _first_button(options)
+		if first:
+			first.grab_focus()
+		why = await _audit_screen(vp, sz, hud)
+	if why == "":
+		var options2 := hud.get("options_panel") as Control
+		var result := hud.get("result_panel") as Control
+		if options2:
+			options2.visible = false
+		if result:
+			result.visible = true
+		await get_tree().process_frame
+		var ride := result.find_child("Ride again", true, false) as Control if result else null
+		if ride:
+			ride.grab_focus()
+		why = await _audit_screen(vp, sz, hud)
+	Engine.time_scale = 1.0
+	GameState.ui_paused = false
+	hud.free()
+	vp.free()
+	return why
+
+
+func _audit_screen(vp: SubViewport, sz: Vector2i, root: Node) -> String:
+	var buttons: Array[Button] = []
+	var labels: Array[Label] = []
+	_collect_ui(root, buttons, labels)
+	for lab in labels:
+		if not lab.is_visible_in_tree() or lab.text == "":
+			continue
+		var r := lab.get_global_rect()
+		if r.position.x < -8.0 or r.position.y < -8.0 or r.end.x > float(sz.x) + 8.0 or r.end.y > float(sz.y) + 8.0:
+			return "label outside: " + lab.text.substr(0, 24)
+		var need := lab.get_minimum_size()
+		if lab.autowrap_mode == TextServer.AUTOWRAP_OFF and r.size.x + 2.0 < need.x:
+			return "label clipped: " + lab.text.substr(0, 24)
+	var rects: Array[Rect2] = []
+	var live: Array[Button] = []
+	for b in buttons:
+		if not b.is_visible_in_tree():
+			continue
+		var r2 := b.get_global_rect()
+		if r2.size.x < 2.0:
+			continue
+		if r2.position.x < -2 or r2.position.y < -2 or r2.end.x > sz.x + 2 or r2.end.y > sz.y + 2:
+			return "button outside: " + b.text
+		for prev in rects:
+			var hit := prev.intersection(r2)
+			if hit.size.x > 4.0 and hit.size.y > 4.0:
+				return "buttons overlap: " + b.text
+		rects.append(r2)
+		live.append(b)
+	if live.is_empty():
+		return "no buttons"
+	if vp.gui_get_focus_owner() == null:
+		return "nothing focused"
+	return await _reach_buttons(vp, live)
+
+
+func _collect_ui(n: Node, buttons: Array[Button], labels: Array[Label]) -> void:
+	if n is Button:
+		buttons.append(n)
+	elif n is Label:
+		labels.append(n)
+	for c in n.get_children():
+		_collect_ui(c, buttons, labels)
+
+
+func _first_button(root: Node) -> Button:
+	if root == null:
+		return null
+	if root is Button and (root as CanvasItem).is_visible_in_tree():
+		return root
+	for c in root.get_children():
+		var found := _first_button(c)
+		if found:
+			return found
+	return null
+
+
+func _reach_buttons(vp: SubViewport, buttons: Array[Button]) -> String:
+	var start := vp.gui_get_focus_owner() as Control
+	if start == null:
+		return "nothing focused"
+	var seen: Array[Control] = [start]
+	var queue: Array[Control] = [start]
+	var dirs: Array[String] = ["ui_up", "ui_down", "ui_left", "ui_right"]
+	var guard := 0
+	while queue.size() > 0 and guard < 64:
+		guard += 1
+		var cur: Control = queue.pop_front()
+		for action in dirs:
+			cur.grab_focus()
+			var ev := InputEventAction.new()
+			ev.action = action
+			ev.pressed = true
+			vp.push_input(ev)
+			var up := InputEventAction.new()
+			up.action = action
+			up.pressed = false
+			vp.push_input(up)
+			await get_tree().process_frame
+			var nxt := vp.gui_get_focus_owner() as Control
+			if nxt != null and not seen.has(nxt):
+				seen.append(nxt)
+				queue.append(nxt)
+	for b in buttons:
+		if not seen.has(b):
+			return "cannot reach " + b.text
+	return ""
 
 
 func _telemetry_guard() -> void:

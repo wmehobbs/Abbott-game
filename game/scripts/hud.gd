@@ -53,9 +53,11 @@ func _build() -> void:
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.theme = load("res://assets/ui/abbott_theme.tres")
 	add_child(root)
 
 	var board := Panel.new()
+	board.name = "Scoreboard"
 	board.position = Vector2(28, 24)
 	board.size = Vector2(460, 196)
 	var sb := StyleBoxFlat.new()
@@ -73,17 +75,24 @@ func _build() -> void:
 	time_lab = _label(board, "0.00", 44, Vector2(16, 10), Color(0.96, 0.93, 0.86))
 	fault_lab = _label(board, "Faults  0", 26, Vector2(16, 62), Color(0.92, 0.86, 0.72))
 	gait_lab = _label(board, "Halt", 24, Vector2(16, 96), Color(0.85, 0.80, 0.70))
-	next_lab = _label(board, "Next  1", 20, Vector2(16, 128), Color(0.80, 0.74, 0.60))
-	best_lab = _label(board, GameState.class_title(), 18, Vector2(16, 158), Color(0.72, 0.66, 0.55))
+	next_lab = _label(board, "Next  1", 22, Vector2(16, 128), Color(0.93, 0.88, 0.76))
+	best_lab = _label(board, GameState.class_title(), 20, Vector2(16, 158), Color(0.93, 0.88, 0.76))
 
-	trainer_lab = _label(root, "", 22, Vector2(48, 0), Color(0.96, 0.90, 0.72))
-	trainer_lab.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	trainer_lab.position = Vector2(48, -108)
-	trainer_lab.size = Vector2(1400, 40)
+	trainer_lab = _label(root, "", 22, Vector2.ZERO, Color(0.96, 0.90, 0.72))
+	trainer_lab.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	trainer_lab.offset_left = 48
+	trainer_lab.offset_right = -48
+	trainer_lab.offset_top = -118
+	trainer_lab.offset_bottom = -78
+	trainer_lab.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
-	hint = _label(root, "", 18, Vector2(48, 0), Color(0.85, 0.82, 0.75, 0.85))
-	hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	hint.position = Vector2(48, -64)
+	hint = _label(root, "", 18, Vector2.ZERO, Color(0.85, 0.82, 0.75, 0.85))
+	hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	hint.offset_left = 48
+	hint.offset_right = -48
+	hint.offset_top = -72
+	hint.offset_bottom = -36
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_set_ride_hint()
 
 	walk_hint = _label(root, "Course walk  ·  WASD  ·  Enter to mount  ·  clock starts at the flags", 22, Vector2(48, 96), Color(0.93, 0.9, 0.82))
@@ -222,16 +231,16 @@ func _build_pause(root: Control) -> void:
 	dim.color = Color(0.02, 0.02, 0.015, 0.62)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	pause_panel.add_child(dim)
-	var box := VBoxContainer.new()
-	box.position = Vector2(80, 160)
-	box.add_theme_constant_override("separation", 14)
-	pause_panel.add_child(box)
+	var box := _menu_column(pause_panel)
+	box.name = "PauseBox"
 	_label(box, "Paused", 56, Vector2.ZERO, Color(0.96, 0.93, 0.86))
 	pause_stats = Label.new()
 	pause_stats.name = "PauseStats"
 	if font:
 		pause_stats.add_theme_font_override("font", font)
 	pause_stats.add_theme_font_size_override("font_size", 24)
+	pause_stats.custom_minimum_size = Vector2(520, 108)
+	pause_stats.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	pause_stats.modulate = Color(0.9, 0.84, 0.72)
 	box.add_child(pause_stats)
 	var reins := Label.new()
@@ -259,11 +268,8 @@ func _build_result(root: Control) -> void:
 	dim.color = Color(0.02, 0.015, 0.01, 0.55)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	result_panel.add_child(dim)
-	var box := VBoxContainer.new()
+	var box := _menu_column(result_panel)
 	box.name = "Box"
-	box.position = Vector2(80, 200)
-	box.add_theme_constant_override("separation", 14)
-	result_panel.add_child(box)
 	_label(box, "Round complete", 52, Vector2.ZERO, Color(0.96, 0.93, 0.86))
 	var ribbon := ColorRect.new()
 	ribbon.name = "Ribbon"
@@ -307,11 +313,8 @@ func _build_options(root: Control) -> void:
 	dim.color = Color(0.02, 0.02, 0.015, 0.82)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	options_panel.add_child(dim)
-	var box := VBoxContainer.new()
+	var box := _menu_column(options_panel)
 	box.name = "BindBox"
-	box.position = Vector2(80, 120)
-	box.add_theme_constant_override("separation", 10)
-	options_panel.add_child(box)
 	_label(box, "Controls", 48, Vector2.ZERO, Color(0.96, 0.93, 0.86))
 	_refresh_binds()
 	_btn(box, "Back", func() -> void:
@@ -383,6 +386,7 @@ func _rebuild_option_buttons() -> void:
 
 func _btn(parent: Node, text: String, sig) -> Button:
 	var b := Button.new()
+	b.name = text
 	b.text = text
 	b.custom_minimum_size = Vector2(360, 52)
 	if sans:
@@ -423,7 +427,56 @@ func _click() -> void:
 		p.finished.connect(p.queue_free)
 
 
+func _menu_column(panel: Control) -> VBoxContainer:
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.add_child(center)
+	var card := PanelContainer.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.07, 0.05, 0.03, 0.88)
+	sb.border_color = Color(0.72, 0.58, 0.32, 0.9)
+	sb.set_border_width_all(1)
+	sb.set_corner_radius_all(6)
+	sb.content_margin_left = 28
+	sb.content_margin_right = 28
+	sb.content_margin_top = 22
+	sb.content_margin_bottom = 22
+	card.add_theme_stylebox_override("panel", sb)
+	center.add_child(card)
+	var box := VBoxContainer.new()
+	box.custom_minimum_size = Vector2(480, 0)
+	box.add_theme_constant_override("separation", 12)
+	card.add_child(box)
+	return box
+
+
+func _sync_board() -> void:
+	var board := find_child("Scoreboard", true, false) as CanvasItem
+	if board == null or pause_panel == null:
+		return
+	var menu := pause_panel.visible or result_panel.visible or options_panel.visible
+	board.visible = not menu
+	if hint:
+		hint.visible = not menu
+
+
+func _fit_root() -> void:
+	if get_child_count() < 1:
+		return
+	var root := get_child(0) as Control
+	if root == null:
+		return
+	var sz := get_viewport().get_visible_rect().size
+	if sz.x < 2.0 or sz.y < 2.0:
+		return
+	root.position = Vector2.ZERO
+	root.size = sz
+
+
 func _process(_delta: float) -> void:
+	_fit_root()
+	_sync_board()
 	if time_lab:
 		var clock := "%0.2f" % GameState.time_sec
 		if GameState.start_crossed:
@@ -525,7 +578,11 @@ func _sync_callout(delta: float) -> void:
 		_callout_left = maxf(0.0, _callout_left - delta)
 	if _go_left > 0.0:
 		_go_left = maxf(0.0, _go_left - delta)
-	var blocked := result_panel != null and result_panel.visible
+	var blocked := (
+		(result_panel != null and result_panel.visible)
+		or (pause_panel != null and pause_panel.visible)
+		or (options_panel != null and options_panel.visible)
+	)
 	if callout_lab:
 		callout_lab.visible = _callout_left > 0.0 and not blocked
 		if callout_lab.visible:
@@ -647,3 +704,6 @@ func show_pause(on: bool) -> void:
 		options_panel.visible = false
 		if pause_stats:
 			pause_stats.text = "%s\n%d faults   ·   %0.2fs\n%s" % [GameState.class_title(), GameState.faults, GameState.time_sec, GameState.best_line()]
+		var resume := pause_panel.find_child("Resume", true, false) as Control
+		if resume:
+			resume.grab_focus()
