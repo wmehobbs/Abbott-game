@@ -28,6 +28,7 @@ func _run() -> void:
 	_old_save_migrates()
 	_madison_snapshot()
 	_courses()
+	_telemetry_guard()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
 	var after := _save_bytes()
@@ -261,6 +262,25 @@ func _restore(before: PackedByteArray) -> void:
 		return
 	f.store_buffer(before)
 	f.close()
+
+
+func _telemetry_guard() -> void:
+	var text := FileAccess.get_file_as_string("res://scripts/game_state.gd")
+	if not text.contains("--telemetry"):
+		_fail("telemetry_guard", "save() does not skip --telemetry")
+		return
+	if _telemetry_wanted_here():
+		_fail("telemetry_guard", "selftest must not enable telemetry")
+		return
+	_ok("telemetry_guard")
+
+
+func _telemetry_wanted_here() -> bool:
+	for a in OS.get_cmdline_user_args():
+		var arg := str(a)
+		if arg == "--telemetry" or arg.begins_with("--telemetry"):
+			return true
+	return false
 
 
 func _ok(name: String) -> void:

@@ -758,7 +758,7 @@ func _skip_save_reason() -> String:
 		return "demo"
 	for a in OS.get_cmdline_user_args():
 		var arg := str(a)
-		if arg == "--playtest" or arg.begins_with("--ridecert") or arg.begins_with("--shots") or arg == "--selftest" or arg.begins_with("--selftest-"):
+		if arg == "--playtest" or arg.begins_with("--ridecert") or arg.begins_with("--shots") or arg == "--selftest" or arg.begins_with("--selftest-") or arg == "--telemetry" or arg.begins_with("--telemetry"):
 			return "arg"
 	return ""
 

@@ -22,3 +22,19 @@ Playtest T0: clear 0, refuse 4, rail 4, pass true. Compile check printed COMPILE
 ## Performance
 
 Baseline ride, VSync off, 10 seconds, `dist/day12/shots/baseline/perf.csv`. 127 samples. After the first 2 seconds (87 samples): FPS median 9, GPU median 2.831 ms, GPU p95 3.007 ms. The performance rule uses GPU time. A later pass must not push GPU p95 more than 15 percent above 3.007 ms.
+
+## T5 lighting
+
+Looked at the stills after the sky rotation. Three groups, then reverted. The picture stayed the T4 sky turn.
+
+- Group A: warm fog turned the ring orange (worse). Less fog on the sky was the same picture. A lower sun and less ambient shortened the shadow toward noon (worse).
+- Group B: less exposure and less glow only made the same picture darker. ACES washed the sky brighter (worse). SSIL cost GPU p95 3.303 ms and the belly shadow stayed a black blob (same).
+- Group C: tighter shadow bias moved the horse shadow by a few pixels and left it black (same). MSAA is already 4x, with FXAA and debanding. The rail still does not stair-step.
+
+## T6 telemetry baseline
+
+`--telemetry` on the ride cert. Clock unchanged: hk_les_001 0 faults 25.42 offer no. hk_beg_035 0 faults 62.15 offer yes, jump-off 0 faults 33.43. Playtest still clear 0, refuse 4, rail 4.
+
+Lesson, 2382 frames. Beginner plus jump-off, 8450 frames. Files: `dist/day12/telemetry_hk_les_001.csv` and `telemetry_hk_beg_035.csv` (not committed).
+
+After the first half second the camera does not pop. Lesson max step 0.18 m. Horizon roll is 0 on every frame. Gait changes already blend (0 zero-blend switches). Canter ground speed divided by animation rate is 2.94 on the lesson and 3.33 on the beginner round, next to the 3.35 m stride. The approach shot shows the ears and the next fence. The apex shot shows the whole horse. No camera or animation edit.

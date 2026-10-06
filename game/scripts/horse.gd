@@ -122,6 +122,22 @@ var _cam_col: float = 0.0
 ## Mouse look holds. The stick still springs home. A spring on the same
 ## frame as the mouse undoes the pixel and the lens chatters.
 var _mouse_look: float = 0.0
+## --telemetry only. Off unless that user arg is set. No file, no extra work.
+var _tel_on: bool = false
+var _tel_id: String = ""
+var _tel_t: float = 0.0
+var _tel_lines: PackedStringArray = PackedStringArray()
+var _tel_px: PackedFloat32Array = PackedFloat32Array()
+var _tel_py: PackedFloat32Array = PackedFloat32Array()
+var _tel_pz: PackedFloat32Array = PackedFloat32Array()
+var _tel_dt: PackedFloat32Array = PackedFloat32Array()
+var _tel_gait_s: PackedInt32Array = PackedInt32Array()
+var _tel_spd: PackedFloat32Array = PackedFloat32Array()
+var _tel_ascale: PackedFloat32Array = PackedFloat32Array()
+var _tel_anim: PackedStringArray = PackedStringArray()
+var _tel_switches: int = 0
+var _tel_zero_blend: int = 0
+var _tel_blend_now: float = 0.0
 var collect_pulse: float = 0.0
 var halt_sit: float = 0.0
 var last_stride: float = 0.0
@@ -138,6 +154,9 @@ var _check_x0: float = 0.0
 
 
 func _ready() -> void:
+	_tel_on = _telemetry_wanted()
+	if _tel_on:
+		_tel_id = _telemetry_id()
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 	add_to_group("abbott")
 	collision_layer = 1
@@ -276,6 +295,7 @@ func _process(delta: float) -> void:
 	if mounted and controllable and not jumping:
 		_camera(delta)
 	_place_cam()
+	_tel_sample(delta)
 	_place_ground_shade()
 	_update_reins()
 	_update_rider(delta)
@@ -1032,6 +1052,12 @@ func _play_named(name: String, speed: float, loop: bool, restart: bool) -> void:
 	a.loop_mode = Animation.LOOP_LINEAR if loop else Animation.LOOP_NONE
 	var blend := 0.05 if restart or name == "Gallop_Jump" else 0.18
 	if restart or anim.current_animation != name or not anim.is_playing():
+		if _tel_on and anim.current_animation != "" and anim.current_animation != name:
+			_tel_switches += 1
+			if blend <= 0.001:
+				_tel_zero_blend += 1
+		if _tel_on:
+			_tel_blend_now = blend
 		anim.play(name, blend)
 		if restart:
 			anim.seek(0.0)
@@ -1507,3 +1533,133 @@ func facing() -> Vector3:
 	var f := -transform.basis.z
 	f.y = 0.0
 	return f.normalized()
+
+
+func _telemetry_wanted() -> bool:
+	for a in OS.get_cmdline_user_args():
+		var arg := str(a)
+		if arg == "--telemetry" or arg.begins_with("--telemetry="):
+			return true
+	return false
+
+
+func _telemetry_id() -> String:
+	var args := OS.get_cmdline_user_args()
+	for i in args.size():
+		var a := str(args[i])
+		if a.begins_with("--ridecert-id="):
+			return a.substr("--ridecert-id=".length())
+		if a == "--ridecert-id" and i + 1 < args.size():
+			return str(args[i + 1])
+	return "ride"
+
+
+func _tel_sample(delta: float) -> void:
+	if not _tel_on or cam == null:
+		return
+	var p := cam.global_position
+	var r := cam.global_rotation_degrees
+	var clip := ""
+	var ascale := 0.0
+	if anim != null:
+		clip = str(anim.current_animation)
+		ascale = anim.speed_scale
+	var jo := 1 if GameState.jump_off else 0
+	_tel_t += delta
+	_tel_lines.append(
+		"%.4f,%.3f,%.3f,%.3f,%.2f,%.2f,%.2f,%.2f,%.3f,%d,%s,%.3f,%.3f,%d"
+		% [_tel_t, p.x, p.y, p.z, r.x, r.y, r.z, cam.fov, speed, gait, clip, ascale, _tel_blend_now, jo]
+	)
+	_tel_px.append(p.x)
+	_tel_py.append(p.y)
+	_tel_pz.append(p.z)
+	_tel_dt.append(delta)
+	_tel_gait_s.append(gait)
+	_tel_spd.append(speed)
+	_tel_ascale.append(ascale)
+	_tel_anim.append(clip)
+
+
+func _exit_tree() -> void:
+	if not _tel_on or _tel_lines.is_empty():
+		return
+	var dir := _telemetry_dir()
+	DirAccess.make_dir_recursive_absolute(dir)
+	var frames_path := dir.path_join("telemetry_%s.csv" % _tel_id)
+	var summary_path := dir.path_join("telemetry_%s_summary.csv" % _tel_id)
+	var out := FileAccess.open(frames_path, FileAccess.WRITE)
+	if out == null:
+		push_warning("telemetry could not write " + frames_path)
+		return
+	out.store_line("t,cam_x,cam_y,cam_z,cam_rx,cam_ry,cam_rz,fov,speed,gait,anim,anim_speed,blend,jump_off")
+	for line in _tel_lines:
+		out.store_line(line)
+	out.close()
+	_write_telemetry_summary(summary_path)
+	print("TELEMETRY frames=%d id=%s" % [_tel_lines.size(), _tel_id])
+
+
+func _telemetry_dir() -> String:
+	var game_dir := ProjectSettings.globalize_path("res://").trim_suffix("/").trim_suffix("\\")
+	return game_dir.get_base_dir().path_join("dist/day12")
+
+
+func _write_telemetry_summary(path: String) -> void:
+	var n := _tel_px.size()
+	var jerks := PackedFloat32Array()
+	var pops := 0
+	if n >= 4:
+		var v0 := Vector3.ZERO
+		var a0 := Vector3.ZERO
+		var have_v := false
+		var have_a := false
+		for i in range(1, n):
+			var dt := maxf(_tel_dt[i], 0.0001)
+			var v := Vector3(_tel_px[i] - _tel_px[i - 1], _tel_py[i] - _tel_py[i - 1], _tel_pz[i] - _tel_pz[i - 1]) / dt
+			var step := v.length() * dt
+			if step > 0.20 and v.length() > _tel_spd[i] + 6.0:
+				pops += 1
+			if have_v:
+				var a := (v - v0) / dt
+				if have_a:
+					jerks.append((a - a0).length() / dt)
+				a0 = a
+				have_a = true
+			v0 = v
+			have_v = true
+	var gait_spd: Array[float] = [0.0, 0.0, 0.0, 0.0]
+	var gait_an: Array[float] = [0.0, 0.0, 0.0, 0.0]
+	var gait_n: Array[int] = [0, 0, 0, 0]
+	for i in n:
+		var g := clampi(_tel_gait_s[i], 0, 3)
+		gait_spd[g] += _tel_spd[i]
+		gait_an[g] += maxf(_tel_ascale[i], 0.001)
+		gait_n[g] += 1
+	var sum := FileAccess.open(path, FileAccess.WRITE)
+	if sum == null:
+		return
+	sum.store_line("metric,value")
+	sum.store_line("frames,%d" % n)
+	sum.store_line("pops,%d" % pops)
+	sum.store_line("jerk_p95,%.2f" % _tel_pct(jerks, 0.95))
+	sum.store_line("jerk_p99,%.2f" % _tel_pct(jerks, 0.99))
+	sum.store_line("anim_switches,%d" % _tel_switches)
+	sum.store_line("zero_blend_switches,%d" % _tel_zero_blend)
+	for g in range(4):
+		var ratio := 0.0
+		if gait_n[g] > 0 and gait_an[g] > 0.0:
+			ratio = gait_spd[g] / gait_an[g]
+		sum.store_line("gait_%d_speed_over_anim,%.4f" % [g, ratio])
+		sum.store_line("gait_%d_frames,%d" % [g, gait_n[g]])
+	sum.close()
+
+
+func _tel_pct(values: PackedFloat32Array, p: float) -> float:
+	if values.is_empty():
+		return 0.0
+	var s: Array = []
+	for v in values:
+		s.append(v)
+	s.sort()
+	var i := clampi(int(round(float(s.size() - 1) * p)), 0, s.size() - 1)
+	return float(s[i])
