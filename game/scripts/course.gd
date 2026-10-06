@@ -224,12 +224,13 @@ func _gate_line(z: float, n: String, col: Color) -> Area3D:
 	MeshKit.add_child_mi(a, MeshKit.box(Vector3(16.2, 0.03, 0.16)), cream, "Ground", Vector3(0, -0.96, 0))
 	var lab := Label3D.new()
 	lab.text = "IN" if n == "Start" else "OUT"
-	lab.font_size = 68
-	lab.position = Vector3(0, 1.72, 0)
+	lab.font_size = 48
+	lab.pixel_size = 0.003
+	lab.position = Vector3(0, 1.28, 0)
 	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	lab.modulate = col
 	lab.outline_modulate = Color(0.06, 0.05, 0.04, 0.85)
-	lab.outline_size = 8
+	lab.outline_size = 4
 	a.add_child(lab)
 	return a
 

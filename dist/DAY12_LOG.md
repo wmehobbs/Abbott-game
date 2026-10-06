@@ -11,7 +11,8 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T0 | done | bc5ef6c8 | compile ok, playtest 0/4/4, three rides RIDECERT done, save match | Baseline times differ from Day 11. See DAY12_MEASURE.md. |
 | T1 | done | 7a9ea865 | compile ok, save match, no script error, 31 shots | Official set is dist/day12/shots/baseline. Images are not committed. |
 | T2 | done | 3307d813 | compile ok, SELFTEST SUMMARY pass=8 fail=0, save match | --selftest runs in the real boot. Writes only user://selftest/. |
-| T3 | done |  | compile ok, selftest pass=12 fail=0, playtest 0/4/4, save match | Save writes tmp, keeps bak, then replaces. Old saves migrate. |
+| T3 | done | a8e03b41 | compile ok, selftest pass=12 fail=0, playtest 0/4/4, save match | Save writes tmp, keeps bak, then replaces. Old saves migrate. |
+| T4 | in progress |  | playtest 0/4/4, save match, GPU p95 2.877 vs baseline 3.007 | Backlog 1 closed, better. IN and OUT sit on the flags. |
 
 ## Decisions
 
@@ -21,6 +22,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - The first two shot captures were parked as baseline_v1 and baseline_cam1. The jump strip in v1 continued onto the next fence, and the head and in-gate cameras missed. The official baseline is the third capture.
 - Shots mode hides the "Click the ring to ride" line so the HUD shot matches a ride with the mouse captured.
 - GPU time on the baseline ride is the performance number. FPS stayed near 9 while GPU time stayed near 2.8 ms, so the window may have been in the background.
+- T4 attempt 1: the start and finish words were Label3D font 68 with no pixel size, so they filled the sky. They are now font 48, pixel size 0.003, sitting at the flags. Sheet: dist/day12/shots/t4_in_pair.jpg.
 
 ## NEEDS ERNIE
 
