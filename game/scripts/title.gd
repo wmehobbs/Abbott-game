@@ -22,6 +22,12 @@ func _ready() -> void:
 		a.volume_db = -6.0
 		a.autoplay = true
 		add_child(a)
+	if _selftest_requested() and get_tree().current_scene == self:
+		var test_script: GDScript = load("res://scripts/selftest.gd") as GDScript
+		var test: Node = test_script.new() as Node
+		test.name = "Selftest"
+		add_child(test)
+		return
 	if _shots_requested():
 		var shot_script: GDScript = load("res://scripts/shots.gd") as GDScript
 		var shots: Node = shot_script.new() as Node
@@ -285,6 +291,13 @@ func _btn(parent: Node, text: String, cb: Callable, wide: float = 200.0) -> void
 		_ui()
 		cb.call()
 	)
+
+
+func _selftest_requested() -> bool:
+	for a in OS.get_cmdline_user_args():
+		if str(a) == "--selftest":
+			return true
+	return false
 
 
 func _shots_requested() -> bool:

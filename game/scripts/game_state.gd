@@ -676,14 +676,24 @@ func load_save() -> void:
 			bindings[str(k)] = b[k]
 
 
-func save() -> void:
-	# A cert and a playtest are not the player's horse. A normal game still writes.
+func _skip_save_reason() -> String:
+	# Watch a round is not her ride. Certs, playtests, shots, and selftests are not either.
+	if demo_ride:
+		return "demo"
 	for a in OS.get_cmdline_user_args():
 		var arg := str(a)
-		if arg == "--playtest" or arg.begins_with("--ridecert") or arg.begins_with("--shots"):
-			return
-	if demo_ride:
+		if arg == "--playtest" or arg.begins_with("--ridecert") or arg.begins_with("--shots") or arg == "--selftest" or arg.begins_with("--selftest-"):
+			return "arg"
+	return ""
+
+
+func save() -> void:
+	if _skip_save_reason() != "":
 		return
+	_write_save_file(SAVE_PATH)
+
+
+func _write_save_file(path: String) -> void:
 	var d := {
 		"best_faults": best_faults,
 		"best_time": best_time,
@@ -701,7 +711,7 @@ func save() -> void:
 		"show_best": show_best,
 		"show_ribbons": show_ribbons,
 	}
-	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f == null:
 		return
 	f.store_string(JSON.stringify(d, "\t"))
