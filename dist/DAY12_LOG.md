@@ -19,9 +19,11 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T8 | done | e2188895 | selftest 15/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44 | D-pad gait, stick steer, prompts follow the last device. |
 | T9 | done | 1a570129 | selftest 16/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44 | Buses exist. Voice ducks Music and Ambience by 6 dB. Listen in the morning. |
 | T10 | done | 265df28f | selftest 19/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44 | Options persist in settings.cfg. Pause clock holds. Result card names the round. No window today. |
-| T13 | done | this slice | selftest 22/0, playtest 0/4/4, les 25.42, beg 62.13 jo 33.45 | Season ladder on the title. Existing Lesson, Watch, School, Show, Walk, Options, and Quit stay. |
-| T14 | done | this slice | same gates | First lesson only when tutorial_done is false. Madison's save migrates to done. Skip stays. |
-| T15 | done | this slice | same gates | Stretch is canvas_items and expand. The 3D view uses the window size. No new screenshots. |
+| T13 | done | d2ffd5ec | selftest 22/0, playtest 0/4/4, les 25.42, beg 62.13 jo 33.45 | Season ladder on the title. Existing Lesson, Watch, School, Show, Walk, Options, and Quit stay. |
+| T14 | done | d2ffd5ec | same gates | First lesson only when tutorial_done is false. Madison's save migrates to done. Skip stays. |
+| T15 | done | d2ffd5ec | same gates | Stretch is canvas_items and expand. The 3D view uses the window size. No new screenshots. |
+| unused | done | this note | no Godot | Spreadsheet of game/assets. Nothing deleted. |
+| map | done | this note | no Godot | docs/ARCHITECTURE.md says who owns what, what is frozen, and how to run the checks. |
 
 ## Decisions
 
@@ -45,12 +47,15 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - T13: Season sits with the other title buttons. It lists the four lessons, then schooling and the show, in ship order. Locked, open, and done come from class_unlocked. A done row shows the best faults and time already stored. Choosing a lesson sets that course seed and starts it. A locked row does not start.
 - T14: A brand-new save gets Michelle's first lesson: walk, trot, canter, steer, whoa, half-halt, the first pole, and the next fence. Skip ends it and marks tutorial_done. An existing save that already has a round is marked done on load, so Madison is not sent through it. Certs, playtest, and selftest never start it.
 - T15: The window no longer draws a 1920x1080 picture and scales it. Stretch mode is canvas_items, aspect expand, base size still 1920x1080. Layout still passed at the six sizes. Ride times matched T0. No new screenshots. Low picture quality is still not timed on the GPU.
+- Unused list: `dist/day12/unused_assets.csv` from `python dist/day12/unused_assets.py`. Text under `game/` and `content/` (a file's own `.import` does not count). 5385 files, 1,767,830,216 bytes. 5287 files (1,724,549,802 bytes) have no pointer. 1736 of those (499,709,017 bytes) are not on the export exclude list, so a pack would still include them. 1673 of the packed files are under `assets/textures/harvest`, about 466 MB. Nothing was deleted.
+- The map for the next person is `docs/ARCHITECTURE.md`.
 
 ## NEEDS ERNIE
 
 - Madison's legs stick straight out to the sides in the ride camera and from behind. That is the rig, not a one-line pose tweak. Backlog item 4 is closed for tonight.
 - Abbott's face photo is smeared across the flat planes of the head. A new coat pass will not fix the mesh. Do not repaint the blaze.
 - The bridle is a set of dark rods that float off the face. That is the same mesh limit. Backlog item 13 is closed for tonight.
+- Unused files are listed, not removed. The proposal is the harvest textures that are still packed (about 466 MB), plus a few photos, loose coat maps, and `ambient_indoor.wav`. Say which of those can go before anyone deletes them.
 
 ## STASHED
 
