@@ -8,8 +8,10 @@ signal resume_requested
 signal walk_requested
 signal retry_requested
 signal jump_off_requested
+signal next_class_requested
 
 var jump_off_btn: Button
+var next_btn: Button
 
 var time_lab: Label
 var fault_lab: Label
@@ -105,6 +107,7 @@ func _build() -> void:
 	_build_pause(root)
 	_build_result(root)
 	_build_options(root)
+	apply_hud_scale()
 
 
 func _set_ride_hint() -> void:
@@ -248,14 +251,14 @@ func _build_pause(root: Control) -> void:
 	var reins := Label.new()
 	reins.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	reins.custom_minimum_size = Vector2(640, 96)
-	reins.text = "W / S gait.   A / D steer.\nHold Space to collect. Let it go at the canter to ask.\nShift halt.   C walk the course."
+	reins.text = GameState.control_line()
 	if sans:
 		reins.add_theme_font_override("font", sans)
 	reins.add_theme_font_size_override("font_size", 20)
 	reins.modulate = Color(0.86, 0.80, 0.68)
 	box.add_child(reins)
 	_btn(box, "Resume", resume_requested)
-	_btn(box, "Retry", retry_requested)
+	_btn(box, "Restart round", retry_requested)
 	_btn(box, "Options", func() -> void: options_panel.visible = true)
 	_btn(box, "Walk the course", walk_requested)
 	_btn(box, "Quit to title", _quit_title)
@@ -297,8 +300,10 @@ func _build_result(root: Control) -> void:
 	jump_off_btn = _btn(box, "Stay for the jump-off", jump_off_requested)
 	jump_off_btn.visible = false
 	_btn(box, "Ride again", retry_requested)
+	next_btn = _btn(box, "Next class", next_class_requested)
+	next_btn.visible = false
 	_btn(box, "Course walk", walk_requested)
-	_btn(box, "Quit to title", _quit_title)
+	_btn(box, "Back to the barn", _quit_title)
 
 
 func _quit_title() -> void:
@@ -317,48 +322,34 @@ func _build_options(root: Control) -> void:
 	options_panel.add_child(dim)
 	var box := _menu_column(options_panel)
 	box.name = "BindBox"
-	_label(box, "Controls", 48, Vector2.ZERO, Color(0.96, 0.93, 0.86))
-	_refresh_binds()
-	_btn(box, "Back", func() -> void:
+	var menu: SettingsMenu = SettingsMenu.new()
+	menu.name = "SettingsMenu"
+	menu.show_controls = true
+	menu.back_pressed.connect(func() -> void:
 		waiting_rebind = ""
 		options_panel.visible = false
 	)
+	menu.rebind_asked.connect(func(action: String) -> void:
+		waiting_rebind = action
+	)
+	box.add_child(menu)
 
 
-func _refresh_binds() -> void:
-	var box: VBoxContainer = options_panel.find_child("BindBox", true, false)
-	if box == null:
-		return
-	for c in box.get_children():
-		if c is Button and String(c.text).begins_with("Bind"):
-			c.queue_free()
-	var rows := [
-		["gait_up", "Gait up (W)"],
-		["gait_down", "Gait down (S)"],
-		["turn_left", "Steer left (A)"],
-		["turn_right", "Steer right (D)"],
-		["jump", "Half-halt / ask (Space)"],
-		["halt", "Halt (Shift)"],
-		["walk_mode", "Walk on foot (C)"],
-		["mount", "Mount (Enter)"],
-		["pause", "Pause (Esc)"],
-	]
-	for r in rows:
-		var action: String = r[0]
-		var label: String = r[1]
-		var b := Button.new()
-		b.text = "Bind  %s   ·   %s" % [label, GameState.key_name(action)]
-		b.custom_minimum_size = Vector2(640, 44)
-		if sans:
-			b.add_theme_font_override("font", sans)
-		b.add_theme_font_size_override("font_size", 18)
-		_style_btn(b)
-		var act := action
-		b.pressed.connect(func() -> void:
-			waiting_rebind = act
-			b.text = "Bind  %s   ·   press a key…" % label
-		)
-		box.add_child(b)
+func apply_hud_scale() -> void:
+	var s := 1.0
+	if GameState.settings:
+		s = GameState.settings.hud_scale
+	_size_lab(time_lab, int(round(44.0 * s)))
+	_size_lab(fault_lab, int(round(26.0 * s)))
+	_size_lab(gait_lab, int(round(24.0 * s)))
+	_size_lab(next_lab, int(round(22.0 * s)))
+	_size_lab(best_lab, int(round(20.0 * s)))
+	_size_lab(hint, int(round(18.0 * s)))
+
+
+func _size_lab(lab: Label, px: int) -> void:
+	if lab:
+		lab.add_theme_font_size_override("font_size", px)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -376,14 +367,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		GameState.rebind(waiting_rebind, event.physical_keycode)
 		waiting_rebind = ""
-		_rebuild_option_buttons()
+		var menu: SettingsMenu = options_panel.find_child("SettingsMenu", true, false) as SettingsMenu
+		if menu:
+			menu.show_page("controls")
+		options_panel.visible = true
 		get_viewport().set_input_as_handled()
-
-
-func _rebuild_option_buttons() -> void:
-	options_panel.queue_free()
-	_build_options(get_child(0))
-	options_panel.visible = true
 
 
 func _btn(parent: Node, text: String, sig) -> Button:
@@ -505,7 +493,8 @@ func _process(_delta: float) -> void:
 	if trainer_lab:
 		var line := GameState.trainer_line
 		trainer_lab.text = line
-		trainer_lab.visible = line != ""
+		var subs := GameState.settings == null or GameState.settings.subtitles
+		trainer_lab.visible = line != "" and subs
 		var loud := (
 			line.begins_with("Two")
 			or line.begins_with("One")
@@ -515,7 +504,10 @@ func _process(_delta: float) -> void:
 			or line.begins_with("Wait")
 			or line.begins_with("Too deep")
 		)
-		trainer_lab.add_theme_font_size_override("font_size", 42 if loud else 22)
+		var px := 42 if loud else 22
+		if GameState.settings:
+			px = int(round(float(px) * GameState.settings.hud_scale))
+		trainer_lab.add_theme_font_size_override("font_size", px)
 		if loud and font_b:
 			trainer_lab.add_theme_font_override("font", font_b)
 		elif font:
@@ -638,9 +630,12 @@ func _on_finished(f: int, t: float) -> void:
 		var extra := ""
 		if f < GameState.best_faults or (f == GameState.best_faults and is_equal_approx(t, GameState.best_time)):
 			extra = "\nNew best."
-		stats.text = "%s%s\n%s\n%s\n%s" % [GameState.result_line(), extra, GameState.class_title(), GameState.barn_note(), GameState.best_line()]
+		var allowed := "%0.0f" % GameState.time_allowed()
+		stats.text = "%s%s\n%s\nTime allowed %ss\n%s\n%s" % [GameState.result_line(), extra, GameState.class_title(), allowed, GameState.barn_note(), GameState.best_line()]
 	if jump_off_btn:
 		jump_off_btn.visible = GameState.can_offer_jump_off()
+	if next_btn:
+		next_btn.visible = _next_class_id() != ""
 	var ribbon: ColorRect = result_panel.find_child("Ribbon", true, false)
 	var ribbon_name: Label = result_panel.find_child("RibbonName", true, false)
 	if ribbon:
@@ -666,6 +661,18 @@ func _on_finished(f: int, t: float) -> void:
 			ribbon_name.text = "%s ribbon" % name
 			ribbon_name.modulate = col
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _next_class_id() -> String:
+	var order: PackedStringArray = PackedStringArray(["lesson", "beginner", "intermediate", "advanced"])
+	var i := order.find(GameState.class_id)
+	if i < 0:
+		return ""
+	for j in range(i + 1, order.size()):
+		var cid: String = order[j]
+		if GameState.class_unlocked(cid):
+			return cid
+	return ""
 
 
 func _on_mode(m: String) -> void:

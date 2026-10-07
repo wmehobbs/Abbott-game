@@ -111,9 +111,17 @@ const DEFAULT_BINDINGS := {
 var bindings: Dictionary = {}
 ## "key" or "pad". Prompts name the buttons for the last device she used.
 var last_device: String = "key"
+## Volumes and picture. Not the ride save. Certs and tests leave the defaults in place.
+var settings: PlayerSettings
 
 
 func _ready() -> void:
+	settings = PlayerSettings.new()
+	settings.name = "Settings"
+	add_child(settings)
+	if _skip_save_reason() == "":
+		settings.load_from()
+		settings.apply_audio()
 	bindings = DEFAULT_BINDINGS.duplicate(true)
 	load_save()
 	_bind_input()
@@ -391,10 +399,19 @@ func _mix_voice(delta: float) -> void:
 	var target := 1.0 if voice else 0.0
 	_duck = move_toward(_duck, target, delta / 0.12)
 	var drop := -6.0 * _duck
-	for bus_name in ["Music", "Ambience"]:
-		var idx := AudioServer.get_bus_index(bus_name)
-		if idx >= 0:
-			AudioServer.set_bus_volume_db(idx, drop)
+	var music_base := 0.0
+	var amb_base := 0.0
+	if settings:
+		music_base = settings.music_db
+		amb_base = settings.ambience_db
+	_set_mix_bus("Music", music_base + drop)
+	_set_mix_bus("Ambience", amb_base + drop)
+
+
+func _set_mix_bus(bus_name: String, db: float) -> void:
+	var idx := AudioServer.get_bus_index(bus_name)
+	if idx >= 0:
+		AudioServer.set_bus_volume_db(idx, db)
 
 
 func control_line() -> String:

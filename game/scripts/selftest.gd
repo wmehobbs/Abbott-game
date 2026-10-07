@@ -29,9 +29,12 @@ func _run() -> void:
 	_madison_snapshot()
 	_courses()
 	_telemetry_guard()
+	_settings()
 	await _layout()
 	await _gamepad()
 	await _buses()
+	await _pause_round()
+	_result_lines()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
 	var after := _save_bytes()
@@ -443,6 +446,13 @@ func _reach_buttons(vp: SubViewport, buttons: Array[Button]) -> String:
 
 
 func _buses() -> void:
+	if GameState.settings:
+		GameState.settings.music_db = 0.0
+		GameState.settings.ambience_db = 0.0
+		GameState.settings.master_db = 0.0
+		GameState.settings.apply_audio()
+	GameState._duck = 0.0
+	GameState.voice_hold = false
 	var horse := Horse.new()
 	add_child(horse)
 	await get_tree().process_frame
@@ -549,6 +559,271 @@ func _gamepad() -> void:
 		_fail("gamepad_actions", "collect did not hold")
 		return
 	_ok("gamepad_actions")
+
+
+func _settings() -> void:
+	var cfg_path := "user://settings.cfg"
+	var had := FileAccess.file_exists(cfg_path)
+	var before := PackedByteArray()
+	if had:
+		before = FileAccess.get_file_as_bytes(cfg_path)
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("user://selftest"))
+	var path := "user://selftest/settings.cfg"
+	var s := PlayerSettings.new()
+	s.fov = 90.0
+	s.master_db = -8.0
+	s.music_db = -4.0
+	s.mouse_sensitivity = 0.11
+	s.invert_look = true
+	s.camera_bob = false
+	s.quality = "Low"
+	s.render_scale = 0.75
+	s.subtitles = false
+	s.hud_scale = 1.2
+	s.save_to(path)
+	var t := PlayerSettings.new()
+	t.load_from(path)
+	if absf(t.fov - 62.0) > 0.01 or absf(t.master_db - (-8.0)) > 0.01 or t.quality != "Low":
+		_fail("settings", "round trip fov %.2f quality %s" % [t.fov, t.quality])
+		return
+	if t.subtitles or t.camera_bob or not t.invert_look:
+		_fail("settings", "round trip flags")
+		return
+	if absf(t.mouse_sensitivity - 0.11) > 0.001 or absf(t.render_scale - 0.75) > 0.001 or absf(t.hud_scale - 1.2) > 0.001:
+		_fail("settings", "round trip feel")
+		return
+	if t.msaa_level() != Viewport.MSAA_DISABLED:
+		_fail("settings", "low quality kept full msaa")
+		return
+	t.quality = "Medium"
+	if t.msaa_level() != Viewport.MSAA_2X:
+		_fail("settings", "medium quality msaa")
+		return
+	t.quality = "High"
+	if t.msaa_level() != Viewport.MSAA_4X:
+		_fail("settings", "high quality msaa")
+		return
+	var junk := FileAccess.open(path, FileAccess.WRITE)
+	if junk == null:
+		_fail("settings", "could not write a bad file")
+		return
+	junk.store_string("this is not a config")
+	junk.close()
+	var bad := PlayerSettings.new()
+	bad.fov = 44.0
+	bad.load_from(path)
+	if absf(bad.fov - 52.0) > 0.01 or bad.quality != "High":
+		_fail("settings", "corrupt file kept fov %.2f" % bad.fov)
+		return
+	var missing := PlayerSettings.new()
+	missing.fov = 44.0
+	missing.load_from("user://selftest/no_such_settings.cfg")
+	if absf(missing.fov - 52.0) > 0.01:
+		_fail("settings", "missing file kept fov %.2f" % missing.fov)
+		return
+	var live := GameState.settings
+	var why := ""
+	live.music_db = -4.0
+	live.ambience_db = -2.0
+	live.apply_audio()
+	GameState._duck = 0.0
+	GameState.voice_hold = true
+	for _i in 12:
+		GameState.tick(0.05)
+	var music := AudioServer.get_bus_index("Music")
+	var amb := AudioServer.get_bus_index("Ambience")
+	var ducked := AudioServer.get_bus_volume_db(music)
+	var ducked_amb := AudioServer.get_bus_volume_db(amb)
+	GameState.voice_hold = false
+	for _i in 16:
+		GameState.tick(0.05)
+	var back := AudioServer.get_bus_volume_db(music)
+	var back_amb := AudioServer.get_bus_volume_db(amb)
+	if ducked < -10.5 or ducked > -9.5 or ducked_amb < -8.5 or ducked_amb > -7.5:
+		why = "duck on top music %.2f amb %.2f" % [ducked, ducked_amb]
+	elif absf(back - (-4.0)) > 0.4 or absf(back_amb - (-2.0)) > 0.4:
+		why = "restore music %.2f amb %.2f" % [back, back_amb]
+	live.music_db = 0.0
+	live.ambience_db = 0.0
+	live.master_db = 0.0
+	live.fov = 52.0
+	live.mouse_sensitivity = 0.07
+	live.invert_look = false
+	live.camera_bob = true
+	live.quality = "High"
+	live.subtitles = true
+	live.hud_scale = 1.0
+	live.apply_audio()
+	GameState._duck = 0.0
+	GameState.voice_hold = false
+	if why == "":
+		var horse := Horse.new()
+		live.fov = 58.0
+		live.mouse_sensitivity = 0.10
+		live.invert_look = true
+		if absf(horse._fov_base() - 58.0) > 0.01 or absf(horse._look_yaw() - 0.10) > 0.001 or horse._look_invert() > 0.0:
+			why = "look did not follow the setting"
+		live.fov = 52.0
+		live.mouse_sensitivity = 0.07
+		live.invert_look = false
+		horse.free()
+	var now := FileAccess.file_exists(cfg_path)
+	if why == "" and had != now:
+		why = "user settings.cfg appeared"
+	if why == "" and had and FileAccess.get_file_as_bytes(cfg_path) != before:
+		why = "user settings.cfg changed"
+	if why != "":
+		_fail("settings", why)
+		return
+	_ok("settings")
+
+
+func _pause_round() -> void:
+	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
+	if packed == null:
+		_fail("pause", "arena missing")
+		return
+	var arena: Node = packed.instantiate()
+	add_child(arena)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var best0 := GameState.best_faults
+	var why := ""
+	var hud: Node = arena.get("hud")
+	if hud == null or hud.find_child("Restart round", true, false) == null:
+		why = "restart button missing"
+	if why == "":
+		GameState.set_mode("ride")
+		arena.set("paused", true)
+		GameState.clock_running = true
+		GameState.time_sec = 12.5
+		GameState.faults = 4
+		arena.call("_process", 0.5)
+		if absf(GameState.time_sec - 12.5) > 0.001:
+			why = "clock moved while paused"
+	if why == "":
+		arena.call("_retry")
+		if GameState.faults != 0 or GameState.time_sec > 0.05 or GameState.round_complete:
+			why = "restart left faults %d time %.2f" % [GameState.faults, GameState.time_sec]
+	if why == "":
+		var horse: Node3D = arena.get("horse") as Node3D
+		var course: Node = arena.get("course") as Node
+		if horse == null or course == null:
+			why = "restart lost the horse"
+		else:
+			var start: Vector3 = course.get("start_pos") as Vector3
+			if horse.global_position.distance_to(start) > 0.2:
+				why = "horse not at the start"
+	if why == "":
+		arena.set("paused", false)
+		Engine.time_scale = 1.0
+		GameState.set_mode("ride")
+		GameState.clock_running = true
+		var t0 := GameState.time_sec
+		arena.call("_process", 0.25)
+		if GameState.time_sec < t0 + 0.2:
+			why = "clock did not run after resume"
+	GameState.faults = 4
+	GameState.time_sec = 9.0
+	GameState.round_complete = false
+	if why == "" and (GameState.round_complete or GameState.best_faults != best0):
+		why = "partial round was recorded"
+	Engine.time_scale = 1.0
+	GameState.ui_paused = false
+	GameState.clock_running = false
+	arena.free()
+	if why != "":
+		_fail("pause", why)
+		return
+	_ok("pause")
+
+
+func _result_lines() -> void:
+	var was_elim := GameState.eliminated
+	var was_reason := GameState.eliminate_reason
+	var was_faults := GameState.last_faults
+	var was_time_f := GameState.time_faults
+	var was_jump := GameState.jump_off
+	var was_cents := GameState.official_cents
+	var was_kind := GameState.session_kind
+	var was_class := GameState.class_id
+	var was_rails: Array[int] = []
+	for n in GameState.rail_nums:
+		was_rails.append(int(n))
+	var was_refuse: Array[int] = []
+	for n2 in GameState.refuse_nums:
+		was_refuse.append(int(n2))
+	var was_posted: Dictionary = GameState.rounds_posted.duplicate(true)
+	var why := ""
+	GameState.official_cents = 2500
+	GameState.session_kind = "schooling"
+	GameState.eliminated = false
+	GameState.jump_off = false
+	GameState.time_faults = 0
+	GameState.last_faults = 0
+	GameState.rail_nums.clear()
+	GameState.refuse_nums.clear()
+	if not GameState.result_line().begins_with("Clear."):
+		why = "clear: " + GameState.result_line()
+	if why == "":
+		GameState.last_faults = 4
+		GameState.rail_nums.append(3)
+		if not GameState.result_line().contains("rail 3"):
+			why = "rail: " + GameState.result_line()
+	if why == "":
+		GameState.rail_nums.clear()
+		GameState.refuse_nums.append(2)
+		if not GameState.result_line().contains("refusal 2"):
+			why = "refusal: " + GameState.result_line()
+	if why == "":
+		GameState.eliminated = true
+		GameState.eliminate_reason = "three"
+		if not GameState.result_line().contains("three refusals"):
+			why = "elim: " + GameState.result_line()
+	if why == "":
+		GameState.eliminated = false
+		GameState.last_faults = 1
+		GameState.time_faults = 1
+		GameState.refuse_nums.clear()
+		if not GameState.result_line().contains("1 time fault"):
+			why = "time: " + GameState.result_line()
+	if why == "":
+		GameState.last_faults = 0
+		GameState.time_faults = 0
+		GameState.jump_off = true
+		if not GameState.result_line().begins_with("Jump-off clear."):
+			why = "jumpoff: " + GameState.result_line()
+	var card: HUD = HUD.new()
+	GameState.class_id = "lesson"
+	if why == "" and card._next_class_id() != "beginner":
+		why = "next after lesson"
+	GameState.class_id = "beginner"
+	GameState.rounds_posted = {}
+	if why == "" and card._next_class_id() != "":
+		why = "locked class was offered"
+	GameState.rounds_posted = {"beginner": 1}
+	if why == "" and card._next_class_id() != "intermediate":
+		why = "next after a posted beginner round"
+	card.free()
+	GameState.eliminated = was_elim
+	GameState.eliminate_reason = was_reason
+	GameState.last_faults = was_faults
+	GameState.time_faults = was_time_f
+	GameState.jump_off = was_jump
+	GameState.official_cents = was_cents
+	GameState.session_kind = was_kind
+	GameState.class_id = was_class
+	GameState.rail_nums.clear()
+	for n3 in was_rails:
+		GameState.rail_nums.append(n3)
+	GameState.refuse_nums.clear()
+	for n4 in was_refuse:
+		GameState.refuse_nums.append(n4)
+	GameState.rounds_posted = was_posted
+	if why != "":
+		_fail("results", why)
+		return
+	_ok("results")
 
 
 func _telemetry_guard() -> void:

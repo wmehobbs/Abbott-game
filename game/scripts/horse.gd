@@ -221,7 +221,7 @@ func _make_camera() -> void:
 	# the arm. Sit high on a fixed boom and look at the withers.
 	cam = Camera3D.new()
 	cam.name = "Cam"
-	cam.fov = 52.0
+	cam.fov = _fov_base()
 	cam.near = 0.20
 	cam.far = 420.0
 	add_child(cam)
@@ -575,15 +575,39 @@ func _place_cam() -> void:
 		cam_look = cam_look.lerp(look, 1.0 - pow(0.12, maxf(get_process_delta_time(), 0.016)))
 	if world.distance_to(cam_look) > 0.35:
 		cam.look_at(cam_look, Vector3.UP)
-	var want_fov := 48.5 if collecting else 52.0
+	# Defaults stay 52 / 48.5 / 50 / 46. A saved field of view slides the whole set.
+	var base := _fov_base()
+	var want_fov := base - 3.5 if collecting else base
 	if jumping:
-		want_fov = 50.0
+		want_fov = base - 2.0
 	if last_stride > 0.16:
 		# 32.4 was a telescope: a fence one stride out filled the glass and
 		# the standards left the frame. 46 still comes in from 52. It does
 		# not drop the lens.
-		want_fov = lerpf(want_fov, 46.0, last_stride)
+		want_fov = lerpf(want_fov, base - 6.0, last_stride)
 	cam.fov = lerpf(cam.fov, want_fov, 1.0 - pow(0.12, maxf(get_process_delta_time(), 0.016)))
+
+
+func _fov_base() -> float:
+	if GameState.settings:
+		return GameState.settings.fov
+	return 52.0
+
+
+func _look_yaw() -> float:
+	if GameState.settings:
+		return GameState.settings.mouse_sensitivity
+	return 0.07
+
+
+func _look_pitch() -> float:
+	return _look_yaw() * (0.06 / 0.07)
+
+
+func _look_invert() -> float:
+	if GameState.settings and GameState.settings.invert_look:
+		return -1.0
+	return 1.0
 
 
 func _camera(delta: float) -> void:
@@ -592,7 +616,7 @@ func _camera(delta: float) -> void:
 	var look_y := Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 	if absf(look_x) > 0.12 or absf(look_y) > 0.12:
 		cam_yaw -= look_x * 90.0 * delta
-		cam_pitch = clampf(cam_pitch - look_y * 70.0 * delta, -14.0, 10.0)
+		cam_pitch = clampf(cam_pitch - look_y * 70.0 * delta * _look_invert(), -14.0, 10.0)
 		_mouse_look = 0.0
 	elif _mouse_look <= 0.0:
 		cam_yaw = lerp(cam_yaw, 0.0, 1.0 - pow(0.08, delta))
@@ -605,8 +629,8 @@ func _input(event: InputEvent) -> void:
 	if not controllable:
 		return
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		cam_yaw -= event.relative.x * 0.07
-		cam_pitch = clampf(cam_pitch - event.relative.y * 0.06, -14.0, 10.0)
+		cam_yaw -= event.relative.x * _look_yaw()
+		cam_pitch = clampf(cam_pitch - event.relative.y * _look_pitch() * _look_invert(), -14.0, 10.0)
 		_mouse_look = 0.45
 		cam_yaw = clampf(cam_yaw, -70.0, 70.0)
 
@@ -1122,9 +1146,11 @@ func _animate(delta: float, _spd: float) -> void:
 	if gait == 0 and not jumping:
 		want_x = 0.05 if halt_sit > 0.0 else -0.040
 	var rock_z := last_turn * (0.07 if gait >= 2 else 0.04)
+	var mesh_bob: bool = GameState.settings == null or GameState.settings.camera_bob
 	if gait == 1:
 		rock_z += sin(stride_u * TAU * 2.0) * 0.016
-		visual.position.y = sin(stride_u * TAU * 2.0) * 0.008
+		if mesh_bob:
+			visual.position.y = sin(stride_u * TAU * 2.0) * 0.008
 		want_x += sin(stride_u * TAU) * 0.012
 	elif gait == CANTER:
 		rock_z += sin(stride_u * TAU) * 0.036
@@ -1135,10 +1161,12 @@ func _animate(delta: float, _spd: float) -> void:
 		var bob_in := 1.0
 		if land_recover > 0.0:
 			bob_in = clampf((2.72 - land_recover) / 0.25, 0.0, 1.0)
-		visual.position.y = sin(stride_u * TAU) * 0.032 * bob_in
+		if mesh_bob:
+			visual.position.y = sin(stride_u * TAU) * 0.032 * bob_in
 		want_x += sin(stride_u * TAU) * 0.040
 	elif gait == 2:
-		visual.position.y = absf(sin(stride_u * TAU)) * 0.012
+		if mesh_bob:
+			visual.position.y = absf(sin(stride_u * TAU)) * 0.012
 	else:
 		visual.position.y = 0.0
 	if _check_t >= 0.0 and not jumping:

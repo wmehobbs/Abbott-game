@@ -54,6 +54,7 @@ func _ready() -> void:
 	hud.walk_requested.connect(_enter_walk_from_ui)
 	hud.retry_requested.connect(_retry)
 	hud.jump_off_requested.connect(_start_jump_off)
+	hud.next_class_requested.connect(_next_class)
 	GameState.reset_round()
 	if GameState.mode == "walk":
 		_enter_walk()
@@ -91,6 +92,8 @@ func _ready() -> void:
 		add_child(shots)
 	if GameState.demo_ride:
 		_arm_demo()
+	if GameState._skip_save_reason() == "":
+		GameState.settings.apply_display()
 
 
 func _shots_requested() -> bool:
@@ -210,6 +213,15 @@ func _start_jump_off() -> void:
 func _start_ride() -> void:
 	_unpause()
 	_enter_ride()
+
+
+func _next_class() -> void:
+	var cid := ""
+	if hud:
+		cid = hud._next_class_id()
+	if cid == "" or not GameState.start_session(GameState.session_kind, cid):
+		return
+	_retry()
 
 
 func _retry() -> void:

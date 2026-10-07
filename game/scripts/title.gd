@@ -147,8 +147,9 @@ func _build() -> void:
 	_btn(row, "School Abbott", func() -> void: _open_pick("schooling"))
 	_btn(row, "Show day", func() -> void: _open_pick("show"))
 	_btn(row, "Walk", _walk)
+	_btn(row, "Options", _open_options)
 	_btn(row, "Quit", _quit)
-	var lesson := row.get_child(0) as Button
+	var lesson: Button = row.get_child(0) as Button
 	if lesson:
 		lesson.grab_focus()
 
@@ -163,10 +164,71 @@ func _build() -> void:
 	stack.add_child(help)
 
 	_build_pick()
+	_build_options()
+	if GameState._skip_save_reason() == "":
+		GameState.settings.apply_display()
 
 
 var pick_kind: String = "schooling"
 var pick_panel: Control
+var opt_panel: Control
+
+
+func _build_options() -> void:
+	opt_panel = Control.new()
+	opt_panel.name = "TitleOptions"
+	opt_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+	opt_panel.visible = false
+	add_child(opt_panel)
+	var dim := ColorRect.new()
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.color = Color(0.02, 0.015, 0.01, 0.72)
+	dim.mouse_filter = Control.MOUSE_FILTER_STOP
+	opt_panel.add_child(dim)
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	opt_panel.add_child(center)
+	var card := PanelContainer.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.07, 0.05, 0.03, 0.88)
+	sb.border_color = Color(0.72, 0.58, 0.32, 0.9)
+	sb.set_border_width_all(1)
+	sb.set_corner_radius_all(6)
+	sb.content_margin_left = 28
+	sb.content_margin_right = 28
+	sb.content_margin_top = 22
+	sb.content_margin_bottom = 22
+	card.add_theme_stylebox_override("panel", sb)
+	center.add_child(card)
+	var menu: SettingsMenu = SettingsMenu.new()
+	menu.name = "SettingsMenu"
+	menu.show_controls = false
+	menu.back_pressed.connect(_close_options)
+	card.add_child(menu)
+
+
+func _open_options() -> void:
+	opt_panel.visible = true
+	_title_buttons(false)
+	var menu: SettingsMenu = opt_panel.find_child("SettingsMenu", true, false) as SettingsMenu
+	if menu:
+		menu.show_page("home")
+
+
+func _close_options() -> void:
+	opt_panel.visible = false
+	_title_buttons(true)
+	var lesson: Button = find_child("Lesson", true, false) as Button
+	if lesson:
+		lesson.grab_focus()
+
+
+func _title_buttons(on: bool) -> void:
+	for n in find_children("*", "Button", true, false):
+		var b: Button = n as Button
+		if b == null or (opt_panel != null and opt_panel.is_ancestor_of(b)):
+			continue
+		b.disabled = not on
 
 
 func _build_pick() -> void:
