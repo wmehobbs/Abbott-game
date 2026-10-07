@@ -147,6 +147,7 @@ func _build() -> void:
 	_btn(row, "School Abbott", func() -> void: _open_pick("schooling"))
 	_btn(row, "Show day", func() -> void: _open_pick("show"))
 	_btn(row, "Walk", _walk)
+	_btn(row, "Season", _open_season)
 	_btn(row, "Options", _open_options)
 	_btn(row, "Quit", _quit)
 	var lesson: Button = row.get_child(0) as Button
@@ -164,6 +165,7 @@ func _build() -> void:
 	stack.add_child(help)
 
 	_build_pick()
+	_build_season()
 	_build_options()
 	if GameState._skip_save_reason() == "":
 		GameState.settings.apply_display()
@@ -172,6 +174,7 @@ func _build() -> void:
 var pick_kind: String = "schooling"
 var pick_panel: Control
 var opt_panel: Control
+var season_panel: Control
 
 
 func _build_options() -> void:
@@ -228,7 +231,134 @@ func _title_buttons(on: bool) -> void:
 		var b: Button = n as Button
 		if b == null or (opt_panel != null and opt_panel.is_ancestor_of(b)):
 			continue
+		if season_panel != null and season_panel.is_ancestor_of(b):
+			continue
 		b.disabled = not on
+
+
+func _build_season() -> void:
+	season_panel = Control.new()
+	season_panel.name = "SeasonPanel"
+	season_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+	season_panel.visible = false
+	add_child(season_panel)
+	var dim := ColorRect.new()
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.color = Color(0.02, 0.015, 0.01, 0.72)
+	dim.mouse_filter = Control.MOUSE_FILTER_STOP
+	season_panel.add_child(dim)
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	season_panel.add_child(center)
+	var card := PanelContainer.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.07, 0.05, 0.03, 0.9)
+	sb.border_color = Color(0.72, 0.58, 0.32, 0.9)
+	sb.set_border_width_all(1)
+	sb.set_corner_radius_all(6)
+	sb.content_margin_left = 18
+	sb.content_margin_right = 18
+	sb.content_margin_top = 14
+	sb.content_margin_bottom = 14
+	card.add_theme_stylebox_override("panel", sb)
+	center.add_child(card)
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(760, 480)
+	card.add_child(scroll)
+	var box := VBoxContainer.new()
+	box.name = "SeasonBox"
+	box.add_theme_constant_override("separation", 8)
+	scroll.add_child(box)
+
+
+func _open_season() -> void:
+	_fill_season()
+	season_panel.visible = true
+	_title_buttons(false)
+	var box: Node = season_panel.find_child("SeasonBox", true, false)
+	if box:
+		for c in box.get_children():
+			if c is Button and not (c as Button).disabled:
+				(c as Button).grab_focus()
+				break
+
+
+func _close_season() -> void:
+	season_panel.visible = false
+	_title_buttons(true)
+	var lesson: Button = find_child("Lesson", true, false) as Button
+	if lesson:
+		lesson.grab_focus()
+
+
+func _fill_season() -> void:
+	var box: VBoxContainer = season_panel.find_child("SeasonBox", true, false)
+	if box == null:
+		return
+	for c in box.get_children():
+		c.free()
+	var head := Label.new()
+	head.text = "Season"
+	if serif_b:
+		head.add_theme_font_override("font", serif_b)
+	head.add_theme_font_size_override("font_size", 36)
+	head.add_theme_color_override("font_color", Color(0.96, 0.93, 0.86))
+	box.add_child(head)
+	var rows: Array = GameState.season_rows()
+	var last_kind := ""
+	for row in rows:
+		var kind := str(row.get("kind", ""))
+		if kind != last_kind:
+			last_kind = kind
+			var section := Label.new()
+			section.text = "Lessons" if kind == "lesson" else ("Show day" if kind == "show" else "Schooling")
+			if sans:
+				section.add_theme_font_override("font", sans)
+			section.add_theme_font_size_override("font_size", 18)
+			section.add_theme_color_override("font_color", Color(0.82, 0.74, 0.58))
+			box.add_child(section)
+		var state := str(row.get("state", "locked"))
+		var detail := str(row.get("detail", ""))
+		var text := "%s   ·   %s" % [str(row.get("title", "")), state]
+		if detail != "":
+			text = "%s   ·   %s" % [text, detail]
+		var b := Button.new()
+		b.text = text
+		b.disabled = state == "locked"
+		b.custom_minimum_size = Vector2(720, 44)
+		if sans:
+			b.add_theme_font_override("font", sans)
+		b.add_theme_font_size_override("font_size", 18)
+		var captured: Dictionary = (row as Dictionary).duplicate()
+		b.pressed.connect(_start_season.bind(captured))
+		box.add_child(b)
+	var back := Button.new()
+	back.name = "SeasonBack"
+	back.text = "Back"
+	back.custom_minimum_size = Vector2(220, 48)
+	if sans:
+		back.add_theme_font_override("font", sans)
+	back.add_theme_font_size_override("font_size", 20)
+	back.pressed.connect(_close_season)
+	box.add_child(back)
+
+
+func _start_season(row: Dictionary) -> void:
+	if str(row.get("state", "")) == "locked":
+		return
+	var kind := str(row.get("kind", ""))
+	var cid := str(row.get("class_id", ""))
+	_ui()
+	if kind == "lesson":
+		if not GameState.start_session("lesson", "lesson"):
+			return
+		GameState.course_seed = int(row.get("seed", 0))
+	else:
+		var session := "show" if kind == "show" else "schooling"
+		if not GameState.start_session(session, cid):
+			return
+	GameState.set_mode("ride")
+	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
 func _build_pick() -> void:

@@ -47,3 +47,12 @@ hk_les_001 0 faults 25.43, offer no, teleported false. T0 was 25.42.
 hk_beg_035 0 faults 62.14, offer yes, jump-off 0 faults 33.44, teleported false. T0 was 62.14 and 33.45.
 
 Defaults match the ride that was already shipping. A saved field of view slides the whole lens together. Low quality is in the options and was not timed on the GPU.
+
+## T13 season, T14 first lesson, T15 native size
+
+Headless. No window. Selftest pass=22 fail=0. Playtest clear 0, refuse 4, rail 4. Save hash matched.
+
+hk_les_001 0 faults 25.42, offer no, teleported false. T0 was 25.42.
+hk_beg_035 0 faults 62.13, offer yes, jump-off 0 faults 33.45, teleported false. T0 was 62.14 and 33.45.
+
+The first lesson does not run under --playtest, --ridecert, or --selftest. The stretch change is the display size only. Low quality is still not timed on the GPU.

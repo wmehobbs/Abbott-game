@@ -35,6 +35,9 @@ func _run() -> void:
 	await _buses()
 	await _pause_round()
 	_result_lines()
+	_season()
+	await _first_lesson()
+	_sharp()
 	await _scene("res://scenes/title.tscn", "title_scene")
 	await _scene("res://scenes/arena.tscn", "arena_scene")
 	var after := _save_bytes()
@@ -169,6 +172,9 @@ func _old_save_migrates() -> void:
 	if not is_equal_approx(float(loaded.get("madison_feel", -1)), 36.0):
 		_fail("old_save_migrates", "madison_feel")
 		return
+	if not bool(loaded.get("tutorial_done", false)):
+		_fail("old_save_migrates", "tutorial_done")
+		return
 	_ok("old_save_migrates")
 
 
@@ -198,6 +204,9 @@ func _madison_snapshot() -> void:
 		return
 	if int(loaded.get("course_seed", -1)) != GameState.course_seed:
 		_fail("madison_snapshot", "memory course_seed")
+		return
+	if not bool(loaded.get("tutorial_done", false)):
+		_fail("madison_snapshot", "tutorial_done")
 		return
 	_ok("madison_snapshot")
 
@@ -824,6 +833,191 @@ func _result_lines() -> void:
 		_fail("results", why)
 		return
 	_ok("results")
+
+
+func _season() -> void:
+	var kind := GameState.session_kind
+	var posted: Dictionary = GameState.rounds_posted.duplicate(true)
+	var clears: Dictionary = GameState.clears.duplicate(true)
+	var bests: Dictionary = GameState.best_by_class.duplicate(true)
+	var show_best: Dictionary = GameState.show_best.duplicate(true)
+	var ribbons: Array = GameState.show_ribbons.duplicate()
+	var why := ""
+	GameState.session_kind = "schooling"
+	GameState.rounds_posted = {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0}
+	GameState.clears = {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0}
+	GameState.best_by_class = {}
+	GameState.show_best = {}
+	GameState.show_ribbons = []
+	var fresh: Dictionary = GameState._save_defaults()
+	if bool(GameState._migrate_save(fresh).get("tutorial_done", true)):
+		why = "fresh save was sent to the tutorial flag"
+	var rows: Array = GameState.season_rows()
+	if why == "" and not _season_ok(rows, "fresh"):
+		why = "fresh ladder"
+	if why == "":
+		GameState.rounds_posted["beginner"] = 1
+		GameState.best_by_class["beginner"] = {"faults": 0, "time": 60.0}
+		if not _season_state(GameState.season_rows(), "schooling", "beginner", "done"):
+			why = "beginner was not marked done"
+		if why == "" and not _season_state(GameState.season_rows(), "schooling", "intermediate", "open"):
+			why = "intermediate stayed locked"
+		if why == "" and not _season_state(GameState.season_rows(), "schooling", "advanced", "locked"):
+			why = "advanced opened early"
+	if why == "":
+		GameState.rounds_posted["intermediate"] = 1
+		GameState.best_by_class["intermediate"] = {"faults": 4, "time": 70.0}
+		if not _season_state(GameState.season_rows(), "schooling", "advanced", "open"):
+			why = "schooling advanced stayed locked"
+		if why == "" and not _season_state(GameState.season_rows(), "show", "advanced", "locked"):
+			why = "show advanced opened without a clear"
+	if why == "":
+		GameState.clears["intermediate"] = 1
+		GameState.show_best["intermediate"] = {"faults": 0, "time": 80.0}
+		GameState.show_ribbons = [{"class": "intermediate", "ribbon": "Blue", "faults": 0, "time": 80.0}]
+		var done: Array = GameState.season_rows()
+		if not _season_state(done, "show", "advanced", "open"):
+			why = "show advanced stayed locked"
+		if why == "" and not _season_state(done, "show", "intermediate", "done"):
+			why = "show intermediate was not done"
+		if why == "" and not _season_covers(done):
+			why = "a class was left off the ladder"
+	GameState.session_kind = kind
+	GameState.rounds_posted = posted
+	GameState.clears = clears
+	GameState.best_by_class = bests
+	GameState.show_best = show_best
+	GameState.show_ribbons = ribbons
+	if why != "":
+		_fail("season", why)
+		return
+	_ok("season")
+
+
+func _season_ok(rows: Array, _tag: String) -> bool:
+	if rows.size() != 10:
+		return false
+	return _season_state(rows, "lesson", "hk_les_001", "open") and _season_state(rows, "schooling", "beginner", "open") and _season_state(rows, "schooling", "intermediate", "locked") and _season_state(rows, "show", "beginner", "open") and _season_state(rows, "show", "advanced", "locked")
+
+
+func _season_state(rows: Array, kind: String, id: String, state: String) -> bool:
+	for row in rows:
+		if str(row.get("kind", "")) == kind and str(row.get("id", "")) == id:
+			return str(row.get("state", "")) == state
+	return false
+
+
+func _season_covers(rows: Array) -> bool:
+	var ship: Dictionary = ContentLibrary.load_ship()
+	var lessons: Variant = ship.get("lesson", [])
+	if typeof(lessons) != TYPE_ARRAY:
+		return false
+	for raw in lessons:
+		if not _season_state(rows, "lesson", str(raw), "open") and not _season_state(rows, "lesson", str(raw), "done"):
+			return false
+	for cid in ["beginner", "intermediate", "advanced"]:
+		for kind in ["schooling", "show"]:
+			var hit := false
+			for row in rows:
+				if str(row.get("kind", "")) == kind and str(row.get("id", "")) == cid:
+					hit = true
+			if not hit:
+				return false
+	return true
+
+
+func _first_lesson() -> void:
+	var was_done := GameState.tutorial_done
+	var was_kind := GameState.session_kind
+	var was_jumps := GameState.fences_jumped
+	var was_device := GameState.last_device
+	var why := ""
+	GameState.tutorial_done = false
+	GameState.session_kind = "lesson"
+	GameState.fences_jumped = 0
+	GameState.last_device = "key"
+	var guide := FirstLesson.new()
+	guide.try_start()
+	if guide.active:
+		why = "selftest started the lesson"
+	guide.active = true
+	guide.step = 0
+	var horse := Horse.new()
+	add_child(horse)
+	await get_tree().process_frame
+	horse.gait = 1
+	guide.tick(horse)
+	if why == "" and guide.step != 1:
+		why = "walk did not advance"
+	horse.gait = 2
+	guide.tick(horse)
+	if why == "" and guide.step != 2:
+		why = "trot did not advance"
+	horse.gait = Horse.CANTER
+	guide.tick(horse)
+	if why == "" and guide.step != 3:
+		why = "canter did not advance"
+	horse.last_turn = 0.4
+	guide.tick(horse)
+	if why == "" and guide.step != 4:
+		why = "steer did not advance"
+	horse.gait = 0
+	horse.last_turn = 0.0
+	guide.tick(horse)
+	if why == "" and guide.step != 5:
+		why = "whoa did not advance"
+	horse.collecting = true
+	guide.tick(horse)
+	if why == "" and guide.step != 5:
+		why = "half-halt finished on the hold"
+	horse.collecting = false
+	guide.tick(horse)
+	if why == "" and guide.step != 6:
+		why = "half-halt did not advance"
+	GameState.fences_jumped = 1
+	guide.tick(horse)
+	if why == "" and guide.step != 7:
+		why = "pole did not advance"
+	GameState.fences_jumped = 2
+	guide.tick(horse)
+	if why == "" and (guide.active or not GameState.tutorial_done):
+		why = "lesson did not finish"
+	if why == "":
+		for s in range(8):
+			guide.step = s
+			guide.active = true
+			var words := guide.line().split(" ", false)
+			if words.size() > 14 or guide.line().contains("—"):
+				why = "line too long: " + guide.line()
+				break
+		GameState.last_device = "pad"
+		guide.step = 0
+		if guide.line() != "Press D-pad up to walk.":
+			why = "pad line"
+	if why == "":
+		var again := FirstLesson.new()
+		again.active = true
+		again.skip()
+		if again.active or not GameState.tutorial_done:
+			why = "skip did not end the lesson"
+	horse.free()
+	GameState.tutorial_done = was_done
+	GameState.session_kind = was_kind
+	GameState.fences_jumped = was_jumps
+	GameState.last_device = was_device
+	if why != "":
+		_fail("first_lesson", why)
+		return
+	_ok("first_lesson")
+
+
+func _sharp() -> void:
+	var mode := str(ProjectSettings.get_setting("display/window/stretch/mode", ""))
+	var aspect := str(ProjectSettings.get_setting("display/window/stretch/aspect", ""))
+	if mode != "canvas_items" or aspect != "expand":
+		_fail("sharp", "%s %s" % [mode, aspect])
+		return
+	_ok("sharp")
 
 
 func _telemetry_guard() -> void:

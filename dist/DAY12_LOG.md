@@ -19,6 +19,9 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T8 | done | e2188895 | selftest 15/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44 | D-pad gait, stick steer, prompts follow the last device. |
 | T9 | done | 1a570129 | selftest 16/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44 | Buses exist. Voice ducks Music and Ambience by 6 dB. Listen in the morning. |
 | T10 | done | 265df28f | selftest 19/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44 | Options persist in settings.cfg. Pause clock holds. Result card names the round. No window today. |
+| T13 | done | this slice | selftest 22/0, playtest 0/4/4, les 25.42, beg 62.13 jo 33.45 | Season ladder on the title. Existing Lesson, Watch, School, Show, Walk, Options, and Quit stay. |
+| T14 | done | this slice | same gates | First lesson only when tutorial_done is false. Madison's save migrates to done. Skip stays. |
+| T15 | done | this slice | same gates | Stretch is canvas_items and expand. The 3D view uses the window size. No new screenshots. |
 
 ## Decisions
 
@@ -39,6 +42,9 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - T9: hooves, fences, and Abbott's sounds are on SFX. The outdoor bed is on Ambience. Madison's lines and the click are on Voice and UI. Michelle's lines are text, so there is no Voice clip for her yet. A Voice line ducks Music and Ambience by 6 dB and brings them back. Morning: listen to a round with the sound on.
 - 2026-10-07 daytime: Ernie is at the desk. No game window. Headless only. The two seat-probe Godots are still up and were not killed.
 - T10: Options on the title and in pause. Sound, picture, and keys save to user://settings.cfg, never the ride save. Certs and selftest do not load or write that file, so the ride stays on the defaults (field of view 52, mouse 0.07). A voice duck sits 6 dB under the saved music and barn levels. Pause stops the round clock. Restart round clears faults, the clock, and puts Abbott at the flags. The result card shows the line, the time allowed, and Next class only when that class is already unlocked. Low picture quality drops MSAA, SSAO, and glow. The GPU check for that waits until a window is allowed. No options screenshot today.
+- T13: Season sits with the other title buttons. It lists the four lessons, then schooling and the show, in ship order. Locked, open, and done come from class_unlocked. A done row shows the best faults and time already stored. Choosing a lesson sets that course seed and starts it. A locked row does not start.
+- T14: A brand-new save gets Michelle's first lesson: walk, trot, canter, steer, whoa, half-halt, the first pole, and the next fence. Skip ends it and marks tutorial_done. An existing save that already has a round is marked done on load, so Madison is not sent through it. Certs, playtest, and selftest never start it.
+- T15: The window no longer draws a 1920x1080 picture and scales it. Stretch mode is canvas_items, aspect expand, base size still 1920x1080. Layout still passed at the six sizes. Ride times matched T0. No new screenshots. Low picture quality is still not timed on the GPU.
 
 ## NEEDS ERNIE
 

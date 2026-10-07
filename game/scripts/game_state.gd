@@ -36,6 +36,8 @@ var last_leave: String = ""
 var fault_callout: String = ""
 var fault_callout_id: int = 0
 var lesson_done: bool = false
+## Fresh saves walk the first lesson. A save that already has progress skips it.
+var tutorial_done: bool = false
 var jump_off: bool = false
 ## Title "Watch a round". Not the player's horse. Cert flags still win in save().
 var demo_ride: bool = false
@@ -726,6 +728,7 @@ func _apply_save(d: Dictionary) -> void:
 	madison_timing = float(d.get("madison_timing", madison_timing))
 	madison_feel = float(d.get("madison_feel", madison_feel))
 	lesson_done = bool(d.get("lesson_done", false))
+	tutorial_done = bool(d.get("tutorial_done", false))
 	course_seed = int(d.get("course_seed", course_seed))
 	var rp: Variant = d.get("rounds_posted", {})
 	if typeof(rp) == TYPE_DICTIONARY:
@@ -807,12 +810,110 @@ func _read_save(path: String) -> Dictionary:
 
 func _migrate_save(data: Dictionary) -> Dictionary:
 	var out: Dictionary = data.duplicate(true) as Dictionary
+	var had_tutorial := out.has("tutorial_done")
 	var defaults := _save_defaults()
 	for k in defaults.keys():
 		if not out.has(k):
 			out[k] = defaults[k]
+	if not had_tutorial:
+		out["tutorial_done"] = _save_has_progress(out)
+	else:
+		out["tutorial_done"] = bool(out.get("tutorial_done", false))
 	out["save_version"] = SAVE_VERSION
 	return out
+
+
+func _save_has_progress(data: Dictionary) -> bool:
+	if bool(data.get("lesson_done", false)):
+		return true
+	if int(data.get("best_faults", 999)) < 900:
+		return true
+	var posted: Variant = data.get("rounds_posted", {})
+	if typeof(posted) == TYPE_DICTIONARY:
+		for k in posted:
+			if int(posted[k]) > 0:
+				return true
+	var bests: Variant = data.get("best_by_class", {})
+	if typeof(bests) == TYPE_DICTIONARY and (bests as Dictionary).size() > 0:
+		return true
+	return false
+
+
+func season_rows() -> Array:
+	## The ladder in SHIP order. Locked, open, and done come from the unlock rules already in class_unlocked.
+	var out: Array = []
+	var ship: Dictionary = ContentLibrary.load_ship()
+	var lessons: Variant = ship.get("lesson", [])
+	if typeof(lessons) == TYPE_ARRAY:
+		var posted := int(rounds_posted.get("lesson", 0))
+		var i := 0
+		for raw in lessons:
+			var cid := str(raw)
+			var course: Dictionary = ContentLibrary.load_course(cid)
+			var name := str(course.get("name", "Lesson %d" % (i + 1)))
+			var state := "done" if posted > i else "open"
+			out.append({
+				"id": cid,
+				"kind": "lesson",
+				"class_id": "lesson",
+				"seed": i,
+				"title": "Lesson %d  ·  %s" % [i + 1, name],
+				"state": state,
+				"detail": _season_best("lesson", false) if state == "done" else "",
+			})
+			i += 1
+	var kind_was := session_kind
+	var blocks: Array = [
+		["schooling", "name"],
+		["show", "show_name"],
+	]
+	for block in blocks:
+		var kind: String = str(block[0])
+		var name_key: String = str(block[1])
+		session_kind = kind
+		for class_id in ["beginner", "intermediate", "advanced"]:
+			var info: Dictionary = CLASS_INFO[class_id]
+			var open := class_unlocked(class_id)
+			var ridden := false
+			if kind == "show":
+				ridden = show_best.has(class_id)
+			else:
+				ridden = best_by_class.has(class_id)
+			var state := "locked"
+			if open and ridden:
+				state = "done"
+			elif open:
+				state = "open"
+			var detail := ""
+			if state == "done":
+				detail = _season_best(class_id, kind == "show")
+			out.append({
+				"id": class_id,
+				"kind": kind,
+				"class_id": class_id,
+				"seed": course_seed,
+				"title": "%s  ·  %s" % [str(info[name_key]), str(info["height"])],
+				"state": state,
+				"detail": detail,
+			})
+	session_kind = kind_was
+	return out
+
+
+func _season_best(id: String, show: bool) -> String:
+	var pile: Dictionary = show_best if show else best_by_class
+	var rec: Variant = pile.get(id, null)
+	var text := ""
+	if typeof(rec) == TYPE_DICTIONARY:
+		text = "%d faults  ·  %0.1fs" % [int(rec.get("faults", 0)), float(rec.get("time", 0.0))]
+	if show:
+		var rib := ""
+		for item in show_ribbons:
+			if typeof(item) == TYPE_DICTIONARY and str(item.get("class", "")) == id:
+				rib = str(item.get("ribbon", ""))
+		if rib != "":
+			text = rib if text == "" else "%s  ·  %s" % [text, rib]
+	return text
 
 
 func _skip_save_reason() -> String:
@@ -844,6 +945,7 @@ func _write_save_file(path: String) -> void:
 	d["madison_timing"] = madison_timing
 	d["madison_feel"] = madison_feel
 	d["lesson_done"] = lesson_done
+	d["tutorial_done"] = tutorial_done
 	d["course_seed"] = course_seed
 	d["rounds_posted"] = rounds_posted
 	d["clears"] = clears

@@ -9,9 +9,12 @@ signal walk_requested
 signal retry_requested
 signal jump_off_requested
 signal next_class_requested
+signal lesson_skip_requested
 
 var jump_off_btn: Button
 var next_btn: Button
+var lesson_card: PanelContainer
+var lesson_lab: Label
 
 var time_lab: Label
 var fault_lab: Label
@@ -107,6 +110,7 @@ func _build() -> void:
 	_build_pause(root)
 	_build_result(root)
 	_build_options(root)
+	_build_lesson(root)
 	apply_hud_scale()
 
 
@@ -309,6 +313,48 @@ func _build_result(root: Control) -> void:
 func _quit_title() -> void:
 	Engine.time_scale = 1.0
 	quit_requested.emit()
+
+
+func _build_lesson(root: Control) -> void:
+	lesson_card = PanelContainer.new()
+	lesson_card.name = "LessonCard"
+	lesson_card.visible = false
+	lesson_card.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	lesson_card.offset_left = -280
+	lesson_card.offset_top = 16
+	lesson_card.offset_right = 280
+	lesson_card.offset_bottom = 132
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.07, 0.05, 0.03, 0.9)
+	sb.border_color = Color(0.72, 0.58, 0.32, 0.9)
+	sb.set_border_width_all(1)
+	sb.set_corner_radius_all(6)
+	sb.content_margin_left = 16
+	sb.content_margin_right = 16
+	sb.content_margin_top = 10
+	sb.content_margin_bottom = 10
+	lesson_card.add_theme_stylebox_override("panel", sb)
+	root.add_child(lesson_card)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 6)
+	lesson_card.add_child(box)
+	lesson_lab = _label(box, "", 22, Vector2.ZERO, Color(0.96, 0.93, 0.86))
+	lesson_lab.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	var skip := _btn(box, "Skip", lesson_skip_requested)
+	skip.custom_minimum_size = Vector2(160, 44)
+
+
+func show_lesson(line: String, on: bool) -> void:
+	if lesson_card == null:
+		return
+	var menu := (
+		(pause_panel != null and pause_panel.visible)
+		or (result_panel != null and result_panel.visible)
+		or (options_panel != null and options_panel.visible)
+	)
+	lesson_card.visible = on and line != "" and not menu
+	if lesson_lab:
+		lesson_lab.text = line
 
 
 func _build_options(root: Control) -> void:

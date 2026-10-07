@@ -8,6 +8,7 @@ const ArtShotScript := preload("res://scripts/artshot.gd")
 const RideCertScript := preload("res://scripts/ride_cert.gd")
 const HearProbeScript := preload("res://tools/hear_probe.gd")
 const RideAIScript := preload("res://scripts/ride_ai.gd")
+const FirstLessonScript := preload("res://scripts/first_lesson.gd")
 
 var horse: Horse
 var walker: Walker
@@ -17,6 +18,7 @@ var farm: Node3D
 var paused: bool = false
 var _walk_near := ""
 var demo_ai: RideAI
+var lesson: FirstLesson
 var _demo_wait: bool = false
 var _reins_muted: bool = false
 
@@ -55,6 +57,8 @@ func _ready() -> void:
 	hud.retry_requested.connect(_retry)
 	hud.jump_off_requested.connect(_start_jump_off)
 	hud.next_class_requested.connect(_next_class)
+	hud.lesson_skip_requested.connect(_skip_lesson)
+	lesson = FirstLessonScript.new()
 	GameState.reset_round()
 	if GameState.mode == "walk":
 		_enter_walk()
@@ -123,6 +127,9 @@ func _process(delta: float) -> void:
 	if GameState.clock_running and GameState.mode == "ride":
 		GameState.time_sec += delta
 	GameState.tick(delta)
+	if lesson and horse:
+		lesson.tick(horse)
+		_sync_lesson()
 	if Input.is_action_just_pressed("pause"):
 		_toggle_pause()
 	if GameState.mode == "walk":
@@ -188,6 +195,9 @@ func _enter_ride() -> void:
 	GameState.start_crossed = false
 	if GameState.session_kind == "lesson":
 		GameState.speak("lesson_start")
+	if lesson:
+		lesson.try_start()
+		_sync_lesson()
 
 
 func _start_jump_off() -> void:
@@ -250,6 +260,21 @@ func _unpause() -> void:
 	horse.controllable = GameState.mode == "ride"
 	walker.active = GameState.mode == "walk"
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _skip_lesson() -> void:
+	if lesson:
+		lesson.skip()
+	_sync_lesson()
+
+
+func _sync_lesson() -> void:
+	if hud == null:
+		return
+	if lesson and lesson.active:
+		hud.show_lesson(lesson.line(), true)
+	else:
+		hud.show_lesson("", false)
 
 
 func _quit_title() -> void:
