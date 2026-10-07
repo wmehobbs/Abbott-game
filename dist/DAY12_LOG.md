@@ -22,8 +22,8 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T13 | done | d2ffd5ec | selftest 22/0, playtest 0/4/4, les 25.42, beg 62.13 jo 33.45 | Season ladder on the title. Existing Lesson, Watch, School, Show, Walk, Options, and Quit stay. |
 | T14 | done | d2ffd5ec | same gates | First lesson only when tutorial_done is false. Madison's save migrates to done. Skip stays. |
 | T15 | done | d2ffd5ec | same gates | Stretch is canvas_items and expand. The 3D view uses the window size. No new screenshots. |
-| unused | done | this note | no Godot | Spreadsheet of game/assets. Nothing deleted. |
-| map | done | this note | no Godot | docs/ARCHITECTURE.md says who owns what, what is frozen, and how to run the checks. |
+| unused | done | 7e754639 | no Godot | Spreadsheet of game/assets. Nothing deleted. |
+| map | done | 7e754639 | no Godot | docs/ARCHITECTURE.md says who owns what, what is frozen, and how to run the checks. |
 
 ## Decisions
 
