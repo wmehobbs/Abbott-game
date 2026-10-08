@@ -64,3 +64,13 @@ Windowed, dummy audio, 1920x1080, VSync off for the ride samples. Save matched. 
 High, `dist/day12/shots/screens_b/perf.csv`: 128 samples, GPU p95 2.92 ms, median 2.82. The old baseline p95 was 3.007. Median FPS was 6.
 
 Low, `dist/day12/shots/low/perf.csv`: 131 samples, GPU p95 1.995 ms, median 1.80. MSAA off, SSAO off, glow off, shadow distance 70. The ride camera still shows the horse, the rail, and the next fence. Default quality stays High.
+
+## T19 final ride check
+
+Headless, after the picture list was closed. Compile printed COMPILE ok. Selftest pass=22 fail=0. Save hash matched. Logs: `dist/day12/hk_les_001.T19.log`, `hk_beg_035.T19.log`, `hk_int_002.T19.log`.
+
+hk_les_001 0 faults 25.43, offer no, teleported false. T0 was 25.42.
+hk_beg_035 0 faults 62.14, offer yes, jump-off 0 faults 33.44, teleported false. T0 was 62.14 and 33.45.
+hk_int_002 0 faults 74.73, offer yes, jump-off 1 time fault 40.87, ribbon White, teleported false. T0 was 74.75 and 40.88.
+
+Final stills: `dist/day12/shots/final`. 34 frames. None black. Season mean brightness 22.2 and Options 28.8 are the dark cards. Play camera 159.5. Pair sheet: `dist/day12/shots/baseline_vs_final.jpg`.

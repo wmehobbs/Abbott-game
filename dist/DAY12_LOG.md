@@ -1,3 +1,108 @@
+# Day 12 morning
+
+Written 2026-10-08 before 07:00. The final picture set was captured at 02:33 local, after the picture list was already closed. No window after that set.
+
+## 1. Branch and commits
+
+Branch `day12-overnight`. Nothing pushed.
+
+- bc5ef6c8 Day 12 T0: record the ride baseline and the vision check.
+- 7a9ea865 Day 12 T1: add a fixed shot list and the first visual backlog.
+- 3307d813 Day 12 T2: add a selftest that runs inside the real boot.
+- a8e03b41 Day 12 T3: keep a backup before replacing the save.
+- d7b401c0 Day 12 T4: shrink the start and finish letters so they sit on the flags.
+- 7ee935f4 Day 12 T4: drop the extra shadow oval under the horse.
+- 27fbb233 Day 12 T4: turn the sky so the panorama seam leaves the approach.
+- 1846feb2 Day 12 T4: make the schooling sign a small rail sign.
+- db0b15dd Day 12 T4: close the face, bridle, and blown-sky notes for Ernie.
+- 9f9db59a Day 12 T6: record camera and gait telemetry without changing the ride.
+- d1c62666 Day 12 T7: put the menus on a card and check them at six screen sizes.
+- e2188895 Day 12 T8: add a gamepad path that keeps the keyboard bindings.
+- 1a570129 Day 12 T9: route sound onto buses and duck the bed under a voice.
+- 265df28f Day 12 T10: remember options and make pause and the result card clearer.
+- d012b059 Day 12 T10: note the options commit in the log.
+- d2ffd5ec Day 12: add the season ladder, a first lesson, and native-size rendering.
+- 7e754639 Day 12: list unused assets and map the code.
+- c293bfd4 Day 12: note the unused-list and map commit in the log.
+- e3431d62 Day 12: capture the new screens and time Low picture quality.
+- ff384f25 Day 12: note the screen-capture commit in the log.
+- 7c9ee385 Day 12 T16: make the brush flower heads clumps instead of cards.
+- 41bb9a32 Day 12: note the flower-head commit in the log.
+- 3e78028a Day 12 T16: drop the glowing yellow fence number plate.
+- 7f6c5c39 Day 12: note the number-plate commit in the log.
+- 5d012b71 Day 12 T16: dull the orange tree discs to a tan canopy.
+- 3e3d86bb Day 12: note the tree-canopy commit in the log.
+- b7cebd7f Day 12 T16: keep the dust low so the belly specks are gone.
+- e1879b33 Day 12: note the dust commit in the log.
+
+T5 has no commit. The lighting tries were reverted. This morning report is the next commit. Its hash is noted in the follow-up.
+
+## 2. What Madison would notice
+
+The title has a Season button beside the ones she already uses. It lists the lessons, then schooling, then the show, each locked, open, or done. Her save shows the lessons and the open schooling rows as done, with the best she already has. Show day is below the fold.
+
+A brand-new save gets Michelle's first lesson: walk, trot, canter, steer, whoa, half-halt, a pole, then the next fence. Skip is on the card. Her existing save is marked done, so she is not sent through it.
+
+The picture uses the monitor's real size. Options, pause, and the result card are readable. Flower heads are clumps. The current fence number is red on a wood plate. The trees are tan instead of glowing orange, and they are still stacked discs. The blue-grey specks under the belly are gone. Low picture quality is faster. The default stays High.
+
+## 3. Sheets to open first
+
+- `dist/day12/shots/baseline_vs_final.jpg` (31 pairs)
+- `dist/day12/shots/t16_flowers_pair.jpg`
+- `dist/day12/shots/t16_plate_pair.jpg`
+- `dist/day12/shots/t16_trees_pair.jpg`
+- `dist/day12/shots/t16_dust_pair.jpg`
+- Stills, 1280 px: `dist/day12/shots/final_jpg/` especially `title.jpg`, `play_cam.jpg`, `walk_side.jpg`, `season.jpg`, `options.jpg`, `pause.jpg`, `results.jpg`, `lesson_walk.jpg`, `lesson_pole.jpg`
+
+Images are not committed.
+
+## 4. Morning look, about 10 minutes
+
+1. Start the game with the sound on and ride a few fences. Listen for hooves, the outdoor bed, and a voice line ducking the music.
+2. On the title, press Season. Scroll. Confirm the lessons and schooling rows match her save, and that a locked row does not start.
+3. Leave her save alone. If you want the first lesson, use a throwaway save, not `abbott_save.json`. Press Skip, then ride one fence yourself.
+4. Open Options, Picture, and switch High and Low. Leave it on High.
+5. Pause a round. Press Restart round. Confirm the clock and the faults clear and Abbott is back at the flags.
+6. Finish a short lesson and read the result card: the line, the time, and the time allowed.
+
+## 5. Numbers
+
+Rides, T0 then T19. Same faults, same offer, teleported false, time within 0.10 s.
+
+| id | T0 | T19 |
+| --- | --- | --- |
+| hk_les_001 | 0 faults, 25.42, offer no | 0 faults, 25.43, offer no |
+| hk_beg_035 | 0 faults, 62.14, offer yes, jump-off 0 faults 33.45 | 0 faults, 62.14, offer yes, jump-off 0 faults 33.44 |
+| hk_int_002 | 0 faults, 74.75, offer yes, jump-off 1 time fault 40.88, White | 0 faults, 74.73, offer yes, jump-off 1 time fault 40.87, White |
+
+GPU, VSync off. Baseline p95 3.007 ms. Tonight's High p95 2.92 ms. Low p95 1.995 ms. Flower pass 2.941, plate 2.876, trees 2.892, dust 2.906. All inside 15 percent of 3.007. Default stays High.
+
+Telemetry was recorded at T6 and not rerun. Lesson 2382 frames, beginner plus jump-off 8450 frames. After the first half second the camera does not pop. Horizon roll is 0.
+
+Playtest stayed clear 0, refuse 4, rail 4 through the picture changes. Morning gate: compile printed COMPILE ok, selftest pass=22 fail=0.
+
+## 6. STASHED and BLOCKED
+
+STASHED: nothing.
+
+BLOCKED: nothing. T5 lighting was tried and reverted on purpose.
+
+## 7. NEEDS ERNIE
+
+- Madison's legs stick straight out. That is the rig.
+- Abbott's face photo is smeared on the flat head. Do not repaint the blaze.
+- The bridle is dark rods that float off the face. Same mesh limit.
+- Unused files are listed in `dist/day12/unused_assets.csv`. Nothing was deleted. The harvest textures still packed are about 466 MB, plus a few photos, loose coat maps, and `ambient_indoor.wav`. Say which can go.
+- The trees are still stacked coins on poles. Color is tan. A thicker clump was the same shape and was put back. A real tree needs a model. The backlog says this cannot be fixed without one.
+
+## 8. BLACKLIST
+
+Empty. No command was blacklisted.
+
+## 9. Confirmation
+
+Madison's save matched all night, including after the final shots, the three ride checks, compile, and selftest. SHA256 `DCAF7E223063BC97406AE83CA2C714CF15CC6D1EB60925518B1AC0249DE5B4A8`. No `.exe` was touched. Version is 2.348.0.0. Nothing was pushed. The only Godot processes left are the two seat probes, PIDs 114976 and 115652. This night did not start them and did not kill them.
+
 # Day 12
 
 VISION: YES. The September play-camera shot is a sand ring filling the frame, a white rail and a dark kick board across the back, and a scoreboard that still says walk to the start flags. The horse is only a dark edge at the left.
@@ -29,6 +134,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T16 plate | kept | 3e78028a | compile ok, playtest 0/4/4, GPU p95 2.876, save match | The current fence number is red on a wood plate. The glowing yellow square is gone. |
 | T16 trees | kept | 5d012b71 | compile ok, playtest 0/4/4, GPU p95 2.892, save match | Canopy is dull tan instead of glowing orange. The discs are still coins on poles. Shape try reverted. Closed. |
 | T16 dust | kept | b7cebd7f | compile ok, playtest 0/4/4, GPU p95 2.906, save match | The speck puff under the belly is a short low sand puff. The approach lens stays. |
+| T19 | done | see morning report | compile ok, selftest 22/0, les 25.43, beg 62.14 jo 33.44, int 74.73 jo 40.87, save match | Final stills at 02:33 local. Sheets are not committed. |
 
 ## Decisions
 
@@ -75,4 +181,4 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 
 ## Morning report
 
-Filled at T19.
+Written at the top of this file.
