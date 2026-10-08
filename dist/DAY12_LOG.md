@@ -28,7 +28,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T16 flowers | kept | 7c9ee385 | compile ok, playtest 0/4/4, GPU p95 2.941, save match | Brush heads are clumps, not flat cards. The yellow wing panel is still flat. |
 | T16 plate | kept | 3e78028a | compile ok, playtest 0/4/4, GPU p95 2.876, save match | The current fence number is red on a wood plate. The glowing yellow square is gone. |
 | T16 trees | kept | 5d012b71 | compile ok, playtest 0/4/4, GPU p95 2.892, save match | Canopy is dull tan instead of glowing orange. The discs are still coins on poles. Shape try reverted. Closed. |
-| T16 dust | kept | this slice | compile ok, playtest 0/4/4, GPU p95 2.906, save match | The speck puff under the belly is a short low sand puff. The approach lens stays. |
+| T16 dust | kept | b7cebd7f | compile ok, playtest 0/4/4, GPU p95 2.906, save match | The speck puff under the belly is a short low sand puff. The approach lens stays. |
 
 ## Decisions
 
