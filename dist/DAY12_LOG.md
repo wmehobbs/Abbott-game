@@ -35,7 +35,7 @@ Branch `day12-overnight`. Nothing pushed.
 - b7cebd7f Day 12 T16: keep the dust low so the belly specks are gone.
 - e1879b33 Day 12: note the dust commit in the log.
 
-T5 has no commit. The lighting tries were reverted. This morning report is the next commit. Its hash is noted in the follow-up.
+T5 has no commit. The lighting tries were reverted. The morning report is 6bf24556.
 
 ## 2. What Madison would notice
 
@@ -134,7 +134,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T16 plate | kept | 3e78028a | compile ok, playtest 0/4/4, GPU p95 2.876, save match | The current fence number is red on a wood plate. The glowing yellow square is gone. |
 | T16 trees | kept | 5d012b71 | compile ok, playtest 0/4/4, GPU p95 2.892, save match | Canopy is dull tan instead of glowing orange. The discs are still coins on poles. Shape try reverted. Closed. |
 | T16 dust | kept | b7cebd7f | compile ok, playtest 0/4/4, GPU p95 2.906, save match | The speck puff under the belly is a short low sand puff. The approach lens stays. |
-| T19 | done | see morning report | compile ok, selftest 22/0, les 25.43, beg 62.14 jo 33.44, int 74.73 jo 40.87, save match | Final stills at 02:33 local. Sheets are not committed. |
+| T19 | done | 6bf24556 | compile ok, selftest 22/0, les 25.43, beg 62.14 jo 33.44, int 74.73 jo 40.87, save match | Final stills at 02:33 local. Sheets are not committed. |
 
 ## Decisions
 
