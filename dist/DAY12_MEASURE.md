@@ -56,3 +56,11 @@ hk_les_001 0 faults 25.42, offer no, teleported false. T0 was 25.42.
 hk_beg_035 0 faults 62.13, offer yes, jump-off 0 faults 33.45, teleported false. T0 was 62.14 and 33.45.
 
 The first lesson does not run under --playtest, --ridecert, or --selftest. The stretch change is the display size only. Low quality is still not timed on the GPU.
+
+## Screens and Low quality
+
+Windowed, dummy audio, 1920x1080, VSync off for the ride samples. Save matched. Godot exited.
+
+High, `dist/day12/shots/screens_b/perf.csv`: 128 samples, GPU p95 2.92 ms, median 2.82. The old baseline p95 was 3.007. Median FPS was 6.
+
+Low, `dist/day12/shots/low/perf.csv`: 131 samples, GPU p95 1.995 ms, median 1.80. MSAA off, SSAO off, glow off, shadow distance 70. The ride camera still shows the horse, the rail, and the next fence. Default quality stays High.

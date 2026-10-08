@@ -79,6 +79,14 @@ func _capture_title() -> void:
 	await get_tree().create_timer(0.4).timeout
 	await get_tree().process_frame
 	_save("title")
+	var title := get_parent()
+	if title.has_method("_open_season"):
+		title.call("_open_season")
+		await get_tree().process_frame
+		await get_tree().process_frame
+		_save("season")
+		if title.has_method("_close_season"):
+			title.call("_close_season")
 	if not GameState.start_session("lesson", "lesson"):
 		print("SHOTS lesson failed")
 		get_tree().quit(1)
@@ -90,6 +98,10 @@ func _capture_title() -> void:
 
 
 func _capture_arena() -> void:
+	if _low_quality():
+		GameState.settings.quality = "Low"
+		GameState.settings.vsync = false
+		GameState.settings.apply_display()
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	var rid := get_viewport().get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(rid, true)
@@ -115,6 +127,7 @@ func _capture_arena() -> void:
 		_horse.cam.current = true
 	await get_tree().create_timer(0.35).timeout
 	_save("play_cam")
+	await _capture_lesson_lines()
 	_horse.set_physics_process(false)
 	for row in STILLS:
 		if bool(row.get("walk", false)):
@@ -150,6 +163,32 @@ func _capture_arena() -> void:
 	_write_perf()
 	print("SHOTS done ", _got.size())
 	get_tree().quit(0)
+
+
+func _capture_lesson_lines() -> void:
+	if _hud == null or not _hud.has_method("show_lesson"):
+		return
+	# The arena hides the card every frame unless the lesson is the live one.
+	# Pause holds that, and this does not save.
+	var arena := get_parent()
+	arena.set("paused", true)
+	var script: GDScript = load("res://scripts/first_lesson.gd") as GDScript
+	var guide: RefCounted = script.new() as RefCounted
+	_set_hud(true)
+	if _horse.cam:
+		_horse.cam.current = true
+	guide.set("step", 0)
+	_hud.call("show_lesson", str(guide.call("line")), true)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_save("lesson_walk")
+	guide.set("step", 6)
+	_hud.call("show_lesson", str(guide.call("line")), true)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_save("lesson_pole")
+	_hud.call("show_lesson", "", false)
+	arena.set("paused", false)
 
 
 func _begin_ride() -> void:
@@ -347,6 +386,13 @@ func _write_perf() -> void:
 	for row in _perf:
 		f.store_line(row)
 	f.close()
+
+
+func _low_quality() -> bool:
+	for a in OS.get_cmdline_user_args():
+		if str(a) == "--shots-quality=low":
+			return true
+	return false
 
 
 func _out_dir() -> String:

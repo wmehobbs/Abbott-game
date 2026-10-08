@@ -24,6 +24,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T15 | done | d2ffd5ec | same gates | Stretch is canvas_items and expand. The 3D view uses the window size. No new screenshots. |
 | unused | done | 7e754639 | no Godot | Spreadsheet of game/assets. Nothing deleted. |
 | map | done | 7e754639 | no Godot | docs/ARCHITECTURE.md says who owns what, what is frozen, and how to run the checks. |
+| screens | done | this slice | compile ok, save match, windowed shots | Options, pause, results, Season, and two lesson lines are readable. Ride camera still shows the ring. |
 
 ## Decisions
 
@@ -49,6 +50,8 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - T15: The window no longer draws a 1920x1080 picture and scales it. Stretch mode is canvas_items, aspect expand, base size still 1920x1080. Layout still passed at the six sizes. Ride times matched T0. No new screenshots. Low picture quality is still not timed on the GPU.
 - Unused list: `dist/day12/unused_assets.csv` from `python dist/day12/unused_assets.py`. Text under `game/` and `content/` (a file's own `.import` does not count). 5385 files, 1,767,830,216 bytes. 5287 files (1,724,549,802 bytes) have no pointer. 1736 of those (499,709,017 bytes) are not on the export exclude list, so a pack would still include them. 1673 of the packed files are under `assets/textures/harvest`, about 466 MB. Nothing was deleted.
 - The map for the next person is `docs/ARCHITECTURE.md`.
+- Screens, after 1am, windows allowed: `dist/day12/shots/screens_b`. Season, Options, pause, and the result card are readable. The first lesson card says "Press W to walk." and "Canter the first pole." Skip is on the card. The arena was clearing that card every frame, so the shot holds pause and does not save. The ride camera and the title still show the ring after native-size rendering. No frame came back black.
+- Low picture quality, same capture, VSync off. Tonight's High GPU p95 is 2.92 ms (the old baseline was 3.007). Low GPU p95 is 1.995 ms, median 1.80. The ride still reads. The default stays High. Median FPS on the High run was 6, so the window may have been behind another window. GPU time is the number that counts.
 
 ## NEEDS ERNIE
 

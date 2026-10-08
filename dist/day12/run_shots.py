@@ -29,6 +29,8 @@ cmd = [
     "--shots",
     "--shots-out=" + out.replace("\\", "/"),
 ]
+if len(sys.argv) > 3:
+    cmd.extend(sys.argv[3:])
 if "--headless" in cmd or cmd[0].endswith("Godot_v4.7.2-stable_win64.exe"):
     raise SystemExit("refusing this command")
 log = os.path.join(out, "shots_run.log")
