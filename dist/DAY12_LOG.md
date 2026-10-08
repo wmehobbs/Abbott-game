@@ -24,7 +24,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | T15 | done | d2ffd5ec | same gates | Stretch is canvas_items and expand. The 3D view uses the window size. No new screenshots. |
 | unused | done | 7e754639 | no Godot | Spreadsheet of game/assets. Nothing deleted. |
 | map | done | 7e754639 | no Godot | docs/ARCHITECTURE.md says who owns what, what is frozen, and how to run the checks. |
-| screens | done | this slice | compile ok, save match, windowed shots | Options, pause, results, Season, and two lesson lines are readable. Ride camera still shows the ring. |
+| screens | done | e3431d62 | compile ok, selftest 22/0, save match, windowed shots | Options, pause, results, Season, and two lesson lines are readable. Ride camera still shows the ring. Low GPU p95 1.995 vs High 2.92. Default stays High. |
 
 ## Decisions
 
