@@ -462,23 +462,23 @@ static func _find_skel(n: Node) -> Skeleton3D:
 static func _dust(host: Node3D) -> void:
 	var dust := GPUParticles3D.new()
 	dust.name = "Dust"
-	dust.position = Vector3(0, 0.05, 0.15)
-	dust.amount = 168
-	dust.lifetime = 1.42
+	dust.position = Vector3(0, 0.02, 0.55)
+	dust.amount = 36
+	dust.lifetime = 0.38
 	dust.one_shot = true
-	dust.explosiveness = 0.90
+	dust.explosiveness = 0.35
 	dust.emitting = false
 	var proc := ParticleProcessMaterial.new()
-	proc.direction = Vector3(0, 1, 0.42)
-	proc.spread = 70.0
-	proc.initial_velocity_min = 0.28
-	proc.initial_velocity_max = 1.72
-	proc.gravity = Vector3(0, -1.42, 0)
-	proc.scale_min = 0.12
-	proc.scale_max = 0.48
-	proc.color = Color(0.70, 0.58, 0.40, 0.58)
+	proc.direction = Vector3(0, 0.12, 0.2)
+	proc.spread = 28.0
+	proc.initial_velocity_min = 0.08
+	proc.initial_velocity_max = 0.42
+	proc.gravity = Vector3(0, -2.4, 0)
+	proc.scale_min = 0.04
+	proc.scale_max = 0.10
+	proc.color = Color(0.62, 0.52, 0.38, 0.32)
 	dust.process_material = proc
 	var dq := QuadMesh.new()
-	dq.size = Vector2(0.25, 0.25)
+	dq.size = Vector2(0.08, 0.08)
 	dust.draw_pass_1 = dq
 	host.add_child(dust)
