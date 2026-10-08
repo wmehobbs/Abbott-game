@@ -290,13 +290,15 @@ func _brush() -> void:
 		var tip := base + Vector3(rng.randf_range(-0.16, 0.16), rng.randf_range(0.28, 0.52), rng.randf_range(-0.10, 0.10))
 		MeshKit.add_rod(self, twig, "Stem", base, tip, rng.randf_range(0.007, 0.012))
 		var spray_m: Material = rust if i % 4 == 0 else (rust2 if i % 5 == 0 else (green if i % 2 == 0 else green2))
-		var spray := MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.12, 0.028, 0.18)), spray_m, "Spray", tip)
+		var spray := MeshKit.add_child_mi(self, MeshKit.sphere(0.055, 6, 8), spray_m, "Spray", tip)
+		spray.scale = Vector3(1.15, 0.55, 0.90)
 		spray.rotation = Vector3(rng.randf_range(-0.45, 0.45), rng.randf_range(-0.90, 0.90), rng.randf_range(-0.35, 0.35))
 		if i % 2 == 0:
 			var mid := base.lerp(tip, 0.48)
 			var fork := mid + Vector3(rng.randf_range(-0.14, 0.14), rng.randf_range(0.10, 0.20), rng.randf_range(-0.08, 0.08))
 			MeshKit.add_rod(self, twig, "Fork", mid, fork, 0.006)
-			var fs := MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.08, 0.022, 0.12)), rust if i % 6 == 0 else green2, "Spray", fork)
+			var fs := MeshKit.add_child_mi(self, MeshKit.sphere(0.040, 6, 8), rust if i % 6 == 0 else green2, "Spray", fork)
+			fs.scale = Vector3(1.10, 0.50, 0.85)
 			fs.rotation = Vector3(rng.randf_range(-0.40, 0.40), rng.randf_range(-0.80, 0.80), rng.randf_range(-0.30, 0.30))
 
 
