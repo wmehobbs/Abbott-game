@@ -27,6 +27,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 | screens | done | e3431d62 | compile ok, selftest 22/0, save match, windowed shots | Options, pause, results, Season, and two lesson lines are readable. Ride camera still shows the ring. Low GPU p95 1.995 vs High 2.92. Default stays High. |
 | T16 flowers | kept | 7c9ee385 | compile ok, playtest 0/4/4, GPU p95 2.941, save match | Brush heads are clumps, not flat cards. The yellow wing panel is still flat. |
 | T16 plate | kept | 3e78028a | compile ok, playtest 0/4/4, GPU p95 2.876, save match | The current fence number is red on a wood plate. The glowing yellow square is gone. |
+| T16 trees | kept | this slice | compile ok, playtest 0/4/4, GPU p95 2.892, save match | Canopy is dull tan instead of glowing orange. The discs are still coins on poles. |
 
 ## Decisions
 
@@ -56,6 +57,7 @@ Started 2026-10-06 00:23 local. Morning is 07:00. Windowed runs stop at 05:45.
 - Low picture quality, same capture, VSync off. Tonight's High GPU p95 is 2.92 ms (the old baseline was 3.007). Low GPU p95 is 1.995 ms, median 1.80. The ride still reads. The default stays High. Median FPS on the High run was 6, so the window may have been behind another window. GPU time is the number that counts.
 - T16 flowers, attempt 1: the brush fill used flat cards for flower heads. They are small clumps now. The close fence reads as stems and heads. GPU p95 2.941, inside 15 percent of 3.007. Playtest clear 0, refuse 4, rail 4. Knock box was not touched.
 - T16 plate, attempt 2: the yellow square on the approach was the current-fence number, lit and glowing. It is a wood plate now. The current number stays red. The approach shot no longer has that yellow card. GPU p95 2.876. Playtest still 0/4/4.
+- T16 trees, attempt 1: the oak shader was painting the discs bright orange. They are a dull tan now. From the ride camera they are still stacked coins on poles. GPU p95 2.892. Playtest still 0/4/4. A new tree model is Ernie's call.
 
 ## NEEDS ERNIE
 

@@ -112,8 +112,8 @@ static func hardwood_material(sun: bool = false) -> ShaderMaterial:
 	var m := ShaderMaterial.new()
 	m.shader = load("res://shaders/hardwood.gdshader")
 	if sun:
-		m.set_shader_parameter("leaf", Vector3(0.62, 0.28, 0.08))
-		m.set_shader_parameter("sun_leaf", Vector3(0.86, 0.40, 0.10))
+		m.set_shader_parameter("leaf", Vector3(0.40, 0.30, 0.12))
+		m.set_shader_parameter("sun_leaf", Vector3(0.52, 0.34, 0.14))
 	return m
 
 

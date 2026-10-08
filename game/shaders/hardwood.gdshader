@@ -1,8 +1,8 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
 
-uniform vec3 leaf : source_color = vec3(0.48, 0.26, 0.08);
-uniform vec3 sun_leaf : source_color = vec3(0.78, 0.38, 0.10);
+uniform vec3 leaf : source_color = vec3(0.36, 0.28, 0.12);
+uniform vec3 sun_leaf : source_color = vec3(0.48, 0.32, 0.14);
 uniform vec3 shade : source_color = vec3(0.18, 0.12, 0.05);
 
 varying vec3 world_p;
@@ -22,8 +22,8 @@ void fragment() {
 	vec3 col = mix(shade, leaf, up);
 	col = mix(col, sun_leaf, clamp(up * 0.48 + patch * 0.16, 0.0, 1.0));
 	col = mix(col, col * vec3(0.92, 0.62, 0.28), speckle * 0.20);
-	col = mix(col, col * vec3(0.98, 0.32, 0.07), rust * 0.92);
-	col = mix(col, col * vec3(0.82, 0.18, 0.05), rust2 * 0.70);
+	col = mix(col, col * vec3(0.72, 0.48, 0.22), rust * 0.28);
+	col = mix(col, col * vec3(0.55, 0.36, 0.16), rust2 * 0.18);
 	ALBEDO = col;
 	ROUGHNESS = mix(0.93, 0.76, up);
 	METALLIC = 0.0;
