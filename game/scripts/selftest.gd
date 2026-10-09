@@ -53,6 +53,7 @@ func _run() -> void:
 	_ground_quiet()
 	_current_ring()
 	_grass_clumps()
+	_refuse_shake()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1096,6 +1097,18 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _refuse_shake() -> void:
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	var arena := FileAccess.get_file_as_string("res://scripts/arena.gd")
+	if not hud.contains("func shake_refuse") or not hud.contains("* 4.0"):
+		_fail("refuse_shake", "a refusal does not shake the card")
+		return
+	if not arena.contains("shake_refuse"):
+		_fail("refuse_shake", "the refusal is not wired")
+		return
+	_ok("refuse_shake")
 
 
 func _grass_clumps() -> void:

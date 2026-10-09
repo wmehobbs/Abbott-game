@@ -11,7 +11,7 @@ rank,area,shot,problem,cause,fix,status,attempts,verdict
 7,world,play_cam,The ring is empty sand with no stands judge or flowers,farm.gd _bleachers,Two stands past the far rail,closed,2,better
 8,characters,play_cam,Madison's lower legs stick straight out,rider_mesh.gd _spec,Knees at 22 cm and heels under the hip,closed,1,better
 9,characters,head,The coat is smeared on flat faces and the bridle floats,abbott_look.gd,Straps hidden; face photo remains,open,5,straps hidden
-10,juice,landing,A landing a rail and a clear round feel the same,horse.gd _land_feel,Sand burst and rumble; clear celebration still open,open,1,land in
+10,juice,landing,A landing a rail and a clear round feel the same,horse.gd _land_feel,Sand and rumble in; refusal shakes the card; applause still open,open,2,shake in
 11,audio,play_cam,Hooves are not tied to the foot that is down,horse.gd _hoof_strike,Keep the beat and add a canter breath,open,0,
 12,ui,results,The result card is a static list,hud.gd _sync_result,Count up the time then the ribbon,closed,1,better
 13,feel,play_cam,A and D feel slow to answer for a person,horse.gd _process_ride human ramp,Human ramp 4.0 and 3.0 stick curve gait buffer,closed,1,better

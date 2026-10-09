@@ -36,7 +36,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M3 ground lines | kept | 827f3cf6 | compile ok, selftest 44/0, playtest 0/4/4, save match | 2.475 | Better. The ground poles are a quiet tan instead of bright white. Judged `fence` in `d13_ground` against `d13_stripe`. |
 | M3 ring | kept | 69370a1d | compile ok, selftest 45/0, playtest 0/4/4, save match | 2.448 | Better. The current lesson fence has a quiet gold ring on the sand. Shows stay off. Judged `three_strides` in `d13_ring`. |
 | M3 ssao | reverted | 698bb893 |  | 2.471 | Same. A tighter radius and a stronger intensity did not show under the horse. The sun shadow already sits him on the sand. Put back. |
-| M3 grass | kept |  | compile ok, selftest 46/0, playtest 0/4/4, save match | 2.471 | Better. Pale tufts sit on the lawn just past the rail. The first, smaller set did not show. Judged `in_gate` in `d13_grass2`. |
+| M3 grass | kept | 0478b86f | compile ok, selftest 46/0, playtest 0/4/4, save match | 2.471 | Better. Pale tufts sit on the lawn just past the rail. The first, smaller set did not show. Judged `in_gate` in `d13_grass2`. |
+| M5 shake | kept |  | compile ok, selftest 47/0, playtest 0/4/4, save match |  | A refusal shakes the card 4 px for about a fifth of a second. A still cannot catch it. The refuse round still finished at 4 faults. |
 
 ## T0 rides
 
@@ -96,3 +97,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M3 ring: a flat gold halo sits on the sand around the current lesson fence, and only when the riding aid is on. Shows do not get it. Judged `three_strides` in `dist/day12/shots/d13_ring`. GPU p95 2.448 ms.
 - M3 ssao: not kept. Radius 0.72 and intensity 1.35 left `halt_side` and `in_gate` the same (mean change 0.13 and 0.02). GPU p95 2.471 ms. The sun shadow is what puts him on the ground.
 - M3 grass: 90 tufts just past the dirt collar, pale green, shadow off, faded past 72 m. The first set was too small and the same color as the lawn. Judged `in_gate` in `dist/day12/shots/d13_grass2`. GPU p95 2.471 ms.
+- M5 shake: the card slides 4 px when he refuses, then settles. It is wired from the refusal, not from the stop itself. Selftest 47/0. The playtest refusal stayed at 4 faults.

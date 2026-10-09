@@ -35,6 +35,7 @@ var waiting_rebind: String = ""
 var callout_lab: Label
 var grade_lab: Label
 var _grade_left: float = 0.0
+var _shake: float = 0.0
 var go_lab: Label
 var capture_lab: Label
 var _seen_callout: int = 0
@@ -589,8 +590,18 @@ func _fit_root() -> void:
 	root.size = sz
 
 
+func shake_refuse() -> void:
+	# Four pixels, a fifth of a second. The horse already stopped.
+	_shake = 0.22
+
+
 func _process(_delta: float) -> void:
 	_fit_root()
+	if _shake > 0.0 and get_child_count() > 0:
+		_shake = maxf(0.0, _shake - _delta)
+		var root := get_child(0) as Control
+		if root:
+			root.position.x = sin(_shake * 90.0) * 4.0
 	_sync_board()
 	_set_ride_hint()
 	if time_lab:

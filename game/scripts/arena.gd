@@ -58,6 +58,7 @@ func _ready() -> void:
 	hud.jump_off_requested.connect(_start_jump_off)
 	hud.next_class_requested.connect(_next_class)
 	hud.lesson_skip_requested.connect(_skip_lesson)
+	horse.refused.connect(hud.shake_refuse)
 	lesson = FirstLessonScript.new()
 	GameState.reset_round()
 	if GameState.mode == "walk":
