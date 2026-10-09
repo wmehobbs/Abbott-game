@@ -122,7 +122,9 @@ func _build() -> void:
 	stack.add_child(sub)
 
 	var best := Label.new()
-	best.text = GameState.best_line()
+	best.name = "BestLine"
+	best.text = GameState.class_best_display()
+	best.visible = best.text != ""
 	if sans:
 		best.add_theme_font_override("font", sans)
 	best.add_theme_font_size_override("font_size", 20)

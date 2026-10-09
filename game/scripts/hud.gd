@@ -935,7 +935,9 @@ func _show_result_settled() -> void:
 			extra = "\nNew best."
 		var rail := _rail_line()
 		var allowed := "%0.0f" % GameState.time_allowed()
-		stats.text = "%s%s\n%s\nTime allowed %ss\n%s\n%s%s" % [GameState.result_line(), extra, GameState.class_title(), allowed, GameState.barn_note(), GameState.best_line(), rail]
+		var best := GameState.class_best_display()
+		var best_bit := ("\n" + best) if best != "" else ""
+		stats.text = "%s%s\n%s\nTime allowed %ss\n%s%s%s" % [GameState.result_line(), extra, GameState.class_title(), allowed, GameState.barn_note(), best_bit, rail]
 	if jump_off_btn:
 		jump_off_btn.visible = GameState.can_offer_jump_off()
 	if next_btn:
@@ -1099,7 +1101,9 @@ func show_pause(on: bool) -> void:
 		result_panel.visible = false
 		options_panel.visible = false
 		if pause_stats:
-			pause_stats.text = "%s\n%d faults   ·   %0.2fs\n%s" % [GameState.class_title(), GameState.faults, GameState.time_sec, GameState.best_line()]
+			var best := GameState.class_best_display()
+			var best_bit := ("\n" + best) if best != "" else ""
+			pause_stats.text = "%s\n%d faults   ·   %0.2fs%s" % [GameState.class_title(), GameState.faults, GameState.time_sec, best_bit]
 		var resume := pause_panel.find_child("Resume", true, false) as Control
 		if resume:
 			resume.grab_focus()

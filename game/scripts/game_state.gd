@@ -995,6 +995,14 @@ func class_best_line(id: String) -> String:
 	return "%d f  ·  %0.1fs" % [int(rec.faults), float(rec.time)]
 
 
+## The Best line for the class being ridden. Empty when that class has no record.
+func class_best_display() -> String:
+	var rec: Variant = best_by_class.get(class_id, null)
+	if typeof(rec) != TYPE_DICTIONARY:
+		return ""
+	return "Best  ·  %d faults  ·  %0.2fs" % [int(rec.get("faults", 0)), float(rec.get("time", 0.0))]
+
+
 func result_line() -> String:
 	if eliminated:
 		var why := "Eliminated."

@@ -15,10 +15,10 @@ Baseline stills: `dist/day14/renders/v1/side.png`, `threequarter.png`, `head.png
 | coat | green | 07a08fb5 | compile 0, selftest 50/0, lesson 25.48, beginner 62.15, jump-off 33.45, 0 faults, save matched | The body is a deep red chestnut beside the title photo. The back and the legs are a shade darker than the barrel. The blaze is still jagged. |
 | face | green | 9ef3cb8a | compile 0, selftest 50/0, lesson 25.43, beginner 62.14, jump-off 33.45, 0 faults, save matched | The blaze is a soft white stripe down the front of the face. The forehead is chestnut, and the dark patches around the eye are gone. Sheet: `dist/day14/renders/face16/sheet.png`. |
 | socks | green | a788956e | compile 0, selftest 50/0, lesson 25.43, beginner 62.14, jump-off 33.45, 0 faults, save matched | Left hind and right fore: white runs to the hoof, and the hoof is dark. Sheet: `dist/day14/renders/sock1/sheet.png`. |
-| H2 | trot mapped | | compile 0, selftest 50/0, lesson 25.42, beginner 62.15, jump-off 33.44, playtest clear 0 refuse 4 rail 4, save matched | Trot attempt 2 is two diagonal pairs with the other two feet up, and a suspension between them. It is mapped. Walk at phase 0.25 stays the fallback. Strip: `dist/day14/renders/trot2/strip_Trot`. |
+| H2 | trot mapped | cd1d6c47 | compile 0, selftest 50/0, lesson 25.42, beginner 62.15, jump-off 33.44, playtest clear 0 refuse 4 rail 4, save matched | Trot attempt 2 is two diagonal pairs with the other two feet up, and a suspension between them. It is mapped. Walk at phase 0.25 stays the fallback. Strip: `dist/day14/renders/trot2/strip_Trot`. |
 | H3 | bits only | | | BitL and BitR sit at the mouth and the reins look for those names. The leather straps are in the file and were not clearly on the skin in the head still. |
 | H4 | written | | no download that needs an account | Nothing free beats v2. See dist/DAY14_HORSE_OPTIONS.md. |
-| H5 | note stripped | | selftest pass=50 fail=0 | "Hidden K note N" was the end of the barn-note sentence. The card now stops before it. Best 5.86s is the saved record. NEEDS ERNIE. |
+| H5 | note stripped, class best | | compile 0, selftest 51/0, playtest clear 0 refuse 4 rail 4, save matched | The card, the pause line, and the title show best_by_class for the current class. The line is hidden when that class has no record. The saved best_time is unchanged. |
 
 ## Decisions
 
@@ -36,7 +36,7 @@ Baseline stills: `dist/day14/renders/v1/side.png`, `threequarter.png`, `head.png
 ## NEEDS ERNIE
 
 - How the horse looks inside Godot (materials, lighting, the ride camera) waits for a windowed run tonight. These stills are Blender only.
-- "Best 5.86s" is the saved best for the beginner class (`best_time` about 5.86, 0 faults). A full beginner round is about a minute. The record is written by the frozen round logic, so it was not changed.
+- "Best 5.86s" is still the saved overall record (`best_time` about 5.86, 0 faults, beginner). The card and the title used to print that on a lesson. They now print `best_by_class` for the current class, and the line is hidden when that class has none. `_record_round` was not changed.
 
 ## BLACKLIST
 

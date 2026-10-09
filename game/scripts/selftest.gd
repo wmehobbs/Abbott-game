@@ -63,6 +63,7 @@ func _run() -> void:
 	await _buses()
 	await _pause_round()
 	_result_lines()
+	_class_best_display()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -864,6 +865,37 @@ func _result_lines() -> void:
 		_fail("results", why)
 		return
 	_ok("results")
+
+
+func _class_best_display() -> void:
+	var was_id := GameState.class_id
+	var was_time := GameState.best_time
+	var was_faults := GameState.best_faults
+	var was_bests: Dictionary = GameState.best_by_class.duplicate(true)
+	var why := ""
+	GameState.best_faults = 0
+	GameState.best_time = 5.86
+	GameState.class_id = "lesson"
+	GameState.best_by_class = {"beginner": {"faults": 0, "time": 5.86}}
+	if GameState.class_best_display() != "":
+		why = "a lesson showed the beginner record"
+	if why == "" and not GameState.best_line().contains("5.86"):
+		why = "the saved record line moved"
+	if why == "":
+		GameState.best_by_class["lesson"] = {"faults": 4, "time": 25.41}
+		var line := GameState.class_best_display()
+		if not line.contains("25.41") or line.contains("5.86"):
+			why = "lesson best was " + line
+		if why == "" and GameState.best_time != 5.86:
+			why = "display wrote best_time"
+	GameState.class_id = was_id
+	GameState.best_time = was_time
+	GameState.best_faults = was_faults
+	GameState.best_by_class = was_bests
+	if why != "":
+		_fail("class_best_display", why)
+		return
+	_ok("class_best_display")
 
 
 func _season() -> void:
