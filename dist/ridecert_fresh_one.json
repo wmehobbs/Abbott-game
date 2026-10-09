@@ -1,29 +1,25 @@
 {
-	"board": "first",
-	"extra": [],
-	"flower_look": "abbott_confidence=85 so _might_look is false (p=0)",
-	"pass": true,
-	"style": [],
-	"tracks": [
+	"board": "jumpoff",
+	"extra": [
 		{
-			"class_id": "advanced",
+			"class_id": "intermediate",
 			"confidence": 49.5,
 			"eliminate_reason": "",
 			"eliminated": false,
 			"faults": 1,
 			"fences_jumped": 4,
 			"fences_needed": 4,
-			"id": "hk_jo_adv_001",
+			"id": "hk_int_002",
 			"inputs_pressed": {
 				"gait_down": 0,
 				"gait_up": 3,
 				"halt": 0,
-				"jump": 6,
-				"turn_left": 14,
-				"turn_right": 6
+				"jump": 14,
+				"turn_left": 12,
+				"turn_right": 9
 			},
 			"jump_off": true,
-			"loaded_id": "hk_jo_adv_001",
+			"loaded_id": "hk_jo_int_001",
 			"max_speed": 5.55,
 			"rail_fences": [],
 			"rail_in_air": [],
@@ -35,7 +31,44 @@
 			"success": false,
 			"teleport_why": "",
 			"teleported": false,
-			"time_sec": 35.81
+			"time_sec": 40.87
+		}
+	],
+	"flower_look": "abbott_confidence=85 so _might_look is false (p=0)",
+	"pass": true,
+	"style": [],
+	"tracks": [
+		{
+			"class_id": "intermediate",
+			"confidence": 54.0,
+			"eliminate_reason": "",
+			"eliminated": false,
+			"faults": 0,
+			"fences_jumped": 10,
+			"fences_needed": 10,
+			"id": "hk_int_002",
+			"inputs_pressed": {
+				"gait_down": 0,
+				"gait_up": 3,
+				"halt": 0,
+				"jump": 23,
+				"turn_left": 16,
+				"turn_right": 21
+			},
+			"jump_off": false,
+			"loaded_id": "hk_int_002",
+			"max_speed": 5.55,
+			"rail_fences": [],
+			"rail_in_air": [],
+			"rails": 0,
+			"refused": [],
+			"round_complete": true,
+			"scope": 44.5,
+			"style": "clear",
+			"success": true,
+			"teleport_why": "",
+			"teleported": false,
+			"time_sec": 74.73
 		}
 	]
 }

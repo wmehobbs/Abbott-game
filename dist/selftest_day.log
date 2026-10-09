@@ -1,0 +1,111 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SELFTEST PASS scripts_load
+SELFTEST PASS input_actions
+SELFTEST PASS demo_ride_skips_save
+SELFTEST PASS save_round_trip
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _parse_save_file (res://scripts/game_state.gd:791)
+       [1] _read_save (res://scripts/game_state.gd:800)
+       [2] read_save_migrated (res://scripts/game_state.gd:715)
+       [3] _bak_recovers (res://scripts/selftest.gd:135)
+       [4] _run (res://scripts/selftest.gd:26)
+WARNING: Abbott save is not valid JSON: user://selftest/trunc.json
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _parse_save_file (res://scripts/game_state.gd:794)
+       [1] _read_save (res://scripts/game_state.gd:800)
+       [2] read_save_migrated (res://scripts/game_state.gd:715)
+       [3] _bak_recovers (res://scripts/selftest.gd:135)
+       [4] _run (res://scripts/selftest.gd:26)
+WARNING: Abbott save rejected. Trying the backup.
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _read_save (res://scripts/game_state.gd:804)
+       [1] read_save_migrated (res://scripts/game_state.gd:715)
+       [2] _bak_recovers (res://scripts/selftest.gd:135)
+       [3] _run (res://scripts/selftest.gd:26)
+SELFTEST PASS truncated_recovers_from_bak
+ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'this'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _parse_save_file (res://scripts/game_state.gd:791)
+       [1] _read_save (res://scripts/game_state.gd:800)
+       [2] read_save_migrated (res://scripts/game_state.gd:715)
+       [3] _garbage_defaults (res://scripts/selftest.gd:148)
+       [4] _run (res://scripts/selftest.gd:27)
+WARNING: Abbott save is not valid JSON: user://selftest/garbage.json
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _parse_save_file (res://scripts/game_state.gd:794)
+       [1] _read_save (res://scripts/game_state.gd:800)
+       [2] read_save_migrated (res://scripts/game_state.gd:715)
+       [3] _garbage_defaults (res://scripts/selftest.gd:148)
+       [4] _run (res://scripts/selftest.gd:27)
+WARNING: Abbott save rejected. Trying the backup.
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _read_save (res://scripts/game_state.gd:804)
+       [1] read_save_migrated (res://scripts/game_state.gd:715)
+       [2] _garbage_defaults (res://scripts/selftest.gd:148)
+       [3] _run (res://scripts/selftest.gd:27)
+WARNING: Abbott save unreadable at user://selftest/garbage.json. Using defaults.
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] read_save_migrated (res://scripts/game_state.gd:717)
+       [1] _garbage_defaults (res://scripts/selftest.gd:148)
+       [2] _run (res://scripts/selftest.gd:27)
+SELFTEST PASS garbage_uses_defaults
+SELFTEST PASS old_save_migrates
+SELFTEST PASS madison_snapshot
+SELFTEST PASS ship_courses
+SELFTEST PASS telemetry_guard
+SELFTEST PASS settings
+SELFTEST PASS layout
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+SELFTEST PASS gamepad_actions
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+SELFTEST PASS audio_buses
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+SELFTEST PASS pause
+SELFTEST PASS results
+SELFTEST PASS season
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+SELFTEST PASS first_lesson
+SELFTEST PASS sharp
+SELFTEST PASS title_scene
+FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
+FIT length=2.25 height=1.91220223903656 scale=(0.84991, 0.84991, 0.84991)
+SEAT bone=Torso bone_pos=(0.0, 1.126922, 0.286373) back_y=1.42885863780975 seat=(0.0, 1.428859, 0.286373)
+TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385, -0.0222) bit=(0.0, 0.479225, -0.087663)
+HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
+RIDER mesh scale 0.91304347826087 bones 62
+SELFTEST PASS arena_scene
+SELFTEST PASS player_save_untouched
+SELFTEST SUMMARY pass=22 fail=0
+WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -7,26 +7,32 @@ TACK place crown=(0.0, 0.142, 0.0294) brow=(0.0, 0.196, 0.1326) nose=(0.0, 0.385
 HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
 RIDER mesh scale 0.91304347826087 bones 62
 PLAYTEST begin fences=8
-COUNT fence=2 ahead=10.36 lateral=16.02 stride=-1 word=silent kept=false
+COUNT fence=2 ahead=9.13 lateral=16.02 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+COUNT fence=3 ahead=10.49 lateral=15.21 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 MICHELLE soft | Two. Wait.
-COUNT fence=4 ahead=10.52 lateral=0.00 stride=2 word=Two. Wait. kept=true
-COUNT fence=6 ahead=6.23 lateral=6.71 stride=-1 word=silent kept=false
+COUNT fence=4 ahead=9.29 lateral=0.00 stride=2 word=Two. Wait. kept=true
+COUNT fence=6 ahead=5.00 lateral=6.71 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 PLAYTEST clear faults=0 complete=true
-COUNT fence=2 ahead=10.36 lateral=16.02 stride=-1 word=silent kept=false
+COUNT fence=2 ahead=9.13 lateral=16.02 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+COUNT fence=3 ahead=10.49 lateral=15.21 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 MICHELLE soft | Two. Wait.
-COUNT fence=4 ahead=10.52 lateral=0.00 stride=2 word=Two. Wait. kept=true
-COUNT fence=6 ahead=6.23 lateral=6.71 stride=-1 word=silent kept=false
+COUNT fence=4 ahead=9.29 lateral=0.00 stride=2 word=Two. Wait. kept=true
+COUNT fence=6 ahead=5.00 lateral=6.71 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 PLAYTEST refuse faults=4
-COUNT fence=2 ahead=10.36 lateral=16.02 stride=-1 word=silent kept=false
+COUNT fence=2 ahead=9.13 lateral=16.02 stride=-1 word=silent kept=false
+MICHELLE soft | Come again.
+COUNT fence=3 ahead=10.49 lateral=15.21 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 FENCE knock 3 by horse at 8.7,-2.4 next=3 jumping=true
 MICHELLE soft | Two. Wait.
-COUNT fence=4 ahead=9.40 lateral=0.00 stride=2 word=Two. Wait. kept=true
-COUNT fence=6 ahead=6.23 lateral=6.71 stride=-1 word=silent kept=false
+COUNT fence=4 ahead=9.29 lateral=0.00 stride=2 word=Two. Wait. kept=true
+COUNT fence=6 ahead=5.00 lateral=6.71 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 PLAYTEST rail faults=4
 PLAYTEST wrote E:/Workspace/Madison/game/../dist/playtest_results.json
