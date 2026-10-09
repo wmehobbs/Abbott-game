@@ -6,7 +6,7 @@ Friday 9 Oct. The look was frozen at 04:58. The checks below are on that tree. V
 
 1. The sky is a cloudy day. The pink haze is gone.
 2. The trees are low solid shapes, and the forest of light poles is down to a few.
-3. He feels less like he is skating. His legs follow his speed, the camera is steadier, and a canter has a small bob. Steering answers faster when you ride. The auto rider was not changed.
+3. He feels less like he is skating. His legs follow his speed, the camera is steadier, and a canter has a small bob. When a round starts, he is in the lower middle of the picture. Steering answers faster when you ride. The auto rider was not changed.
 4. Letting go of Space tells you Long spot, Right on, Deep, or Chip. A lesson shows stride dots, a takeoff ring, and a gold ring on the fence you are riding. A show does not.
 5. The big gray card fades once he walks. The clock is larger. A clear round counts up and drops confetti. Going into the ring fades through black.
 6. The ring has a name on the far rail, a scoreboard, two stands, an oak rail base, painted bands on the rails, and tufts on the lawn.
@@ -17,9 +17,9 @@ Friday 9 Oct. The look was frozen at 04:58. The checks below are on that tree. V
 
 Before and after, seven frames: `dist/day12/shots/d13_morning_pair.jpg`
 
-The left side is the start of the night (`d13_baseline`). The right side is this morning (`d13_final`). The frames are the ride camera, takeoff, landing, halt side, title, results, and the HUD.
+The left side is the start of the night (`d13_baseline`). The right side is the shipped tree (`d13_view4`), so the ride camera shows him. The frames are the ride camera, takeoff, landing, halt side, title, results, and the HUD.
 
-The full set is `dist/day12/shots/d13_final`. The contact sheet is `dist/day12/shots/d13_final_sheet.jpg`.
+The 04:58 full set is `dist/day12/shots/d13_final`. The shipped set is `dist/day12/shots/d13_view4`. Its contact sheet is `dist/day12/shots/d13_view4_sheet.jpg`.
 
 ## Gates
 
@@ -43,6 +43,7 @@ Judged `reins_hold` and `play_cam` in `dist/day12/shots/d13_view4`. He is in the
 - Beginner 0 faults, 62.14 s, jump-off 0 faults, 33.45 s, teleported false.
 - Intermediate 0 faults, 74.74 s, jump-off 1 time fault, 40.86 s, White, teleported false.
 - Save still matches the snapshot.
+- GPU p95 on that shot set, High, 2.462 ms after the first 2 seconds. The cap is 6.0.
 
 ## Play this first
 
@@ -108,6 +109,7 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M5 lens | kept | b04864e0 | compile ok, selftest 48/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, int 74.74 jo 40.92 White, save match |  | A refusal pulls the lens back about half a meter, then lets it go. Clear rounds did not move. Jump-off 40.92 is within a tenth of 40.85. |
 | M4 coat flat | kept | e4e7f353 | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.458 | Better on the neck. The stretched photo is off, so the neck is solid chestnut. The white blaze stays, from the vertex color. Judged `head` in `d13_flat` against `d13_grass2`. |
 | M3 sky hdr | kept | 1b3c548c | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.464 | Better. A CC0 partly cloudy sky replaces the pink panorama. The first run had not imported the file, so the pink stayed. Judged `sky` and `in_gate` in `d13_hdri2`. |
+| view snap | kept | 4fed7df8 | compile ok, selftest 49/0, playtest 0/4/4, les 25.41, beg 62.14 jo 33.45, int 74.74 jo 40.86 White, save match | 2.462 | Better. A place snaps the boom and the look, so the first view shows the horse. The ride after that keeps the slow follow. Judged `reins_hold` and `play_cam` in `d13_view4`. |
 
 ## T0 rides
 
