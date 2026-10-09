@@ -1,0 +1,16 @@
+rank,area,shot,problem,cause,fix,status,attempts,verdict
+1,world,play_cam,Trees are tan discs on poles and the skyline is a forest of light poles,farm.gd tree and pole builders,CC0 trees in a few shapes and only a handful of lights,open,0,
+2,world,sky,Pink haze washes the color out of the ring,environment sky and fog,CC0 late-afternoon HDRI or a retuned sky with less haze,open,0,
+3,feel,canter_00,Canter speed over animation is 2.93 so the logged legs lag the ground,horse.gd _hold_to_beat,Scale playback to ground speed and advance the stride with distance,open,0,
+4,feel,play_cam,Camera can step on a fast monitor because it reads the physics tick,horse.gd _place_cam,Read get_global_transform_interpolated,closed,1,better
+5,ui,play_cam,The gray controls card covers the horse and nothing grades the release,hud.gd,Fade the card and show Long Right on Deep Chip,open,0,
+6,ui,hud_mid,Scoreboard type is small and gray and the footer sits on the sand,hud.gd,Bigger type pips and a dark band,open,0,
+7,world,play_cam,The ring is empty sand with no stands judge or flowers,farm.gd arena dressing,Bleachers a judge box planters and a banner outside the rail,open,0,
+8,characters,play_cam,Madison's lower legs stick straight out,rider_mesh.gd riding pose,Bend hip and knee so the legs hang,open,0,
+9,characters,head,The coat is smeared on flat faces and the bridle floats,abbott_look.gd,Smooth normals and parent the tack to the head,open,0,
+10,juice,landing,A landing a rail and a clear round feel the same,horse.gd hud.gd,Dip rumble sand spray and a clear celebration,open,0,
+11,audio,play_cam,Hooves are not tied to the foot that is down,horse.gd _hoof_strike,Keep the beat and add a canter breath,open,0,
+12,ui,results,The result card is a static list,hud.gd,Count up the time then the ribbon,open,0,
+13,feel,play_cam,A and D feel slow to answer for a person,horse.gd _process_ride human ramp,Human ramp 4.0 and 3.0 stick curve gait buffer,open,0,
+14,world,fence,Fences read as flat color blocks,fence.gd,Wood roughness stripes and a small number board,open,0,
+15,world,in_gate,A dark band sits between the sand and the rail,farm.gd ground,Kickboard or no band and hoof marks in the sand,open,0,

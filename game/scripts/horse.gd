@@ -206,12 +206,19 @@ func _make_ground_shade() -> void:
 	add_child(ground_shade)
 
 
+func _body_xf() -> Transform3D:
+	# The mesh interpolates between physics ticks. The camera has to read the
+	# same transform, or a fast monitor sees the lens step and the horse slide.
+	return get_global_transform_interpolated()
+
+
 func _place_ground_shade() -> void:
 	if ground_shade == null:
 		return
+	var xf := _body_xf()
 	ground_shade.global_transform = Transform3D(
-		Basis(Vector3.UP, rotation.y),
-		Vector3(global_position.x, 0.03, global_position.z)
+		Basis(Vector3.UP, xf.basis.get_euler().y),
+		Vector3(xf.origin.x, 0.03, xf.origin.z)
 	)
 
 
@@ -468,7 +475,8 @@ func _place_cam() -> void:
 	if cam == null:
 		return
 	var dt := maxf(get_process_delta_time(), 0.001)
-	var horse_yaw := global_rotation.y
+	var body := _body_xf()
+	var horse_yaw := body.basis.get_euler().y
 	if not _rig_ready:
 		_rig_yaw = horse_yaw
 		_rig_ready = true
@@ -492,7 +500,7 @@ func _place_cam() -> void:
 		0.0,
 		-CAM_RIGHT * sin(yaw) + back * cos(yaw)
 	)
-	var boom := Transform3D(Basis(Vector3.UP, _rig_yaw), global_position)
+	var boom := Transform3D(Basis(Vector3.UP, _rig_yaw), body.origin)
 	var world: Vector3 = boom * local
 	var height := CAM_HEIGHT
 	var look_y := CAM_LOOK_Y
@@ -520,17 +528,17 @@ func _place_cam() -> void:
 	if halt_sit > 0.0:
 		height -= 0.12
 		look_y -= 0.08
-	world.y = global_position.y + height + cam_pitch * 0.014
-	world.y = maxf(world.y, global_position.y + CAM_MIN_Y)
+	world.y = body.origin.y + height + cam_pitch * 0.014
+	world.y = maxf(world.y, body.origin.y + CAM_MIN_Y)
 	cam.global_position = world
-	var look := global_position + Vector3(0.0, look_y, 0.0)
+	var look := body.origin + Vector3(0.0, look_y, 0.0)
 	# A stride ahead — you ride to the next spot, not the withers.
-	look -= transform.basis.z * (1.88 + speed * 0.92 + last_stride * 1.08)
+	look -= body.basis.z * (1.88 + speed * 0.92 + last_stride * 1.08)
 	if jumping and jump_fence == null:
-		look -= transform.basis.z * 1.86
+		look -= body.basis.z * 1.86
 		look.y += jump_apex * 0.22
 	if absf(last_turn) > 0.08:
-		look += transform.basis.x * last_turn * -0.38
+		look += body.basis.x * last_turn * -0.38
 	if gait >= 2 and not jumping:
 		var nf := _fence_by_number(GameState.next_fence)
 		if nf:

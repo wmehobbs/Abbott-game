@@ -89,8 +89,9 @@ func _step_off() -> void:
 	if not (n is Node3D):
 		return
 	var horse := n as Node3D
-	var side := horse.global_transform.basis.x
-	var p := horse.global_position + side * 1.35
+	var xf := horse.get_global_transform_interpolated()
+	var side := xf.basis.x
+	var p := xf.origin + side * 1.35
 	p.y = 0.0
 	global_position = p
 	yaw = horse.rotation.y

@@ -29,6 +29,7 @@ func _run() -> void:
 	_madison_snapshot()
 	_courses()
 	_telemetry_guard()
+	_camera_follow()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1018,6 +1019,18 @@ func _sharp() -> void:
 		_fail("sharp", "%s %s" % [mode, aspect])
 		return
 	_ok("sharp")
+
+
+func _camera_follow() -> void:
+	var horse := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	var walker := FileAccess.get_file_as_string("res://scripts/walker.gd")
+	if not horse.contains("get_global_transform_interpolated()"):
+		_fail("camera_follow", "ride camera still reads the raw physics tick")
+		return
+	if not walker.contains("get_global_transform_interpolated()"):
+		_fail("camera_follow", "walk camera still reads the raw physics tick")
+		return
+	_ok("camera_follow")
 
 
 func _telemetry_guard() -> void:
