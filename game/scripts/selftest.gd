@@ -41,6 +41,7 @@ func _run() -> void:
 	_scene_fade()
 	_sky_agx()
 	_cc0_trees()
+	_kick_wood()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1048,6 +1049,22 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _kick_wood() -> void:
+	var kit := FileAccess.get_file_as_string("res://scripts/mesh_kit.gd")
+	var i := kit.find("func wood_kick")
+	if i < 0:
+		_fail("kick_wood", "the kickboard material is gone")
+		return
+	var body := kit.substr(i, 320)
+	if body.contains("kick_dark"):
+		_fail("kick_wood", "the kickboard is still the black plank")
+		return
+	if not body.contains("0.58, 0.40, 0.24"):
+		_fail("kick_wood", "the kickboard is not a wood color")
+		return
+	_ok("kick_wood")
 
 
 func _cc0_trees() -> void:

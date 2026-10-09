@@ -21,7 +21,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M2 result | kept | 4eb8d56a | compile ok, selftest 31/0, playtest 0/4/4, les 25.45, beg 62.14 jo 33.44, save match |  | Better. The card counts the time, then the faults, then the ribbon. A clear round drops confetti. A rail names the fence. The buttons read Retry, Next, Walk the course, and Menu. |
 | M2 fade | kept | 06154b78 | compile ok, selftest 32/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better. Entering the ring fades through black in about a third of a second, then the course name sits at the top. The horse stays in frame. |
 | M3 sky | kept | ec2f2d7d | compile ok, selftest 33/0, playtest 0/4/4, save match | 2.986 | Better. AgX and thinner fog. The ride view is less blown out (luminance 0.66 to 0.49) and a little more colored. The sun was already at 34 degrees. The pink panorama is still the sky. A warm fog pass was not kept. |
-| M3 trees | kept |  | compile ok, selftest 34/0, playtest 0/4/4, save match | 2.463 | Better. Kenney trees in five shapes, painted olive and bark, replace the tan discs. Light poles are four, at the ends of the ring. |
+| M3 trees | kept | 152c556d | compile ok, selftest 34/0, playtest 0/4/4, save match | 2.463 | Better. Kenney trees in five shapes, painted olive and bark, replace the tan discs. Light poles are four, at the ends of the ring. |
+| M3 kick | kept |  | compile ok, selftest 35/0, playtest 0/4/4, save match | 2.464 | Better. The rail base is stained oak instead of a black band. Judged `in_gate` in `d13_kick3` against `d13_trees3`. |
 
 ## T0 rides
 
@@ -66,3 +67,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M2 fade: a black veil rises and falls in about 0.3 s when a ride or a walk starts, and the course name shows at the top. Judged `course_card` in `dist/day12/shots/d13_fade`. `play_cam` is clear of it.
 - M3 sky: AgX, fog density 0.0007, the old cool fog color. Judged `hud_mid` in `dist/day12/shots/d13_sky2` against the baseline. GPU p95 2.986 ms. The first try warmed the fog and was not kept.
 - M3 trees: five Kenney shapes, painted olive and bark, plus a large bush. The shade line and the windbreak use them too. Judged `hud_mid` and `sky` in `dist/day12/shots/d13_trees3`. GPU p95 2.463 ms. The first load failed until Godot imported the glbs. The raw Kenney colors were cyan, so they are painted.
+- M3 kick: a light tint on the dark plank photo did not lift the band. A solid stained oak color does. Judged `in_gate` in `dist/day12/shots/d13_kick3` against `d13_trees3`. GPU p95 2.464 ms.

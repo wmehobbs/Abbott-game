@@ -273,11 +273,9 @@ static func wood_white() -> StandardMaterial3D:
 
 
 static func wood_kick() -> StandardMaterial3D:
-	return mat_tex(harvest_tex([
-		"res://assets/textures/harvest/proc/kick_dark_albedo.jpg",
-		"res://assets/textures/harvest/dark_planks_albedo.jpg",
-		"res://assets/textures/harvest/dark_wood_albedo.jpg",
-	], "res://assets/textures/wood_albedo.jpg"), 0.78, Color(0.22, 0.16, 0.11))
+	# The dark plank photo reads as a black band under the rails.
+	# A stained oak color reads as a kickboard from the ride camera.
+	return mat_color(Color(0.58, 0.40, 0.24), 0.74)
 
 
 static func wood_oak() -> StandardMaterial3D:
