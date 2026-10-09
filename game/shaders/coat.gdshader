@@ -8,8 +8,9 @@ uniform vec3 chestnut : source_color = vec3(0.43, 0.21, 0.11);
 uniform vec3 white_mark : source_color = vec3(0.93, 0.89, 0.82);
 uniform vec3 pink_muzzle : source_color = vec3(0.86, 0.60, 0.54);
 uniform float coat_scale = 4.2;
-uniform float side_strength = 0.82;
-uniform float front_strength = 0.9;
+// coat_clean: the photo projectors smear across the big faces.
+uniform float side_strength = 0.0;
+uniform float front_strength = 0.0;
 
 varying vec3 obj_pos;
 varying vec3 obj_n;

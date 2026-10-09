@@ -45,6 +45,7 @@ func _run() -> void:
 	_bleachers()
 	_leg_tuck()
 	_bridle_fit()
+	_coat_clean()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1052,6 +1053,14 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _coat_clean() -> void:
+	var sh := FileAccess.get_file_as_string("res://shaders/coat.gdshader")
+	if not sh.contains("coat_clean") or not sh.contains("side_strength = 0.0"):
+		_fail("coat_clean", "the photo coat is still painted on")
+		return
+	_ok("coat_clean")
 
 
 func _bridle_fit() -> void:
