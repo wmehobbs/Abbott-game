@@ -1092,15 +1092,20 @@ func _school_yard() -> void:
 	MeshKit.add_child_mi(pile, MeshKit.box(Vector3(0.018, 0.92, 0.018)), MeshKit.mat_color(Color(0.22, 0.14, 0.08), 0.55), "ForkHandle", Vector3(1.62, 0.58, 2.42), Vector3(0.35, 0.0, 0.12))
 	for i: int in range(4):
 		MeshKit.add_child_mi(pile, MeshKit.box(Vector3(0.008, 0.16, 0.008)), barrow_steel, "ForkTine", Vector3(1.78 + float(i) * 0.022, 0.18, 2.28), Vector3(0.85, 0.0, 0.10))
+	# Faces the in-gate. A side-on board is a sliver from the start camera.
+	var cloth := MeshKit.mat_color(Color(0.10, 0.14, 0.32), 0.72)
+	var far_z := RING_D * 0.5 + 0.55
+	var board := MeshKit.add_child_mi(self, MeshKit.box(Vector3(7.2, 1.35, 0.08)), cloth, "HiddenKBanner", Vector3(0.0, 3.15, far_z))
+	board.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var banner := Label3D.new()
-	banner.text = "HIDDEN K  ·  SCHOOLING"
-	banner.font_size = 28
-	banner.pixel_size = 0.0015
+	banner.text = "HIDDEN K"
+	banner.font_size = 96
+	banner.pixel_size = 0.012
 	banner.modulate = Color(0.96, 0.93, 0.86)
 	banner.outline_modulate = Color(0.08, 0.06, 0.04)
-	banner.outline_size = 6
-	banner.position = Vector3(RING_W * 0.5 + 0.22, 1.55, -8.0)
-	banner.rotation.y = -PI * 0.5
+	banner.outline_size = 12
+	banner.position = Vector3(0.0, 3.15, far_z - 0.08)
+	banner.rotation.y = PI
 	add_child(banner)
 
 

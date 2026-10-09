@@ -16,3 +16,4 @@ rank,area,shot,problem,cause,fix,status,attempts,verdict
 13,feel,play_cam,A and D feel slow to answer for a person,horse.gd _process_ride human ramp,Human ramp 4.0 and 3.0 stick curve gait buffer,closed,1,better
 14,world,fence,Fences read as flat color blocks,fence.gd,Wood roughness stripes and a small number board,open,0,
 15,world,in_gate,A dark band sits between the sand and the rail,mesh_kit.gd wood_kick,Stained oak kickboard,closed,2,better
+16,world,in_gate,The far rail has no name,farm.gd HiddenKBanner,Navy HIDDEN K board facing the start,closed,2,better

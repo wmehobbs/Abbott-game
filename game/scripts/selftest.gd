@@ -47,6 +47,7 @@ func _run() -> void:
 	_bridle_fit()
 	_coat_clean()
 	_land_feel()
+	_banner()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1090,6 +1091,14 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _banner() -> void:
+	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
+	if not farm.contains("HiddenKBanner") or not farm.contains("HIDDEN K"):
+		_fail("banner", "the far rail has no Hidden K sign")
+		return
+	_ok("banner")
 
 
 func _bleachers() -> void:
