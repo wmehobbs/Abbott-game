@@ -439,13 +439,13 @@ def paint(obj, arm):
 
     zmin = min(v.co.z for v in mesh.vertices)
     zmax = max(v.co.z for v in mesh.vertices)
-    sock_z = {}
+    sock_top = {}
     for bone_name in ("BackLowerLeg.L", "FrontLowerLeg.R"):
         zs = [worlds[i].z for i, g in enumerate(groups) if g == bone_name]
         if zs:
             lo, hi = min(zs), max(zs)
-            sock_z[bone_name] = (lo + 0.28 * (hi - lo), lo + 0.70 * (hi - lo))
-            print("SOCK", bone_name, "hoof", round(sock_z[bone_name][0], 3), "sock", round(sock_z[bone_name][1], 3), "n", len(zs))
+            sock_top[bone_name] = lo + 0.70 * (hi - lo)
+            print("SOCK", bone_name, "top", round(sock_top[bone_name], 3), "lo", round(lo, 3), "n", len(zs))
     body_z = [worlds[i].z for i, g in enumerate(groups) if g in ("Torso", "Torso2", "Torso3", "Back", "Body")]
     topline_z = float(np.quantile(body_z, 0.85)) if body_z else 3.2
     belly_z = float(np.quantile(body_z, 0.15)) if body_z else 1.5
@@ -486,9 +486,9 @@ def paint(obj, arm):
                 front = max(0.0, min(1.0, (-2.35 - wpos.y) / 0.55))
                 top = max(0.0, min(1.0, (4.22 - wpos.z) / 0.22))
                 blaze_t = edge * front * top
-            hoof_z = sock_z.get(g)
-            is_hoof = hoof_z is not None and wpos.z <= hoof_z[0]
-            is_sock = hoof_z is not None and hoof_z[0] < wpos.z <= hoof_z[1]
+            # White from the sock top down to the hoof. The old lower cut left a
+            # dark band on the pastern, and the hoof material is named Hooves.
+            is_sock = g in sock_top and wpos.z <= sock_top[g]
             tag = "coat"
             # Ear weights cover the poll. Darken the ear tip on the coat so the
             # base does not change material along a triangle edge.
@@ -499,7 +499,7 @@ def paint(obj, arm):
             elif mat.startswith("eye"):
                 col = EYE
                 tag = "eye"
-            elif "hoof" in mat or is_hoof:
+            elif "hoove" in mat or "hoof" in mat:
                 col = HOOF
                 tag = "hoof"
             elif g.startswith("Tail"):

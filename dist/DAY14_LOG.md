@@ -13,7 +13,8 @@ Baseline stills: `dist/day14/renders/v1/side.png`, `threequarter.png`, `head.png
 | H0 | done | b3ec4c5e | Blender stills and strips, no Godot | The current horse is a faceted gray model. Side, three-quarter, head and rear all show flat faces and no blaze. |
 | H1 | green | a327461d | compile 0, selftest 50/0, rides, playtest pass, save matched | v2 is a smooth chestnut. Side, head and rear are clearly better than v1. The first paint was a pale tan. |
 | coat | green | 07a08fb5 | compile 0, selftest 50/0, lesson 25.48, beginner 62.15, jump-off 33.45, 0 faults, save matched | The body is a deep red chestnut beside the title photo. The back and the legs are a shade darker than the barrel. The blaze is still jagged. |
-| face | green | | compile 0, selftest 50/0, lesson 25.43, beginner 62.14, jump-off 33.45, 0 faults, save matched | The blaze is a soft white stripe down the front of the face. The forehead is chestnut, and the dark patches around the eye are gone. Sheet: `dist/day14/renders/face16/sheet.png`. |
+| face | green | 9ef3cb8a | compile 0, selftest 50/0, lesson 25.43, beginner 62.14, jump-off 33.45, 0 faults, save matched | The blaze is a soft white stripe down the front of the face. The forehead is chestnut, and the dark patches around the eye are gone. Sheet: `dist/day14/renders/face16/sheet.png`. |
+| socks | green | | compile 0, selftest 50/0, lesson 25.43, beginner 62.14, jump-off 33.45, 0 faults, save matched | Left hind and right fore: white runs to the hoof, and the hoof is dark. Sheet: `dist/day14/renders/sock1/sheet.png`. |
 | H2 | canter mapped, trot not | | same rides | Canter strip reads one hind, then a diagonal pair, then the leading fore. Trot attempt 1 still has a third foot down. Trot stays on Walk. |
 | H3 | bits only | | | BitL and BitR sit at the mouth and the reins look for those names. The leather straps are in the file and were not clearly on the skin in the head still. |
 | H4 | written | | no download that needs an account | Nothing free beats v2. See dist/DAY14_HORSE_OPTIONS.md. |
@@ -30,6 +31,7 @@ Baseline stills: `dist/day14/renders/v1/side.png`, `threequarter.png`, `head.png
 - v2 stills: `dist/day14/renders/v2g/side.png`, `threequarter.png`, `head.png`, `rear.png`.
 - The pale coat was linear (0.45, 0.17, 0.07), which reads as salmon under this exposure. The photo's cheek sits near sRGB (65, 54, 50). The coat is now a welded vertex color, darker along the topline and the legs, on one material so the shade does not break into patches. Sheet: `dist/day14/renders/coat3/sheet.png`. Barrel pixels about (105, 77, 67). Godot's windowed look is still unproven.
 - The jagged blaze was a hard height cut through the face triangles, plus ear-weighted corners left white on coat faces. The blaze is now a soft weight down the front, the poll stays chestnut, and the ear tips darken on the same coat instead of a second material. Sheet: `dist/day14/renders/face16/sheet.png`.
+- The dark band under each sock was the bottom of the cannon painted as hoof, while the real hoof stayed chestnut. The source material is named Hooves, so "hoof" never matched it. White now runs from the sock top to that hoof, on the left hind and the right fore only. Sheet: `dist/day14/renders/sock1/sheet.png`.
 
 ## NEEDS ERNIE
 
