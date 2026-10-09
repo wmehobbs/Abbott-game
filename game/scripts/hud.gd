@@ -46,6 +46,7 @@ var _reins_fade: float = 1.0
 var _reins_gone: bool = false
 var _reins_latched: bool = false
 var _pip_n: int = -1
+var _reins_device: String = ""
 
 
 func _ready() -> void:
@@ -104,7 +105,17 @@ func _build() -> void:
 	trainer_lab.offset_bottom = -78
 	trainer_lab.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
-	hint = _label(root, "", 18, Vector2.ZERO, Color(0.85, 0.82, 0.75, 0.85))
+	var band := ColorRect.new()
+	band.name = "HintBand"
+	band.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	band.offset_left = 0
+	band.offset_right = 0
+	band.offset_top = -78
+	band.offset_bottom = 0
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.color = Color(0.04, 0.03, 0.02, 0.78)
+	root.add_child(band)
+	hint = _label(root, "", 18, Vector2.ZERO, Color(0.96, 0.93, 0.86, 0.95))
 	hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	hint.offset_left = 48
 	hint.offset_right = -48
@@ -128,9 +139,22 @@ func _build() -> void:
 
 
 func _set_ride_hint() -> void:
-	if hint == null or GameState.mode == "walk":
+	if hint == null:
+		return
+	if GameState.mode == "walk":
+		hint.text = (
+			"Left stick walks   A to mount   clock starts at the flags   Start pause"
+			if GameState.last_device == "pad"
+			else "WASD walk   Enter to mount   clock starts at the flags   Esc pause"
+		)
 		return
 	hint.text = GameState.control_line()
+
+
+func _reins_copy() -> String:
+	if GameState.last_device == "pad":
+		return "The reins\n\nD-pad up  walk, then trot, then canter\nD-pad down  come back a gait\nLeft stick  steer\nHold A  half-halt. He collects.\nLet A go at the canter  ask him to leave\nB  halt\nY  get off and walk the course\nStart  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThis card fades once you move."
+	return "The reins\n\nW  walk, then trot, then canter\nS  come back a gait\nA / D  steer\nHold Space  half-halt. He collects.\nLet Space go at the canter  ask him to leave\nShift  halt\nC  get off and walk the course\nEsc  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThis card fades once you move."
 
 
 func _build_vignette(root: Control) -> void:
@@ -177,7 +201,7 @@ func _build_reins(root: Control) -> void:
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		body.add_theme_font_override("font", sans)
-	body.text = "The reins\n\nW  walk, then trot, then canter\nS  come back a gait\nA / D  steer\nHold Space  half-halt. He collects.\nLet Space go at the canter  ask him to leave\nShift  halt\nC  get off and walk the course\nEsc  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThis card fades once you move."
+	body.text = _reins_copy()
 
 
 func _build_watching(root: Control) -> void:
@@ -520,6 +544,9 @@ func _sync_board() -> void:
 	board.visible = not menu
 	if hint:
 		hint.visible = not menu
+	var band := find_child("HintBand", true, false) as CanvasItem
+	if band:
+		band.visible = hint != null and hint.visible and hint.text != ""
 
 
 func _fit_root() -> void:
@@ -618,6 +645,10 @@ func reset_reins() -> void:
 
 
 func _sync_reins(delta: float) -> void:
+	var body := find_child("ReinsBody", true, false) as Label
+	if body != null and GameState.last_device != _reins_device:
+		_reins_device = GameState.last_device
+		body.text = _reins_copy()
 	var reins := find_child("Reins", true, false) as Control
 	if reins == null or pause_panel == null or result_panel == null:
 		return

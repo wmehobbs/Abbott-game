@@ -36,6 +36,7 @@ func _run() -> void:
 	_riding_aid()
 	_reins_fade()
 	_scoreboard()
+	_hint_band()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1043,6 +1044,17 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _hint_band() -> void:
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	if not hud.contains("HintBand"):
+		_fail("hint_band", "the footer has no band")
+		return
+	if not hud.contains("Left stick  steer"):
+		_fail("hint_band", "the card ignores a controller")
+		return
+	_ok("hint_band")
 
 
 func _scoreboard() -> void:
