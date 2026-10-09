@@ -360,6 +360,57 @@ def dominant_group(obj, vi):
 MUZZLE_WORLD = []
 
 
+def smooth_face(mesh, colors, tags, groups, worlds):
+    """Average the face coat so the blaze edge is a soft band, not a row of teeth."""
+    n = len(mesh.vertices)
+    acc = np.zeros((n, 3), np.float32)
+    cnt = np.zeros(n, np.float32)
+    head = set()
+    for li, tag in enumerate(tags):
+        if tag != "coat":
+            continue
+        vi = mesh.loops[li].vertex_index
+        w = worlds[vi]
+        # Include ear-weighted verts that sit on the forehead. Those were the teeth.
+        if w.z > 3.15 and w.y < -1.55 and abs(w.x) < 0.45:
+            acc[vi] += colors[li]
+            cnt[vi] += 1.0
+            head.add(vi)
+    if not head:
+        return
+    col = np.zeros((n, 3), np.float32)
+    for vi in head:
+        col[vi] = acc[vi] / cnt[vi]
+    ids = np.array(sorted(head), np.int32)
+    pts = np.array(
+        [[worlds[int(i)].x, worlds[int(i)].y, worlds[int(i)].z] for i in ids],
+        np.float32,
+    )
+    neighbors = [[] for _ in range(n)]
+    for i, vi in enumerate(ids):
+        dist = np.linalg.norm(pts - pts[i], axis=1)
+        close = np.flatnonzero((dist > 1e-6) & (dist < 0.07))
+        neighbors[int(vi)] = [int(ids[j]) for j in close]
+    print("FACE_NEAR", round(float(np.mean([len(neighbors[int(i)]) for i in ids])), 1))
+    for _ in range(4):
+        nxt = col.copy()
+        for vi in head:
+            total = col[vi]
+            count = 1.0
+            for nb in neighbors[vi]:
+                total = total + col[nb]
+                count += 1.0
+            nxt[vi] = total / count
+        col = nxt
+    for li, tag in enumerate(tags):
+        if tag != "coat":
+            continue
+        vi = mesh.loops[li].vertex_index
+        if vi in head:
+            colors[li] = col[vi]
+    print("FACE_SMOOTH", len(head))
+
+
 def paint(obj, arm):
     global MUZZLE_WORLD
     mesh = obj.data
@@ -411,30 +462,40 @@ def paint(obj, arm):
             g = groups[vi]
             co = mesh.vertices[vi].co
             wpos = worlds[vi]
-            # Smooth shade: darker along the topline, a little darker down the legs.
-            span = max(topline_z - belly_z, 1e-4)
-            u = max(0.0, min(1.0, (wpos.z - belly_z) / span))
-            # Darken only the upper back so the key light does not wash it out.
-            shade = max(0.0, (u - 0.55) / 0.45) ** 1.3
-            col = CHESTNUT * (1.0 - 0.62 * shade) + TOPLINE * (0.62 * shade)
-            if 0.20 < u < 0.50 and abs(wpos.x) < 0.35 and g in ("Torso", "Torso2", "Torso3", "Back", "Body", ""):
-                col = col * 0.88 + BELLY * 0.12
+            # Darker along the back only. The head is the highest point on the
+            # horse, so a height shade painted the face the same dark as the topline.
+            col = CHESTNUT.copy()
+            if g in ("Torso", "Torso2", "Torso3", "Back", "Body", ""):
+                span = max(topline_z - belly_z, 1e-4)
+                u = max(0.0, min(1.0, (wpos.z - belly_z) / span))
+                shade = max(0.0, (u - 0.55) / 0.45) ** 1.3
+                col = CHESTNUT * (1.0 - 0.62 * shade) + TOPLINE * (0.62 * shade)
+                if 0.20 < u < 0.50 and abs(wpos.x) < 0.35:
+                    col = col * 0.88 + BELLY * 0.12
             if g.startswith(("FrontUpper", "FrontLower", "BackUpper", "BackLower", "BackLeg")):
-                col = col * 0.28 + LEG * 0.72
-            # Wide blaze down the front of the face. Horse faces -Y.
-            blaze = (
-                g in ("Head", "Jaw", "Neck3")
-                and abs(wpos.x) < 0.10
-                and wpos.y < -2.70
-                and 3.15 < wpos.z < 4.45
-            )
+                col = CHESTNUT * 0.28 + LEG * 0.72
+            # Soft blaze down the front of the face. Width and height both fade
+            # across several vertices. A hard z cut sliced triangles into teeth.
+            blaze_t = 0.0
+            if g in ("Head", "Jaw") and wpos.y < -2.35 and 3.15 < wpos.z < 4.30:
+                zn = max(0.0, min(1.0, (wpos.z - 3.25) / 0.90))
+                half = 0.10 + 0.07 * zn
+                nx = abs(wpos.x) / half
+                edge = max(0.0, min(1.0, (1.35 - nx) / 0.90))
+                edge = edge * edge * (3.0 - 2.0 * edge)
+                front = max(0.0, min(1.0, (-2.35 - wpos.y) / 0.55))
+                top = max(0.0, min(1.0, (4.22 - wpos.z) / 0.22))
+                blaze_t = edge * front * top
             hoof_z = sock_z.get(g)
             is_hoof = hoof_z is not None and wpos.z <= hoof_z[0]
             is_sock = hoof_z is not None and hoof_z[0] < wpos.z <= hoof_z[1]
             tag = "coat"
-            if g.startswith("Ear"):
-                col = EAR
-                tag = "ear"
+            # Ear weights cover the poll. Darken the ear tip on the coat so the
+            # base does not change material along a triangle edge.
+            if g.startswith("Ear") and wpos.z > 4.40:
+                t = max(0.0, min(1.0, (wpos.z - 4.40) / 0.30))
+                t = t * t * (3.0 - 2.0 * t)
+                col = col * (1.0 - t) + EAR * t
             elif mat.startswith("eye"):
                 col = EYE
                 tag = "eye"
@@ -444,18 +505,17 @@ def paint(obj, arm):
             elif g.startswith("Tail"):
                 col = TAIL
                 tag = "tail"
-            elif "hair" in mat and wpos.z > 3.55 and wpos.y > -3.05:
+            elif "hair" in mat and wpos.z > 3.55 and wpos.y > -2.15 and not g.startswith(("Head", "Ear", "Jaw")):
+                # Neck crest only. Hair cards on the poll painted as light triangles.
                 col = FLAX
                 tag = "mane"
             elif "muzzle" in mat:
-                col = WHITE * 0.75 + PINK * 0.25 if blaze else PINK
-                tag = "blaze" if blaze else "muzzle"
-            elif blaze:
-                col = WHITE
-                tag = "blaze"
+                col = PINK * (1.0 - blaze_t) + WHITE * blaze_t
             elif is_sock:
                 col = WHITE
                 tag = "sock"
+            elif blaze_t > 0.0:
+                col = col * (1.0 - blaze_t) + WHITE * blaze_t
             colors[li] = col
             tags[li] = tag
 
@@ -505,9 +565,16 @@ def paint(obj, arm):
         mesh.color_attributes.remove(mesh.color_attributes[0])
     attr = mesh.color_attributes.new(name="Col", type="FLOAT_COLOR", domain="CORNER")
     flat = np.ones((len(mesh.loops), 4), np.float32)
-    for li, tag in enumerate(tags):
-        if tag == "coat":
-            flat[li, 0:3] = colors[li]
+    # Coat faces read this layer. A corner tagged ear or mane on a coat face
+    # used to stay at the default white, which drew the jagged forehead.
+    # Other materials keep white corners so they are not tinted on import.
+    coat_slot = slot.get("coat")
+    if coat_slot is not None:
+        for poly in mesh.polygons:
+            if poly.material_index != coat_slot:
+                continue
+            for li in poly.loop_indices:
+                flat[li, 0:3] = colors[li]
     attr.data.foreach_set("color", flat.ravel())
 
     uv = mesh.uv_layers.active.data
