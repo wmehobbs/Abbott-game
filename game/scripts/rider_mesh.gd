@@ -193,15 +193,16 @@ func _spec(hip_x: float, shin_x: float, sx: float) -> Dictionary:
 	var leg := Transform3D(Basis(Vector3(1, 0, 0), deg_to_rad(hip_x)), Vector3(sx * 0.122, -0.018, -0.012))
 	var shin := Transform3D(Basis(Vector3(1, 0, 0), deg_to_rad(shin_x - hip_x)), Vector3(sx * 0.028, -0.148, -0.210))
 	var knee: Vector3 = leg * Vector3(sx * 0.028, -0.148, -0.210)
-	# The barrel is 33 cm wide. These used to land at 15 cm, inside him.
-	knee.x = sx * 0.42
-	# Sitting, the heel is on the iron, outside the skin. In the two-point
+	# The barrel is 33 cm wide. 0.42 stuck the shin straight out.
+	# The thigh lies on the saddle and the heel hangs under the hip.
+	knee.x = sx * 0.22
+	# Sitting, the heel is on the iron. In the two-point
 	# the hip opens and the body rises, so the shin reaches back down.
 	var stand := clampf((hip_x - 14.0) / 16.0, 0.0, 1.0)
 	var drop := lerpf(-0.32, -0.36, stand)
 	var fwd := lerpf(0.130, -0.14, stand)
 	var heel: Vector3 = leg * (shin * Vector3(sx * 0.010, drop, fwd))
-	heel.x = sx * 0.45
+	heel.x = sx * 0.16
 	return {"knee": knee, "heel": heel}
 
 

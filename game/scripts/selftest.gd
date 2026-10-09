@@ -43,6 +43,7 @@ func _run() -> void:
 	_cc0_trees()
 	_kick_wood()
 	_bleachers()
+	_leg_tuck()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1050,6 +1051,14 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _leg_tuck() -> void:
+	var mesh := FileAccess.get_file_as_string("res://scripts/rider_mesh.gd")
+	if not mesh.contains("knee.x = sx * 0.22") or not mesh.contains("heel.x = sx * 0.16"):
+		_fail("leg_tuck", "her legs still stick out")
+		return
+	_ok("leg_tuck")
 
 
 func _bleachers() -> void:
