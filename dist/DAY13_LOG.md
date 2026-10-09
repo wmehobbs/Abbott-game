@@ -39,7 +39,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M3 grass | kept | 0478b86f | compile ok, selftest 46/0, playtest 0/4/4, save match | 2.471 | Better. Pale tufts sit on the lawn just past the rail. The first, smaller set did not show. Judged `in_gate` in `d13_grass2`. |
 | M5 shake | kept | 258519ea | compile ok, selftest 47/0, playtest 0/4/4, save match |  | A refusal shakes the card 4 px for about a fifth of a second. A still cannot catch it. The refuse round still finished at 4 faults. |
 | M5 lens | kept | b04864e0 | compile ok, selftest 48/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, int 74.74 jo 40.92 White, save match |  | A refusal pulls the lens back about half a meter, then lets it go. Clear rounds did not move. Jump-off 40.92 is within a tenth of 40.85. |
-| M4 coat flat | kept |  | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.458 | Better on the neck. The stretched photo is off, so the neck is solid chestnut. The white blaze stays, from the vertex color. Judged `head` in `d13_flat` against `d13_grass2`. |
+| M4 coat flat | kept | e4e7f353 | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.458 | Better on the neck. The stretched photo is off, so the neck is solid chestnut. The white blaze stays, from the vertex color. Judged `head` in `d13_flat` against `d13_grass2`. |
+| M3 sky hdr | kept |  | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.464 | Better. A CC0 partly cloudy sky replaces the pink panorama. The first run had not imported the file, so the pink stayed. Judged `sky` and `in_gate` in `d13_hdri2`. |
 
 ## T0 rides
 
@@ -102,3 +103,5 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M5 shake: the card slides 4 px when he refuses, then settles. It is wired from the refusal, not from the stop itself. Selftest 47/0. The playtest refusal stayed at 4 faults.
 - M5 lens: the camera eases back 0.48 m on a refusal and returns. Lesson 25.43, beginner 62.14 and jump-off 33.45, intermediate 74.74 and jump-off 40.92 White. All teleported false. The clear rounds never set the pull.
 - M4 coat flat: the triplanar photo no longer paints the neck. The blaze and socks still come from the vertex color. Judged `head` in `dist/day12/shots/d13_flat` against `d13_grass2`. The side view barely changed. GPU p95 2.458 ms.
+- M3 sky hdr: Poly Haven `kloofendal_48d_partly_cloudy` at 2K, CC0, energy 0.42. The pink panorama is the fallback if the file is missing. Judged `sky` and `in_gate` in `dist/day12/shots/d13_hdri2`. GPU p95 2.464 ms on High. Low, measured on `d13_low` before this sky, was 1.790 ms.
+- Low picture quality GPU p95 1.790 ms (`d13_low`, after 2 s, 102 samples). High stayed near 2.46 ms.

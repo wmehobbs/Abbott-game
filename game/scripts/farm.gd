@@ -1957,7 +1957,13 @@ func _sky() -> void:
 	var we := Environment.new()
 	we.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
-	if ResourceLoader.exists("res://assets/textures/sky.jpg"):
+	var hdri := "res://assets/cc0/polyhaven/kloofendal_48d_partly_cloudy_2k.hdr"
+	if ResourceLoader.exists(hdri):
+		var pano := PanoramaSkyMaterial.new()
+		pano.panorama = load(hdri)
+		pano.energy_multiplier = 0.42
+		sky.sky_material = pano
+	elif ResourceLoader.exists("res://assets/textures/sky.jpg"):
 		var pano := PanoramaSkyMaterial.new()
 		pano.panorama = load("res://assets/textures/sky.jpg")
 		pano.energy_multiplier = 0.72

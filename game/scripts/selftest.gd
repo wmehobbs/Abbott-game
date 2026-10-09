@@ -1222,6 +1222,9 @@ func _sky_agx() -> void:
 	if not farm.contains("fog_density = 0.0007"):
 		_fail("sky_agx", "the haze is still thick")
 		return
+	if not farm.contains("kloofendal_48d_partly_cloudy_2k.hdr"):
+		_fail("sky_agx", "the late-day sky is missing")
+		return
 	_ok("sky_agx")
 
 
