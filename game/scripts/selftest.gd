@@ -39,6 +39,7 @@ func _run() -> void:
 	_hint_band()
 	_result_count()
 	_scene_fade()
+	_sky_agx()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1046,6 +1047,17 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _sky_agx() -> void:
+	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
+	if not farm.contains("TONE_MAPPER_AGX"):
+		_fail("sky_agx", "the tonemap is not AgX")
+		return
+	if not farm.contains("fog_density = 0.0007"):
+		_fail("sky_agx", "the haze is still thick")
+		return
+	_ok("sky_agx")
 
 
 func _scene_fade() -> void:

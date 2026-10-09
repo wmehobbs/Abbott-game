@@ -1824,7 +1824,7 @@ func _sky() -> void:
 	we.sky_rotation = Vector3(0.0, 1.6, 0.0)
 	we.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	we.ambient_light_energy = 0.82
-	we.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	we.tonemap_mode = Environment.TONE_MAPPER_AGX
 	we.tonemap_exposure = 1.02
 	we.ssao_enabled = true
 	we.ssao_radius = 1.05
@@ -1839,9 +1839,9 @@ func _sky() -> void:
 	we.glow_hdr_threshold = 1.25
 	we.fog_enabled = true
 	we.fog_light_color = Color(0.80, 0.84, 0.88)
-	we.fog_density = 0.0018
-	we.fog_aerial_perspective = 0.38
-	we.fog_sky_affect = 0.28
+	we.fog_density = 0.0007
+	we.fog_aerial_perspective = 0.18
+	we.fog_sky_affect = 0.16
 	we.adjustment_enabled = true
 	we.adjustment_brightness = 1.03
 	we.adjustment_contrast = 1.06
