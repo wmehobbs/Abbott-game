@@ -33,6 +33,7 @@ func _run() -> void:
 	_ground_cycle()
 	_human_steer()
 	_leave_grade()
+	_riding_aid()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1025,6 +1026,21 @@ func _sharp() -> void:
 		_fail("sharp", "%s %s" % [mode, aspect])
 		return
 	_ok("sharp")
+
+
+func _riding_aid() -> void:
+	var horse := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	var settings := FileAccess.get_file_as_string("res://scripts/settings.gd")
+	if not horse.contains("func _sync_aid") or not horse.contains("3.35"):
+		_fail("riding_aid", "stride dots are missing")
+		return
+	if not horse.contains("session_kind == \"lesson\""):
+		_fail("riding_aid", "shows would get the dots")
+		return
+	if not settings.contains("riding_aid: bool = true"):
+		_fail("riding_aid", "the option does not default on")
+		return
+	_ok("riding_aid")
 
 
 func _leave_grade() -> void:

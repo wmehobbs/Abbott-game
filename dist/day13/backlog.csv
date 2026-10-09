@@ -5,6 +5,7 @@ rank,area,shot,problem,cause,fix,status,attempts,verdict
 4,feel,play_cam,Camera can step on a fast monitor because it reads the physics tick,horse.gd _place_cam,Read get_global_transform_interpolated,closed,1,better
 5,ui,play_cam,The gray controls card covers the horse at the start,hud.gd,Fade the card after the first move or 6 seconds,open,0,
 5b,ui,grade,Nothing on screen said if the release was early or right,hud.gd show_grade,Show Long spot Right on Deep or Chip for one second,closed,1,better
+5c,ui,three_strides,Nothing showed where to leave the ground,horse.gd _sync_aid,Three stride dots and a takeoff ring on lessons only,closed,1,better
 6,ui,hud_mid,Scoreboard type is small and gray and the footer sits on the sand,hud.gd,Bigger type pips and a dark band,open,0,
 7,world,play_cam,The ring is empty sand with no stands judge or flowers,farm.gd arena dressing,Bleachers a judge box planters and a banner outside the rail,open,0,
 8,characters,play_cam,Madison's lower legs stick straight out,rider_mesh.gd riding pose,Bend hip and knee so the legs hang,open,0,

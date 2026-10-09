@@ -217,6 +217,96 @@ func _body_xf() -> Transform3D:
 	return get_global_transform_interpolated()
 
 
+var _aid_dots: Array[MeshInstance3D] = []
+var _aid_ring: MeshInstance3D
+
+
+func _aid_on() -> bool:
+	if GameState.settings and not GameState.settings.riding_aid:
+		return false
+	return GameState.session_kind == "lesson"
+
+
+func _sync_aid() -> void:
+	var show := _aid_on() and GameState.mode == "ride" and not jumping
+	var fence := _fence_by_number(GameState.next_fence) if show else null
+	if fence == null:
+		_aid_visible(false)
+		return
+	_ensure_aid()
+	var dir := fence.takeoff_dir()
+	var ahead := _ahead_of(fence)
+	for k in 3:
+		var dist := 2.55 + 3.35 * float(k + 1)
+		var dot: MeshInstance3D = _aid_dots[k]
+		dot.visible = true
+		dot.global_position = fence.global_position - dir * dist + Vector3(0.0, 0.06, 0.0)
+		var mat := dot.material_override as StandardMaterial3D
+		var lit := ahead <= dist + 0.4
+		mat.albedo_color = Color(0.95, 0.86, 0.42, 0.95) if lit else Color(0.75, 0.72, 0.62, 0.35)
+	var ring_on := charging and gait == CANTER
+	_aid_ring.visible = ring_on
+	if ring_on:
+		_aid_ring.global_position = fence.takeoff_point() + Vector3(0.0, 0.05, 0.0)
+		var rm := _aid_ring.material_override as StandardMaterial3D
+		var ideal := _leave_word(ahead) == "Now."
+		rm.albedo_color = Color(0.45, 0.82, 0.38, 0.9) if ideal else Color(0.92, 0.86, 0.62, 0.55)
+
+
+func _aid_visible(on: bool) -> void:
+	for d in _aid_dots:
+		d.visible = on
+	if _aid_ring:
+		_aid_ring.visible = on
+
+
+func _ensure_aid() -> void:
+	if not _aid_dots.is_empty():
+		return
+	var arena := get_parent()
+	if arena == null:
+		return
+	for _i in 3:
+		var dot := MeshInstance3D.new()
+		var sphere := SphereMesh.new()
+		sphere.radius = 0.16
+		sphere.height = 0.32
+		dot.mesh = sphere
+		dot.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		var mat := StandardMaterial3D.new()
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.albedo_color = Color(0.75, 0.72, 0.62, 0.35)
+		dot.material_override = mat
+		dot.visible = false
+		arena.add_child(dot)
+		_aid_dots.append(dot)
+	var ring := MeshInstance3D.new()
+	var tor := TorusMesh.new()
+	tor.inner_radius = 0.72
+	tor.outer_radius = 0.92
+	ring.mesh = tor
+	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var rmat := StandardMaterial3D.new()
+	rmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	rmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	rmat.albedo_color = Color(0.92, 0.86, 0.62, 0.55)
+	ring.material_override = rmat
+	ring.visible = false
+	arena.add_child(ring)
+	_aid_ring = ring
+
+
+func _ahead_of(fence: JumpFence) -> float:
+	var to := fence.global_position - global_position
+	to.y = 0.0
+	var approach := -transform.basis.z
+	approach.y = 0.0
+	if approach.length() < 0.001:
+		return 99.0
+	return to.dot(approach.normalized())
+
+
 func _place_ground_shade() -> void:
 	if ground_shade == null:
 		return
@@ -312,6 +402,7 @@ func _process(delta: float) -> void:
 	if mounted and controllable and not jumping:
 		_camera(delta)
 	_place_cam()
+	_sync_aid()
 	_tel_sample(delta)
 	_place_ground_shade()
 	_update_reins()
