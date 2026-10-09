@@ -31,6 +31,19 @@ The full set is `dist/day12/shots/d13_final`. The contact sheet is `dist/day12/s
 - Save matches the snapshot. SHA256 `DCAF7E223063BC97406AE83CA2C714CF15CC6D1EB60925518B1AC0249DE5B4A8`.
 - GPU p95 on High 2.466 ms. On Low 1.646 ms. The cap was 6.0. Both numbers are this tree, after the first 2 seconds.
 
+## After the freeze
+
+At 05:34 the opening camera was still aimed at the old spot after he was placed, so the first view was sand and the horse was a speck. A place now snaps the boom and the look. The ride after that still uses the slow follow.
+
+Judged `reins_hold` and `play_cam` in `dist/day12/shots/d13_view4`. He is in the lower middle, and the reins card sits on the right.
+
+- Selftest 49 pass, 0 fail.
+- Playtest clear 0, refuse 4, rail 4, pass true.
+- Lesson 0 faults, 25.41 s, no jump-off, teleported false.
+- Beginner 0 faults, 62.14 s, jump-off 0 faults, 33.45 s, teleported false.
+- Intermediate 0 faults, 74.74 s, jump-off 1 time fault, 40.86 s, White, teleported false.
+- Save still matches the snapshot.
+
 ## Play this first
 
 From the title, Lesson is the focused button. One press starts it. The first line is "Press W to walk." Each step after that is one line. The riding aid is on.

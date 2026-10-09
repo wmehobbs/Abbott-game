@@ -55,6 +55,7 @@ func _run() -> void:
 	_grass_clumps()
 	_refuse_shake()
 	_refuse_cam()
+	_view_snap()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1109,6 +1110,17 @@ func _refuse_cam() -> void:
 		_fail("refuse_cam", "a refusal does not pull the lens")
 		return
 	_ok("refuse_cam")
+
+
+func _view_snap() -> void:
+	var horse := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	if not horse.contains("absf(dy) > 0.9") or not horse.contains("cam_look_ready = false"):
+		_fail("view_snap", "a place leaves the lens in the ring")
+		return
+	if not horse.contains("distance_to(interp.origin) > 1.0") or not horse.contains("distance_to(look) > 8.0"):
+		_fail("view_snap", "a place leaves the look on the old spot")
+		return
+	_ok("view_snap")
 
 
 func _refuse_shake() -> void:

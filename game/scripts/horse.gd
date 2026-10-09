@@ -588,14 +588,26 @@ func _place_cam() -> void:
 	if cam == null:
 		return
 	var dt := maxf(get_process_delta_time(), 0.001)
-	var body := _body_xf()
+	var interp := _body_xf()
+	var body := interp
+	# A place moves him many meters in one frame. The interpolated pose is
+	# still the old spot, so read the real pose for that frame.
+	if global_position.distance_to(interp.origin) > 1.0:
+		body = global_transform
+		cam_look_ready = false
 	var horse_yaw := body.basis.get_euler().y
 	if not _rig_ready:
 		_rig_yaw = horse_yaw
 		_rig_ready = true
 	else:
 		var dy := wrapf(horse_yaw - _rig_yaw, -PI, PI)
-		_rig_yaw += dy * (1.0 - pow(0.0015, dt))
+		# A place can turn him halfway around in one frame. Snap the boom
+		# so the opening view shows the horse, then keep the slow follow.
+		if absf(dy) > 0.9 and not jumping:
+			_rig_yaw = horse_yaw
+			cam_look_ready = false
+		else:
+			_rig_yaw += dy * (1.0 - pow(0.0015, dt))
 		_rig_yaw = wrapf(_rig_yaw, -PI, PI)
 	var yaw := deg_to_rad(cam_yaw)
 	var halted := gait == 0 and speed < 0.35 and not jumping
@@ -699,7 +711,7 @@ func _place_cam() -> void:
 		look = _look_rail.lerp(look, smoothstep(0.0, 1.0, back_t))
 		if back_t >= 1.0:
 			_look_rail_set = false
-	if not cam_look_ready:
+	if not cam_look_ready or cam_look.distance_to(look) > 8.0:
 		cam_look = look
 		cam_look_ready = true
 	else:
