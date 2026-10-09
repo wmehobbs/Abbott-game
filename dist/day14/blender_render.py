@@ -269,7 +269,12 @@ def inspect(arm, mn, mx, meshes, outdir):
         if o.data.uv_layers:
             uv = o.data.uv_layers.active.name if o.data.uv_layers.active else o.data.uv_layers[0].name
         mats = [m.name if m else "" for m in o.data.materials]
-        print("MESH", o.name, "polys", len(o.data.polygons), "verts", len(o.data.vertices), "uv", uv, "mats", mats)
+        edge_uses = {}
+        for poly in o.data.polygons:
+            for key in poly.edge_keys:
+                edge_uses[key] = edge_uses.get(key, 0) + 1
+        boundary = sum(1 for n in edge_uses.values() if n == 1)
+        print("MESH", o.name, "polys", len(o.data.polygons), "verts", len(o.data.vertices), "uv", uv, "boundary", boundary, "mats", mats)
         info["meshes"].append({
             "name": o.name,
             "polys": len(o.data.polygons),

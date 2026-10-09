@@ -46,6 +46,7 @@ func _run() -> void:
 	_leg_tuck()
 	_bridle_fit()
 	_coat_clean()
+	_barn_note_player()
 	_land_feel()
 	_banner()
 	_score_sign()
@@ -1086,6 +1087,18 @@ func _coat_clean() -> void:
 		_fail("coat_clean", "the head photo is still stretched on")
 		return
 	_ok("coat_clean")
+
+
+func _barn_note_player() -> void:
+	var shown := ContentLibrary._player_note("Welcome Stake. Outside track. First fence quiet. Hidden K note 1170.")
+	if shown.contains("Hidden K note") or shown != "Welcome Stake. Outside track. First fence quiet.":
+		_fail("barn_note", shown)
+		return
+	var quiet := ContentLibrary._player_note("Walk him first. Then a quiet canter.")
+	if quiet != "Walk him first. Then a quiet canter.":
+		_fail("barn_note", quiet)
+		return
+	_ok("barn_note")
 
 
 func _bridle_fit() -> void:

@@ -1267,7 +1267,7 @@ func _bind_rig() -> void:
 	if anim == null:
 		return
 	anim.active = true
-	for n in ["Idle", "Walk", "Gallop"]:
+	for n in ["Idle", "Walk", "Gallop", "Trot", "Canter"]:
 		if anim.has_animation(n):
 			anim.get_animation(n).loop_mode = Animation.LOOP_LINEAR
 	for n in ["Gallop_Jump", "Jump_toIdle"]:
@@ -1451,8 +1451,14 @@ func _animate(delta: float, _spd: float) -> void:
 			_play_named("Walk", 1.0, true, false)
 			_hold_to_beat("Walk", 0.25, hz)
 		3:
-			_play_named("Gallop", 1.0, true, false)
-			_hold_to_beat("Gallop", 0.115, hz)
+			# Canter's first frame is the outside hind on the sand. Gallop stays
+			# the fallback when that clip is missing, so the old mesh still rides.
+			if anim != null and anim.has_animation("Canter"):
+				_play_named("Canter", 1.0, true, false)
+				_hold_to_beat("Canter", 0.0, hz)
+			else:
+				_play_named("Gallop", 1.0, true, false)
+				_hold_to_beat("Gallop", 0.115, hz)
 		_:
 			_play_named("Idle", 1.0, true, false)
 

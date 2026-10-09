@@ -357,4 +357,12 @@ static func barn_note(session: String, conf: float, ride: float, timing: float) 
 		hits.append(str(row.get("text", "")))
 	if hits.is_empty():
 		return ""
-	return str(hits[randi() % hits.size()])
+	return _player_note(str(hits[randi() % hits.size()]))
+
+
+static func _player_note(text: String) -> String:
+	# The catalogue text ends with a debug index. The card shows the sentence.
+	var cut := text.find(" Hidden K note")
+	if cut >= 0:
+		return text.substr(0, cut).strip_edges()
+	return text

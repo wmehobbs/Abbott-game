@@ -14,6 +14,8 @@ def main() -> int:
     if args and args[0] == "--script":
         script = args[1]
         args = args[2:]
+    if args and args[0] == "--":
+        args = args[1:]
     cmd = [BLENDER, "-b", "--factory-startup", "-P", script, "--", *args]
     print("CMD", " ".join(cmd), flush=True)
     proc = subprocess.Popen(

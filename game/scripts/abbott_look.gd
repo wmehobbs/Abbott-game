@@ -5,7 +5,7 @@ extends RefCounted
 ## Madison is parented to the Torso bone (behind the withers, ahead of the hips).
 
 const People := preload("res://scripts/person_look.gd")
-const MESH := "res://assets/meshes/quaternius-WhiteHorse.glb"
+const MESH := "res://assets/meshes/abbott_v2.glb"
 const TARGET_LENGTH := 2.25
 const SHADER := "res://shaders/abbott_whitehorse.gdshader"
 const TEX_FACE := "res://assets/textures/abbott_shader_face.jpg"
@@ -31,7 +31,9 @@ static func build(host: Node3D) -> Dictionary:
 		inst.name = "Mesh"
 		visual.add_child(inst)
 		_fit_horse(inst)
-		_paint_whitehorse(inst)
+		# v2 carries its own coat. The photo shader stays for the Quaternius mesh.
+		if not str(MESH).ends_with("abbott_v2.glb"):
+			_paint_whitehorse(inst)
 	else:
 		push_warning("WhiteHorse mesh missing")
 
@@ -265,6 +267,9 @@ static func _mount_on_spine(host: Node3D, skel: Skeleton3D, mesh_root: Node) -> 
 static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 	if skel == null or skel.find_bone("Head") < 0:
 		return
+	# v2 already has BitL and BitR on the head. A second pair would steal the reins.
+	if _named(mesh_root, "BitL") != null:
+		return
 	var bone := BoneAttachment3D.new()
 	bone.name = "BridleAttach"
 	bone.bone_name = "Head"
@@ -322,6 +327,18 @@ static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 	# The straps still miss the skin. Hide them. The bit markers stay so the reins have an end.
 	_hide_meshes(att)
 	print("TACK place crown=", crown, " brow=", brow, " nose=", nose, " bit=", bitp)
+
+
+static func _named(n: Node, want: String) -> Node:
+	if n == null:
+		return null
+	if n.name == want:
+		return n
+	for c in n.get_children():
+		var hit := _named(c, want)
+		if hit:
+			return hit
+	return null
 
 
 static func _hide_meshes(n: Node) -> void:

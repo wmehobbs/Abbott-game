@@ -1,5 +1,8 @@
 # Hidden K — ride cert status
 
+**9 Oct, day. Abbott is the painted horse.**
+`MESH` in abbott_look.gd points at abbott_v2.glb. Lesson 25.45, beginner 62.14, jump-off 33.44, playtest pass, selftest 50/0. Nothing free beat v2. Version stays 2.348.0.0.
+
 **9 Oct, overnight. The place and the feel.**
 
 The pink sky is a cloudy day, the disc trees are gone, and a lesson tells you if the leave was early or right. The first view shows the horse. The before/after sheet, the gate numbers, and what to play first are at the top of `dist/DAY13_LOG.md`. Version stays 2.348.0.0. Nothing pushed.
