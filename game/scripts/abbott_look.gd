@@ -265,17 +265,16 @@ static func _mount_on_spine(host: Node3D, skel: Skeleton3D, mesh_root: Node) -> 
 static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 	if skel == null or skel.find_bone("Head") < 0:
 		return
-	var att := BoneAttachment3D.new()
-	att.name = "BridleAttach"
-	att.bone_name = "Head"
-	skel.add_child(att)
+	var bone := BoneAttachment3D.new()
+	bone.name = "BridleAttach"
+	bone.bone_name = "Head"
+	skel.add_child(bone)
 	# The straps were built on the head box and sat in the air in front of the face.
-	var fit := Node3D.new()
-	fit.name = "BridleFit"
-	fit.position = Vector3(0.0, -0.07, 0.0)
-	fit.scale = Vector3(0.92, 0.92, 0.92)
-	att.add_child(fit)
-	att = fit
+	var att := Node3D.new()
+	att.name = "BridleFit"
+	att.position = Vector3(0.0, -0.07, 0.0)
+	att.scale = Vector3(0.92, 0.92, 0.92)
+	bone.add_child(att)
 	var leather := MeshKit.leather(Color(0.36, 0.20, 0.11), 0.40)
 	var navy := MeshKit.mat_color(NAVY, 0.38)
 	var steel := MeshKit.steel()
@@ -320,7 +319,16 @@ static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 		mark.name = "BitL" if sx < 0.0 else "BitR"
 		mark.position = ring
 		att.add_child(mark)
+	# The straps still miss the skin. Hide them. The bit markers stay so the reins have an end.
+	_hide_meshes(att)
 	print("TACK place crown=", crown, " brow=", brow, " nose=", nose, " bit=", bitp)
+
+
+static func _hide_meshes(n: Node) -> void:
+	if n is MeshInstance3D or n is CSGShape3D:
+		n.visible = false
+	for c in n.get_children():
+		_hide_meshes(c)
 
 
 static func _bone_local_aabb(skel: Skeleton3D, root: Node, bone: String) -> AABB:

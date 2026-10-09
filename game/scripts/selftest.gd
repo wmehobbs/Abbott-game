@@ -46,6 +46,7 @@ func _run() -> void:
 	_leg_tuck()
 	_bridle_fit()
 	_coat_clean()
+	_land_feel()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1055,6 +1056,18 @@ func _riding_aid() -> void:
 	_ok("riding_aid")
 
 
+func _land_feel() -> void:
+	var horse := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	var settings := FileAccess.get_file_as_string("res://scripts/settings.gd")
+	if not horse.contains("func _land_feel") or not horse.contains("LandSpray"):
+		_fail("land_feel", "landing does not throw sand")
+		return
+	if not settings.contains("var rumble"):
+		_fail("land_feel", "rumble has no switch")
+		return
+	_ok("land_feel")
+
+
 func _coat_clean() -> void:
 	var sh := FileAccess.get_file_as_string("res://shaders/coat.gdshader")
 	if not sh.contains("coat_clean") or not sh.contains("side_strength = 0.0"):
@@ -1065,8 +1078,8 @@ func _coat_clean() -> void:
 
 func _bridle_fit() -> void:
 	var look := FileAccess.get_file_as_string("res://scripts/abbott_look.gd")
-	if not look.contains("BridleFit") or not look.contains("0.92, 0.92, 0.92"):
-		_fail("bridle_fit", "the bridle still sits on the raw head box")
+	if not look.contains("BridleFit") or not look.contains("_hide_meshes"):
+		_fail("bridle_fit", "the floating straps are still drawn")
 		return
 	_ok("bridle_fit")
 

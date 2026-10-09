@@ -65,6 +65,7 @@ var _gait_buf: int = 0
 var visual: Node3D
 var rider: Node3D
 var dust: GPUParticles3D
+var _land_spray: GPUParticles3D
 var rein_l: MeshInstance3D
 var rein_r: MeshInstance3D
 var bit_l: Node3D
@@ -1128,6 +1129,7 @@ func _process_jump(delta: float) -> void:
 				jump_fence.knock("late" if will_rail else "short")
 				rail_down.emit()
 				_play_sfx("rail")
+				_rumble(0.15, 0.85, 0.16)
 	if u >= 1.0:
 		jumping = false
 		global_position.y = 0.0
@@ -1147,7 +1149,48 @@ func _process_jump(delta: float) -> void:
 		will_rail = false
 		gait = CANTER
 		land_recover = 2.72
+		_land_feel()
 		_play_named("Gallop", 1.0, true, false)
+
+
+func _land_feel() -> void:
+	_rumble(0.22, 0.48, 0.12)
+	if _land_spray == null:
+		_land_spray = GPUParticles3D.new()
+		_land_spray.name = "LandSpray"
+		_land_spray.one_shot = true
+		_land_spray.explosiveness = 0.92
+		_land_spray.amount = 36
+		_land_spray.lifetime = 0.42
+		_land_spray.visibility_aabb = AABB(Vector3(-1.4, 0.0, -1.4), Vector3(2.8, 1.4, 2.8))
+		var quad := QuadMesh.new()
+		quad.size = Vector2(0.07, 0.07)
+		var mat := StandardMaterial3D.new()
+		mat.albedo_color = Color(0.72, 0.58, 0.38, 0.85)
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+		quad.material = mat
+		_land_spray.draw_pass_1 = quad
+		var proc := ParticleProcessMaterial.new()
+		proc.direction = Vector3(0, 1, 0)
+		proc.spread = 58.0
+		proc.initial_velocity_min = 1.1
+		proc.initial_velocity_max = 2.6
+		proc.gravity = Vector3(0, -9.0, 0)
+		proc.scale_min = 0.45
+		proc.scale_max = 1.0
+		_land_spray.process_material = proc
+		_land_spray.position = Vector3(0.0, 0.12, 0.35)
+		add_child(_land_spray)
+	_land_spray.restart()
+	_land_spray.emitting = true
+
+
+func _rumble(weak: float, strong: float, sec: float) -> void:
+	if GameState.settings == null or not GameState.settings.rumble:
+		return
+	Input.start_joy_vibration(0, weak, strong, sec)
 
 
 func _do_refuse(fence: JumpFence, why: String = "refuse") -> void:

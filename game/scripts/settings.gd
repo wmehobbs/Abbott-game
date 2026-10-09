@@ -17,6 +17,7 @@ var invert_look: bool = false
 var camera_bob: bool = true
 var camera_motion: float = 70.0
 var riding_aid: bool = true
+var rumble: bool = true
 var fov: float = 52.0
 var fullscreen: bool = false
 var vsync: bool = true
@@ -45,6 +46,7 @@ func load_from(path: String = PATH) -> void:
 	camera_bob = bool(cfg.get_value("feel", "camera_bob", camera_bob))
 	camera_motion = clampf(float(cfg.get_value("feel", "camera_motion", camera_motion)), 0.0, 100.0)
 	riding_aid = bool(cfg.get_value("feel", "riding_aid", riding_aid))
+	rumble = bool(cfg.get_value("feel", "rumble", rumble))
 	fov = clampf(float(cfg.get_value("picture", "fov", fov)), 42.0, 62.0)
 	fullscreen = bool(cfg.get_value("picture", "fullscreen", fullscreen))
 	vsync = bool(cfg.get_value("picture", "vsync", vsync))
@@ -68,6 +70,7 @@ func save_to(path: String = PATH) -> void:
 	cfg.set_value("feel", "camera_bob", camera_bob)
 	cfg.set_value("feel", "camera_motion", camera_motion)
 	cfg.set_value("feel", "riding_aid", riding_aid)
+	cfg.set_value("feel", "rumble", rumble)
 	cfg.set_value("picture", "fov", fov)
 	cfg.set_value("picture", "fullscreen", fullscreen)
 	cfg.set_value("picture", "vsync", vsync)
@@ -156,6 +159,7 @@ func _defaults() -> void:
 	camera_bob = true
 	camera_motion = 70.0
 	riding_aid = true
+	rumble = true
 	fov = 52.0
 	fullscreen = false
 	vsync = true

@@ -59,6 +59,7 @@ func _picture() -> void:
 	_check("Horse bob", "camera_bob")
 	_slider("Camera motion", 0.0, 100.0, 5.0, "camera_motion", false)
 	_check("Riding aid", "riding_aid")
+	_check("Controller rumble", "rumble")
 	_slider("Field of view", 42.0, 62.0, 1.0, "fov", false)
 	_check("Fullscreen", "fullscreen")
 	_check("VSync", "vsync")
