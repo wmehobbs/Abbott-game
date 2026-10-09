@@ -60,6 +60,8 @@ var refuse_cool: float = 0.0
 var mounted: bool = true
 var controllable: bool = true
 var stick_gait_armed: bool = true
+## A gait tap during a jump or the landing, applied on the first grounded frame.
+var _gait_buf: int = 0
 var visual: Node3D
 var rider: Node3D
 var dust: GPUParticles3D
@@ -373,17 +375,24 @@ func _process_ride(delta: float) -> void:
 	if not GameState.demo_ride:
 		var stick_x := Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
 		if absf(stick_x) > 0.25:
-			turn -= stick_x
+			var mag := (absf(stick_x) - 0.25) / 0.75
+			mag = clampf(mag * mag, 0.0, 1.0)
+			turn -= signf(stick_x) * mag
 	turn = clampf(turn, -1.0, 1.0)
-	# The auto rider keeps the old ramp. A person gets a slower bend and a
-	# slower release, so the turn comes on like a horse instead of a hinge.
+	# The auto rider keeps the old ramp. human_ramp 4.0 / 3.0 so a person
+	# feels him answer, then settle, without moving the cert rider.
 	var ramp := 4.0
 	if not _at_ai_reins():
-		ramp = 2.6 if absf(turn) + 0.05 >= absf(last_turn) else 1.8
+		ramp = 4.0 if absf(turn) + 0.05 >= absf(last_turn) else 3.0
 	last_turn = move_toward(last_turn, turn, ramp * delta)
 	var turn_rate: float = GAIT_TURN[gait] * GameState.turn_scale()
 	if gait == 0:
 		turn_rate = 1.4
+	if not _at_ai_reins():
+		if gait == 1:
+			turn_rate *= 1.12
+		elif gait == 2:
+			turn_rate *= 1.08
 	if collecting:
 		turn_rate *= 1.14
 	rotate_y(turn * turn_rate * delta)
@@ -438,22 +447,29 @@ func _process_ride(delta: float) -> void:
 
 
 func _gait_input() -> void:
+	var dir := 0
 	if Input.is_action_just_pressed("gait_up"):
-		_set_gait(mini(CANTER, gait + 1))
-	if Input.is_action_just_pressed("gait_down"):
-		_set_gait(maxi(0, gait - 1))
-	# Left stick Y: tap, not hold. Up = gait up.
-	if GameState.demo_ride:
+		dir = 1
+	elif Input.is_action_just_pressed("gait_down"):
+		dir = -1
+	if not GameState.demo_ride:
+		var sy := -Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+		if absf(sy) < 0.45:
+			stick_gait_armed = true
+		elif stick_gait_armed:
+			stick_gait_armed = false
+			if sy > 0.45:
+				dir = 1
+			elif sy < -0.45:
+				dir = -1
+	if dir != 0 and (jumping or land_recover > 0.2):
+		_gait_buf = dir
 		return
-	var sy := -Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
-	if absf(sy) < 0.45:
-		stick_gait_armed = true
-	elif stick_gait_armed:
-		stick_gait_armed = false
-		if sy > 0.45:
-			_set_gait(mini(CANTER, gait + 1))
-		elif sy < -0.45:
-			_set_gait(maxi(0, gait - 1))
+	if _gait_buf != 0 and not jumping and land_recover <= 0.2:
+		_set_gait(gait + _gait_buf)
+		_gait_buf = 0
+	if dir != 0:
+		_set_gait(gait + dir)
 
 
 func _apply_gravity(delta: float) -> void:

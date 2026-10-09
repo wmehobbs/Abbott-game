@@ -11,7 +11,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | T0 | done |  | compile ok, selftest 22/0, playtest 0/4/4, rides below, save match | 2.952 | Baseline. Pink sky, disc trees, stick poles, empty ring. |
 | M1 camera | kept | b6d39711 | compile ok, selftest 23/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.45, save match |  | Better. The lens reads the interpolated horse. Jerk p95 42354 to 3448. Pops after 0.5 s: 1 to 0. |
 | M1 legs | kept | 6b8ccf0f | compile ok, selftest 24/0, playtest 0/4/4, les 25.43, beg 62.13 jo 33.45, save match |  | Better. Walk 1.00, trot 1.00, canter 1.08. The cruise strip is still one gallop cycle per stride. Legs now slow when he slows. |
-| M1 feel | kept |  | compile ok, selftest 24/0, playtest 0/4/4, les 25.44, beg 62.14 jo 33.45, pops after 0.5 s = 0, save match |  | Better. Canter bob, a lean up to 3 degrees, a short lens push on the leave. Camera motion slider defaults to 70. An extra landing thud popped once, so the landing stays on the dip that was already there. |
+| M1 feel | kept | 1c6f1b43 | compile ok, selftest 24/0, playtest 0/4/4, les 25.44, beg 62.14 jo 33.45, pops after 0.5 s = 0, save match |  | Better. Canter bob, a lean up to 3 degrees, a short lens push on the leave. Camera motion slider defaults to 70. An extra landing thud popped once, so the landing stays on the dip that was already there. |
+| M1 steer | kept |  | compile ok, selftest 25/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better for a person. Human ramp is 4.0 in and 3.0 out. Walk and trot turn a little more. The stick has a curve past the 0.25 deadzone. A gait tap in the air waits for the landing. The auto rider's ramp stays 4.0. |
 
 ## T0 rides
 
@@ -47,3 +48,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - Seat-probe Godots 114976 and 115652 stay. This night did not start them.
 - M1 camera: `_place_cam` and the ground shade read `get_global_transform_interpolated()`. The walk step-off does too. Lesson 25.42 (T0 25.43), beginner 62.14 and jump-off 33.45. Jerk p95 fell from 42354 to 3448. No pop after the first half second.
 - M1 legs: the clip rate is his ground speed, and the stride advances by distance. At the posted canter that is the same cycle as before, so the strip still shows one gallop per stride. Walk 1.00, trot 1.00, canter 1.08. Lesson 25.43, beginner 62.13 and jump-off 33.45.
+- M1 feel: Options has Camera motion, 0 to 100, default 70. At 70 the canter bobs 4 cm, the horizon leans up to 3 degrees, and the leave pushes the lens in for a sixth of a second. The landing dip stays the one that was already shipping. Lesson 25.44, beginner 62.14 and jump-off 33.45. No pop after the first half second.

@@ -31,6 +31,7 @@ func _run() -> void:
 	_telemetry_guard()
 	_camera_follow()
 	_ground_cycle()
+	_human_steer()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1023,6 +1024,14 @@ func _sharp() -> void:
 		_fail("sharp", "%s %s" % [mode, aspect])
 		return
 	_ok("sharp")
+
+
+func _human_steer() -> void:
+	var text := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	if not text.contains("human_ramp 4.0 / 3.0") or not text.contains("_gait_buf"):
+		_fail("human_steer", "the person ramp or the gait buffer is missing")
+		return
+	_ok("human_steer")
 
 
 func _ground_cycle() -> void:
