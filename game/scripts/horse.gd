@@ -125,6 +125,7 @@ var _cam_land_h: float = 0.0
 var _cam_land_ly: float = 0.0
 var _cam_was_jumping: bool = false
 var _cam_col: float = 0.0
+var _cam_back: float = 0.0
 ## Mouse look holds. The stick still springs home. A spring on the same
 ## frame as the mouse undoes the pixel and the lens chatters.
 var _mouse_look: float = 0.0
@@ -607,6 +608,9 @@ func _place_cam() -> void:
 		back += 0.42
 	if halt_sit > 0.0:
 		back += 0.52
+	if _cam_back > 0.0:
+		back += _cam_back
+		_cam_back = maxf(0.0, _cam_back - dt * 1.6)
 	var local := Vector3(
 		CAM_RIGHT * cos(yaw) + back * sin(yaw),
 		0.0,
@@ -1206,6 +1210,7 @@ func _do_refuse(fence: JumpFence, why: String = "refuse") -> void:
 	_rider_cue("easy")
 	refused.emit()
 	global_position += transform.basis.z * 0.45
+	_cam_back = 0.48
 	# Not a one-frame tilt: the check eases in from where he was (_animate).
 	_check_t = 0.0
 	_check_x0 = visual.rotation.x if visual else 0.0
