@@ -32,7 +32,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M5 land | kept | 56b6b3f5 | same gates as the bridle fix |  | A sand burst and a short rumble on the landing, a harder rumble on a rail. Options has Controller rumble, default on. The landing still is framed on the fence, so the burst is small in that picture. |
 | M3 banner | kept | d3980199 | compile ok, selftest 41/0, playtest 0/4/4, save match | 2.472 | Better. A navy board at the far rail reads HIDDEN K from the in-gate. The first board sat edge-on and did not show. Judged `in_gate` in `d13_banner2`. |
 | M3 score | kept | 0bec441f | compile ok, selftest 42/0, playtest 0/4/4, save match | 2.474 | Better. A SCORE board on the in-gate rail reads TIME and FAULTS. The first sat outside the rail and the rail hid it. Judged `in_gate` in `d13_score2`. |
-| M3 stripes | kept |  | compile ok, selftest 43/0, playtest 0/4/4, save match | 2.476 | Better. Each rail has a cream band and a green band. The pole radius and the knock box are unchanged. Judged `fence` in `d13_stripe`. |
+| M3 stripes | kept | a8ca017c | compile ok, selftest 43/0, playtest 0/4/4, save match | 2.476 | Better. Each rail has a cream band and a green band. The pole radius and the knock box are unchanged. Judged `fence` in `d13_stripe`. |
+| M3 ground lines | kept |  | compile ok, selftest 44/0, playtest 0/4/4, save match | 2.475 | Better. The ground poles are a quiet tan instead of bright white. Judged `fence` in `d13_ground` against `d13_stripe`. |
 
 ## T0 rides
 
@@ -88,3 +89,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M3 banner: a navy board past the far rail, facing the start, reads HIDDEN K. The first try was a thin board on the side rail and the start camera saw its edge. Judged `in_gate` in `dist/day12/shots/d13_banner2`. GPU p95 2.472 ms.
 - M3 score: a dark board on the in-gate side rail reads SCORE, with TIME and FAULTS under it. No collision. The first placement was outside the rail and the rail hid it. Judged `in_gate` in `dist/day12/shots/d13_score2`. GPU p95 2.474 ms.
 - M3 stripes: a cream sleeve and a green sleeve on each rail, outside the pole so the collision radius stays 0.045. Judged `fence` in `dist/day12/shots/d13_stripe`. The approach stills changed with them. GPU p95 2.476 ms.
+- M3 ground lines: the two poles on the sand are tinted tan (0.70, 0.66, 0.58) instead of near-white. Judged `fence` in `dist/day12/shots/d13_ground` against `d13_stripe`. GPU p95 2.475 ms.

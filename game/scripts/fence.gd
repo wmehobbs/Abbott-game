@@ -121,9 +121,10 @@ func set_current(on: bool) -> void:
 
 
 func _ground_line() -> void:
-	var white := MeshKit.mat_tex("res://assets/textures/pole_white_albedo.jpg", 0.48, Color(0.95, 0.94, 0.90))
+	# Quieter than the jump rails, so the ground poles do not glare.
+	var white := MeshKit.mat_tex("res://assets/textures/pole_white_albedo.jpg", 0.72, Color(0.70, 0.66, 0.58))
 	if white == null or (white is StandardMaterial3D and (white as StandardMaterial3D).albedo_texture == null):
-		white = MeshKit.mat_color(Color(0.94, 0.93, 0.88), 0.5)
+		white = MeshKit.mat_color(Color(0.70, 0.66, 0.58), 0.72)
 	var rail := MeshInstance3D.new()
 	var cyl := CylinderMesh.new()
 	cyl.top_radius = 0.056

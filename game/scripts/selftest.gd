@@ -50,6 +50,7 @@ func _run() -> void:
 	_banner()
 	_score_sign()
 	_rail_bands()
+	_ground_quiet()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1093,6 +1094,19 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _ground_quiet() -> void:
+	var fence := FileAccess.get_file_as_string("res://scripts/fence.gd")
+	var i := fence.find("func _ground_line")
+	if i < 0:
+		_fail("ground_quiet", "the ground lines are gone")
+		return
+	var body := fence.substr(i, 420)
+	if not body.contains("0.70, 0.66, 0.58"):
+		_fail("ground_quiet", "the ground lines are still bright")
+		return
+	_ok("ground_quiet")
 
 
 func _rail_bands() -> void:
