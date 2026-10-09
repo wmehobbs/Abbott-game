@@ -158,7 +158,7 @@ func _capture_arena() -> void:
 		await get_tree().process_frame
 		_watch_ride()
 		if GameState.round_complete and _hud and _hud.get("result_panel"):
-			await get_tree().create_timer(0.3).timeout
+			await get_tree().create_timer(1.2).timeout
 			_set_hud(true)
 			_save("results")
 			_got["results"] = true

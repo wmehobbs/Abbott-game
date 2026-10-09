@@ -17,7 +17,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M2 aid | kept | ff14f953 | compile ok, selftest 27/0, playtest 0/4/4, les 25.42, beg 62.13 jo 33.44, save match |  | Better. Three stride dots sit on the lesson approach and light as he closes. A ring marks the takeoff spot while he is collected, and it turns with the leave word. Shows stay off. The leave math was not edited. |
 | M2 reins | kept | 7a8209f5 | compile ok, selftest 28/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.45, save match |  | Better. The reins card is up at the halt and fades once he steps off. Pause puts it back at the lower left, clear of the buttons. |
 | M2 board | kept | 268cf13f | compile ok, selftest 29/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.45, save match |  | Better. The clock is larger on a darker card. Three fence pips mark the one he is riding. In the last 10 seconds the clock turns amber. |
-| M2 band | kept |  | compile ok, selftest 30/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better. The hint sits on a dark band in cream type. A controller gets its own card and its own footer line. |
+| M2 band | kept | 530a7c3d | compile ok, selftest 30/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better. The hint sits on a dark band in cream type. A controller gets its own card and its own footer line. |
+| M2 result | kept |  | compile ok, selftest 31/0, playtest 0/4/4, les 25.45, beg 62.14 jo 33.44, save match |  | Better. The card counts the time, then the faults, then the ribbon. A clear round drops confetti. A rail names the fence. The buttons read Retry, Next, Walk the course, and Menu. |
 
 ## T0 rides
 
@@ -58,3 +59,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M2 reins: the card fades after the first step, or after 6 seconds if he stands. A new round shows it again. Pause draws it at the lower left. Judged `reins_hold` against `hud_mid` in `dist/day12/shots/d13_reins2`. The horse is clear once he is moving.
 - M2 board: time is 56 px on a darker card, with a pip for each fence. The current one is gold. `clock_amber` in `dist/day12/shots/d13_board` shows 176 / 180 in amber. That still sets the clock for one frame and puts it back.
 - M2 band: the footer is cream type on a dark strip. Judged `hud_mid` in `dist/day12/shots/d13_band`. The reins card and the walk line follow the keyboard or the controller.
+- M2 result: the card counts for about a second, then shows the round. Confetti falls on a clear. Michelle already says the clear line. Judged `results` in `dist/day12/shots/d13_result`. A rail adds "Rail down at fence N." There is no replay still yet.

@@ -47,6 +47,10 @@ var _reins_gone: bool = false
 var _reins_latched: bool = false
 var _pip_n: int = -1
 var _reins_device: String = ""
+var _result_f: int = 0
+var _result_time: float = 0.0
+var _result_age: float = -1.0
+var _result_shown: bool = false
 
 
 func _ready() -> void:
@@ -351,11 +355,12 @@ func _build_result(root: Control) -> void:
 	box.add_child(stats)
 	jump_off_btn = _btn(box, "Stay for the jump-off", jump_off_requested)
 	jump_off_btn.visible = false
-	_btn(box, "Ride again", retry_requested)
+	_btn(box, "Ride again", retry_requested).text = "Retry"
 	next_btn = _btn(box, "Next class", next_class_requested)
+	next_btn.text = "Next"
 	next_btn.visible = false
-	_btn(box, "Course walk", walk_requested)
-	_btn(box, "Back to the barn", _quit_title)
+	_btn(box, "Course walk", walk_requested).text = "Walk the course"
+	_btn(box, "Back to the barn", _quit_title).text = "Menu"
 
 
 func _quit_title() -> void:
@@ -625,6 +630,7 @@ func _process(_delta: float) -> void:
 	_sync_callout(_delta)
 	_sync_capture()
 	_sync_reins(_delta)
+	_sync_result(_delta)
 	var watching := find_child("Watching", true, false)
 	if watching:
 		watching.visible = (
@@ -845,13 +851,57 @@ func _on_faults(f: int) -> void:
 
 func _on_finished(f: int, t: float) -> void:
 	result_panel.visible = true
+	_result_f = f
+	_result_time = t
+	_result_age = 0.0
+	_result_shown = false
+	_clear_confetti()
+	if f == 0 and not GameState.eliminated:
+		_spawn_confetti()
+	var stats: Label = result_panel.find_child("Stats", true, false)
+	if stats:
+		stats.text = "0.00\n0 faults"
+	if jump_off_btn:
+		jump_off_btn.visible = false
+	if next_btn:
+		next_btn.visible = false
+	var ribbon: ColorRect = result_panel.find_child("Ribbon", true, false)
+	var ribbon_name: Label = result_panel.find_child("RibbonName", true, false)
+	if ribbon:
+		ribbon.visible = false
+	if ribbon_name:
+		ribbon_name.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+# result_count: time, then faults, then the ribbon. A clear round drops confetti.
+func _sync_result(delta: float) -> void:
+	if _result_age < 0.0 or result_panel == null or not result_panel.visible:
+		return
+	_result_age += delta
+	var stats: Label = result_panel.find_child("Stats", true, false)
+	var shown_t := _result_time * clampf(_result_age / 0.7, 0.0, 1.0)
+	var shown_f := _result_f if _result_age >= 0.7 else 0
+	if stats and not _result_shown:
+		stats.text = "%0.2f\n%d faults" % [shown_t, shown_f]
+	if _result_age >= 1.05 and not _result_shown:
+		_result_shown = true
+		_show_result_settled()
+	_tick_confetti(delta)
+	if _result_age > 2.4:
+		_clear_confetti()
+		_result_age = -1.0
+
+
+func _show_result_settled() -> void:
 	var stats: Label = result_panel.find_child("Stats", true, false)
 	if stats:
 		var extra := ""
-		if f < GameState.best_faults or (f == GameState.best_faults and is_equal_approx(t, GameState.best_time)):
+		if _result_f < GameState.best_faults or (_result_f == GameState.best_faults and is_equal_approx(_result_time, GameState.best_time)):
 			extra = "\nNew best."
+		var rail := _rail_line()
 		var allowed := "%0.0f" % GameState.time_allowed()
-		stats.text = "%s%s\n%s\nTime allowed %ss\n%s\n%s" % [GameState.result_line(), extra, GameState.class_title(), allowed, GameState.barn_note(), GameState.best_line()]
+		stats.text = "%s%s\n%s\nTime allowed %ss\n%s\n%s%s" % [GameState.result_line(), extra, GameState.class_title(), allowed, GameState.barn_note(), GameState.best_line(), rail]
 	if jump_off_btn:
 		jump_off_btn.visible = GameState.can_offer_jump_off()
 	if next_btn:
@@ -880,7 +930,58 @@ func _on_finished(f: int, t: float) -> void:
 			ribbon_name.visible = name != ""
 			ribbon_name.text = "%s ribbon" % name
 			ribbon_name.modulate = col
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _rail_line() -> String:
+	if GameState.rail_nums.is_empty():
+		return ""
+	var bits: PackedStringArray = PackedStringArray()
+	for n in GameState.rail_nums:
+		bits.append(str(int(n)))
+	return "\nRail down at fence %s." % ", ".join(bits)
+
+
+func _spawn_confetti() -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+	var colors: Array[Color] = [
+		Color(0.72, 0.16, 0.18),
+		Color(0.93, 0.78, 0.38),
+		Color(0.95, 0.93, 0.86),
+		Color(0.45, 0.62, 0.34),
+	]
+	for i in 28:
+		var flake := ColorRect.new()
+		flake.name = "Confetti"
+		flake.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		flake.color = colors[i % colors.size()]
+		flake.size = Vector2(7, 12)
+		flake.position = Vector2(rng.randf_range(80, 1840), rng.randf_range(-40, 80))
+		flake.set_meta("vy", rng.randf_range(180, 420))
+		flake.set_meta("vx", rng.randf_range(-40, 40))
+		result_panel.add_child(flake)
+
+
+func _tick_confetti(delta: float) -> void:
+	if result_panel == null:
+		return
+	for c in result_panel.get_children():
+		if str(c.name) != "Confetti":
+			continue
+		var flake := c as ColorRect
+		if flake == null:
+			continue
+		var vy := float(flake.get_meta("vy")) + 240.0 * delta
+		flake.set_meta("vy", vy)
+		flake.position += Vector2(float(flake.get_meta("vx")), vy) * delta
+
+
+func _clear_confetti() -> void:
+	if result_panel == null:
+		return
+	for c in result_panel.get_children():
+		if str(c.name) == "Confetti":
+			c.queue_free()
 
 
 func _next_class_id() -> String:

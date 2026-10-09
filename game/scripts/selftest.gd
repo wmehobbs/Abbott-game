@@ -37,6 +37,7 @@ func _run() -> void:
 	_reins_fade()
 	_scoreboard()
 	_hint_band()
+	_result_count()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1044,6 +1045,17 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _result_count() -> void:
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	if not hud.contains("result_count") or not hud.contains("Confetti"):
+		_fail("result_count", "the result does not count up")
+		return
+	if not hud.contains("Rail down at fence"):
+		_fail("result_count", "a rail is not named")
+		return
+	_ok("result_count")
 
 
 func _hint_band() -> void:
