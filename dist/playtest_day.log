@@ -37,3 +37,5 @@ MICHELLE soft | Come again.
 PLAYTEST rail faults=4
 PLAYTEST wrote E:/Workspace/Madison/game/../dist/playtest_results.json
 PLAYTEST done pass=true
+WARNING: [Physics interpolation] Interpolated Camera3D triggered from outside physics process: "/root/Arena/Abbott/Cam" (possibly benign).
+   at: _notification (scene/3d/camera_3d.cpp:218)

@@ -10,7 +10,7 @@ ERROR: Parse JSON failed. Error at line 0: Expected '}'
        [0] _parse_save_file (res://scripts/game_state.gd:791)
        [1] _read_save (res://scripts/game_state.gd:800)
        [2] read_save_migrated (res://scripts/game_state.gd:715)
-       [3] _bak_recovers (res://scripts/selftest.gd:135)
+       [3] _bak_recovers (res://scripts/selftest.gd:162)
        [4] _run (res://scripts/selftest.gd:26)
 WARNING: Abbott save is not valid JSON: user://selftest/trunc.json
    at: push_warning (core/variant/variant_utility.cpp:1033)
@@ -18,14 +18,14 @@ WARNING: Abbott save is not valid JSON: user://selftest/trunc.json
        [0] _parse_save_file (res://scripts/game_state.gd:794)
        [1] _read_save (res://scripts/game_state.gd:800)
        [2] read_save_migrated (res://scripts/game_state.gd:715)
-       [3] _bak_recovers (res://scripts/selftest.gd:135)
+       [3] _bak_recovers (res://scripts/selftest.gd:162)
        [4] _run (res://scripts/selftest.gd:26)
 WARNING: Abbott save rejected. Trying the backup.
    at: push_warning (core/variant/variant_utility.cpp:1033)
    GDScript backtrace (most recent call first):
        [0] _read_save (res://scripts/game_state.gd:804)
        [1] read_save_migrated (res://scripts/game_state.gd:715)
-       [2] _bak_recovers (res://scripts/selftest.gd:135)
+       [2] _bak_recovers (res://scripts/selftest.gd:162)
        [3] _run (res://scripts/selftest.gd:26)
 SELFTEST PASS truncated_recovers_from_bak
 ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'this'
@@ -34,7 +34,7 @@ ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', 
        [0] _parse_save_file (res://scripts/game_state.gd:791)
        [1] _read_save (res://scripts/game_state.gd:800)
        [2] read_save_migrated (res://scripts/game_state.gd:715)
-       [3] _garbage_defaults (res://scripts/selftest.gd:148)
+       [3] _garbage_defaults (res://scripts/selftest.gd:175)
        [4] _run (res://scripts/selftest.gd:27)
 WARNING: Abbott save is not valid JSON: user://selftest/garbage.json
    at: push_warning (core/variant/variant_utility.cpp:1033)
@@ -42,26 +42,53 @@ WARNING: Abbott save is not valid JSON: user://selftest/garbage.json
        [0] _parse_save_file (res://scripts/game_state.gd:794)
        [1] _read_save (res://scripts/game_state.gd:800)
        [2] read_save_migrated (res://scripts/game_state.gd:715)
-       [3] _garbage_defaults (res://scripts/selftest.gd:148)
+       [3] _garbage_defaults (res://scripts/selftest.gd:175)
        [4] _run (res://scripts/selftest.gd:27)
 WARNING: Abbott save rejected. Trying the backup.
    at: push_warning (core/variant/variant_utility.cpp:1033)
    GDScript backtrace (most recent call first):
        [0] _read_save (res://scripts/game_state.gd:804)
        [1] read_save_migrated (res://scripts/game_state.gd:715)
-       [2] _garbage_defaults (res://scripts/selftest.gd:148)
+       [2] _garbage_defaults (res://scripts/selftest.gd:175)
        [3] _run (res://scripts/selftest.gd:27)
 WARNING: Abbott save unreadable at user://selftest/garbage.json. Using defaults.
    at: push_warning (core/variant/variant_utility.cpp:1033)
    GDScript backtrace (most recent call first):
        [0] read_save_migrated (res://scripts/game_state.gd:717)
-       [1] _garbage_defaults (res://scripts/selftest.gd:148)
+       [1] _garbage_defaults (res://scripts/selftest.gd:175)
        [2] _run (res://scripts/selftest.gd:27)
 SELFTEST PASS garbage_uses_defaults
 SELFTEST PASS old_save_migrates
 SELFTEST PASS madison_snapshot
 SELFTEST PASS ship_courses
 SELFTEST PASS telemetry_guard
+SELFTEST PASS camera_follow
+SELFTEST PASS ground_cycle
+SELFTEST PASS human_steer
+SELFTEST PASS leave_grade
+SELFTEST PASS riding_aid
+SELFTEST PASS reins_fade
+SELFTEST PASS scoreboard
+SELFTEST PASS hint_band
+SELFTEST PASS result_count
+SELFTEST PASS scene_fade
+SELFTEST PASS sky_agx
+SELFTEST PASS cc0_trees
+SELFTEST PASS kick_wood
+SELFTEST PASS bleachers
+SELFTEST PASS leg_tuck
+SELFTEST PASS bridle_fit
+SELFTEST PASS coat_clean
+SELFTEST PASS land_feel
+SELFTEST PASS banner
+SELFTEST PASS score_sign
+SELFTEST PASS rail_bands
+SELFTEST PASS ground_quiet
+SELFTEST PASS current_ring
+SELFTEST PASS grass_clumps
+SELFTEST PASS refuse_shake
+SELFTEST PASS refuse_cam
+SELFTEST PASS view_snap
 SELFTEST PASS settings
 SELFTEST PASS layout
 FIT flatten armature scale=(100.0, 100.0, 100.0) keep_rot=(-90.0, 0.0, 0.0)
@@ -104,7 +131,7 @@ HORSE mesh=WhiteHorse anim=true seat=Torso rider_parent=Seat
 RIDER mesh scale 0.91304347826087 bones 62
 SELFTEST PASS arena_scene
 SELFTEST PASS player_save_untouched
-SELFTEST SUMMARY pass=22 fail=0
+SELFTEST SUMMARY pass=49 fail=0
 WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2536)
 ERROR: 1 resources still in use at exit (run with --verbose for details).
