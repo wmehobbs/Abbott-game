@@ -25,7 +25,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M3 kick | kept | f7fa323e | compile ok, selftest 35/0, playtest 0/4/4, save match | 2.464 | Better. The rail base is stained oak instead of a black band. Judged `in_gate` in `d13_kick3` against `d13_trees3`. |
 | M3 track | reverted |  |  |  | Same. A shader oval and a rail band did not show in the stills. Mesh strips used the sand tint and disappeared into the footing. Put back. |
 | M3 stands | kept | 8cc51f67 | compile ok, selftest 36/0, playtest 0/4/4, save match | 2.481 | Better. Two stands with three people each sit past the far rail. Judged `in_gate` in `d13_stand2`. The side-on pair looked like a pile and was moved. |
-| M4 legs | kept |  | compile ok, selftest 37/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.46, int 74.74 jo 40.87 White, save match |  | Better. Her thighs sit on the saddle and the heels hang under her hips. Judged `halt_rear` and `halt_side` in `d13_legs` against `d13_stand2`. |
+| M4 legs | kept | 385a61e3 | compile ok, selftest 37/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.46, int 74.74 jo 40.87 White, save match |  | Better. Her thighs sit on the saddle and the heels hang under her hips. Judged `halt_rear` and `halt_side` in `d13_legs` against `d13_stand2`. |
+| M4 bridle | kept |  | compile ok, selftest 38/0, playtest 0/4/4, save match |  | Better. The brow bar no longer crosses his eyes. The straps are scaled onto the head bone. Judged `halt_rear` in `d13_bridle2` against `d13_legs`. A harder pull put the hardware on the saddle and was not kept. |
 
 ## T0 rides
 
@@ -74,3 +75,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M3 track: not kept. Three tries (a darker oval, a rail band in the sand shader, then footing strips) did not read as hoof marks from the in-gate. The sand shader is back as it shipped.
 - M3 stands: two three-step stands past the far rail, three people on each, no collision. Judged `in_gate` in `dist/day12/shots/d13_stand2`. GPU p95 2.481 ms. A first pair along the long sides was edge-on and was moved.
 - M4 legs: the knee sat 42 cm out, so the shin stuck straight out. It is 22 cm now, and the heel is 16 cm, under the hip. The fold still follows the hip angle. Lesson 25.43, beginner 62.14 and jump-off 33.46, intermediate 74.74 and jump-off 40.87 White. Judged `halt_rear` in `dist/day12/shots/d13_legs` against `d13_stand2`.
+- M4 bridle: the straps sit on a fit node under the head bone, scaled to 0.92 and pulled back 7 cm. The bar across the eyes is gone. Judged `halt_rear` in `dist/day12/shots/d13_bridle2` against `d13_legs`. The coat is still smeared.

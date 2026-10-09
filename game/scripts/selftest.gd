@@ -44,6 +44,7 @@ func _run() -> void:
 	_kick_wood()
 	_bleachers()
 	_leg_tuck()
+	_bridle_fit()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1051,6 +1052,14 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _bridle_fit() -> void:
+	var look := FileAccess.get_file_as_string("res://scripts/abbott_look.gd")
+	if not look.contains("BridleFit") or not look.contains("0.92, 0.92, 0.92"):
+		_fail("bridle_fit", "the bridle still sits on the raw head box")
+		return
+	_ok("bridle_fit")
 
 
 func _leg_tuck() -> void:

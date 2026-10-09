@@ -9,7 +9,7 @@ rank,area,shot,problem,cause,fix,status,attempts,verdict
 6,ui,hud_mid,Scoreboard type is small and gray and the footer sits on the sand,hud.gd HintBand,Bigger type pips and a dark band,closed,2,better
 7,world,play_cam,The ring is empty sand with no stands judge or flowers,farm.gd _bleachers,Two stands past the far rail,closed,2,better
 8,characters,play_cam,Madison's lower legs stick straight out,rider_mesh.gd _spec,Knees at 22 cm and heels under the hip,closed,1,better
-9,characters,head,The coat is smeared on flat faces and the bridle floats,abbott_look.gd,Smooth normals and parent the tack to the head,open,0,
+9,characters,head,The coat is smeared on flat faces and the bridle floats,abbott_look.gd BridleFit,Bridle scaled onto the head; coat still open,open,2,bridle better
 10,juice,landing,A landing a rail and a clear round feel the same,horse.gd hud.gd,Dip rumble sand spray and a clear celebration,open,0,
 11,audio,play_cam,Hooves are not tied to the foot that is down,horse.gd _hoof_strike,Keep the beat and add a canter breath,open,0,
 12,ui,results,The result card is a static list,hud.gd _sync_result,Count up the time then the ribbon,closed,1,better

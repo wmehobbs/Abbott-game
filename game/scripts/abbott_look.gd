@@ -269,6 +269,13 @@ static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 	att.name = "BridleAttach"
 	att.bone_name = "Head"
 	skel.add_child(att)
+	# The straps were built on the head box and sat in the air in front of the face.
+	var fit := Node3D.new()
+	fit.name = "BridleFit"
+	fit.position = Vector3(0.0, -0.07, 0.0)
+	fit.scale = Vector3(0.92, 0.92, 0.92)
+	att.add_child(fit)
+	att = fit
 	var leather := MeshKit.leather(Color(0.36, 0.20, 0.11), 0.40)
 	var navy := MeshKit.mat_color(NAVY, 0.38)
 	var steel := MeshKit.steel()
