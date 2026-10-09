@@ -43,7 +43,7 @@ Judged `reins_hold` and `play_cam` in `dist/day12/shots/d13_view4`. He is in the
 - Beginner 0 faults, 62.14 s, jump-off 0 faults, 33.45 s, teleported false.
 - Intermediate 0 faults, 74.74 s, jump-off 1 time fault, 40.86 s, White, teleported false.
 - Save still matches the snapshot.
-- GPU p95 on that shot set, High, 2.462 ms after the first 2 seconds. The cap is 6.0.
+- GPU p95 on that shot set, after the first 2 seconds: High 2.462 ms, Low 1.692 ms. The cap is 6.0.
 
 ## Play this first
 
