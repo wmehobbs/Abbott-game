@@ -30,6 +30,7 @@ func _run() -> void:
 	_courses()
 	_telemetry_guard()
 	_camera_follow()
+	_ground_cycle()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1019,6 +1020,14 @@ func _sharp() -> void:
 		_fail("sharp", "%s %s" % [mode, aspect])
 		return
 	_ok("sharp")
+
+
+func _ground_cycle() -> void:
+	var text := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	if not text.contains("ground_cycle"):
+		_fail("ground_cycle", "leg cycle is not tied to ground speed")
+		return
+	_ok("ground_cycle")
 
 
 func _camera_follow() -> void:

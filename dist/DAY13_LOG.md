@@ -9,7 +9,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | item | status | commit | gates | GPU p95 | verdict |
 | --- | --- | --- | --- | --- | --- |
 | T0 | done |  | compile ok, selftest 22/0, playtest 0/4/4, rides below, save match | 2.952 | Baseline. Pink sky, disc trees, stick poles, empty ring. |
-| M1 camera | kept |  | compile ok, selftest 23/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.45, save match |  | Better. The lens reads the interpolated horse. Jerk p95 42354 to 3448. Pops after 0.5 s: 1 to 0. |
+| M1 camera | kept | b6d39711 | compile ok, selftest 23/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.45, save match |  | Better. The lens reads the interpolated horse. Jerk p95 42354 to 3448. Pops after 0.5 s: 1 to 0. |
+| M1 legs | kept |  | compile ok, selftest 24/0, playtest 0/4/4, les 25.43, beg 62.13 jo 33.45, save match |  | Better. Walk 1.00, trot 1.00, canter 1.08. The cruise strip is still one gallop cycle per stride. Legs now slow when he slows. |
 
 ## T0 rides
 
@@ -44,3 +45,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - Walker already interpolates because the camera is a child. The step-off now reads the horse's interpolated transform too.
 - Seat-probe Godots 114976 and 115652 stay. This night did not start them.
 - M1 camera: `_place_cam` and the ground shade read `get_global_transform_interpolated()`. The walk step-off does too. Lesson 25.42 (T0 25.43), beginner 62.14 and jump-off 33.45. Jerk p95 fell from 42354 to 3448. No pop after the first half second.
+- M1 legs: the clip rate is his ground speed, and the stride advances by distance. At the posted canter that is the same cycle as before, so the strip still shows one gallop per stride. Walk 1.00, trot 1.00, canter 1.08. Lesson 25.43, beginner 62.13 and jump-off 33.45.

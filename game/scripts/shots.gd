@@ -197,25 +197,19 @@ func _capture_canter_strip() -> void:
 	# Physics stays off. This is a picture of the legs, not a ride.
 	_horse.gait = Horse.CANTER
 	_horse.speed = Horse.GAIT_SPEED[Horse.CANTER]
-	_horse._play_named("Gallop", 1.0, true, true)
 	var origin := _horse.global_position
 	var yaw := _horse.rotation.y
 	var basis := Basis(Vector3.UP, yaw)
 	var forward := -basis.z
 	var side := basis.x
 	var stride := Horse.GAIT_SPEED[Horse.CANTER] / maxf(Horse.STRIDE_HZ[Horse.CANTER], 0.01)
-	var clip_len := 1.0
-	if _horse.anim and _horse.anim.has_animation("Gallop"):
-		clip_len = _horse.anim.get_animation("Gallop").length
+	var dt := 1.0 / (12.0 * Horse.STRIDE_HZ[Horse.CANTER])
 	var mid := origin + forward * stride * 0.5
 	for i in 12:
 		var u := float(i) / 12.0
 		_horse.global_position = origin + forward * stride * u
 		_horse.rotation = Vector3(0.0, yaw, 0.0)
-		if _horse.anim:
-			var phase := fposmod(0.115 + u, 1.0)
-			_horse.anim.speed_scale = Horse.STRIDE_HZ[Horse.CANTER] * clip_len
-			_horse.anim.seek(clip_len * phase, true)
+		_horse._animate(dt, _horse.speed)
 		_use_cam(mid + side * 4.4 + Vector3(0.0, 1.05, 0.0), mid + Vector3(0.0, 0.72, 0.0))
 		await get_tree().process_frame
 		await get_tree().process_frame

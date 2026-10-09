@@ -81,6 +81,9 @@ var _gait_age: float = 0.0
 var skel: Skeleton3D
 var anim: AnimationPlayer
 var gait_clip: String = ""
+## Smoothed ground speed written as the clip rate. The pose is still seeked
+## onto the beat, so this number does not move the horse.
+var _anim_rate: float = 1.0
 var seat_bone: String = ""
 
 var spring: SpringArm3D = null
@@ -1198,9 +1201,10 @@ func _animate(delta: float, _spd: float) -> void:
 		_play_named("Idle", 1.0, true, false)
 		return
 	var hz: float = STRIDE_HZ[gait]
-	if collecting and gait == CANTER:
-		hz *= 1.06
-	stride_u = fmod(stride_u + delta * hz, 1.0)
+	# Distance, not a fixed clock. At the posted gait speed this is the old
+	# STRIDE_HZ. When he sits or lands, the legs slow with the body.
+	var stride_len := GAIT_SPEED[gait] / maxf(hz, 0.01)
+	stride_u = fmod(stride_u + speed * delta / stride_len, 1.0)
 	var beats: int = BEATS[gait]
 	if beats > 0:
 		var beat := int(floor(stride_u * float(beats))) % beats
@@ -1236,11 +1240,17 @@ func _animate(delta: float, _spd: float) -> void:
 			_play_named("Idle", 1.0, true, false)
 
 
-func _hold_to_beat(clip: String, phase0: float, hz: float) -> void:
+func _hold_to_beat(clip: String, phase0: float, _hz: float) -> void:
 	if anim == null or anim.current_animation != clip:
 		return
 	var clip_len := _clip_length(clip)
-	anim.speed_scale = hz * clip_len
+	# ground_cycle: playback tracks meters per second. The pose stays on the beat.
+	# Speed itself already eases in. A second ease left the trot and the walk
+	# outside the band for the short time he is in them.
+	var native := 1.0
+	var want := clampf(speed / native, 0.0, 8.0)
+	_anim_rate = want
+	anim.speed_scale = maxf(want, 0.001)
 	anim.seek(fposmod(clip_len * (phase0 + stride_u), clip_len), true)
 
 
