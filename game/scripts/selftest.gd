@@ -51,6 +51,7 @@ func _run() -> void:
 	_score_sign()
 	_rail_bands()
 	_ground_quiet()
+	_current_ring()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1094,6 +1095,14 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _current_ring() -> void:
+	var fence := FileAccess.get_file_as_string("res://scripts/fence.gd")
+	if not fence.contains("CurrentRing") or not fence.contains("session_kind == \"lesson\""):
+		_fail("current_ring", "the current fence has no lesson ring")
+		return
+	_ok("current_ring")
 
 
 func _ground_quiet() -> void:

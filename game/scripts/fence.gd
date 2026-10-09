@@ -14,6 +14,7 @@ var width: float = 3.05
 var takeoff_mark: MeshInstance3D
 var num_lab: Label3D
 var num_plate: MeshInstance3D
+var current_ring: MeshInstance3D
 
 
 func setup(p_number: int, p_kind: String, p_height: float, p_spread: float, p_width: float = 3.05) -> void:
@@ -105,6 +106,7 @@ func _build() -> void:
 	num_lab.position = Vector3(-half - 0.22, std_h + 0.08, 0.06)
 	add_child(num_lab)
 	_ground_line()
+	_current_ring()
 
 
 func set_current(on: bool) -> void:
@@ -118,6 +120,9 @@ func set_current(on: bool) -> void:
 		plate.albedo_color = Color(0.90, 0.84, 0.70) if on else Color(0.93, 0.90, 0.84)
 		plate.emission_enabled = false
 		plate.emission_energy_multiplier = 0.0
+	if current_ring:
+		var aid := GameState.session_kind == "lesson" and GameState.settings != null and GameState.settings.riding_aid
+		current_ring.visible = on and aid
 
 
 func _ground_line() -> void:
@@ -149,6 +154,25 @@ func _ground_line() -> void:
 	rail2.position = Vector3(0, 0.038, 0.28)
 	rail2.name = "GroundLine2"
 	add_child(rail2)
+
+
+func _current_ring() -> void:
+	# A quiet halo on the current lesson fence. Shows stay clear of it.
+	current_ring = MeshInstance3D.new()
+	current_ring.name = "CurrentRing"
+	var tor := TorusMesh.new()
+	tor.inner_radius = 1.45
+	tor.outer_radius = 1.68
+	current_ring.mesh = tor
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.albedo_color = Color(0.93, 0.84, 0.46, 0.42)
+	current_ring.material_override = mat
+	current_ring.position = Vector3(0.0, 0.035, 0.0)
+	current_ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	current_ring.visible = false
+	add_child(current_ring)
 
 
 func _takeoff_mark() -> void:
