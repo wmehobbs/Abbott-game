@@ -40,6 +40,7 @@ func _run() -> void:
 	_result_count()
 	_scene_fade()
 	_sky_agx()
+	_cc0_trees()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1047,6 +1048,17 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _cc0_trees() -> void:
+	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
+	if not farm.contains("tree_oak.glb") or not farm.contains("tree_pineDefaultA.glb"):
+		_fail("cc0_trees", "the disc trees are still the skyline")
+		return
+	if farm.contains("-10.0, 12.0"):
+		_fail("cc0_trees", "the light poles are still a row")
+		return
+	_ok("cc0_trees")
 
 
 func _sky_agx() -> void:

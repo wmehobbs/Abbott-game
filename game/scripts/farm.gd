@@ -10,6 +10,9 @@ const RING_D := 76.20
 const MIRROR_W := 12.19
 const MIRROR_H := 3.05
 
+var _leaf_mat: Material
+var _bark_mat: Material
+
 
 func build() -> void:
 	_ground()
@@ -233,7 +236,7 @@ func _mirrors() -> void:
 func _lights() -> void:
 	var metal := MeshKit.mat_color(Color(0.22, 0.22, 0.24), 0.38, 0.62)
 	var head_m := MeshKit.mat_color(Color(0.85, 0.82, 0.72), 0.25, 0.4)
-	var zs: Array[float] = [-32.0, -10.0, 12.0, 32.0]
+	var zs: Array[float] = [-32.0, 32.0]
 	var xs: Array[float] = [-RING_W * 0.5 - 1.6, RING_W * 0.5 + 1.6]
 	for z in zs:
 		for x in xs:
@@ -270,10 +273,20 @@ func _in_keepout(x: float, z: float) -> bool:
 
 
 func _trees() -> void:
-	var bark := MeshKit.pine_bark()
-	var pine := MeshKit.pine_material()
-	var hardwood := MeshKit.hardwood_material(false)
-	var hardwood2 := MeshKit.hardwood_material(true)
+	var scenes: Array[PackedScene] = []
+	for path in [
+		"res://assets/cc0/kenney/tree_oak.glb",
+		"res://assets/cc0/kenney/tree_default.glb",
+		"res://assets/cc0/kenney/tree_pineDefaultA.glb",
+		"res://assets/cc0/kenney/tree_tall.glb",
+		"res://assets/cc0/kenney/tree_simple.glb",
+	]:
+		var packed := load(path) as PackedScene
+		if packed:
+			scenes.append(packed)
+	var bush := load("res://assets/cc0/kenney/plant_bushLarge.glb") as PackedScene
+	if scenes.is_empty():
+		return
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 21
 	var placed := 0
@@ -287,14 +300,31 @@ func _trees() -> void:
 		var t := Node3D.new()
 		t.position = Vector3(x, 0, z)
 		t.rotation.y = rng.randf() * TAU
+		var s := rng.randf_range(4.2, 7.4)
+		var inst := scenes[placed % scenes.size()].instantiate()
+		inst.scale = Vector3(s, s, s)
+		_paint_tree(inst)
+		t.add_child(inst)
 		add_child(t)
-		var h := rng.randf_range(10.0, 20.0)
-		var is_pine := placed % 5 != 2
-		if is_pine:
-			_pine_plant(t, h, bark, pine, rng)
-		else:
-			_oak_plant(t, h, bark, hardwood, hardwood2, rng)
 		placed += 1
+	if bush == null:
+		return
+	var bushes := 0
+	tries = 0
+	while bushes < 40 and tries < 240:
+		tries += 1
+		var bx := rng.randf_range(-110.0, 110.0)
+		var bz := rng.randf_range(-140.0, 140.0)
+		if _in_keepout(bx, bz):
+			continue
+		var b := bush.instantiate()
+		b.position = Vector3(bx, 0, bz)
+		b.rotation.y = rng.randf() * TAU
+		var bs := rng.randf_range(2.4, 4.2)
+		b.scale = Vector3(bs, bs, bs)
+		_paint_tree(b)
+		add_child(b)
+		bushes += 1
 
 
 func _barn() -> void:
@@ -1376,22 +1406,11 @@ func _shade_trees() -> void:
 		Vector3(24.0, 0, -58.0),
 		Vector3(40.0, 0, -58.0),
 	]
-	var bark := MeshKit.pine_bark()
-	var hardwood := MeshKit.hardwood_material(false)
-	var hardwood2 := MeshKit.hardwood_material(true)
 	for i in range(spots.size()):
 		var p: Vector3 = spots[i]
 		if _in_keepout(p.x, p.z):
 			continue
-		var t := Node3D.new()
-		t.name = "Shade"
-		t.position = p
-		t.rotation.y = float(i) * 0.7
-		add_child(t)
-		var h := 13.0 + float(i % 3) * 1.6
-		var rng := RandomNumberGenerator.new()
-		rng.seed = 40 + i * 17
-		_oak_plant(t, h, bark, hardwood, hardwood2, rng)
+		_cc0_at(p, float(i) * 0.7, 5.2 + float(i % 3) * 0.6, i)
 
 
 func _windbreak() -> void:
@@ -1415,14 +1434,47 @@ func _windbreak() -> void:
 		z += 9.2
 
 
-func _pine_at(p: Vector3, bark: Material, pine: Material, h: float) -> void:
-	var t := Node3D.new()
-	t.name = "Windbreak"
-	t.position = p
-	add_child(t)
-	var rng := RandomNumberGenerator.new()
-	rng.seed = int(absf(p.x * 17.3 + p.z * 41.1) * 100.0) + 7
-	_pine_plant(t, h, bark, pine, rng)
+func _pine_at(p: Vector3, _bark: Material, _pine: Material, h: float) -> void:
+	_cc0_at(p, 0.4, h / 3.4, 2)
+
+
+func _cc0_at(pos: Vector3, yaw: float, sc: float, kind: int) -> void:
+	var paths: Array[String] = [
+		"res://assets/cc0/kenney/tree_oak.glb",
+		"res://assets/cc0/kenney/tree_default.glb",
+		"res://assets/cc0/kenney/tree_pineDefaultA.glb",
+		"res://assets/cc0/kenney/tree_tall.glb",
+		"res://assets/cc0/kenney/tree_simple.glb",
+	]
+	var packed := load(paths[posmod(kind, paths.size())]) as PackedScene
+	if packed == null:
+		return
+	var inst := packed.instantiate()
+	inst.position = pos
+	inst.rotation.y = yaw
+	inst.scale = Vector3(sc, sc, sc)
+	_paint_tree(inst)
+	add_child(inst)
+
+
+func _paint_tree(inst: Node) -> void:
+	if _leaf_mat == null:
+		_leaf_mat = MeshKit.mat_color(Color(0.30, 0.45, 0.24), 0.88, 0.0)
+		_bark_mat = MeshKit.mat_color(Color(0.38, 0.25, 0.15), 0.82, 0.0)
+	_paint_node(inst, _leaf_mat, _bark_mat)
+
+
+func _paint_node(n: Node, leaf: Material, bark: Material) -> void:
+	if n is MeshInstance3D:
+		var mi := n as MeshInstance3D
+		if mi.mesh:
+			var nsurf := mi.mesh.get_surface_count()
+			if nsurf > 0:
+				mi.set_surface_override_material(0, leaf)
+			if nsurf > 1:
+				mi.set_surface_override_material(1, bark)
+	for c in n.get_children():
+		_paint_node(c, leaf, bark)
 
 
 func _leaf_clump(

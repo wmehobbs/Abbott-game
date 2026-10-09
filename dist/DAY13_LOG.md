@@ -20,7 +20,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M2 band | kept | 530a7c3d | compile ok, selftest 30/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better. The hint sits on a dark band in cream type. A controller gets its own card and its own footer line. |
 | M2 result | kept | 4eb8d56a | compile ok, selftest 31/0, playtest 0/4/4, les 25.45, beg 62.14 jo 33.44, save match |  | Better. The card counts the time, then the faults, then the ribbon. A clear round drops confetti. A rail names the fence. The buttons read Retry, Next, Walk the course, and Menu. |
 | M2 fade | kept | 06154b78 | compile ok, selftest 32/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better. Entering the ring fades through black in about a third of a second, then the course name sits at the top. The horse stays in frame. |
-| M3 sky | kept |  | compile ok, selftest 33/0, playtest 0/4/4, save match | 2.986 | Better. AgX and thinner fog. The ride view is less blown out (luminance 0.66 to 0.49) and a little more colored. The sun was already at 34 degrees. The pink panorama is still the sky. A warm fog pass was not kept. |
+| M3 sky | kept | ec2f2d7d | compile ok, selftest 33/0, playtest 0/4/4, save match | 2.986 | Better. AgX and thinner fog. The ride view is less blown out (luminance 0.66 to 0.49) and a little more colored. The sun was already at 34 degrees. The pink panorama is still the sky. A warm fog pass was not kept. |
+| M3 trees | kept |  | compile ok, selftest 34/0, playtest 0/4/4, save match | 2.463 | Better. Kenney trees in five shapes, painted olive and bark, replace the tan discs. Light poles are four, at the ends of the ring. |
 
 ## T0 rides
 
@@ -64,3 +65,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M2 result: the card counts for about a second, then shows the round. Confetti falls on a clear. Michelle already says the clear line. Judged `results` in `dist/day12/shots/d13_result`. A rail adds "Rail down at fence N." There is no replay still yet.
 - M2 fade: a black veil rises and falls in about 0.3 s when a ride or a walk starts, and the course name shows at the top. Judged `course_card` in `dist/day12/shots/d13_fade`. `play_cam` is clear of it.
 - M3 sky: AgX, fog density 0.0007, the old cool fog color. Judged `hud_mid` in `dist/day12/shots/d13_sky2` against the baseline. GPU p95 2.986 ms. The first try warmed the fog and was not kept.
+- M3 trees: five Kenney shapes, painted olive and bark, plus a large bush. The shade line and the windbreak use them too. Judged `hud_mid` and `sky` in `dist/day12/shots/d13_trees3`. GPU p95 2.463 ms. The first load failed until Godot imported the glbs. The raw Kenney colors were cyan, so they are painted.
