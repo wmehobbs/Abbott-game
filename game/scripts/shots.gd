@@ -31,6 +31,7 @@ var _strip_frames: Array[Image] = []
 var _strip_done: bool = false
 var _menu_step: int = 0
 var _hud_wait: int = 0
+var _amber_was: float = 0.0
 
 
 func _ready() -> void:
@@ -268,6 +269,12 @@ func _watch_ride() -> void:
 		_hud_wait = 2
 	elif _hud_wait == 2:
 		_save("hud_mid")
+		_amber_was = GameState.time_sec
+		GameState.time_sec = maxf(0.0, GameState.time_allowed() - 4.0)
+		_hud_wait = 3
+	elif _hud_wait == 3:
+		_save("clock_amber")
+		GameState.time_sec = _amber_was
 		if _hud:
 			_hud.show_pause(true)
 		_hud_wait = 0

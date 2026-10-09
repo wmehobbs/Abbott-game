@@ -45,6 +45,7 @@ var _reins_t: float = 0.0
 var _reins_fade: float = 1.0
 var _reins_gone: bool = false
 var _reins_latched: bool = false
+var _pip_n: int = -1
 
 
 func _ready() -> void:
@@ -70,9 +71,9 @@ func _build() -> void:
 	var board := Panel.new()
 	board.name = "Scoreboard"
 	board.position = Vector2(28, 24)
-	board.size = Vector2(460, 196)
+	board.size = Vector2(520, 236)
 	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.07, 0.05, 0.03, 0.72)
+	sb.bg_color = Color(0.04, 0.03, 0.02, 0.9)
 	sb.border_color = Color(0.72, 0.58, 0.32, 0.85)
 	sb.set_border_width_all(1)
 	sb.corner_radius_top_left = 4
@@ -83,11 +84,17 @@ func _build() -> void:
 	board.add_theme_stylebox_override("panel", sb)
 	board.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(board)
-	time_lab = _label(board, "0.00", 44, Vector2(16, 10), Color(0.96, 0.93, 0.86))
-	fault_lab = _label(board, "Faults  0", 26, Vector2(16, 62), Color(0.92, 0.86, 0.72))
-	gait_lab = _label(board, "Halt", 24, Vector2(16, 96), Color(0.85, 0.80, 0.70))
-	next_lab = _label(board, "Next  1", 22, Vector2(16, 128), Color(0.93, 0.88, 0.76))
-	best_lab = _label(board, GameState.class_title(), 20, Vector2(16, 158), Color(0.93, 0.88, 0.76))
+	time_lab = _label(board, "0.00", 56, Vector2(16, 8), Color(0.98, 0.96, 0.90))
+	fault_lab = _label(board, "Faults  0", 30, Vector2(16, 70), Color(0.96, 0.93, 0.84))
+	var pips := Control.new()
+	pips.name = "FencePips"
+	pips.position = Vector2(16, 112)
+	pips.size = Vector2(480, 16)
+	pips.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	board.add_child(pips)
+	gait_lab = _label(board, "Halt", 24, Vector2(16, 134), Color(0.94, 0.90, 0.82))
+	next_lab = _label(board, "Next  1", 22, Vector2(16, 166), Color(0.96, 0.93, 0.86))
+	best_lab = _label(board, GameState.class_title(), 20, Vector2(16, 198), Color(0.93, 0.88, 0.76))
 
 	trainer_lab = _label(root, "", 22, Vector2.ZERO, Color(0.96, 0.90, 0.72))
 	trainer_lab.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
@@ -402,8 +409,8 @@ func apply_hud_scale() -> void:
 	var s := 1.0
 	if GameState.settings:
 		s = GameState.settings.hud_scale
-	_size_lab(time_lab, int(round(44.0 * s)))
-	_size_lab(fault_lab, int(round(26.0 * s)))
+	_size_lab(time_lab, int(round(56.0 * s)))
+	_size_lab(fault_lab, int(round(30.0 * s)))
 	_size_lab(gait_lab, int(round(24.0 * s)))
 	_size_lab(next_lab, int(round(22.0 * s)))
 	_size_lab(best_lab, int(round(20.0 * s)))
@@ -545,6 +552,9 @@ func _process(_delta: float) -> void:
 			if over > 0:
 				clock += "  +%d" % over
 		time_lab.text = clock
+		# scoreboard_pips: the clock goes amber in the last 10 seconds.
+		var late := GameState.start_crossed and GameState.time_sec >= GameState.time_allowed() - 10.0
+		time_lab.modulate = Color(1.0, 0.72, 0.38) if late else Color(1, 1, 1)
 	if best_lab:
 		best_lab.text = GameState.class_title()
 	if next_lab:
@@ -584,6 +594,7 @@ func _process(_delta: float) -> void:
 				g += "  ·  collected"
 			gait_lab.text = g
 	_sync_booth()
+	_sync_pips()
 	_sync_callout(_delta)
 	_sync_capture()
 	_sync_reins(_delta)
@@ -658,6 +669,41 @@ func _sync_reins(delta: float) -> void:
 	_reins_fade = move_toward(_reins_fade, want, delta / 0.45)
 	reins.modulate.a = _reins_fade
 	reins.visible = _reins_fade > 0.02
+
+
+func _sync_pips() -> void:
+	var row := find_child("FencePips", true, false) as Control
+	if row == null:
+		return
+	var n := GameState.fences_needed()
+	if n != _pip_n:
+		_pip_n = n
+		for c in row.get_children():
+			row.remove_child(c)
+			c.free()
+		var gap := 8.0
+		var w := 18.0
+		if n > 10:
+			w = maxf(8.0, (460.0 - gap * float(n - 1)) / float(maxi(n, 1)))
+		for i in n:
+			var pip := ColorRect.new()
+			pip.position = Vector2(float(i) * (w + gap), 2.0)
+			pip.size = Vector2(w, 10.0)
+			pip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			row.add_child(pip)
+	var jumped := GameState.fences_jumped
+	var i := 0
+	for c in row.get_children():
+		var pip := c as ColorRect
+		if pip == null:
+			continue
+		i += 1
+		if i <= jumped:
+			pip.color = Color(0.95, 0.90, 0.72)
+		elif i == GameState.next_fence and GameState.mode == "ride" and not GameState.round_complete:
+			pip.color = Color(0.93, 0.72, 0.32)
+		else:
+			pip.color = Color(0.42, 0.36, 0.28, 0.9)
 
 
 func _sync_booth() -> void:

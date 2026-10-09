@@ -35,6 +35,7 @@ func _run() -> void:
 	_leave_grade()
 	_riding_aid()
 	_reins_fade()
+	_scoreboard()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1042,6 +1043,17 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _scoreboard() -> void:
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	if not hud.contains("FencePips") or not hud.contains("scoreboard_pips"):
+		_fail("scoreboard", "the fence pips are missing")
+		return
+	if not hud.contains("time_allowed() - 10.0"):
+		_fail("scoreboard", "the clock does not turn amber")
+		return
+	_ok("scoreboard")
 
 
 func _reins_fade() -> void:
