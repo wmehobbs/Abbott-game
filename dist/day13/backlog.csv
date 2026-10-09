@@ -7,7 +7,7 @@ rank,area,shot,problem,cause,fix,status,attempts,verdict
 5b,ui,grade,Nothing on screen said if the release was early or right,hud.gd show_grade,Show Long spot Right on Deep or Chip for one second,closed,1,better
 5c,ui,three_strides,Nothing showed where to leave the ground,horse.gd _sync_aid,Three stride dots and a takeoff ring on lessons only,closed,1,better
 6,ui,hud_mid,Scoreboard type is small and gray and the footer sits on the sand,hud.gd HintBand,Bigger type pips and a dark band,closed,2,better
-7,world,play_cam,The ring is empty sand with no stands judge or flowers,farm.gd arena dressing,Bleachers a judge box planters and a banner outside the rail,open,0,
+7,world,play_cam,The ring is empty sand with no stands judge or flowers,farm.gd _bleachers,Two stands past the far rail,closed,2,better
 8,characters,play_cam,Madison's lower legs stick straight out,rider_mesh.gd riding pose,Bend hip and knee so the legs hang,open,0,
 9,characters,head,The coat is smeared on flat faces and the bridle floats,abbott_look.gd,Smooth normals and parent the tack to the head,open,0,
 10,juice,landing,A landing a rail and a clear round feel the same,horse.gd hud.gd,Dip rumble sand spray and a clear celebration,open,0,

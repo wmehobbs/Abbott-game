@@ -24,6 +24,7 @@ func build() -> void:
 	_barn()
 	_house()
 	_people()
+	_bleachers()
 	_school_yard()
 	_grounds()
 	_ridges()
@@ -1796,6 +1797,29 @@ func _ridges() -> void:
 		mi.position = s[0]
 		mi.scale = s[1]
 		mi.extra_cull_margin = 80.0
+
+
+func _bleachers() -> void:
+	# Two stands past the far rail, facing the in-gate, so a ride sees the crowd.
+	var far := RING_D * 0.5 + 2.4
+	_one_bleacher(Vector3(-6.4, 0.0, far))
+	_one_bleacher(Vector3(6.4, 0.0, far))
+
+
+func _one_bleacher(at: Vector3) -> void:
+	var wood := MeshKit.wood_oak()
+	var root := Node3D.new()
+	root.name = "Bleacher"
+	root.position = at
+	add_child(root)
+	for i in range(3):
+		var h := 0.42 + float(i) * 0.34
+		var z := 0.40 + float(i) * 0.74
+		var step := MeshKit.add_child_mi(root, MeshKit.box(Vector3(4.6, h, 0.78)), wood, "Step", Vector3(0.0, h * 0.5, z))
+		step.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		var person := People.standing_trainer()
+		person.position = Vector3(-1.3 + float(i) * 1.3, h, z)
+		root.add_child(person)
 
 
 func _people() -> void:

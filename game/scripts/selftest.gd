@@ -42,6 +42,7 @@ func _run() -> void:
 	_sky_agx()
 	_cc0_trees()
 	_kick_wood()
+	_bleachers()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1049,6 +1050,14 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _bleachers() -> void:
+	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
+	if not farm.contains("func _bleachers") or not farm.contains("Bleacher"):
+		_fail("bleachers", "the far rail has no stands")
+		return
+	_ok("bleachers")
 
 
 func _kick_wood() -> void:
