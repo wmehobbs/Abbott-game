@@ -359,6 +359,7 @@ func _process_ride(delta: float) -> void:
 	elif charging:
 		collecting = false
 		charging = false
+		_show_leave_grade()
 		_try_leave()
 		charge = 0.0
 	else:
@@ -810,6 +811,38 @@ func present(fence: JumpFence, kind: String) -> void:
 	speed = GAIT_SPEED[CANTER]
 	charge = 0.20 if kind == "rail" else 0.72
 	_begin_jump(fence, charge, kind == "rail")
+
+
+func _show_leave_grade() -> void:
+	# Reads the same bands _leave_word already uses. Does not change the leave.
+	if gait != CANTER:
+		return
+	var fence := _fence_by_number(GameState.next_fence)
+	if fence == null:
+		return
+	var to := fence.global_position - global_position
+	to.y = 0.0
+	var approach := -transform.basis.z
+	approach.y = 0.0
+	if approach.length() < 0.001:
+		return
+	var ahead := to.dot(approach.normalized())
+	var word := _leave_word(ahead)
+	var grade := ""
+	if word == "Early.":
+		grade = "Long spot"
+	elif word == "Now.":
+		grade = "Right on"
+	elif word == "Too deep.":
+		grade = "Chip" if charge < GameState.balance_need() else "Deep"
+	if grade == "":
+		return
+	var arena := get_parent()
+	if arena == null:
+		return
+	var hud := arena.get_node_or_null("HUD")
+	if hud and hud.has_method("show_grade"):
+		hud.call("show_grade", grade)
 
 
 func _try_jump() -> void:

@@ -188,6 +188,10 @@ func _capture_lesson_lines() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_save("lesson_pole")
+	_hud.call("show_grade", "Right on")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_save("grade")
 	_hud.call("show_lesson", "", false)
 	arena.set("paused", false)
 

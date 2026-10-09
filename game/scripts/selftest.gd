@@ -32,6 +32,7 @@ func _run() -> void:
 	_camera_follow()
 	_ground_cycle()
 	_human_steer()
+	_leave_grade()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1024,6 +1025,19 @@ func _sharp() -> void:
 		_fail("sharp", "%s %s" % [mode, aspect])
 		return
 	_ok("sharp")
+
+
+func _leave_grade() -> void:
+	var horse := FileAccess.get_file_as_string("res://scripts/horse.gd")
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	if not horse.contains("_show_leave_grade") or not hud.contains("func show_grade"):
+		_fail("leave_grade", "the release grade is missing")
+		return
+	for word in ["Long spot", "Right on", "Deep", "Chip"]:
+		if not hud.contains(word):
+			_fail("leave_grade", "missing " + word)
+			return
+	_ok("leave_grade")
 
 
 func _human_steer() -> void:

@@ -12,7 +12,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M1 camera | kept | b6d39711 | compile ok, selftest 23/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.45, save match |  | Better. The lens reads the interpolated horse. Jerk p95 42354 to 3448. Pops after 0.5 s: 1 to 0. |
 | M1 legs | kept | 6b8ccf0f | compile ok, selftest 24/0, playtest 0/4/4, les 25.43, beg 62.13 jo 33.45, save match |  | Better. Walk 1.00, trot 1.00, canter 1.08. The cruise strip is still one gallop cycle per stride. Legs now slow when he slows. |
 | M1 feel | kept | 1c6f1b43 | compile ok, selftest 24/0, playtest 0/4/4, les 25.44, beg 62.14 jo 33.45, pops after 0.5 s = 0, save match |  | Better. Canter bob, a lean up to 3 degrees, a short lens push on the leave. Camera motion slider defaults to 70. An extra landing thud popped once, so the landing stays on the dip that was already there. |
-| M1 steer | kept |  | compile ok, selftest 25/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better for a person. Human ramp is 4.0 in and 3.0 out. Walk and trot turn a little more. The stick has a curve past the 0.25 deadzone. A gait tap in the air waits for the landing. The auto rider's ramp stays 4.0. |
+| M1 steer | kept | 93090bcf | compile ok, selftest 25/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better for a person. Human ramp is 4.0 in and 3.0 out. Walk and trot turn a little more. The stick has a curve past the 0.25 deadzone. A gait tap in the air waits for the landing. The auto rider's ramp stays 4.0. |
+| M2 grade | kept |  | compile ok, selftest 26/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match |  | Better. Releasing Space shows Long spot, Right on, Deep, or Chip for one second. The still shows Right on in green. The leave math was not edited. |
 
 ## T0 rides
 

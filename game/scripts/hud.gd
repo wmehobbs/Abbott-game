@@ -33,6 +33,8 @@ var font_b: FontFile
 var sans: FontFile
 var waiting_rebind: String = ""
 var callout_lab: Label
+var grade_lab: Label
+var _grade_left: float = 0.0
 var go_lab: Label
 var capture_lab: Label
 var _seen_callout: int = 0
@@ -193,6 +195,17 @@ func _build_callout(root: Control) -> void:
 	callout_lab.visible = false
 	if font_b:
 		callout_lab.add_theme_font_override("font", font_b)
+	grade_lab = _label(root, "", 48, Vector2(0, 0), Color(0.96, 0.93, 0.86))
+	grade_lab.name = "Grade"
+	grade_lab.set_anchors_preset(Control.PRESET_CENTER)
+	grade_lab.offset_left = -360
+	grade_lab.offset_top = 24
+	grade_lab.offset_right = 360
+	grade_lab.offset_bottom = 90
+	grade_lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	grade_lab.visible = false
+	if font_b:
+		grade_lab.add_theme_font_override("font", font_b)
 	go_lab = _label(root, "Time", 64, Vector2(0, 0), Color(0.96, 0.93, 0.86))
 	go_lab.name = "Go"
 	go_lab.set_anchors_preset(Control.PRESET_CENTER)
@@ -635,6 +648,35 @@ func _sync_callout(delta: float) -> void:
 		if go_lab.visible:
 			var ga := 1.0 if _go_left > 0.3 else _go_left / 0.3
 			go_lab.modulate = Color(0.96, 0.93, 0.86, ga)
+	if _grade_left > 0.0:
+		_grade_left = maxf(0.0, _grade_left - delta)
+	if grade_lab:
+		grade_lab.visible = _grade_left > 0.0 and not blocked
+		if grade_lab.visible:
+			var base := grade_lab.modulate
+			var ga2 := 1.0 if _grade_left > 0.35 else _grade_left / 0.35
+			grade_lab.modulate = Color(base.r, base.g, base.b, ga2)
+
+
+func show_grade(word: String) -> void:
+	if grade_lab == null:
+		return
+	var col := Color(0.96, 0.93, 0.86, 1.0)
+	match word:
+		"Right on":
+			col = Color(0.62, 0.86, 0.48, 1.0)
+		"Long spot":
+			col = Color(0.95, 0.78, 0.38, 1.0)
+		"Deep":
+			col = Color(0.95, 0.58, 0.32, 1.0)
+		"Chip":
+			col = Color(0.90, 0.36, 0.30, 1.0)
+		_:
+			return
+	grade_lab.text = word
+	grade_lab.modulate = col
+	_grade_left = 1.0
+	grade_lab.visible = true
 
 
 func _sync_capture() -> void:
