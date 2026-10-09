@@ -34,7 +34,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M3 score | kept | 0bec441f | compile ok, selftest 42/0, playtest 0/4/4, save match | 2.474 | Better. A SCORE board on the in-gate rail reads TIME and FAULTS. The first sat outside the rail and the rail hid it. Judged `in_gate` in `d13_score2`. |
 | M3 stripes | kept | a8ca017c | compile ok, selftest 43/0, playtest 0/4/4, save match | 2.476 | Better. Each rail has a cream band and a green band. The pole radius and the knock box are unchanged. Judged `fence` in `d13_stripe`. |
 | M3 ground lines | kept | 827f3cf6 | compile ok, selftest 44/0, playtest 0/4/4, save match | 2.475 | Better. The ground poles are a quiet tan instead of bright white. Judged `fence` in `d13_ground` against `d13_stripe`. |
-| M3 ring | kept |  | compile ok, selftest 45/0, playtest 0/4/4, save match | 2.448 | Better. The current lesson fence has a quiet gold ring on the sand. Shows stay off. Judged `three_strides` in `d13_ring`. |
+| M3 ring | kept | 69370a1d | compile ok, selftest 45/0, playtest 0/4/4, save match | 2.448 | Better. The current lesson fence has a quiet gold ring on the sand. Shows stay off. Judged `three_strides` in `d13_ring`. |
+| M3 ssao | reverted |  |  | 2.471 | Same. A tighter radius and a stronger intensity did not show under the horse. The sun shadow already sits him on the sand. Put back. |
 
 ## T0 rides
 
@@ -92,3 +93,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M3 stripes: a cream sleeve and a green sleeve on each rail, outside the pole so the collision radius stays 0.045. Judged `fence` in `dist/day12/shots/d13_stripe`. The approach stills changed with them. GPU p95 2.476 ms.
 - M3 ground lines: the two poles on the sand are tinted tan (0.70, 0.66, 0.58) instead of near-white. Judged `fence` in `dist/day12/shots/d13_ground` against `d13_stripe`. GPU p95 2.475 ms.
 - M3 ring: a flat gold halo sits on the sand around the current lesson fence, and only when the riding aid is on. Shows do not get it. Judged `three_strides` in `dist/day12/shots/d13_ring`. GPU p95 2.448 ms.
+- M3 ssao: not kept. Radius 0.72 and intensity 1.35 left `halt_side` and `in_gate` the same (mean change 0.13 and 0.02). GPU p95 2.471 ms. The sun shadow is what puts him on the ground.
