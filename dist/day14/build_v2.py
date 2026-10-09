@@ -23,9 +23,11 @@ CHAINS = {
     "LF": ["FrontShoulder.L", "FrontUpperLeg.L", "FrontLowerLeg.L", "IKFrontLeg.L", "FF.L", "PoleTarget.L"],
     "RF": ["FrontShoulder.R", "FrontUpperLeg.R", "FrontLowerLeg.R", "IKFrontLeg.R", "FF.R", "PoleTarget.R"],
 }
-CHESTNUT = np.array([0.45, 0.17, 0.07], np.float32)
-TOPLINE = np.array([0.26, 0.09, 0.04], np.float32)
-BELLY = np.array([0.62, 0.32, 0.16], np.float32)
+# Linear. The photo's coat is near sRGB (70, 45, 30), not the old pale tan.
+CHESTNUT = np.array([0.085, 0.028, 0.013], np.float32)
+TOPLINE = np.array([0.032, 0.010, 0.005], np.float32)
+LEG = np.array([0.042, 0.013, 0.006], np.float32)
+BELLY = np.array([0.11, 0.040, 0.020], np.float32)
 WHITE = np.array([0.93, 0.90, 0.84], np.float32)
 PINK = np.array([0.90, 0.68, 0.62], np.float32)
 FLAX = np.array([0.90, 0.84, 0.66], np.float32)
@@ -393,6 +395,10 @@ def paint(obj, arm):
             lo, hi = min(zs), max(zs)
             sock_z[bone_name] = (lo + 0.28 * (hi - lo), lo + 0.70 * (hi - lo))
             print("SOCK", bone_name, "hoof", round(sock_z[bone_name][0], 3), "sock", round(sock_z[bone_name][1], 3), "n", len(zs))
+    body_z = [worlds[i].z for i, g in enumerate(groups) if g in ("Torso", "Torso2", "Torso3", "Back", "Body")]
+    topline_z = float(np.quantile(body_z, 0.85)) if body_z else 3.2
+    belly_z = float(np.quantile(body_z, 0.15)) if body_z else 1.5
+    print("TOPLINE_Z", round(topline_z, 3), "BELLY_Z", round(belly_z, 3))
 
     colors = np.zeros((len(mesh.loops), 3), np.float32)
     tags = ["coat"] * len(mesh.loops)
@@ -405,13 +411,16 @@ def paint(obj, arm):
             g = groups[vi]
             co = mesh.vertices[vi].co
             wpos = worlds[vi]
-            t = (co.z - zmin) / max(zmax - zmin, 1e-4)
-            col = CHESTNUT * (1.0 - t) + (CHESTNUT * 0.85 + TOPLINE * 0.15) * t
-            if t > 0.62 and abs(co.x) < 0.28:
-                col = col * (1.0 - (t - 0.62)) + TOPLINE * (t - 0.62)
-            if 0.28 < t < 0.55 and abs(co.x) < 0.42 and g in ("Torso", "Torso2", "Torso3", "Back", "Body", ""):
-                belly_w = 1.0 - abs(t - 0.40) / 0.18
-                col = col * (1.0 - 0.55 * belly_w) + BELLY * (0.55 * belly_w)
+            # Smooth shade: darker along the topline, a little darker down the legs.
+            span = max(topline_z - belly_z, 1e-4)
+            u = max(0.0, min(1.0, (wpos.z - belly_z) / span))
+            # Darken only the upper back so the key light does not wash it out.
+            shade = max(0.0, (u - 0.55) / 0.45) ** 1.3
+            col = CHESTNUT * (1.0 - 0.62 * shade) + TOPLINE * (0.62 * shade)
+            if 0.20 < u < 0.50 and abs(wpos.x) < 0.35 and g in ("Torso", "Torso2", "Torso3", "Back", "Body", ""):
+                col = col * 0.88 + BELLY * 0.12
+            if g.startswith(("FrontUpper", "FrontLower", "BackUpper", "BackLower", "BackLeg")):
+                col = col * 0.28 + LEG * 0.72
             # Wide blaze down the front of the face. Horse faces -Y.
             blaze = (
                 g in ("Head", "Jaw", "Neck3")
@@ -452,12 +461,14 @@ def paint(obj, arm):
 
     print("COLOR_MEAN", [round(float(v), 3) for v in colors.mean(0)])
     palette = {
-        "coat": (0.45, 0.17, 0.07, 1.0),
+        # Linear colors. 0.45 was a pale tan under this exposure. The photo's
+        # coat sits near sRGB (70, 45, 30).
+        "coat": (1.0, 1.0, 1.0, 1.0),
         "blaze": (0.93, 0.90, 0.84, 1.0),
         "sock": (0.94, 0.92, 0.88, 1.0),
-        "mane": (0.90, 0.84, 0.66, 1.0),
-        "tail": (0.24, 0.12, 0.06, 1.0),
-        "ear": (0.22, 0.09, 0.04, 1.0),
+        "mane": (0.72, 0.62, 0.40, 1.0),
+        "tail": (0.06, 0.022, 0.012, 1.0),
+        "ear": (0.045, 0.014, 0.007, 1.0),
         "muzzle": (0.90, 0.68, 0.62, 1.0),
         "hoof": (0.09, 0.05, 0.03, 1.0),
         "eye": (0.03, 0.02, 0.015, 1.0),
@@ -474,6 +485,10 @@ def paint(obj, arm):
             mat.use_nodes = True
             bsdf = next(n for n in mat.node_tree.nodes if n.type == "BSDF_PRINCIPLED")
             bsdf.inputs["Base Color"].default_value = palette.get(tag, palette["coat"])
+            if tag == "coat":
+                vc = mat.node_tree.nodes.new("ShaderNodeVertexColor")
+                vc.layer_name = "Col"
+                mat.node_tree.links.new(vc.outputs["Color"], bsdf.inputs["Base Color"])
             rough = 0.58
             if tag == "eye":
                 rough = 0.15
@@ -484,9 +499,16 @@ def paint(obj, arm):
             slot[tag] = len(mesh.materials) - 1
         poly.material_index = slot[tag]
     print("FACE_MATS", {k: sum(1 for p in mesh.polygons if p.material_index == slot[k]) for k in slot})
-    # Solid materials are the coat. Leftover color layers tint the glTF import into spots.
+    # One welded color layer. Coat reads it. Other materials stay their own color,
+    # so those corners are white and do not tint the glTF import.
     while len(mesh.color_attributes):
         mesh.color_attributes.remove(mesh.color_attributes[0])
+    attr = mesh.color_attributes.new(name="Col", type="FLOAT_COLOR", domain="CORNER")
+    flat = np.ones((len(mesh.loops), 4), np.float32)
+    for li, tag in enumerate(tags):
+        if tag == "coat":
+            flat[li, 0:3] = colors[li]
+    attr.data.foreach_set("color", flat.ravel())
 
     uv = mesh.uv_layers.active.data
     w = h = 2048

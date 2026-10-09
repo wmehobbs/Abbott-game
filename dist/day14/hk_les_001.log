@@ -24,8 +24,8 @@ COUNT fence=1 ahead=3.84 lateral=0.26 stride=0 word=Wait. kept=true
 MICHELLE soft | Now.
 COUNT fence=1 ahead=3.20 lateral=0.26 stride=0 word=Now. kept=true
 RIDEAI ASK n=1 ahead=2.55 lat=0.26 ang=5.1 charge=1.0
-MICHELLE spot | True leave. He jumped with you.
-RIDEAI fence 1 -> 2 t=4.2 leave=spot
+MICHELLE spot | That leave was true.
+RIDEAI fence 1 -> 2 t=4.27 leave=spot
 COUNT fence=2 ahead=9.70 lateral=6.81 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 MICHELLE soft | Two. Wait.
@@ -75,7 +75,7 @@ COUNT fence=2 ahead=3.22 lateral=0.18 stride=0 word=Now. kept=true
 RIDEAI sit n=2 phase=approach pos=-8.7,-11.7 ahead=3.09 lat=0.32 ang=9.1 along=3.1 gait=3 v=3.88 rein=0
 RIDEAI ASK n=2 ahead=2.57 lat=0.18 ang=9.1 charge=1.0
 MICHELLE spot | That's the one. Don't fuss after.
-RIDEAI fence 2 -> 3 t=20.75 leave=spot
+RIDEAI fence 2 -> 3 t=20.79 leave=spot
 COUNT fence=3 ahead=9.01 lateral=1.70 stride=-1 word=silent kept=false
 MICHELLE soft | Come again.
 MICHELLE soft | Two. Wait.
@@ -94,12 +94,12 @@ MICHELLE soft | Now.
 COUNT fence=3 ahead=3.21 lateral=0.43 stride=0 word=Now. kept=true
 RIDEAI sit n=3 phase=approach pos=-8.8,-0.4 ahead=2.56 lat=0.44 ang=0.2 along=2.6 gait=3 v=3.41 rein=0
 RIDEAI ASK n=3 ahead=2.56 lat=0.42 ang=0.2 charge=1.0
-MICHELLE spot | That was the spot.
-RIDEAI fence 3 -> 4 t=24.41 leave=spot
-MICHELLE clear | That's a clear. Don't school it now.
+MICHELLE spot | Spot. Sit still on the other side.
+RIDEAI fence 3 -> 4 t=24.45 leave=spot
+MICHELLE clear | That's a clear. No extra fences.
 RIDECERT trace E:/Workspace/Madison/game/../dist/traces/hk_les_001_clear.jsonl n=26
-RIDECERT hk_les_001 style=clear success=true faults=0 refusal_faults=0 rail_faults=0 time_faults=0 jumped=3/3 t=25.45 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=54.0 scope=44.5 eliminated=false reason= ribbon=
-RIDECERT result Clear.  25.45s
+RIDECERT hk_les_001 style=clear success=true faults=0 refusal_faults=0 rail_faults=0 time_faults=0 jumped=3/3 t=25.48 teleported=false complete=true refused=[] rail_fences=[] rail_air=[] conf=54.0 scope=44.5 eliminated=false reason= ribbon=
+RIDECERT result Clear.  25.48s
 RIDECERT offer false
 RIDECERT done round=first offer=false
 RIDECERT wrote E:/Workspace/Madison/game/../dist/ridecert_fresh_one.json
