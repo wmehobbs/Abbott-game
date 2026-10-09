@@ -49,6 +49,7 @@ func _run() -> void:
 	_land_feel()
 	_banner()
 	_score_sign()
+	_rail_bands()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1092,6 +1093,17 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _rail_bands() -> void:
+	var fence := FileAccess.get_file_as_string("res://scripts/fence.gd")
+	if not fence.contains("func _rail_band") or not fence.contains("RailBand"):
+		_fail("rail_bands", "the rails have no painted bands")
+		return
+	if fence.contains("cyl.top_radius = 0.046") == false:
+		_fail("rail_bands", "the rail radius changed")
+		return
+	_ok("rail_bands")
 
 
 func _score_sign() -> void:

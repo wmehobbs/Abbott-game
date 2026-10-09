@@ -234,8 +234,26 @@ func _rail(pos: Vector3, mat: Material) -> void:
 	col.shape = cap
 	col.rotation_degrees = Vector3(0, 0, 90)
 	body.add_child(col)
+	_rail_band(body, -0.78, Color(0.93, 0.91, 0.84))
+	_rail_band(body, 0.78, Color(0.16, 0.32, 0.22))
 	add_child(body)
 	rails.append(body)
+
+
+func _rail_band(body: Node3D, along: float, color: Color) -> void:
+	# A painted sleeve. The pole radius and the knock box stay as they are.
+	var band := MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = 0.064
+	cyl.bottom_radius = 0.064
+	cyl.height = 0.14
+	cyl.radial_segments = 10
+	band.mesh = cyl
+	band.material_override = MeshKit.mat_color(color, 0.48)
+	band.rotation_degrees = Vector3(0, 0, 90)
+	band.position = Vector3(along, 0.0, 0.0)
+	band.name = "RailBand"
+	body.add_child(band)
 
 
 func _plank_filler(y: float) -> void:
