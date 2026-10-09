@@ -30,7 +30,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M4 coat | kept | 45b33468 | compile ok, selftest 39/0, playtest 0/4/4, save match |  | Better on the body. The side photo is off, so the barrel is solid chestnut and the socks stay white. The face close-up is still the smeared photo. Judged `halt_side` in `d13_coat2` against `d13_bridle2`. |
 | M4 bridle fix | kept | 56b6b3f5 | compile ok, selftest 40/0, playtest 0/4/4, les 25.41, beg 62.13 jo 33.45, int 74.74 jo 40.85 White, save match |  | The first bridle commit crashed on a type error, so the straps never drew. They are hidden on purpose now, and the bit markers stay for the reins. No script error. Judged `head` in `d13_bridle4`. |
 | M5 land | kept | 56b6b3f5 | same gates as the bridle fix |  | A sand burst and a short rumble on the landing, a harder rumble on a rail. Options has Controller rumble, default on. The landing still is framed on the fence, so the burst is small in that picture. |
-| M3 banner | kept |  | compile ok, selftest 41/0, playtest 0/4/4, save match | 2.472 | Better. A navy board at the far rail reads HIDDEN K from the in-gate. The first board sat edge-on and did not show. Judged `in_gate` in `d13_banner2`. |
+| M3 banner | kept | d3980199 | compile ok, selftest 41/0, playtest 0/4/4, save match | 2.472 | Better. A navy board at the far rail reads HIDDEN K from the in-gate. The first board sat edge-on and did not show. Judged `in_gate` in `d13_banner2`. |
+| M3 score | kept |  | compile ok, selftest 42/0, playtest 0/4/4, save match | 2.474 | Better. A SCORE board on the in-gate rail reads TIME and FAULTS. The first sat outside the rail and the rail hid it. Judged `in_gate` in `d13_score2`. |
 
 ## T0 rides
 
@@ -84,3 +85,4 @@ Shots: `dist/day12/shots/d13_baseline`. Contact sheet `dist/day12/shots/d13_base
 - M4 bridle fix: assigning the fit node onto a BoneAttachment3D variable threw every load, and the straps were skipped. The fit node is a Node3D now, and the strap meshes are hidden. The bit markers stay. Judged `head` in `dist/day12/shots/d13_bridle4`. No script error.
 - M5 land: `_land_feel` throws a one-shot sand burst and a short controller rumble. A rail buzzes harder. Options has Controller rumble, default on. Lesson 25.41, beginner 62.13 and jump-off 33.45, intermediate 74.74 and jump-off 40.85 White.
 - M3 banner: a navy board past the far rail, facing the start, reads HIDDEN K. The first try was a thin board on the side rail and the start camera saw its edge. Judged `in_gate` in `dist/day12/shots/d13_banner2`. GPU p95 2.472 ms.
+- M3 score: a dark board on the in-gate side rail reads SCORE, with TIME and FAULTS under it. No collision. The first placement was outside the rail and the rail hid it. Judged `in_gate` in `dist/day12/shots/d13_score2`. GPU p95 2.474 ms.

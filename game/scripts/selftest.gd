@@ -48,6 +48,7 @@ func _run() -> void:
 	_coat_clean()
 	_land_feel()
 	_banner()
+	_score_sign()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1091,6 +1092,14 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _score_sign() -> void:
+	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
+	if not farm.contains("ScoreSign") or not farm.contains("TIME    FAULTS"):
+		_fail("score_sign", "the in-gate has no scoreboard")
+		return
+	_ok("score_sign")
 
 
 func _banner() -> void:

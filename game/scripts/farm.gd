@@ -25,6 +25,7 @@ func build() -> void:
 	_house()
 	_people()
 	_bleachers()
+	_scoreboard()
 	_school_yard()
 	_grounds()
 	_ridges()
@@ -1809,6 +1810,41 @@ func _bleachers() -> void:
 	var far := RING_D * 0.5 + 2.4
 	_one_bleacher(Vector3(-6.4, 0.0, far))
 	_one_bleacher(Vector3(6.4, 0.0, far))
+
+
+func _scoreboard() -> void:
+	# Outside the left rail, on the in-gate half, face toward the ring.
+	var root := Node3D.new()
+	root.name = "ScoreSign"
+	# Just inside the rail. Outside it, the rail hides the board from the ring.
+	root.position = Vector3(-(RING_W * 0.5 - 0.45), 0.0, -16.0)
+	root.rotation.y = PI * 0.5
+	add_child(root)
+	var cloth := MeshKit.mat_color(Color(0.12, 0.13, 0.16), 0.62)
+	var board := MeshKit.add_child_mi(root, MeshKit.box(Vector3(3.2, 1.55, 0.08)), cloth, "ScoreBoard", Vector3(0.0, 2.35, 0.0))
+	board.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var oak := MeshKit.wood_oak()
+	for sx in [-1.35, 1.35]:
+		var post := MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.12, 2.15, 0.12)), oak, "ScorePost", Vector3(sx, 1.05, 0.06))
+		post.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var title := Label3D.new()
+	title.text = "SCORE"
+	title.font_size = 72
+	title.pixel_size = 0.007
+	title.modulate = Color(0.96, 0.93, 0.86)
+	title.outline_modulate = Color(0.08, 0.06, 0.04)
+	title.outline_size = 10
+	title.position = Vector3(0.0, 2.72, 0.06)
+	root.add_child(title)
+	var sub := Label3D.new()
+	sub.text = "TIME    FAULTS"
+	sub.font_size = 36
+	sub.pixel_size = 0.007
+	sub.modulate = Color(0.98, 0.86, 0.42)
+	sub.outline_modulate = Color(0.08, 0.06, 0.04)
+	sub.outline_size = 8
+	sub.position = Vector3(0.0, 2.05, 0.06)
+	root.add_child(sub)
 
 
 func _one_bleacher(at: Vector3) -> void:
