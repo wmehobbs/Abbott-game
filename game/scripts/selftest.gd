@@ -1081,6 +1081,9 @@ func _coat_clean() -> void:
 	if not sh.contains("coat_clean") or not sh.contains("side_strength = 0.0"):
 		_fail("coat_clean", "the photo coat is still painted on")
 		return
+	if not sh.contains("coat_flat") or not sh.contains("vec3 base = chestnut"):
+		_fail("coat_clean", "the head photo is still stretched on")
+		return
 	_ok("coat_clean")
 
 

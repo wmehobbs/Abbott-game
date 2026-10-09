@@ -35,9 +35,8 @@ void fragment() {
 		clamp(1.0 - (obj_pos.y - 0.55) / 1.05, 0.0, 1.0)
 	);
 	vec4 front_s = texture(front_tex, front_uv);
-	vec3 tri = texture(coat_tex, obj_pos.zy * coat_scale).rgb;
-	tri = mix(tri, texture(coat_tex, obj_pos.xy * coat_scale).rgb, abs(n.z));
-	vec3 base = mix(chestnut, tri, 0.55);
+	// coat_flat: the triplanar photo stretches across the head.
+	vec3 base = chestnut;
 
 	float side_mask = side_s.a;
 	if (side_mask < 0.05) {
