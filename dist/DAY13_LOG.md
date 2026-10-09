@@ -10,7 +10,8 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | --- | --- | --- | --- | --- | --- |
 | T0 | done |  | compile ok, selftest 22/0, playtest 0/4/4, rides below, save match | 2.952 | Baseline. Pink sky, disc trees, stick poles, empty ring. |
 | M1 camera | kept | b6d39711 | compile ok, selftest 23/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.45, save match |  | Better. The lens reads the interpolated horse. Jerk p95 42354 to 3448. Pops after 0.5 s: 1 to 0. |
-| M1 legs | kept |  | compile ok, selftest 24/0, playtest 0/4/4, les 25.43, beg 62.13 jo 33.45, save match |  | Better. Walk 1.00, trot 1.00, canter 1.08. The cruise strip is still one gallop cycle per stride. Legs now slow when he slows. |
+| M1 legs | kept | 6b8ccf0f | compile ok, selftest 24/0, playtest 0/4/4, les 25.43, beg 62.13 jo 33.45, save match |  | Better. Walk 1.00, trot 1.00, canter 1.08. The cruise strip is still one gallop cycle per stride. Legs now slow when he slows. |
+| M1 feel | kept |  | compile ok, selftest 24/0, playtest 0/4/4, les 25.44, beg 62.14 jo 33.45, pops after 0.5 s = 0, save match |  | Better. Canter bob, a lean up to 3 degrees, a short lens push on the leave. Camera motion slider defaults to 70. An extra landing thud popped once, so the landing stays on the dip that was already there. |
 
 ## T0 rides
 

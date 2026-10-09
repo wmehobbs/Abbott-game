@@ -15,6 +15,7 @@ var ui_db: float = 0.0
 var mouse_sensitivity: float = 0.07
 var invert_look: bool = false
 var camera_bob: bool = true
+var camera_motion: float = 70.0
 var fov: float = 52.0
 var fullscreen: bool = false
 var vsync: bool = true
@@ -41,6 +42,7 @@ func load_from(path: String = PATH) -> void:
 	mouse_sensitivity = clampf(float(cfg.get_value("feel", "mouse_sensitivity", mouse_sensitivity)), 0.03, 0.16)
 	invert_look = bool(cfg.get_value("feel", "invert_look", invert_look))
 	camera_bob = bool(cfg.get_value("feel", "camera_bob", camera_bob))
+	camera_motion = clampf(float(cfg.get_value("feel", "camera_motion", camera_motion)), 0.0, 100.0)
 	fov = clampf(float(cfg.get_value("picture", "fov", fov)), 42.0, 62.0)
 	fullscreen = bool(cfg.get_value("picture", "fullscreen", fullscreen))
 	vsync = bool(cfg.get_value("picture", "vsync", vsync))
@@ -62,6 +64,7 @@ func save_to(path: String = PATH) -> void:
 	cfg.set_value("feel", "mouse_sensitivity", mouse_sensitivity)
 	cfg.set_value("feel", "invert_look", invert_look)
 	cfg.set_value("feel", "camera_bob", camera_bob)
+	cfg.set_value("feel", "camera_motion", camera_motion)
 	cfg.set_value("picture", "fov", fov)
 	cfg.set_value("picture", "fullscreen", fullscreen)
 	cfg.set_value("picture", "vsync", vsync)
@@ -148,6 +151,7 @@ func _defaults() -> void:
 	mouse_sensitivity = 0.07
 	invert_look = false
 	camera_bob = true
+	camera_motion = 70.0
 	fov = 52.0
 	fullscreen = false
 	vsync = true

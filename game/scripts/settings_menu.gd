@@ -57,6 +57,7 @@ func _picture() -> void:
 	_slider("Look left and right", 0.03, 0.16, 0.01, "mouse_sensitivity", false)
 	_check("Invert look", "invert_look")
 	_check("Horse bob", "camera_bob")
+	_slider("Camera motion", 0.0, 100.0, 5.0, "camera_motion", false)
 	_slider("Field of view", 42.0, 62.0, 1.0, "fov", false)
 	_check("Fullscreen", "fullscreen")
 	_check("VSync", "vsync")

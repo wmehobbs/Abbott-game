@@ -521,10 +521,17 @@ func _place_cam() -> void:
 		_cam_land_h += -0.22 if jumping else 0.22
 		_cam_land_ly += -0.18 if jumping else 0.18
 	var cam_k := 1.0 - pow(0.02, maxf(get_process_delta_time(), 0.001))
-	_cam_land_h = lerpf(_cam_land_h, -0.62 if land_recover > 0.0 else 0.0, cam_k)
-	_cam_land_ly = lerpf(_cam_land_ly, -0.42 if land_recover > 0.0 else 0.0, cam_k)
+	var feel := _camera_motion()
+	# 70 percent is the dip that was already shipping. Zero turns it off.
+	var dip := -0.62 * (feel / 0.70)
+	_cam_land_h = lerpf(_cam_land_h, dip if land_recover > 0.0 else 0.0, cam_k)
+	_cam_land_ly = lerpf(_cam_land_ly, -0.42 * (feel / 0.70) if land_recover > 0.0 else 0.0, cam_k)
 	height += _cam_land_h
 	look_y += _cam_land_ly
+	if gait == CANTER and not jumping:
+		height += sin(stride_u * TAU) * 0.040 * feel
+	if jumping and jump_t < 0.16:
+		height += 0.10 * feel * (1.0 - jump_t / 0.16)
 	if halted:
 		height -= 0.12
 		look_y -= 0.08
@@ -586,17 +593,27 @@ func _place_cam() -> void:
 		cam_look = cam_look.lerp(look, 1.0 - pow(0.12, maxf(get_process_delta_time(), 0.016)))
 	if world.distance_to(cam_look) > 0.35:
 		cam.look_at(cam_look, Vector3.UP)
+	var roll := clampf(-last_turn * 3.0 * feel, -3.0, 3.0)
+	cam.rotation.z = deg_to_rad(roll)
 	# Defaults stay 52 / 48.5 / 50 / 46. A saved field of view slides the whole set.
 	var base := _fov_base()
 	var want_fov := base - 3.5 if collecting else base
 	if jumping:
 		want_fov = base - 2.0
+	if jumping and jump_t < 0.16:
+		want_fov -= 5.0 * feel * (1.0 - jump_t / 0.16)
 	if last_stride > 0.16:
 		# 32.4 was a telescope: a fence one stride out filled the glass and
 		# the standards left the frame. 46 still comes in from 52. It does
 		# not drop the lens.
 		want_fov = lerpf(want_fov, base - 6.0, last_stride)
 	cam.fov = lerpf(cam.fov, want_fov, 1.0 - pow(0.12, maxf(get_process_delta_time(), 0.016)))
+
+
+func _camera_motion() -> float:
+	if GameState.settings == null:
+		return 0.70
+	return clampf(GameState.settings.camera_motion, 0.0, 100.0) / 100.0
 
 
 func _fov_base() -> float:

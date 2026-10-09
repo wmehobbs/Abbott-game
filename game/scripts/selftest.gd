@@ -603,6 +603,9 @@ func _settings() -> void:
 	if absf(t.mouse_sensitivity - 0.11) > 0.001 or absf(t.render_scale - 0.75) > 0.001 or absf(t.hud_scale - 1.2) > 0.001:
 		_fail("settings", "round trip feel")
 		return
+	if absf(t.camera_motion - 70.0) > 0.01:
+		_fail("settings", "camera motion default %.1f" % t.camera_motion)
+		return
 	if t.msaa_level() != Viewport.MSAA_DISABLED:
 		_fail("settings", "low quality kept full msaa")
 		return
