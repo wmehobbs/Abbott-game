@@ -1,5 +1,14 @@
 # Hidden K — ride cert status
 
+**9 Oct, overnight. The place and the feel.**
+
+The pink sky is a cloudy day, the disc trees are gone, and a lesson tells you if the leave was early or right. The before/after sheet, the gate numbers, and what to play first are at the top of `dist/DAY13_LOG.md`. Version stays 2.348.0.0. Nothing pushed.
+
+Clocks on the tree left: hk_les_001 25.43, hk_beg_035 62.13 and jump-off 33.45, hk_int_002 74.74 and jump-off 40.86 White. Playtest pass. Selftest 48/0. GPU p95 High 2.466 ms, Low 1.646 ms.
+
+---
+
+
 **29 Sep, overnight. Twenty-three walks.**
 
 The night, in four results:

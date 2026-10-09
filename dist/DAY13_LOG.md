@@ -1,3 +1,57 @@
+# Morning
+
+Friday 9 Oct. The look was frozen at 04:58. The checks below are on that tree. Version stays 2.348.0.0. Nothing was pushed and nothing was exported.
+
+## What you will notice
+
+1. The sky is a cloudy day. The pink haze is gone.
+2. The trees are low solid shapes, and the forest of light poles is down to a few.
+3. He feels less like he is skating. His legs follow his speed, the camera is steadier, and a canter has a small bob. Steering answers faster when you ride. The auto rider was not changed.
+4. Letting go of Space tells you Long spot, Right on, Deep, or Chip. A lesson shows stride dots, a takeoff ring, and a gold ring on the fence you are riding. A show does not.
+5. The big gray card fades once he walks. The clock is larger. A clear round counts up and drops confetti. Going into the ring fades through black.
+6. The ring has a name on the far rail, a scoreboard, two stands, an oak rail base, painted bands on the rails, and tufts on the lawn.
+7. Madison's legs hang on his sides. Abbott's neck is a solid chestnut. The floating bridle is hidden. The white on his face is still the old photo, on flat faces.
+8. A landing throws a little sand and a controller buzzes, if you have one and rumble is on. A refusal shakes the card and eases the camera back.
+
+## Pictures
+
+Before and after, seven frames: `dist/day12/shots/d13_morning_pair.jpg`
+
+The left side is the start of the night (`d13_baseline`). The right side is this morning (`d13_final`). The frames are the ride camera, takeoff, landing, halt side, title, results, and the HUD.
+
+The full set is `dist/day12/shots/d13_final`. The contact sheet is `dist/day12/shots/d13_final_sheet.jpg`.
+
+## Gates
+
+- Selftest 48 pass, 0 fail.
+- Playtest clear 0 faults, refuse 4, rail 4, pass true.
+- Lesson `hk_les_001`: 0 faults, 25.43 s, no jump-off, teleported false. The start of the night was 25.43.
+- Beginner `hk_beg_035`: 0 faults, 62.13 s, jump-off 0 faults, 33.45 s, teleported false. The start of the night was 62.14 and 33.45.
+- Intermediate `hk_int_002`: 0 faults, 74.74 s, offer yes, jump-off 1 time fault, 40.86 s, White ribbon, teleported false. The start of the night was 74.74 and 40.85.
+- Save matches the snapshot. SHA256 `DCAF7E223063BC97406AE83CA2C714CF15CC6D1EB60925518B1AC0249DE5B4A8`.
+- GPU p95 on High 2.466 ms. On Low 1.646 ms. The cap was 6.0. Both numbers are this tree, after the first 2 seconds.
+
+## Play this first
+
+From the title, Lesson is the focused button. One press starts it. The first line is "Press W to walk." Each step after that is one line. The riding aid is on.
+
+## Listen for
+
+Hoofbeats follow his feet. A landing has a thud, and a controller gives a short buzz. A refusal snorts, the card shakes about 4 pixels, and the view eases back about half a meter. A clear round still has the ribbon and the confetti. No crowd clap, birds, or wind were added. The Day 12 sound buses were left as they were.
+
+## NEEDS ERNIE
+
+- His face up close is still the smeared photo on flat faces. The neck is clean. The blaze was not repainted.
+- There is no crowd applause. A freesound file was not downloaded.
+- Hoof prints in the sand were tried three ways and put back.
+- A stronger contact shadow did not show under him. The sun shadow is what sits him on the sand.
+
+## STASHED
+
+No half-finished code. Shot folders, ride logs, and the save snapshot were not committed.
+
+Seat-probe Godots 114976 and 115652 were already running on 4 Oct and were left alone. No Godot from this night is still running.
+
 # Day 13
 
 Branch `day13-polish`. Version stays 2.348.0.0. Nothing pushed. ASSETS: ALLOWED.
@@ -40,7 +94,7 @@ MORNING is 07:00 local. Windows until 06:00. Save snapshot `dist/day12/save_snap
 | M5 shake | kept | 258519ea | compile ok, selftest 47/0, playtest 0/4/4, save match |  | A refusal shakes the card 4 px for about a fifth of a second. A still cannot catch it. The refuse round still finished at 4 faults. |
 | M5 lens | kept | b04864e0 | compile ok, selftest 48/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, int 74.74 jo 40.92 White, save match |  | A refusal pulls the lens back about half a meter, then lets it go. Clear rounds did not move. Jump-off 40.92 is within a tenth of 40.85. |
 | M4 coat flat | kept | e4e7f353 | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.458 | Better on the neck. The stretched photo is off, so the neck is solid chestnut. The white blaze stays, from the vertex color. Judged `head` in `d13_flat` against `d13_grass2`. |
-| M3 sky hdr | kept |  | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.464 | Better. A CC0 partly cloudy sky replaces the pink panorama. The first run had not imported the file, so the pink stayed. Judged `sky` and `in_gate` in `d13_hdri2`. |
+| M3 sky hdr | kept | 1b3c548c | compile ok, selftest 48/0, playtest 0/4/4, save match | 2.464 | Better. A CC0 partly cloudy sky replaces the pink panorama. The first run had not imported the file, so the pink stayed. Judged `sky` and `in_gate` in `d13_hdri2`. |
 
 ## T0 rides
 
