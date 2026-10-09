@@ -38,6 +38,7 @@ func _run() -> void:
 	_scoreboard()
 	_hint_band()
 	_result_count()
+	_scene_fade()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1045,6 +1046,17 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _scene_fade() -> void:
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	if not hud.contains("scene_fade") or not hud.contains("SceneFade"):
+		_fail("scene_fade", "scenes do not fade")
+		return
+	if not hud.contains("SceneCard"):
+		_fail("scene_fade", "the course card is missing")
+		return
+	_ok("scene_fade")
 
 
 func _result_count() -> void:

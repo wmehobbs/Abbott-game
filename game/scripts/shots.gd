@@ -114,6 +114,9 @@ func _capture_arena() -> void:
 		print("SHOTS missing horse or course")
 		get_tree().quit(1)
 		return
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_save("course_card")
 	_cam = Camera3D.new()
 	_cam.name = "ShotsCam"
 	_cam.fov = 48.0

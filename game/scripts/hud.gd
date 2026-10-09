@@ -51,6 +51,11 @@ var _result_f: int = 0
 var _result_time: float = 0.0
 var _result_age: float = -1.0
 var _result_shown: bool = false
+var _veil: ColorRect
+var _scene_card: Label
+var _veil_a: float = 0.0
+var _veil_dir: float = 0.0
+var _card_left: float = 0.0
 
 
 func _ready() -> void:
@@ -139,6 +144,23 @@ func _build() -> void:
 	_build_result(root)
 	_build_options(root)
 	_build_lesson(root)
+	_veil = ColorRect.new()
+	_veil.name = "SceneFade"
+	_veil.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_veil.color = Color(0.02, 0.015, 0.01, 0.0)
+	_veil.z_index = 30
+	root.add_child(_veil)
+	_scene_card = _label(root, "", 42, Vector2.ZERO, Color(0.96, 0.93, 0.86))
+	_scene_card.name = "SceneCard"
+	_scene_card.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	_scene_card.offset_left = -420
+	_scene_card.offset_top = 120
+	_scene_card.offset_right = 420
+	_scene_card.offset_bottom = 190
+	_scene_card.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_scene_card.z_index = 31
+	_scene_card.visible = false
 	apply_hud_scale()
 
 
@@ -631,6 +653,7 @@ func _process(_delta: float) -> void:
 	_sync_capture()
 	_sync_reins(_delta)
 	_sync_result(_delta)
+	_sync_veil(_delta)
 	var watching := find_child("Watching", true, false)
 	if watching:
 		watching.visible = (
@@ -1000,8 +1023,38 @@ func _on_mode(m: String) -> void:
 	walk_hint.visible = m == "walk"
 	fault_lab.visible = m == "ride" or m == "results"
 	gait_lab.visible = m == "ride"
+	if m == "ride" or m == "walk":
+		_kick_fade()
 	if m != "results":
 		result_panel.visible = false
+
+
+# scene_fade: a short black fade, then the course name.
+func _kick_fade() -> void:
+	_veil_dir = 1.0
+	_card_left = 1.1
+	if _scene_card:
+		_scene_card.text = GameState.class_title()
+
+
+func _sync_veil(delta: float) -> void:
+	if _veil == null:
+		return
+	if _veil_dir > 0.0:
+		_veil_a = move_toward(_veil_a, 1.0, delta / 0.15)
+		if _veil_a >= 1.0:
+			_veil_dir = -1.0
+	elif _veil_dir < 0.0:
+		_veil_a = move_toward(_veil_a, 0.0, delta / 0.15)
+		if _veil_a <= 0.0:
+			_veil_dir = 0.0
+	_veil.color = Color(0.02, 0.015, 0.01, _veil_a)
+	if _card_left > 0.0:
+		_card_left = maxf(0.0, _card_left - delta)
+	if _scene_card:
+		var show := _card_left > 0.15 and _veil_a < 0.45
+		_scene_card.visible = show
+		_scene_card.modulate.a = 1.0 if _card_left > 0.35 else _card_left / 0.35
 
 
 const WALK_DEFAULT := "Course walk  ·  WASD  ·  Enter to mount  ·  clock starts at the flags"
