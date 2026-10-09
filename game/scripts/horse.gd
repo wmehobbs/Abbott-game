@@ -1438,18 +1438,21 @@ func _animate(delta: float, _spd: float) -> void:
 				_hoof_strike(beat, beats)
 	# Each clip is held to the beat, so the hoof a footfall belongs to is the
 	# one on the sand when it sounds. The offsets are where the clip's own
-	# touchdowns fall: Walk 0.235 (four), the trot's post 0.25 (two), Gallop
+	# touchdowns fall: Walk 0.235 (four), Trot 0 (two), Gallop
 	# 0.115 (three of its four). Free-running, they drifted off the beat.
 	match gait:
 		1:
 			_play_named("Walk", 1.0, true, false)
 			_hold_to_beat("Walk", 0.235, hz)
 		2:
-			# Two contacts per stride. The post sits down at stride_u 0 and 0.5,
-			# which are the diagonal pairs in this clip (quarter-cycle phase).
-			# At rate 0 the blend in never finished and he trotted half in Idle.
-			_play_named("Walk", 1.0, true, false)
-			_hold_to_beat("Walk", 0.25, hz)
+			# Trot frame 0 is one diagonal, frame 8 the other, and the frames
+			# between are off the ground. Walk at 0.25 stays the fallback.
+			if anim != null and anim.has_animation("Trot"):
+				_play_named("Trot", 1.0, true, false)
+				_hold_to_beat("Trot", 0.0, hz)
+			else:
+				_play_named("Walk", 1.0, true, false)
+				_hold_to_beat("Walk", 0.25, hz)
 		3:
 			# Canter's first frame is the outside hind on the sand. Gallop stays
 			# the fallback when that clip is missing, so the old mesh still rides.

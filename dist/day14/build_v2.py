@@ -178,13 +178,20 @@ def build_gaits(arm):
     pose_frame(arm, "Idle", 0)
     idle = capture_basis(arm)
 
-    # Trot: diagonal pairs taken from the walk, suspension is both pairs airborne.
-    # Walk frame 9 is left hind + right fore. Frame 23 is right hind + left fore.
+    # Trot: two-beat diagonals. Walk frame 9 is left hind + right fore, but the
+    # right hind is still low. The airborne legs come from the frames where
+    # that foot is highest, so a third foot is not on the ground.
     contact_a = copy_pose(walk[9])
+    overwrite_chain(contact_a, walk[13], CHAINS["RH"])
+    overwrite_chain(contact_a, walk[5], CHAINS["LF"])
     contact_b = copy_pose(walk[23])
+    overwrite_chain(contact_b, walk[26], CHAINS["LH"])
+    overwrite_chain(contact_b, walk[20], CHAINS["RF"])
     suspend = copy_pose(walk[9])
-    overwrite_chain(suspend, walk[23], CHAINS["LH"])
-    overwrite_chain(suspend, walk[23], CHAINS["RF"])
+    overwrite_chain(suspend, walk[26], CHAINS["LH"])
+    overwrite_chain(suspend, walk[13], CHAINS["RH"])
+    overwrite_chain(suspend, walk[5], CHAINS["LF"])
+    overwrite_chain(suspend, walk[20], CHAINS["RF"])
     for pose in (contact_a, contact_b, suspend):
         steady_head(pose, idle)
 
