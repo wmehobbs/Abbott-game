@@ -34,6 +34,7 @@ func _run() -> void:
 	_human_steer()
 	_leave_grade()
 	_riding_aid()
+	_reins_fade()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1041,6 +1042,20 @@ func _riding_aid() -> void:
 		_fail("riding_aid", "the option does not default on")
 		return
 	_ok("riding_aid")
+
+
+func _reins_fade() -> void:
+	var hud := FileAccess.get_file_as_string("res://scripts/hud.gd")
+	if not hud.contains("reins_fade") or not hud.contains("_reins_gone"):
+		_fail("reins_fade", "the card does not fade")
+		return
+	if not hud.contains("6.0"):
+		_fail("reins_fade", "the card has no time limit")
+		return
+	if not hud.contains("reset_reins") or not hud.contains("PRESET_BOTTOM_LEFT"):
+		_fail("reins_fade", "pause does not bring the card back")
+		return
+	_ok("reins_fade")
 
 
 func _leave_grade() -> void:

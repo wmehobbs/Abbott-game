@@ -193,6 +193,7 @@ func _enter_ride() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GameState.clock_running = false
 	GameState.start_crossed = false
+	hud.reset_reins()
 	if GameState.session_kind == "lesson":
 		GameState.speak("lesson_start")
 	if lesson:

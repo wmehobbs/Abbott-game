@@ -41,6 +41,10 @@ var _seen_callout: int = 0
 var _callout_left: float = 0.0
 var _go_left: float = 0.0
 var _clock_was_on: bool = false
+var _reins_t: float = 0.0
+var _reins_fade: float = 1.0
+var _reins_gone: bool = false
+var _reins_latched: bool = false
 
 
 func _ready() -> void:
@@ -166,7 +170,7 @@ func _build_reins(root: Control) -> void:
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		body.add_theme_font_override("font", sans)
-	body.text = "The reins\n\nW  walk, then trot, then canter\nS  come back a gait\nA / D  steer\nHold Space  half-halt. He collects.\nLet Space go at the canter  ask him to leave\nShift  halt\nC  get off and walk the course\nEsc  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThe card goes away at the flags."
+	body.text = "The reins\n\nW  walk, then trot, then canter\nS  come back a gait\nA / D  steer\nHold Space  half-halt. He collects.\nLet Space go at the canter  ask him to leave\nShift  halt\nC  get off and walk the course\nEsc  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThis card fades once you move."
 
 
 func _build_watching(root: Control) -> void:
@@ -582,18 +586,7 @@ func _process(_delta: float) -> void:
 	_sync_booth()
 	_sync_callout(_delta)
 	_sync_capture()
-	var reins := find_child("Reins", true, false)
-	if reins:
-		reins.visible = (
-			GameState.mode == "ride"
-			and not GameState.demo_ride
-			and not GameState.start_crossed
-			and not GameState.round_complete
-			and pause_panel != null
-			and not pause_panel.visible
-			and result_panel != null
-			and not result_panel.visible
-		)
+	_sync_reins(_delta)
 	var watching := find_child("Watching", true, false)
 	if watching:
 		watching.visible = (
@@ -603,6 +596,68 @@ func _process(_delta: float) -> void:
 			and pause_panel != null
 			and not pause_panel.visible
 		)
+
+
+# reins_fade: the card leaves after the first step or 6 seconds. Pause brings it back.
+func reset_reins() -> void:
+	_reins_t = 0.0
+	_reins_fade = 1.0
+	_reins_gone = false
+	_reins_latched = true
+
+
+func _sync_reins(delta: float) -> void:
+	var reins := find_child("Reins", true, false) as Control
+	if reins == null or pause_panel == null or result_panel == null:
+		return
+	var in_ride := (
+		GameState.mode == "ride"
+		and not GameState.demo_ride
+		and not GameState.round_complete
+		and not result_panel.visible
+	)
+	if not in_ride:
+		_reins_t = 0.0
+		_reins_fade = 1.0
+		_reins_gone = false
+		_reins_latched = false
+		reins.visible = false
+		reins.modulate.a = 1.0
+		return
+	if pause_panel.visible:
+		reins.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+		reins.offset_left = 36.0
+		reins.offset_top = -540.0
+		reins.offset_right = 560.0
+		reins.offset_bottom = -28.0
+		reins.z_index = 8
+		reins.visible = true
+		reins.modulate.a = 1.0
+		return
+	reins.z_index = 0
+	reins.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+	reins.offset_left = -560.0
+	reins.offset_top = -250.0
+	reins.offset_right = -36.0
+	reins.offset_bottom = 250.0
+	if not GameState.start_crossed and GameState.time_sec < 0.05 and not _reins_latched:
+		_reins_t = 0.0
+		_reins_fade = 1.0
+		_reins_gone = false
+		_reins_latched = true
+	if GameState.start_crossed or GameState.time_sec > 0.2:
+		_reins_latched = false
+	if not GameState.start_crossed:
+		_reins_t += delta
+		var h := _horse()
+		if _reins_t >= 6.0 or (h != null and h.speed > 0.4):
+			_reins_gone = true
+	else:
+		_reins_gone = true
+	var want := 0.0 if _reins_gone else 1.0
+	_reins_fade = move_toward(_reins_fade, want, delta / 0.45)
+	reins.modulate.a = _reins_fade
+	reins.visible = _reins_fade > 0.02
 
 
 func _sync_booth() -> void:

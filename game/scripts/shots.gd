@@ -231,6 +231,8 @@ func _begin_ride() -> void:
 	if _horse.cam:
 		_horse.cam.current = true
 	_set_hud(true)
+	if _hud and _hud.has_method("reset_reins"):
+		_hud.reset_reins()
 	var script := load("res://scripts/ride_ai.gd") as GDScript
 	var ai: RideAI = script.new() as RideAI
 	ai.name = "ShotsRider"
@@ -247,6 +249,14 @@ func _begin_ride() -> void:
 func _watch_ride() -> void:
 	if _horse == null:
 		return
+	if not _got.has("reins_hold") and _ride_started_msec > 0:
+		_save("reins_hold")
+		_got["reins_hold"] = true
+	if not _got.has("reins_gone") and _hud and _horse.speed > 1.0 and not GameState.start_crossed:
+		var card := _hud.find_child("Reins", true, false) as CanvasItem
+		if card != null and card.modulate.a < 0.08:
+			_save("reins_gone")
+			_got["reins_gone"] = true
 	var ahead := _ahead()
 	if not _got.has("three_strides") and _hud_wait == 0 and _horse.gait == Horse.CANTER and ahead < 12.8 and ahead > 10.0:
 		_horse.cam.current = true
