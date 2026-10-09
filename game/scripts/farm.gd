@@ -21,6 +21,7 @@ func build() -> void:
 	_mirrors()
 	_lights()
 	_trees()
+	_grass_clumps()
 	_barn()
 	_house()
 	_people()
@@ -327,6 +328,40 @@ func _trees() -> void:
 		_paint_tree(b)
 		add_child(b)
 		bushes += 1
+
+
+func _grass_clumps() -> void:
+	# Tufts just past the dirt collar, so the lawn is not one flat sheet.
+	var mm := MultiMeshInstance3D.new()
+	mm.name = "GrassClumps"
+	var mesh := SphereMesh.new()
+	mesh.radius = 0.28
+	mesh.height = 0.9
+	mesh.radial_segments = 5
+	mesh.rings = 2
+	var multi := MultiMesh.new()
+	multi.transform_format = MultiMesh.TRANSFORM_3D
+	multi.mesh = mesh
+	var count := 90
+	multi.instance_count = count
+	var mat := MeshKit.mat_color(Color(0.62, 0.68, 0.28), 0.82)
+	mm.material_override = mat
+	mm.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mm.visibility_range_end = 72.0
+	mm.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 19
+	var hw := RING_W * 0.5 + 6.2
+	var hd := RING_D * 0.5 - 6.0
+	for i in count:
+		var side := 1.0 if i % 2 == 0 else -1.0
+		var x := side * (hw + rng.randf_range(0.2, 4.5))
+		var z := rng.randf_range(-hd, hd)
+		var s := rng.randf_range(1.4, 2.6)
+		var basis := Basis(Vector3.UP, rng.randf() * TAU).scaled(Vector3(s, rng.randf_range(1.1, 2.2), s * 0.85))
+		multi.set_instance_transform(i, Transform3D(basis, Vector3(x, 0.08, z)))
+	mm.multimesh = multi
+	add_child(mm)
 
 
 func _barn() -> void:

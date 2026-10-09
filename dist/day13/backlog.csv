@@ -2,6 +2,7 @@ rank,area,shot,problem,cause,fix,status,attempts,verdict
 1,world,play_cam,Trees are tan discs on poles and the skyline is a forest of light poles,farm.gd _trees,CC0 trees in a few shapes and only a handful of lights,closed,3,better
 2,world,sky,Pink haze washes the color out of the ring,farm.gd _sky,CC0 late-afternoon HDRI still needed,open,2,AgX and thinner fog kept; panorama still pink
 3,feel,canter_00,Canter speed over animation is 2.93 so the logged legs lag the ground,horse.gd _hold_to_beat,Scale playback to ground speed and advance the stride with distance,closed,2,better
+19,world,in_gate,The lawn outside the rail is one flat sheet,farm.gd _grass_clumps,Pale tufts past the dirt collar,closed,2,better
 4,feel,play_cam,Camera can step on a fast monitor because it reads the physics tick,horse.gd _place_cam,Read get_global_transform_interpolated,closed,1,better
 5,ui,play_cam,The gray controls card covers the horse at the start,hud.gd _sync_reins,Fade the card after the first move or 6 seconds,closed,2,better
 5b,ui,grade,Nothing on screen said if the release was early or right,hud.gd show_grade,Show Long spot Right on Deep or Chip for one second,closed,1,better

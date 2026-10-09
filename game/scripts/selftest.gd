@@ -52,6 +52,7 @@ func _run() -> void:
 	_rail_bands()
 	_ground_quiet()
 	_current_ring()
+	_grass_clumps()
 	_settings()
 	await _layout()
 	await _gamepad()
@@ -1095,6 +1096,14 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", "her legs still stick out")
 		return
 	_ok("leg_tuck")
+
+
+func _grass_clumps() -> void:
+	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
+	if not farm.contains("GrassClumps") or not farm.contains("func _grass_clumps"):
+		_fail("grass_clumps", "the lawn has no tufts")
+		return
+	_ok("grass_clumps")
 
 
 func _current_ring() -> void:
