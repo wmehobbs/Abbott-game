@@ -13,6 +13,7 @@ const CHAIN := ["Neck1", "Neck2", "Neck3", "Head"]
 var _atts: Array[BoneAttachment3D] = []
 
 
+## Places the button braids along the crest at rest, coloured from the mane under them.
 func build(horse: Node3D, sk: Skeleton3D, mesh_root: Node) -> void:
 	var ids: Array[int] = []
 	for n in CHAIN:
@@ -105,10 +106,12 @@ func build(horse: Node3D, sk: Skeleton3D, mesh_root: Node) -> void:
 	_sync()
 
 
+## Show or not can change without a rebuild. The knots stay on the bones either way.
 func _process(_delta: float) -> void:
 	_sync()
 
 
+## Visible only on show day. A lesson or a school keeps the mane loose.
 func _sync() -> void:
 	var gs := get_node_or_null("/root/GameState")
 	var show := gs != null and str(gs.get("session_kind")) == "show"
@@ -117,6 +120,7 @@ func _sync() -> void:
 			att.visible = show
 
 
+## The painted body. A braid takes its colour from the mane vertices on it.
 func _find_body(n: Node) -> MeshInstance3D:
 	if n is MeshInstance3D and str(n.name) == "Horse":
 		return n
