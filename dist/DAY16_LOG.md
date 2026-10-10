@@ -75,7 +75,7 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 7 standing | 93f12027 | compile 1 errors=0, selftest 66/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `standing_people`. Lesson time 0.01 s under 25.43, inside 0.10. |
 | 7 sounds | f1c5ac8c | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.42 / 62.15 / 33.44, SAVE_MATCH | New test `cue_files`. Lesson 0.01 s under 25.43, beginner 0.01 s over 62.14, jump-off 0.01 s under 33.45. All inside 0.10. |
 | 7 guide | 49482a9e | no gates: markdown only | Accuracy pass on `dist/ARCHITECTURE.md`. Self-test count set to 67/0. Asset audit named. Courses, scripts, modifier order, and the save skip were already right. |
-| final | fin | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | Tag `final`. Beginner 0.01 s over 62.14, inside 0.10. Jump-off `success=false` is the jump-off round. No Godot left running. |
+| final | 74c9a188 | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | Tag `final`. Beginner 0.01 s over 62.14, inside 0.10. Jump-off `success=false` is the jump-off round. No Godot left running. |
 
 ## Baseline
 
