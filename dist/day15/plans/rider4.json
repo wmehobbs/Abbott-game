@@ -1,0 +1,7 @@
+{"poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "head", "from": [0.9, 2.15, -0.9], "look": [0, 1.95, 0.05], "fov": 40},
+  {"name": "headside", "from": [1.2, 2.0, 0.0], "look": [0, 1.95, 0.0], "fov": 40}]},
+ {"name": "trotup", "gait": 2, "clip": "Trot", "phase": 0.25, "cams": [
+  {"name": "lside", "from": [2.3, 1.5, 0.05], "look": [0, 1.45, -0.05], "fov": 40}]}
+]}

@@ -1,0 +1,11 @@
+{"poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "lside", "from": [2.2, 1.55, 0.25], "look": [0, 1.45, 0.25], "fov": 40},
+  {"name": "rside", "from": [-2.2, 1.55, 0.25], "look": [0, 1.45, 0.25], "fov": 40},
+  {"name": "front", "from": [0.0, 1.9, -2.2], "look": [0, 1.55, 0.25], "fov": 40},
+  {"name": "rear", "from": [0.3, 1.9, 2.6], "look": [0, 1.4, 0.2], "fov": 40}]},
+ {"name": "canter", "gait": 3, "clip": "Canter", "phase": 0.3, "cams": [
+  {"name": "lside", "from": [2.4, 1.55, 0.25], "look": [0, 1.45, 0.25], "fov": 40}]},
+ {"name": "apex", "gait": 3, "clip": "Gallop_Jump", "phase": 0.45, "jump_u": 0.45, "cams": [
+  {"name": "lside", "from": [2.8, 1.6, 0.25], "look": [0, 1.45, 0.25], "fov": 42}]}
+]}

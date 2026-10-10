@@ -21,10 +21,11 @@ static func mounted_madison(host: Node3D, seat: Vector3) -> Node3D:
 	var root := Node3D.new()
 	root.name = "Rider"
 	# On the saddle, not down in the back. The saddle stays where it was.
-	var sit := seat + Vector3(0.0, -0.016, 0.030)
+	# On the saddle, her seat bones on its deepest point.
+	var sit := seat + Vector3(0.0, 0.098, 0.030)
 	root.position = sit
 	host.add_child(root)
-	_english_saddle(host, seat + Vector3(0.0, -0.048, -0.024))
+	_english_saddle(host, seat + Vector3(0.0, 0.060, 0.0))
 
 	var navy := _part_mat(0.24, 0.51, NAVY, 3.3, 3.7, 0.0, 0.50, 0.32, 0.68, 0.42, 0.60)
 	var beige := _part_mat(0.52, 0.76, BEIGE, 3.8, 4.0, -0.02, 0.34, 0.38, 0.64, 0.42, 0.60)
@@ -383,31 +384,78 @@ static func _saddle_flap(sx: float, thick: float, drop: float, chord: float) -> 
 	return MeshKit.loft(stations, 12)
 
 
+## Abbott's barrel at the girth, half-width by height below the saddle root,
+## in saddle units (metres / 0.85), measured off abbott_v2. The pad, the
+## flaps and the girth hug it instead of standing off his sides.
+const BARREL := [
+	[-0.040, 0.105], [-0.055, 0.148], [-0.126, 0.212], [-0.185, 0.245], [-0.244, 0.252],
+	[-0.302, 0.258], [-0.361, 0.256], [-0.420, 0.248], [-0.479, 0.242], [-0.538, 0.235],
+	[-0.596, 0.201], [-0.655, 0.180], [-0.698, 0.110], [-0.712, 0.0]]
+
+
+static func _barrel(y: float) -> float:
+	if y >= float(BARREL[0][0]):
+		return float(BARREL[0][1])
+	for i in range(BARREL.size() - 1):
+		var a: Array = BARREL[i]
+		var b: Array = BARREL[i + 1]
+		if y <= float(a[0]) and y >= float(b[0]):
+			return lerpf(float(a[1]), float(b[1]), (y - float(a[0])) / (float(b[0]) - float(a[0])))
+	return 0.0
+
+
+## A panel draped down his side from top to bottom, off the barrel by off.
+static func _drape(sx: float, top: float, bottom: float, off: float, z0: float, z_slope: float, half_len: float, thick: float, rings: int = 9) -> ArrayMesh:
+	var st: Array = []
+	for i in rings:
+		var y := lerpf(top, bottom, float(i) / float(rings - 1))
+		var o := Vector3(sx * (_barrel(y) + off), y, z0 + y * z_slope)
+		st.append({origin = o, x = Vector3(0, 0, 1), y = Vector3(sx, 0, 0), rx = half_len, ry = thick, color = Color(0, 0, 0, 1)})
+	return MeshKit.loft(st, 14)
+
+
+## The girth, down one side, under his belly and up the other.
+static func _girth_mesh(z: float, width: float, thick: float) -> ArrayMesh:
+	var side: Array = []
+	for y in [-0.27, -0.33, -0.39, -0.45, -0.51, -0.57, -0.62, -0.665, -0.695]:
+		side.append(Vector3(_barrel(y) + 0.014, y, z))
+	var path: Array = []
+	for i in range(side.size() - 1, -1, -1):
+		var q: Vector3 = side[i]
+		path.append(Vector3(-q.x, q.y, z))
+	path.append(Vector3(0.0, -0.722, z))
+	for q in side:
+		path.append(q)
+	var st: Array = []
+	for i in path.size():
+		var prev: Vector3 = path[maxi(i - 1, 0)]
+		var next: Vector3 = path[mini(i + 1, path.size() - 1)]
+		var t := (next - prev).normalized()
+		var n := Vector3(0, 0, 1).cross(t).normalized()
+		st.append({origin = path[i], x = Vector3(0, 0, 1), y = n, rx = width, ry = thick, color = Color(0, 0, 0, 1)})
+	return MeshKit.loft(st, 8)
+
+
 static func _english_saddle(host: Node3D, seat: Vector3) -> void:
 	if host.get_node_or_null("Saddle"):
 		return
 	var leather := MeshKit.leather(Color(0.38, 0.20, 0.11), 0.40)
 	var dark := MeshKit.leather_sweat()
 	var suede := MeshKit.leather(Color(0.62, 0.40, 0.22), 0.62)
-	var pale := MeshKit.leather(Color(0.52, 0.32, 0.18), 0.55)
-	var pad_m := MeshKit.pad_fabric()
+	var flap_m := MeshKit.leather(Color(0.34, 0.18, 0.10), 0.42)
+	var pad_m := MeshKit.mat_color(Color(0.93, 0.92, 0.88), 0.86)
+	var trim := MeshKit.mat_color(NAVY, 0.7)
 	var steel := MeshKit.steel()
 	var root := Node3D.new()
 	root.name = "Saddle"
-	# Sit her in the seat, not on a crate: tree sits just above the withers pad.
+	# The pad's underside is on his back; the tree rides on the pad.
 	root.position = seat + Vector3(0.0, -0.012, 0.006)
 	host.add_child(root)
-	# Two quilted panels, gullet open at the withers.
+	# A white square pad, draped to below the flap, with a navy edge.
 	for sx in [-1.0, 1.0]:
-		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.155, 0.020, 0.48)), pad_m, "Pad", Vector3(sx * 0.098, -0.038, 0.018))
-	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.36, 0.005, 0.50)), dark, "Piping", Vector3(0, -0.026, 0.018))
-	var stitch := MeshKit.mat_color(Color(0.82, 0.78, 0.70), 0.55)
-	for i in range(6):
-		var qz := -0.18 + float(i) * 0.072
-		for sx in [-1.0, 1.0]:
-			MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.128, 0.003, 0.008)), stitch, "Quilt", Vector3(sx * 0.098, -0.026, qz))
-	for i in range(3):
-		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.007, 0.003, 0.40)), stitch, "QuiltX", Vector3(-0.12 + float(i) * 0.12, -0.026, 0.018))
+		MeshKit.add_child_mi(root, _drape(sx, -0.040, -0.355, 0.006, 0.020, 0.10, 0.300, 0.007), pad_m, "Pad")
+		MeshKit.add_child_mi(root, _drape(sx, -0.350, -0.372, 0.008, 0.020 - 0.035, 0.10, 0.306, 0.008, 3), trim, "PadEdge")
+	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.24, 0.012, 0.60)), pad_m, "PadTop", Vector3(0, -0.044, 0.020))
 	# Close-contact tree: pinched waist, pommel up, cantle dish a hip can sit in.
 	var stations: Array = []
 	stations.append(MeshKit.station(Vector3(0, 0.138, -0.225), 0.028, 0.036, Vector3(0, 0.18, 1)))
@@ -426,27 +474,18 @@ static func _english_saddle(host: Node3D, seat: Vector3) -> void:
 	MeshKit.add_child_mi(root, MeshKit.sphere(0.048, 10, 12), leather, "Pommel", Vector3(0, 0.150, -0.230)).scale = Vector3(0.70, 0.88, 1.16)
 	MeshKit.add_child_mi(root, MeshKit.sphere(0.056, 10, 12), leather, "Cantle", Vector3(0, 0.182, 0.268)).scale = Vector3(1.36, 0.40, 0.56)
 	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.026, 0.016, 0.14)), dark, "Gullet", Vector3(0, 0.010, -0.14))
-	# English girth: a strap under the barrel. Tree sits on the back now.
+	# Panels under the seat, so the tree reads as sitting on him.
 	for sx in [-1.0, 1.0]:
-		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.010, 0.42, 0.046)), dark, "GirthSide", Vector3(sx * 0.33, -0.28, 0.042))
-	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.66, 0.012, 0.048)), dark, "GirthBelly", Vector3(0, -0.50, 0.042))
-	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.10, 0.010, 0.044)), MeshKit.mat_color(Color(0.12, 0.12, 0.12), 0.62), "GirthElastic", Vector3(0, -0.512, 0.042))
-	var rubber := MeshKit.mat_color(Color(0.08, 0.08, 0.08), 0.72)
+		MeshKit.add_child_mi(root, _drape(sx, -0.010, -0.080, 0.016, -0.010, 0.0, 0.230, 0.020, 4), leather, "Panel")
+	# Forward-cut flaps on the pad, a knee roll on each front edge.
 	for sx in [-1.0, 1.0]:
-		MeshKit.add_child_mi(root, _saddle_flap(sx, 0.013, 0.22, 0.175), pale, "Sweat")
-		MeshKit.add_child_mi(root, _saddle_flap(sx, 0.010, 0.195, 0.150), leather, "Flap")
-		MeshKit.add_child_mi(root, MeshKit.sphere(0.036, 10, 12), leather, "Knee", Vector3(sx * 0.36, 0.010, -0.110)).scale = Vector3(0.70, 1.32, 1.52)
-		MeshKit.add_child_mi(root, MeshKit.sphere(0.030, 8, 10), MeshKit.leather(Color(0.28, 0.14, 0.08), 0.62), "KneeSuede", Vector3(sx * 0.37, 0.014, -0.098)).scale = Vector3(0.62, 1.18, 1.32)
-		MeshKit.add_rod(root, dark, "StirrupLeather", Vector3(sx * 0.34, -0.02, 0.02), Vector3(sx * 0.45, -0.37, 0.05), 0.0055)
-		for i in range(3):
-			var by := -0.08 - float(i) * 0.042
-			MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.007, 0.10, 0.006)), dark, "Billet", Vector3(sx * 0.118, by, 0.055))
-		# Iron under the ball of the boot, not a crate rung.
-		MeshKit.add_child_mi(root, MeshKit.torus(0.026, 0.034), steel, "Iron", Vector3(sx * 0.45, -0.378, 0.055), Vector3(1.45, 0, sx * 0.08))
-		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.044, 0.008, 0.020)), rubber, "Tread", Vector3(sx * 0.45, -0.395, 0.055))
-		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.014, 0.010, 0.009)), steel, "Buckle", Vector3(sx * 0.118, -0.20, 0.05))
-		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.016, 0.048, 0.009)), leather, "Keeper", Vector3(sx * 0.150, -0.01, 0.05))
+		MeshKit.add_child_mi(root, _drape(sx, 0.010, -0.300, 0.020, -0.030, 0.32, 0.165, 0.008), flap_m, "Flap")
+		var ky := -0.170
+		var kz := -0.030 + ky * 0.32 - 0.150
+		MeshKit.add_child_mi(root, MeshKit.sphere(0.030, 10, 12), leather, "Knee", Vector3(sx * (_barrel(ky) + 0.036), ky, kz)).scale = Vector3(0.55, 2.3, 0.85)
 		MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.016, 0.006, 0.012)), steel, "Bar", Vector3(sx * 0.108, 0.052, -0.018))
+	# English girth under the barrel, just behind his elbow.
+	MeshKit.add_child_mi(root, _girth_mesh(-0.120, 0.030, 0.006), dark, "Girth")
 
 
 static func _part_mat(v0: float, v1: float, fallback: Color, width_scale: float, depth_scale: float, y0: float = 0.0, y1: float = 1.0, u0: float = 0.32, u1: float = 0.68, su0: float = 0.42, su1: float = 0.60) -> Material:

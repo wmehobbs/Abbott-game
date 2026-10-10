@@ -1,0 +1,9 @@
+{"report": {"bones": true},
+ "poses": [
+  {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+    {"name": "side", "from": [4.5, 1.4, 0.0], "look": [0, 1.0, 0], "fov": 50},
+    {"name": "down", "from": [0.6, 1.2, 0.6], "look": [0, 0.0, 0], "fov": 70},
+    {"name": "far", "from": [30, 25, 30], "look": [0, 5, 0], "fov": 60},
+    {"name": "veryfar", "from": [200, 150, 200], "look": [0, 20, 0], "fov": 60}
+  ]}
+ ]}

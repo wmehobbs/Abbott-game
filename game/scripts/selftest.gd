@@ -43,7 +43,7 @@ func _run() -> void:
 	_cc0_trees()
 	_kick_wood()
 	_bleachers()
-	_leg_tuck()
+	await _leg_tuck()
 	_bridle_fit()
 	_coat_clean()
 	_barn_note_player()
@@ -1142,9 +1142,55 @@ func _bridle_fit() -> void:
 
 
 func _leg_tuck() -> void:
-	var mesh := FileAccess.get_file_as_string("res://scripts/rider_mesh.gd")
-	if not mesh.contains("knee.x = sx * 0.22") or not mesh.contains("heel.x = sx * 0.16"):
-		_fail("leg_tuck", "her legs still stick out")
+	# A real seat, read off the posed rider in the arena: the horse's skeleton
+	# spans a horse (the v2 export once shrank it to 3 cm under a 200 m mesh),
+	# the saddle is in the dip behind his withers, and each ankle hangs against
+	# his side below its knee, the two sides alike.
+	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
+	var arena: Node = packed.instantiate()
+	get_tree().root.add_child(arena)
+	for i in 4:
+		await get_tree().process_frame
+	var horse := arena.get_node_or_null("Abbott") as Node3D
+	var why := ""
+	if horse == null:
+		why = "no horse"
+	else:
+		var sk := horse.get("skel") as Skeleton3D
+		if sk == null:
+			why = "no horse skeleton"
+		else:
+			var head := sk.to_global(sk.get_bone_global_pose(sk.find_bone("Head")).origin)
+			var tail := sk.to_global(sk.get_bone_global_pose(sk.find_bone("Tail1")).origin)
+			var span := head.distance_to(tail)
+			if span < 1.0 or span > 2.5:
+				why = "horse skeleton spans %.2f m" % span
+		var seat := horse.find_child("Seat", true, false) as Node3D
+		if why == "" and seat != null:
+			var z := horse.to_local(seat.global_position).z
+			if z < -0.15 or z > 0.10:
+				why = "saddle at z %.2f, not behind the withers" % z
+		var rm := horse.find_child("RiderMesh", true, false)
+		if why == "" and rm != null:
+			var leg: Dictionary = rm.get("_leg")
+			if not leg.has("L") or not leg.has("R"):
+				why = "legs not posed"
+			else:
+				for tag in ["L", "R"]:
+					var a: Vector3 = (leg[tag] as Dictionary)["ankle"]
+					var k: Vector3 = (leg[tag] as Dictionary)["knee"]
+					if absf(a.x) < 0.21 or absf(a.x) > 0.31:
+						why = "%s ankle %.2f m off his centre line" % [tag, absf(a.x)]
+					elif a.y > k.y - 0.2:
+						why = "%s ankle not below the knee" % tag
+				var al: Vector3 = (leg["L"] as Dictionary)["ankle"]
+				var ar: Vector3 = (leg["R"] as Dictionary)["ankle"]
+				if why == "" and (absf(al.x + ar.x) > 0.02 or absf(al.y - ar.y) > 0.02):
+					why = "the two legs differ"
+	arena.queue_free()
+	await get_tree().process_frame
+	if why != "":
+		_fail("leg_tuck", why)
 		return
 	_ok("leg_tuck")
 

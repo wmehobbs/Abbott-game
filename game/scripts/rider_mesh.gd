@@ -1,9 +1,14 @@
 extends Node
 class_name RiderMesh
 
-## Quaternius Casual, dressed onto the hunt-seat pivots.
-## horse.gd still owns Body / Head / LLeg / RLeg. This copies those angles
-## onto the skeleton. No AnimationPlayer. No root motion.
+## Quaternius Casual, posed as a hunt-seat rider on Abbott.
+## horse.gd still drives the seat signals on the Body / Head pivots: the lean
+## (Body pitch), the turn (Body roll), the seat's lift (Body position) and the
+## head. This reads them and poses the skeleton directly in the seat's frame:
+## seat bones in the saddle, the lean shared by pelvis and spine, each leg hung
+## from the hip to its iron at full length (no stretched bones), the iron under
+## the ball of the foot, and the fists on the reins above the withers.
+## No AnimationPlayer. No root motion.
 
 const GLB := "res://assets/meshes/madison_casual.glb"
 const FIT := 1.68 / 1.84
@@ -14,24 +19,37 @@ const BOOT := Color(0.06, 0.05, 0.045)
 const TAN := Color(0.55, 0.40, 0.24)
 const HAIR := Color(0.22, 0.14, 0.10)
 
+## The seat frame: origin at the deepest point of the saddle, -Z toward his
+## head, +X to his right, in metres. Abbott's barrel at the saddle is 0.21 m
+## half-wide from 0.2 m to 0.45 m below his back, and his belly is 0.6 m down.
+## Her ankle hangs on that barrel under her hip. The knee rides the knee roll.
+const ANKLE := Vector3(0.250, -0.505, 0.010)
+const KNEE_POLE := Vector3(0.62, -0.12, -0.80)
+const TOE_OUT := 14.0
+const HEEL_DOWN := 16.0
+## Stirrup bar, under the front of the skirt.
+const BAR := Vector3(0.120, -0.045, -0.150)
+## Fists a hand's width apart, a fist above the withers, just past the pommel.
+const HAND := Vector3(0.060, 0.150, -0.220)
+const ELBOW_POLE := Vector3(0.20, -0.36, 0.34)
+## The pelvis takes half the lean; the spine the rest, chest last.
+const PELVIS_SHARE := 0.5
+const SPINE := [["Abdomen", 0.20], ["Torso", 0.16], ["Chest", 0.14]]
+
 var visual: Node3D
 var skel: Skeleton3D
-var _parked := false
 var _booted := false
 var _reported := false
-## Where her fists sit on his neck at the canter, in the withers frame. In the
-## air the hand target rides that spot, so a neck that reaches takes them along.
-var _hand_on_neck := {}
 var _horse: Node = null
-## Her shoulder gives with his unrest on the stride, so her elbow opens and
-## closes while her fist stays on its target. Degrees per unit unrest, by gait.
-const SHOULDER_GIVE := [0.0, 19.0, 19.0, 19.0]
-## Standing there is no stride to give on, so a constant: her shoulders come
-## forward with his unrest and the elbow bends, fist still on its target.
-const SHOULDER_HALT := -40.0
-var _give_w := 0.0
-var _halt_w := 0.0
-var _shoulder_base := {}
+var _q0 := Basis(Vector3.UP, PI)
+var _k := 0.776
+var _rest := {}
+var _contact := Vector3.ZERO
+var _ankle_rest := {}
+var _stir := {}
+var _crop_mi: MeshInstance3D
+## Last solved leg points per side, seat frame: knee, ankle, fwd, up, ball.
+var _leg := {}
 
 
 func silence(packed_root: Node) -> void:
@@ -47,6 +65,7 @@ func setup(packed_root: Node3D) -> void:
 	visual.scale = Vector3.ONE * FIT
 	for i in skel.get_bone_count():
 		skel.set_bone_enabled(i, true)
+	_cache_rest()
 	_recolor()
 	_hide_casual_feet()
 	_cap()
@@ -54,51 +73,218 @@ func setup(packed_root: Node3D) -> void:
 	_gloves()
 	_crop()
 	_boot_nodes()
-	_tuck_fingers()
+	_stirrups()
+	_curl_fingers()
 
 
-func _process(_delta: float) -> void:
-	if skel == null:
+func _cache_rest() -> void:
+	for i in skel.get_bone_count():
+		_rest[String(skel.get_bone_name(i))] = skel.get_bone_global_rest(i)
+	var hl: Vector3 = (_rest["UpperLegL"] as Transform3D).origin
+	var hr: Vector3 = (_rest["UpperLegR"] as Transform3D).origin
+	# Seat bones: under and a touch behind the hip joints. She faces +Z in the glb.
+	_contact = (hl + hr) * 0.5 + Vector3(0.0, -0.075, -0.02)
+	for tag in ["L", "R"]:
+		var f: Vector3 = (_rest["Foot" + tag] as Transform3D).origin
+		# The shin bone ends at the ankle, 5 cm above the foot bone's head.
+		_ankle_rest[tag] = f + Vector3(0.0, 0.053, 0.003)
+
+
+func _ro(bone: String) -> Vector3:
+	return (_rest[bone] as Transform3D).origin
+
+
+func _rb(bone: String) -> Basis:
+	return (_rest[bone] as Transform3D).basis
+
+
+func _process(delta: float) -> void:
+	if skel == null or _rest.is_empty():
 		return
 	var body := get_parent() as Node3D
 	if body == null:
 		return
-	if not _parked:
-		_sit_hips(body)
-		_parked = true
-	var hip_x := 3.5
-	var shin_x := -5.0
-	var leg := body.get_node_or_null("LLeg") as Node3D
-	if leg:
-		hip_x = leg.rotation_degrees.x
-		var shin := leg.get_node_or_null("LShin") as Node3D
-		if shin:
-			shin_x = shin.rotation_degrees.x + hip_x
-	# Mounted Casual is yawed 180 in person_look, so mesh +X (her left)
-	# lies on the body's -X. The negative side sign puts the left
-	# target back on her left.
-	var neck: Variant = _neck_xf()
-	var on_neck: float = _on_neck_weight()
-	var give := _shoulder_give(_delta)
+	var root := body.get_parent() as Node3D
+	if root == null:
+		return
+	var rg := root.global_transform
+	var S := Transform3D(rg.basis.orthonormalized(), rg.origin)
+	var V := skel.global_transform
+	_k = V.basis.get_scale().x
+	var unit := rg.basis.get_scale().x
+	# horse.gd's seat signals, read off the pivots it already drives.
+	var lean := -body.rotation_degrees.x
+	# In the air he tips nose-up under her. She folds to stay with his neck.
+	lean += 22.0 * _on_neck_weight()
+	var roll := body.rotation_degrees.z
+	var lift := body.position * unit
+	# Rising trot: horse.gd lifts the seat a few centimetres. A posting seat
+	# rises a hand's width and comes forward over the pommel.
+	var hz := _find_horse()
+	if hz != null and int(hz.gait) == 2 and not bool(hz.jumping):
+		lift.y *= 2.2
+		lift.z *= 2.0
+	var head_x := 12.0
+	var hp := body.get_node_or_null("Head") as Node3D
+	if hp:
+		head_x = hp.rotation_degrees.x
+
+	# Pelvis and spine, built down the chain in the seat frame.
+	var c_seat := Vector3(0.0, lift.y, lift.z)
+	var r_roll := Basis(Vector3(0, 0, 1), deg_to_rad(roll * 0.7))
+	var r_pel := r_roll * Basis(Vector3.RIGHT, -deg_to_rad(lean * PELVIS_SHARE))
+	var o_body := _ro("Body")
+	var p_body := c_seat + r_pel * (_q0 * ((o_body - _contact) * _k))
+	_set_global("Body", r_pel * _q0 * _rb("Body"), p_body, S, V)
+	var p_hips := p_body + r_pel * (_q0 * ((_ro("Hips") - o_body) * _k))
+	_set_global("Hips", r_pel * _q0 * _rb("Hips"), p_hips, S, V)
+	var prev_name := "Hips"
+	var prev_p := p_hips
+	var prev_r := r_pel
+	for row in SPINE:
+		var bn: String = row[0]
+		var r: Basis = prev_r * Basis(Vector3.RIGHT, -deg_to_rad(lean * float(row[1])))
+		var p: Vector3 = prev_p + prev_r * (_q0 * ((_ro(bn) - _ro(prev_name)) * _k))
+		_set_global(bn, r * _q0 * _rb(bn), p, S, V)
+		prev_name = bn
+		prev_p = p
+		prev_r = r
+	var p_chest := prev_p
+	var r_chest := prev_r
+	# Eyes up the line: the face tips down a little more when he worries her.
+	var face_down := 8.0 - 0.6 * (head_x - lean)
+	var lift_head := face_down - lean
+	var r_neck := r_chest * Basis(Vector3.RIGHT, -deg_to_rad(lift_head * 0.45))
+	var p_neck := p_chest + r_chest * (_q0 * ((_ro("Neck") - _ro("Chest")) * _k))
+	_set_global("Neck", r_neck * _q0 * _rb("Neck"), p_neck, S, V)
+	var r_head := r_neck * Basis(Vector3.RIGHT, -deg_to_rad(lift_head * 0.55))
+	var p_head := p_neck + r_neck * (_q0 * ((_ro("Head") - _ro("Neck")) * _k))
+	_set_global("Head", r_head * _q0 * _rb("Head"), p_head, S, V)
+
+	# Legs: hip to the iron at full length, knee forward and out on the roll.
 	for side in [["L", -1.0], ["R", 1.0]]:
-		_give_shoulder(side[0], -side[1] * give, body)
-		_pose_leg(side[0], side[1], hip_x, shin_x)
-		# Fists just in front of the pommel, elbows soft. The old point sat
-		# on her lap, a metre and a half short of the bit.
-		var hand := Vector3(side[1] * 0.055, 0.30, -0.48)
-		var pole := Vector3(side[1] * 0.20, 0.20, -0.06)
-		var target := body.to_global(hand)
-		if neck != null:
-			if on_neck < 0.0:
-				_hand_on_neck[side[0]] = (neck as Transform3D).affine_inverse() * target
-			elif _hand_on_neck.has(side[0]):
-				target = target.lerp((neck as Transform3D) * (_hand_on_neck[side[0]] as Vector3), on_neck)
-		_ik2("UpperArm" + side[0], "LowerArm" + side[0], "Wrist" + side[0], target, body.to_global(pole))
-	_pose_head(body)
-	_place_boots(body)
+		var tag: String = side[0]
+		var sx: float = side[1]
+		var hip := p_body + r_pel * (_q0 * ((_ro("UpperLeg" + tag) - o_body) * _k))
+		var ankle_t := Vector3(sx * ANKLE.x, ANKLE.y, ANKLE.z)
+		var pole := Vector3(sx * KNEE_POLE.x, KNEE_POLE.y, KNEE_POLE.z)
+		var a := (_ro("LowerLeg" + tag) - _ro("UpperLeg" + tag)).length() * _k
+		var b := ((_ankle_rest[tag] as Vector3) - _ro("LowerLeg" + tag)).length() * _k
+		var ik := _two_bone(hip, ankle_t, pole, a, b)
+		var knee: Vector3 = ik[0]
+		var ankle: Vector3 = ik[1]
+		var lat := (knee - hip).cross(ankle - knee).normalized()
+		_set_limb("UpperLeg" + tag, _ro("LowerLeg" + tag), hip, knee, lat, Vector3.RIGHT, S, V)
+		_set_limb("LowerLeg" + tag, _ankle_rest[tag], knee, ankle, lat, Vector3.RIGHT, S, V)
+		_set_foot(tag, sx, ankle, S, V)
+		(_leg[tag] as Dictionary)["knee"] = knee
+
+	# Arms: shoulder to the fist on the rein, elbow down and back at the hip.
+	var on_neck := _on_neck_weight()
+	for side in [["L", -1.0], ["R", 1.0]]:
+		var tag: String = side[0]
+		var sx: float = side[1]
+		var shoulder := p_chest + r_chest * (_q0 * ((_ro("UpperArm" + tag) - _ro("Chest")) * _k))
+		var hand := Vector3(sx * HAND.x, HAND.y, HAND.z)
+		# In the air the fists go up the crest with his neck: a release.
+		hand += Vector3(0.0, -0.06, -0.22) * on_neck
+		# Two-point folds the arm forward with the shoulders.
+		hand += Vector3(0.0, -0.05, -0.08) * clampf((lean - 15.0) / 30.0, 0.0, 1.0)
+		var pole := shoulder + Vector3(sx * ELBOW_POLE.x, ELBOW_POLE.y, ELBOW_POLE.z)
+		var a := (_ro("LowerArm" + tag) - _ro("UpperArm" + tag)).length() * _k
+		var b := (_ro("Wrist" + tag) - _ro("LowerArm" + tag)).length() * _k
+		var ik := _two_bone(shoulder, hand, pole, a, b)
+		var elbow: Vector3 = ik[0]
+		var wrist: Vector3 = ik[1]
+		var lat := (elbow - shoulder).cross(wrist - elbow).normalized()
+		var rest_lat := Vector3(0, -1, 0) if tag == "L" else Vector3(0, 1, 0)
+		_set_limb("UpperArm" + tag, _ro("LowerArm" + tag), shoulder, elbow, lat, rest_lat, S, V)
+		_set_limb("LowerArm" + tag, _ro("Wrist" + tag), elbow, wrist, lat, rest_lat, S, V)
+		_set_hand(tag, sx, wrist, S, V)
+
+	_place_boots(S)
+	_place_stirrups(S)
+	_place_crop(S)
 	if not _reported:
 		_reported = true
-		print("RIDER mesh scale ", FIT, " bones ", skel.get_bone_count())
+		print("RIDER mesh scale ", FIT, " bones ", skel.get_bone_count(), " k ", snappedf(_k, 0.001))
+
+
+func _set_global(bone: String, basis_seat: Basis, origin_seat: Vector3, S: Transform3D, V: Transform3D) -> void:
+	var bi := skel.find_bone(bone)
+	if bi < 0:
+		return
+	var vb := V.basis.orthonormalized()
+	var b := (vb.inverse() * (S.basis * basis_seat)).orthonormalized()
+	var o := V.affine_inverse() * (S * origin_seat)
+	skel.set_bone_global_pose(bi, Transform3D(b, o))
+
+
+func _frame(d: Vector3, l: Vector3) -> Basis:
+	var y := d.normalized()
+	var x := (l - y * l.dot(y))
+	if x.length() < 0.0001:
+		x = y.cross(Vector3.FORWARD)
+	x = x.normalized()
+	var z := x.cross(y).normalized()
+	return Basis(x, y, z)
+
+
+## Turn a bone so its rest direction lies along from->to and its rest bend
+## axis lies along lat. Rest vectors are skeleton space; pose is seat frame.
+func _set_limb(bone: String, child_rest: Vector3, from: Vector3, to: Vector3, lat: Vector3, rest_lat_skel: Vector3, S: Transform3D, V: Transform3D) -> void:
+	var rest_dir := _q0 * (child_rest - _ro(bone)).normalized()
+	var rest_lat := _q0 * rest_lat_skel
+	var r := _frame(to - from, lat) * _frame(rest_dir, rest_lat).inverse()
+	_set_global(bone, r * _q0 * _rb(bone), from, S, V)
+
+
+func _two_bone(root: Vector3, target: Vector3, pole: Vector3, a: float, b: float) -> Array:
+	var diff := target - root
+	var d := clampf(diff.length(), absf(a - b) + 0.001, a + b - 0.001)
+	var dir := diff.normalized()
+	var cos_a := clampf((a * a + d * d - b * b) / (2.0 * a * d), -1.0, 1.0)
+	var sin_a := sqrt(maxf(0.0, 1.0 - cos_a * cos_a))
+	var pv := pole - root
+	var n := pv - dir * pv.dot(dir)
+	if n.length() < 0.0001:
+		n = dir.cross(Vector3.RIGHT)
+	n = n.normalized()
+	return [root + dir * (a * cos_a) + n * (a * sin_a), root + dir * d]
+
+
+func _set_foot(tag: String, sx: float, ankle: Vector3, S: Transform3D, V: Transform3D) -> void:
+	var turn := Basis(Vector3.UP, -sx * deg_to_rad(TOE_OUT)) * Basis(Vector3.RIGHT, deg_to_rad(HEEL_DOWN))
+	var fwd := turn * Vector3(0, 0, -1)
+	var up := turn * Vector3.UP
+	var r := _frame(fwd, up) * _frame(_q0 * Vector3(0, 0, 1), Vector3.UP).inverse()
+	var head := ankle + r * (_q0 * (((_rest["Foot" + tag] as Transform3D).origin - (_ankle_rest[tag] as Vector3)) * _k))
+	_set_global("Foot" + tag, r * _q0 * _rb("Foot" + tag), head, S, V)
+	_leg[tag] = {"ankle": ankle, "fwd": fwd, "up": up, "heel": head, "ball": head + fwd * 0.085 - up * 0.012}
+
+
+func _set_hand(tag: String, sx: float, wrist: Vector3, S: Transform3D, V: Transform3D) -> void:
+	# Knuckles toward his mouth, thumbs up, palms facing: a fist on each rein.
+	var dir := Vector3(-sx * 0.10, -0.38, -1.0).normalized()
+	var palm := Vector3(-sx, 0.0, 0.0)
+	var rest_dir := _q0 * (Vector3(1, 0, 0) if tag == "L" else Vector3(-1, 0, 0))
+	var rest_palm := _q0 * Vector3(0, -1, 0)
+	var r := _frame(dir, palm) * _frame(rest_dir, rest_palm).inverse()
+	_set_global("Wrist" + tag, r * _q0 * _rb("Wrist" + tag), wrist, S, V)
+
+
+func _curl_fingers() -> void:
+	for i in skel.get_bone_count():
+		var n := String(skel.get_bone_name(i))
+		if not (n.begins_with("Index") or n.begins_with("Middle") or n.begins_with("Ring") or n.begins_with("Pinky") or n.begins_with("Thumb")):
+			continue
+		var rg := skel.get_bone_global_rest(i)
+		var left := rg.origin.x > 0.0
+		var axis_skel := Vector3(0, 0, -1) if left else Vector3(0, 0, 1)
+		var amount := 0.35 if n.begins_with("Thumb") else 1.30
+		var axis := (rg.basis.inverse() * axis_skel).normalized()
+		var rl := skel.get_bone_rest(i)
+		skel.set_bone_pose_rotation(i, (rl.basis * Basis(axis, amount)).get_rotation_quaternion())
 
 
 func _find_horse() -> Node:
@@ -113,218 +299,17 @@ func _find_horse() -> Node:
 	return null
 
 
-func _shoulder_give(delta: float) -> float:
-	var h := _find_horse()
-	if h == null:
-		return 0.0
-	var g: int = h.gait
-	var on: bool = g >= 1 and g <= 3 and not h.jumping and h.land_recover <= 0.0
-	var halted: bool = g == 0 and not h.jumping and h.land_recover <= 0.0
-	_give_w = move_toward(_give_w, 1.0 if on else 0.0, delta * 4.0)
-	_halt_w = move_toward(_halt_w, 1.0 if halted else 0.0, delta * 4.0)
-	if _give_w <= 0.0 and _halt_w <= 0.0:
-		return 0.0
-	var unrest := float(h.call("_hand_unrest"))
-	var k: float = SHOULDER_GIVE[clampi(g, 0, 3)]
-	return sin(float(h.stride_u) * TAU) * k * unrest * _give_w + SHOULDER_HALT * unrest * _halt_w
-
-
-func _give_shoulder(tag: String, deg: float, body: Node3D) -> void:
-	var si := skel.find_bone("Shoulder" + tag)
-	if si < 0:
-		return
-	if not _shoulder_base.has(tag):
-		_shoulder_base[tag] = skel.get_bone_pose(si)
-	skel.set_bone_pose(si, _shoulder_base[tag])
-	if absf(deg) < 0.0001:
-		return
-	var gp := skel.get_bone_global_pose(si)
-	var axis: Vector3 = (skel.global_transform.basis.inverse() * body.global_transform.basis.y).normalized()
-	skel.set_bone_global_pose(si, Transform3D(Basis(axis, deg_to_rad(deg)) * gp.basis, gp.origin))
-
-
-func _neck_xf() -> Variant:
-	var h: Node = _find_horse()
-	if h == null or h.skel == null:
-		return null
-	# The withers, where the crest starts and where her fists already sit.
-	# Neck1 pivots at its base, ahead of her hands, so anchoring to it swings
-	# them up as the neck goes down — a lever, not a crest.
-	var bas: Node = h.skel.get_node_or_null("Bascule")
-	if bas == null or not bas.get("has_withers"):
-		return null
-	return bas.get("withers")
-
-
 func _on_neck_weight() -> float:
-	# -1: cantering, learn where the fists sit. 0..1: in the air, ride the crest.
+	# 0 on the flat. Through the arc the fists ride up the crest and come home.
 	var h: Node = _find_horse()
-	if h == null:
+	if h == null or not h.jumping:
 		return 0.0
-	if not h.jumping:
-		return -1.0 if h.gait == Horse.CANTER else 0.0
 	var u: float = clampf(float(h.jump_t) / maxf(float(h.jump_dur), 0.01), 0.0, 1.0)
-	return smoothstep(0.0, 0.15, u) * (1.0 - smoothstep(0.85, 1.0, u))
+	return smoothstep(0.0, 0.18, u) * (1.0 - smoothstep(0.78, 1.0, u))
 
 
-func _pose_leg(tag: String, sx: float, hip_x: float, shin_x: float) -> void:
-	var ui := skel.find_bone("UpperLeg" + tag)
-	var li := skel.find_bone("LowerLeg" + tag)
-	var fi := skel.find_bone("Foot" + tag)
-	if ui < 0 or li < 0 or fi < 0:
-		return
-	var pts := _spec(hip_x, shin_x, sx)
-	var upper_b := _body_pos("UpperLeg" + tag)
-	var want_knee: Vector3 = pts["knee"]
-	var want_heel: Vector3 = pts["heel"]
-	_aim(ui, li, _dir_to_skel(want_knee - upper_b))
-	var full := _body_pos("LowerLeg" + tag).distance_to(upper_b)
-	var s_thigh := clampf(upper_b.distance_to(want_knee) / maxf(full, 0.001), 0.45, 1.25)
-	_scale_along(ui, li, s_thigh)
-	var knee_b := _body_pos("LowerLeg" + tag)
-	var shin_rest := skel.get_bone_global_rest(li).origin.distance_to(skel.get_bone_global_rest(fi).origin) * FIT
-	var s_shin := clampf(knee_b.distance_to(want_heel) / maxf(shin_rest, 0.001), 0.35, 1.0)
-	_aim(li, fi, _dir_to_skel(want_heel - knee_b))
-	_scale_bone(li, s_shin)
-	_place_foot_at(li, fi, want_heel)
-
-
-func _spec(hip_x: float, shin_x: float, sx: float) -> Dictionary:
-	var leg := Transform3D(Basis(Vector3(1, 0, 0), deg_to_rad(hip_x)), Vector3(sx * 0.122, -0.018, -0.012))
-	var shin := Transform3D(Basis(Vector3(1, 0, 0), deg_to_rad(shin_x - hip_x)), Vector3(sx * 0.028, -0.148, -0.210))
-	var knee: Vector3 = leg * Vector3(sx * 0.028, -0.148, -0.210)
-	# The barrel is 33 cm wide. 0.42 stuck the shin straight out.
-	# The thigh lies on the saddle and the heel hangs under the hip.
-	knee.x = sx * 0.22
-	# Sitting, the heel is on the iron. In the two-point
-	# the hip opens and the body rises, so the shin reaches back down.
-	var stand := clampf((hip_x - 14.0) / 16.0, 0.0, 1.0)
-	var drop := lerpf(-0.32, -0.36, stand)
-	var fwd := lerpf(0.130, -0.14, stand)
-	var heel: Vector3 = leg * (shin * Vector3(sx * 0.010, drop, fwd))
-	heel.x = sx * 0.16
-	return {"knee": knee, "heel": heel}
-
-
-func _ik2(upper: String, lower: String, end: String, target_world: Vector3, pole_world: Vector3) -> void:
-	var ui := skel.find_bone(upper)
-	var li := skel.find_bone(lower)
-	var ei := skel.find_bone(end)
-	if ui < 0 or li < 0 or ei < 0:
-		return
-	var a := skel.get_bone_global_rest(ui).origin.distance_to(skel.get_bone_global_rest(li).origin)
-	var b := skel.get_bone_global_rest(li).origin.distance_to(skel.get_bone_global_rest(ei).origin)
-	var origin: Vector3 = skel.get_bone_global_pose(ui).origin
-	var target: Vector3 = skel.global_transform.affine_inverse() * target_world
-	var pole: Vector3 = skel.global_transform.affine_inverse() * pole_world
-	var diff := target - origin
-	if diff.length() < 0.001:
-		return
-	var dist := clampf(diff.length(), absf(a - b) + 0.001, a + b - 0.001)
-	var dir := diff.normalized()
-	var cos_a := clampf((a * a + dist * dist - b * b) / (2.0 * a * dist), -1.0, 1.0)
-	var sin_a := sqrt(maxf(0.0, 1.0 - cos_a * cos_a))
-	var pole_v := pole - origin
-	var side := pole_v - dir * pole_v.dot(dir)
-	if side.length() < 0.0001:
-		side = dir.cross(Vector3.UP)
-	side = side.normalized()
-	_aim(ui, li, (dir * cos_a + side * sin_a).normalized())
-	var joint: Vector3 = skel.get_bone_global_pose(li).origin
-	var out := target - joint
-	if out.length() < 0.001:
-		out = dir
-	_aim(li, ei, out.normalized())
-
-
-func _aim(bi: int, dir_ref: int, dir_skel: Vector3) -> void:
-	var rest_g := skel.get_bone_global_rest(bi)
-	var rest_dir: Vector3 = skel.get_bone_global_rest(dir_ref).origin - rest_g.origin
-	if rest_dir.length() < 0.0001 or dir_skel.length() < 0.0001:
-		return
-	var q := Quaternion(rest_dir.normalized(), dir_skel.normalized())
-	var current := skel.get_bone_global_pose(bi)
-	skel.set_bone_global_pose(bi, Transform3D(Basis(q) * rest_g.basis, current.origin))
-
-
-func _scale_along(bi: int, child: int, s: float) -> void:
-	var pose := skel.get_bone_pose(bi)
-	var q := pose.basis.get_rotation_quaternion()
-	var offset: Vector3 = skel.get_bone_rest(child).origin
-	if offset.length() < 0.0001:
-		_scale_bone(bi, s)
-		return
-	var u := offset.normalized()
-	var scl := Basis.IDENTITY
-	scl.x += u * ((s - 1.0) * u.x)
-	scl.y += u * ((s - 1.0) * u.y)
-	scl.z += u * ((s - 1.0) * u.z)
-	pose.basis = Basis(q) * scl
-	skel.set_bone_pose(bi, pose)
-
-
-func _scale_bone(bi: int, s: float) -> void:
-	var pose := skel.get_bone_pose(bi)
-	var q := pose.basis.get_rotation_quaternion()
-	pose.basis = Basis(q).scaled(Vector3(s, s, s))
-	skel.set_bone_pose(bi, pose)
-
-
-func _place_foot_at(li: int, fi: int, heel_body: Vector3) -> void:
-	var body := get_parent() as Node3D
-	if body == null:
-		return
-	var rest_l := skel.get_bone_global_rest(li)
-	var rest_f := skel.get_bone_global_rest(fi)
-	var rel_basis: Basis = (rest_l.affine_inverse() * rest_f).basis
-	rel_basis = Basis(Vector3(1, 0, 0), deg_to_rad(-20.0)) * rel_basis
-	var posed := skel.get_bone_global_pose(li)
-	var rot := Basis(posed.basis.get_rotation_quaternion()) * rel_basis
-	var origin: Vector3 = skel.global_transform.affine_inverse() * body.to_global(heel_body)
-	skel.set_bone_global_pose(fi, Transform3D(rot, origin))
-
-
-func _pose_head(body: Node3D) -> void:
-	var head := body.get_node_or_null("Head") as Node3D
-	var hi := skel.find_bone("Head")
-	if head == null or hi < 0:
-		return
-	var deg := -4.0 + (head.rotation_degrees.x - 12.0) * 0.45
-	var rest := skel.get_bone_rest(hi)
-	rest.basis = rest.basis * Basis(Vector3(1, 0, 0), deg_to_rad(deg))
-	skel.set_bone_pose(hi, rest)
-
-
-func _tuck_fingers() -> void:
-	for i in skel.get_bone_count():
-		var n := String(skel.get_bone_name(i))
-		if n.begins_with("Index") or n.begins_with("Middle") or n.begins_with("Ring") or n.begins_with("Pinky") or n.begins_with("Thumb"):
-			_scale_bone(i, 0.42)
-
-
-func _dir_to_skel(dir_body: Vector3) -> Vector3:
-	var body := get_parent() as Node3D
-	var a: Vector3 = skel.global_transform.affine_inverse() * body.global_transform * Vector3.ZERO
-	var b: Vector3 = skel.global_transform.affine_inverse() * body.global_transform * dir_body
-	return (b - a).normalized()
-
-
-func _body_pos(bone: String) -> Vector3:
-	var body := get_parent() as Node3D
-	var i := skel.find_bone(bone)
-	return body.to_local(skel.to_global(skel.get_bone_global_pose(i).origin))
-
-
-func _sit_hips(_body: Node3D) -> void:
-	# Local only. global_position would walk up through the seat bone
-	# and must not touch the physics root.
-	var i := skel.find_bone("Hips")
-	if i < 0:
-		return
-	var hip: Vector3 = _into_visual(skel, visual) * skel.get_bone_global_rest(i).origin
-	# The basis carries the mount's 180 yaw as well as the scale, so the
-	# turned mesh still sits its hips on the seat point.
-	visual.position = -(visual.basis * hip)
+func _seat_to_world(S: Transform3D, p: Vector3) -> Vector3:
+	return S * p
 
 
 func _recolor() -> void:
@@ -357,56 +342,84 @@ func _paint(node_name: String, mat: Material) -> void:
 
 
 func _cap() -> void:
+	# A velvet riding helmet over the hair: a dome to just above her brows and
+	# a short peak. Offsets are from the head bone: the hair is 0.23 wide,
+	# 0.29 deep and tops out 0.26 above it; her brow is 0.13 in front of it.
 	var att := _attach("Head", "Cap")
 	if att == null:
 		return
-	var velvet := _mat(Color(0.08, 0.07, 0.09), 0.78)
-	var crown := MeshInstance3D.new()
-	var cap := CylinderMesh.new()
-	cap.top_radius = 0.09
-	cap.bottom_radius = 0.10
-	cap.height = 0.055
-	crown.mesh = cap
-	crown.material_override = velvet
-	crown.position = Vector3(0, 0.20, 0.01)
-	att.add_child(crown)
+	var hb := _rb("Head")
+	var velvet := _mat(Color(0.05, 0.05, 0.07), 0.82)
+	var dome := MeshInstance3D.new()
+	dome.name = "Dome"
+	var sm := SphereMesh.new()
+	sm.radius = 1.0
+	sm.height = 1.0
+	sm.is_hemisphere = true
+	sm.radial_segments = 20
+	sm.rings = 8
+	dome.mesh = sm
+	dome.material_override = velvet
+	var base := Vector3(0.0, 0.098, 0.006)
+	dome.transform = Transform3D(hb.inverse() * Basis.from_scale(Vector3(0.130, 0.176, 0.162)), hb.inverse() * base)
+	att.add_child(dome)
 	var peak := MeshInstance3D.new()
+	peak.name = "Peak"
 	var box := BoxMesh.new()
-	box.size = Vector3(0.16, 0.012, 0.08)
+	box.size = Vector3(0.150, 0.010, 0.060)
 	peak.mesh = box
 	peak.material_override = velvet
-	peak.position = Vector3(0, 0.175, -0.07)
+	var tip := Basis(Vector3.RIGHT, deg_to_rad(14.0))
+	peak.transform = Transform3D(hb.inverse() * tip, hb.inverse() * Vector3(0.0, 0.102, 0.160))
 	att.add_child(peak)
+	var button := MeshInstance3D.new()
+	var bs := SphereMesh.new()
+	bs.radius = 0.012
+	bs.height = 0.016
+	button.mesh = bs
+	button.material_override = velvet
+	button.position = hb.inverse() * Vector3(0.0, 0.272, 0.006)
+	att.add_child(button)
 
 
 func _coat_bits() -> void:
+	# On the bones now, so they lean with her chest and hips, not the old pivot.
 	var navy := _mat(NAVY, 0.7)
 	var stock := _mat(Color(0.93, 0.93, 0.90), 0.6)
 	var gold := _mat(Color(0.78, 0.62, 0.28), 0.35)
-	for sx in [-1.0, 1.0]:
-		var tail := MeshInstance3D.new()
-		var box := BoxMesh.new()
-		box.size = Vector3(0.07, 0.26, 0.016)
-		tail.mesh = box
-		tail.material_override = navy
-		tail.position = Vector3(sx * 0.055, -0.06, 0.10)
-		tail.rotation_degrees = Vector3(8, 0, sx * -6)
-		add_child(tail)
-	var tie := MeshInstance3D.new()
-	var tb := BoxMesh.new()
-	tb.size = Vector3(0.09, 0.055, 0.028)
-	tie.mesh = tb
-	tie.material_override = stock
-	tie.position = Vector3(0, 0.43, -0.06)
-	add_child(tie)
-	var pin := MeshInstance3D.new()
-	var sp := SphereMesh.new()
-	sp.radius = 0.008
-	sp.height = 0.016
-	pin.mesh = sp
-	pin.material_override = gold
-	pin.position = Vector3(0, 0.41, -0.075)
-	add_child(pin)
+	var hips := _attach("Hips", "CoatTails")
+	if hips:
+		var hb := _rb("Hips")
+		for sx in [-1.0, 1.0]:
+			var tail := MeshInstance3D.new()
+			var box := BoxMesh.new()
+			box.size = Vector3(0.075, 0.28, 0.018)
+			tail.mesh = box
+			tail.material_override = navy
+			# Behind her (-Z in the glb), hanging over the cantle.
+			var p := Vector3(sx * 0.06, -0.10, -0.115)
+			tail.position = hb.inverse() * p
+			tail.basis = hb.inverse() * Basis.from_euler(Vector3(deg_to_rad(-14.0), 0.0, deg_to_rad(sx * 6.0)))
+			hips.add_child(tail)
+	var chest := _attach("Chest", "Stock")
+	if chest:
+		var cb := _rb("Chest")
+		var neck_up := _ro("Neck") - _ro("Chest")
+		var tie := MeshInstance3D.new()
+		var tb := BoxMesh.new()
+		tb.size = Vector3(0.060, 0.042, 0.026)
+		tie.mesh = tb
+		tie.material_override = stock
+		tie.position = cb.inverse() * (neck_up * 0.92 + Vector3(0.0, 0.0, 0.100))
+		chest.add_child(tie)
+		var pin := MeshInstance3D.new()
+		var sp := SphereMesh.new()
+		sp.radius = 0.008
+		sp.height = 0.016
+		pin.mesh = sp
+		pin.material_override = gold
+		pin.position = cb.inverse() * (neck_up * 0.80 + Vector3(0.0, 0.0, 0.114))
+		chest.add_child(pin)
 
 
 func _gloves() -> void:
@@ -420,27 +433,39 @@ func _glove(bone: String, node_name: String) -> void:
 		return
 	var g := MeshInstance3D.new()
 	var box := BoxMesh.new()
-	box.size = Vector3(0.055, 0.04, 0.06)
+	box.size = Vector3(0.075, 0.05, 0.065)
 	g.mesh = box
 	g.material_override = _mat(Color(0.04, 0.04, 0.045), 0.45)
-	g.position = Vector3(0, -0.02, -0.02)
+	# Over the curled fingers, along the hand from the wrist.
+	var dir := 1.0 if bone.ends_with("L") else -1.0
+	g.position = _rb(bone).inverse() * Vector3(dir * 0.045, -0.012, 0.0)
 	att.add_child(g)
 
 
 func _crop() -> void:
-	var att := _find_named(skel, "RGlove")
-	if att == null:
-		return
 	var crop := MeshInstance3D.new()
+	crop.name = "Crop"
 	var cyl := CylinderMesh.new()
-	cyl.top_radius = 0.006
-	cyl.bottom_radius = 0.008
-	cyl.height = 0.42
+	cyl.top_radius = 0.0045
+	cyl.bottom_radius = 0.007
+	cyl.height = 1.0
 	crop.mesh = cyl
 	crop.material_override = _mat(Color(0.12, 0.08, 0.05), 0.45)
-	crop.position = Vector3(0.02, -0.02, -0.04)
-	crop.rotation_degrees = Vector3(70, 0, 12)
-	att.add_child(crop)
+	add_child(crop)
+	_crop_mi = crop
+
+
+func _place_crop(S: Transform3D) -> void:
+	if _crop_mi == null:
+		return
+	var glove := _find_named(skel, "RGlove") as Node3D
+	if glove == null:
+		return
+	# Held in the right fist, the shaft down and back across her thigh.
+	var top := glove.global_position
+	var dir := (S.basis * Vector3(0.10, -0.78, 0.62)).normalized()
+	var length := 0.42 * 0.85
+	_crop_mi.global_transform = Transform3D(_align_y(dir) * Basis.from_scale(Vector3(1.0, length, 1.0)), top + dir * (length * 0.5 - 0.03))
 
 
 func _boot_nodes() -> void:
@@ -451,64 +476,116 @@ func _boot_nodes() -> void:
 		var shaft := MeshInstance3D.new()
 		shaft.name = "Shaft"
 		var cyl := CylinderMesh.new()
-		cyl.top_radius = 0.042
-		cyl.bottom_radius = 0.048
+		cyl.top_radius = 0.046
+		cyl.bottom_radius = 0.036
 		cyl.height = 1.0
 		shaft.mesh = cyl
-		shaft.material_override = _mat(BOOT, 0.42)
+		shaft.material_override = _mat(BOOT, 0.38)
 		root.add_child(shaft)
 		var cuff := MeshInstance3D.new()
 		cuff.name = "Cuff"
 		var top := CylinderMesh.new()
-		top.top_radius = 0.052
-		top.bottom_radius = 0.05
-		top.height = 0.06
+		top.top_radius = 0.050
+		top.bottom_radius = 0.048
+		top.height = 0.035
 		cuff.mesh = top
 		cuff.material_override = _mat(TAN, 0.5)
 		root.add_child(cuff)
 		var foot := MeshInstance3D.new()
 		foot.name = "Foot"
 		var box := BoxMesh.new()
-		box.size = Vector3(0.07, 0.045, 0.18)
+		box.size = Vector3(0.068, 0.05, 0.19)
 		foot.mesh = box
-		foot.material_override = _mat(BOOT, 0.4)
+		foot.material_override = _mat(BOOT, 0.36)
 		root.add_child(foot)
 		var heel := MeshInstance3D.new()
 		heel.name = "Heel"
 		var hb := BoxMesh.new()
-		hb.size = Vector3(0.05, 0.03, 0.04)
+		hb.size = Vector3(0.056, 0.035, 0.05)
 		heel.mesh = hb
 		heel.material_override = _mat(BOOT, 0.4)
 		root.add_child(heel)
 	_booted = true
 
 
-func _place_boots(body: Node3D) -> void:
+func _place_boots(S: Transform3D) -> void:
 	if not _booted:
 		return
-	for side in [["L", 1.0], ["R", -1.0]]:
-		var tag: String = side[0]
+	for tag in ["L", "R"]:
 		var root := get_node_or_null("Boot" + tag) as Node3D
-		if root == null:
+		if root == null or not _leg.has(tag):
 			continue
-		var knee := _body_pos("LowerLeg" + tag)
-		var heel := _body_pos("Foot" + tag)
-		var span := heel - knee
-		if span.length() < 0.05:
-			continue
+		var leg: Dictionary = _leg[tag]
+		var knee_w := S * (leg["knee"] as Vector3)
+		var ankle_w := S * (leg["ankle"] as Vector3)
+		var fwd_w := (S.basis * (leg["fwd"] as Vector3)).normalized()
+		var up_w := (S.basis * (leg["up"] as Vector3)).normalized()
+		var top := knee_w.lerp(ankle_w, 0.12)
+		var bottom := ankle_w - up_w * 0.02
+		var span := bottom - top
 		var shaft := root.get_node("Shaft") as MeshInstance3D
-		var mid := (knee + heel) * 0.5
-		shaft.position = mid
-		shaft.transform = Transform3D(_align_y(span).scaled(Vector3(1, span.length(), 1)), mid)
+		shaft.global_transform = Transform3D(_align_y(span) * Basis.from_scale(Vector3(1.0, span.length(), 1.0)), (top + bottom) * 0.5)
 		var cuff := root.get_node("Cuff") as MeshInstance3D
-		cuff.position = knee + span.normalized() * 0.04
-		cuff.basis = _align_y(span)
+		cuff.global_transform = Transform3D(_align_y(span), top + span.normalized() * 0.012)
+		var side := fwd_w.cross(up_w).normalized()
+		var fb := Basis(side, up_w, -fwd_w)
 		var foot := root.get_node("Foot") as MeshInstance3D
-		foot.position = heel + Vector3(0, 0.02, -0.05)
-		foot.rotation = Vector3.ZERO
-		var hob := root.get_node("Heel") as MeshInstance3D
-		hob.position = heel + Vector3(0, 0.015, 0.035)
-		hob.rotation = Vector3.ZERO
+		foot.global_transform = Transform3D(fb, ankle_w + fwd_w * 0.050 - up_w * 0.048)
+		var heel := root.get_node("Heel") as MeshInstance3D
+		heel.global_transform = Transform3D(fb, ankle_w - fwd_w * 0.040 - up_w * 0.075)
+
+
+func _stirrups() -> void:
+	var strap := _mat(Color(0.16, 0.09, 0.05), 0.5)
+	var steel := MeshKit.steel()
+	var rubber := _mat(Color(0.08, 0.08, 0.08), 0.72)
+	for tag in ["L", "R"]:
+		var leather := MeshInstance3D.new()
+		leather.name = "Leather" + tag
+		var lb := BoxMesh.new()
+		lb.size = Vector3(0.022, 1.0, 0.005)
+		leather.mesh = lb
+		leather.material_override = strap
+		add_child(leather)
+		var iron := MeshInstance3D.new()
+		iron.name = "Iron" + tag
+		var tm := TorusMesh.new()
+		tm.inner_radius = 0.040
+		tm.outer_radius = 0.049
+		iron.mesh = tm
+		iron.material_override = steel
+		add_child(iron)
+		var tread := MeshInstance3D.new()
+		tread.name = "Tread" + tag
+		var tb := BoxMesh.new()
+		tb.size = Vector3(0.088, 0.010, 0.036)
+		tread.mesh = tb
+		tread.material_override = rubber
+		add_child(tread)
+		_stir[tag] = {"leather": leather, "iron": iron, "tread": tread}
+
+
+func _place_stirrups(S: Transform3D) -> void:
+	for side in [["L", -1.0], ["R", 1.0]]:
+		var tag: String = side[0]
+		var sx: float = side[1]
+		if not _stir.has(tag) or not _leg.has(tag):
+			continue
+		var parts: Dictionary = _stir[tag]
+		var leg: Dictionary = _leg[tag]
+		var up_w := S.basis.y.normalized()
+		var fwd_w := (S.basis * (leg["fwd"] as Vector3)).normalized()
+		var flat := (fwd_w - up_w * fwd_w.dot(up_w)).normalized()
+		# The tread is under the ball of her foot; the ring stands around it.
+		var tread_p := S * (leg["ball"] as Vector3) - up_w * 0.030
+		var ring_c := tread_p + up_w * 0.050
+		var eye := ring_c + up_w * 0.050
+		var bar := S * Vector3(sx * BAR.x, BAR.y, BAR.z)
+		var span := bar - eye
+		(parts["leather"] as MeshInstance3D).global_transform = Transform3D(_align_y(span) * Basis.from_scale(Vector3(1.0, span.length(), 1.0)), (bar + eye) * 0.5)
+		var side_w := flat.cross(up_w).normalized()
+		(parts["iron"] as MeshInstance3D).global_transform = Transform3D(Basis(side_w, flat, up_w) * Basis.from_scale(Vector3(1.0, 1.0, 1.18)), ring_c)
+		(parts["tread"] as MeshInstance3D).global_transform = Transform3D(Basis(side_w, up_w, -flat), tread_p)
 
 
 func _align_y(dir: Vector3) -> Basis:

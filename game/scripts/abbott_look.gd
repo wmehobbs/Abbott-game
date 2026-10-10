@@ -5,14 +5,18 @@ extends RefCounted
 ## Madison is parented to the Torso bone (behind the withers, ahead of the hips).
 
 const People := preload("res://scripts/person_look.gd")
-const MESH := "res://assets/meshes/abbott_v2.glb"
+const MESH := "res://assets/meshes/abbott_v2c.glb"
 const TARGET_LENGTH := 2.25
+## Madison and the saddle, relative to metres. See _mount_on_spine.
+const RIDER_SCALE := 0.85
 const SHADER := "res://shaders/abbott_whitehorse.gdshader"
 const TEX_FACE := "res://assets/textures/abbott_shader_face.jpg"
 const TEX_STALL := "res://assets/textures/abbott_shader_stall.jpg"
 const TEX_COAT := "res://assets/textures/abbott_shader_coat.jpg"
 ## Prefer the mid-back. Torso2 is the withers/shoulders. Neck* is forbidden.
-const SEAT_BONES: Array[String] = ["Torso", "Torso2", "Back"]
+## Torso2 is over the dip behind his withers, where a saddle sits. Torso
+## put her back on the rise of his loins.
+const SEAT_BONES: Array[String] = ["Torso2", "Torso", "Back"]
 const NAVY := Color(0.06, 0.07, 0.10)
 const BEIGE := Color(0.80, 0.72, 0.54)
 const SKIN := Color(0.86, 0.70, 0.58)
@@ -32,8 +36,10 @@ static func build(host: Node3D) -> Dictionary:
 		visual.add_child(inst)
 		_fit_horse(inst)
 		# v2 carries its own coat. The photo shader stays for the Quaternius mesh.
-		if not str(MESH).ends_with("abbott_v2.glb"):
+		if not str(MESH).get_file().begins_with("abbott_v2"):
 			_paint_whitehorse(inst)
+		else:
+			_use_painted_coat(inst)
 	else:
 		push_warning("WhiteHorse mesh missing")
 
@@ -42,6 +48,26 @@ static func build(host: Node3D) -> Dictionary:
 	_bridle(skel, inst if inst else visual)
 	_dust(host)
 	return {visual = visual, rider = rider, skel = skel}
+
+
+static func _use_painted_coat(n: Node) -> void:
+	# The v2 coat is painted into the vertex colors. Godot's glTF import leaves
+	# those off, so the coat drew white. Turn them on, per surface that has them.
+	if n is MeshInstance3D:
+		var mi := n as MeshInstance3D
+		if mi.mesh:
+			for s in mi.mesh.get_surface_count():
+				if mi.mesh.surface_get_format(s) & Mesh.ARRAY_FORMAT_COLOR == 0:
+					continue
+				var m := mi.get_active_material(s) as StandardMaterial3D
+				if m == null:
+					continue
+				var d := m.duplicate() as StandardMaterial3D
+				d.vertex_color_use_as_albedo = true
+				d.vertex_color_is_srgb = false
+				mi.set_surface_override_material(s, d)
+	for c in n.get_children():
+		_use_painted_coat(c)
 
 
 static func _fit_horse(root: Node3D) -> void:
@@ -64,9 +90,14 @@ static func _fit_horse(root: Node3D) -> void:
 	var length := aabb.size.z
 	if length < aabb.size.x:
 		length = aabb.size.x
-	if length > 0.05:
+	# v2c measures 0.056 before the fit, so the floor sits well under that.
+	if length > 0.005:
 		var s := TARGET_LENGTH / length
-		if s < 0.4 or s > 2.5:
+		# v2c keeps its vertices in the armature's own units (1/100), so it
+		# fits at about 40. The old mesh fits near 0.85.
+		var lo := 20.0 if str(MESH).get_file().begins_with("abbott_v2") else 0.4
+		var hi := 80.0 if lo > 1.0 else 2.5
+		if s < lo or s > hi:
 			push_warning("FIT unexpected scale %s on length %s" % [s, length])
 		root.scale = Vector3(s, s, s)
 		aabb = _aabb(root)
@@ -251,7 +282,7 @@ static func _mount_on_spine(host: Node3D, skel: Skeleton3D, mesh_root: Node) -> 
 	var i := skel.find_bone(bone)
 	var bone_xf := skel.global_transform * skel.get_bone_global_pose(i)
 	var around := bone_xf.origin
-	var back_y := _back_y_near(mesh_root, around, 0.18)
+	var back_y := _back_y_near(mesh_root, around, 0.05)
 	var origin := Vector3(around.x, back_y, around.z)
 	var fwd := -host.global_transform.basis.z
 	fwd.y = 0.0
@@ -260,6 +291,11 @@ static func _mount_on_spine(host: Node3D, skel: Skeleton3D, mesh_root: Node) -> 
 	else:
 		fwd = fwd.normalized()
 	seat.look_at_from_position(origin, origin + fwd, Vector3.UP)
+	# Madison and the saddle are built in metres. The seat follows the bone's
+	# turn but not the skeleton's scale (0.85 on the old mesh, 40 on v2c).
+	# RIDER_SCALE sizes her to this horse: his seat is 1.43 m off the sand, a
+	# 14 hand horse, and the 1.68 m model at 0.85 is a 1.43 m girl on him.
+	seat.global_transform = Transform3D(seat.global_transform.basis.orthonormalized().scaled(Vector3.ONE * RIDER_SCALE), seat.global_position)
 	print("SEAT bone=", bone, " bone_pos=", around, " back_y=", back_y, " seat=", origin)
 	return People.mounted_madison(seat, Vector3.ZERO)
 
