@@ -27,12 +27,18 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
    - the camera keeps him in frame over a fence;
    - a gold Lesson button and clearer title text;
    - F11 or Alt+Enter for full screen; the window opens at 1600×900.
+7. **Life in the ring:**
+   - the reins run along his neck to the bit and drape at a halt (they ran through his neck);
+   - the arena board shows the live time and faults;
+   - the crowd is in everyday clothes (it was six Michelles);
+   - Madison breathes and looks round standing, and pats his neck after a clear round;
+   - the title photo slowly drifts in.
 
 ## Final checks
 
 - Compile clean; selftest 53 pass, 0 fail.
 - Playtest clear 0, refuse 4, rail 4.
-- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45).
+- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.44; teleported false (start of night 25.43 / 62.14 / 33.45).
 - Madison's save unchanged all night (compared after every run).
 
 ## Needs Ernie
@@ -72,6 +78,8 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | lens | done | (M7) | selftest 52/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The ride camera is no longer interpolated twice; the warning is gone. |
 | walk mode | done | (M8) | compile ok, selftest 52/0, playtest pass, save match | Madison walks the course facing forward, with her own Walk and Idle. |
 | life | done | (M9) | compile ok, selftest 52/0, playtest pass (refuse 4), save match | Michelle and the crowd watch him; the crowd faces the ring; Madison is thrown forward at a stop. |
+| score board | done | (M12) | compile ok, selftest 53/0, playtest pass | The arena board shows the live time and faults. |
+| title, trot | done | (M13) | compile ok, selftest 53/0 | A slow push-in on the title photo; the rising-trot lift eases in and out. |
 | reins, crowd | done | (M10) | selftest 53/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The reins run along his neck to the bit and drape at a halt; she breathes and looks round standing; a varied crowd. |
 
 ## What was wrong, and what changed

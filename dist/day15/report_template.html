@@ -77,7 +77,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
@@ -102,6 +102,8 @@
   }
   .tag.before { color: var(--before); }
   .tag.after { color: var(--good); }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+  figure.single figcaption { display: block; font-size: 15px; line-height: 1.45; }
   .bars { display: grid; gap: 14px; max-width: 760px; }
   .bar-row { display: grid; grid-template-columns: 150px 1fr 90px; gap: 12px; align-items: center; }
   .bar-row .label { font-size: 15px; color: var(--muted); }
@@ -165,13 +167,22 @@
       <li><b>About 100 fps</b><span>Up from 35–40. The scoreboard was reading a file from disk every frame.</span></li>
       <li><b>Sharper picture</b><span>SMAA replaces FXAA, and small objects stop casting shadows.</span></li>
       <li><b>Real tack and fences</b><span>A fitted bridle, a reshaped saddle, hedge brush and flower beds.</span></li>
-      <li><b>Small fixes</b><span>Walking Madison faces forward, the crowd faces the ring, F11 toggles full screen.</span></li>
+      <li><b>Life in the ring</b><span>Reins along his neck, a live score board, a crowd that watches, and a pat after a clear round.</span></li>
+      <li><b>Small fixes</b><span>Walking Madison faces forward, F11 toggles full screen, and the title photo slowly drifts in.</span></li>
+      <li><b>Checked all night</b><span>Self-tests, the playtest and two timed rides after the changes. Madison's save was never touched.</span></li>
     </ul>
   </section>
 
   <section class="section">
     <h2>Before and after</h2>
 <!--PAIRS-->
+  </section>
+
+  <section class="section" id="later">
+    <h2>Smaller things that add life</h2>
+    <div class="gallery">
+<!--LATER-->
+    </div>
   </section>
 
   <section class="section" id="smoother">
@@ -198,7 +209,7 @@
           <tr><td>Playtest (clear, refusal, rail)</td><td>0 / 4 / 4</td><td>0 / 4 / 4</td><td class="ok">Pass</td></tr>
           <tr><td>Lesson ride, hk_les_001</td><td>0 faults, 25.43 s</td><td>0 faults, 25.43 s</td><td class="ok">Same</td></tr>
           <tr><td>Beginner ride, hk_beg_035</td><td>0 faults, 62.14 s</td><td>0 faults, 62.15 s</td><td class="ok">Same</td></tr>
-          <tr><td>Beginner jump-off</td><td>0 faults, 33.45 s</td><td>0 faults, 33.45 s</td><td class="ok">Same</td></tr>
+          <tr><td>Beginner jump-off</td><td>0 faults, 33.45 s</td><td>0 faults, 33.44 s</td><td class="ok">Same</td></tr>
           <tr><td>Madison's save</td><td>Your 8:43 p.m. play</td><td>Unchanged</td><td class="ok">Safe</td></tr>
         </tbody>
       </table>
