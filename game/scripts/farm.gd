@@ -1926,18 +1926,26 @@ func _one_bleacher(at: Vector3) -> void:
 	root.name = "Bleacher"
 	root.position = at
 	add_child(root)
+	# A show draws a crowd: on show day every row fills in. Lessons and
+	# schooling keep the few parents and barn friends.
+	var show := GameState.session_kind == "show"
 	for i in range(3):
 		var h := 0.42 + float(i) * 0.34
 		var z := 0.40 + float(i) * 0.74
 		var step := MeshKit.add_child_mi(root, MeshKit.box(Vector3(4.6, h, 0.78)), wood, "Step", Vector3(0.0, h * 0.5, z))
 		step.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		var person := RiderMeshScript.make_standing("spectator%d" % (_crowd_n))
-		_crowd_n += 1
-		person.position = Vector3(-1.3 + float(i) * 1.3, h, z)
-		# The rows rise away from the ring; the glb faces +Z, so turned round
-		# they watch the ring instead of the field behind them.
-		person.rotation.y = PI
-		root.add_child(person)
+		var xs: Array[float] = [-1.3 + float(i) * 1.3]
+		if show:
+			var lean := (float(i) - 1.0) * 0.2
+			xs = [-1.5 + lean, 0.0 + lean, 1.5 + lean]
+		for x in xs:
+			var person := RiderMeshScript.make_standing("spectator%d" % (_crowd_n))
+			_crowd_n += 1
+			person.position = Vector3(x, h, z)
+			# The rows rise away from the ring; the glb faces +Z, so turned round
+			# they watch the ring instead of the field behind them.
+			person.rotation.y = PI
+			root.add_child(person)
 
 
 func _people() -> void:
