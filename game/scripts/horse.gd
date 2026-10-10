@@ -101,6 +101,10 @@ var hoof_i: int = 0
 var hoof_hits: Array[AudioStream] = []
 var sfx: AudioStreamPlayer3D
 var voice_horse: AudioStreamPlayer3D
+## A long halt is not silent: now and then he blows out or snorts. Its own
+## generator, so it never shifts a random number the ride depends on.
+var _idle_voice_t := 10.0
+var _idle_rng := RandomNumberGenerator.new()
 var voice_rider: AudioStreamPlayer
 var streams := {}
 var rider_lines := {}
@@ -428,6 +432,25 @@ func _process(delta: float) -> void:
 	_place_ground_shade()
 	_update_reins()
 	_update_rider(delta)
+	_idle_voice(delta)
+
+
+func _idle_voice(delta: float) -> void:
+	if not (mounted and gait == 0 and not jumping and speed < 0.3):
+		_idle_voice_t = maxf(_idle_voice_t, 8.0)
+		return
+	_idle_voice_t -= delta
+	if _idle_voice_t > 0.0:
+		return
+	_idle_voice_t = _idle_rng.randf_range(14.0, 26.0)
+	if voice_horse == null or voice_horse.playing:
+		return
+	var st: AudioStream = streams.get("snort" if _idle_rng.randf() < 0.3 else "blow")
+	if st == null:
+		return
+	voice_horse.stream = st
+	voice_horse.pitch_scale = _idle_rng.randf_range(0.96, 1.04)
+	voice_horse.play()
 
 
 func _physics_process(delta: float) -> void:
