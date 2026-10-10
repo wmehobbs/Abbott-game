@@ -50,7 +50,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 4 people | 4c9062a2 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `person_look.gd`. |
 | 4 title | af82698d | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `title.gd`. |
 | 4 horse look | e699da42 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `abbott_look.gd`. |
-| 4 meshes | t4n | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `mesh_kit.gd`. |
+| 4 meshes | 4f5f2269 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `mesh_kit.gd`. |
+| 4 farm | t4o | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `farm.gd`. |
 
 ## Baseline
 

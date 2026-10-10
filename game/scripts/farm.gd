@@ -19,6 +19,7 @@ var _crowd_n := 0
 const RiderMeshScript := preload("res://scripts/rider_mesh.gd")
 
 
+## Builds the farm, then turns shadows off on the small meshes so the ride does not wait on them.
 func build() -> void:
 	_ground()
 	_boards()
@@ -42,6 +43,7 @@ func build() -> void:
 	MeshKit.tune_small(self)
 
 
+## Sand deck and collision under the hooves, with the grass sheet set below the apron.
 func _ground() -> void:
 	# Thick deck, top at y=0. A hairline plane at the camera near-clip
 	# swallows the horse; the ring stays under his hooves.
@@ -77,6 +79,7 @@ func _ground() -> void:
 	add_child(grass)
 
 
+## Dirt collar and a sand lip, so the grass shader never meets the ring.
 func _apron() -> void:
 	# Dirt collar so grass never meets the sand. The grass shader also
 	# discards inside this rectangle.
@@ -95,6 +98,7 @@ func _apron() -> void:
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.28, 0.04, RING_D + 0.35)), lip, "LipE", Vector3(hw + 0.08, -0.02, 0))
 
 
+## Kick board, three rails and posts around the ring, with a gap left for the in-gate.
 func _boards() -> void:
 	var white := MeshKit.wood_white()
 	var kick := MeshKit.wood_kick()
@@ -214,6 +218,7 @@ func _bunting_pole(st: SurfaceTool, base: Vector3, h: float) -> void:
 			st.add_vertex(v)
 
 
+## Flower boxes along both long rails, skipped near the middle where the trainer stands.
 func _rail_flowers() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.66, Color(0.82, 0.76, 0.62))
 	var dirt := MeshKit.flower_soil()
@@ -245,6 +250,7 @@ func _rail_flowers() -> void:
 				MeshKit.add_child_mi(self, MeshKit.cyl(0.010, 0.008, 0.010, 6), MeshKit.mat_color(Color(0.86, 0.70, 0.22), 0.48), "RailEye", head + Vector3(0, 0.008, 0), Vector3(0.45, ox * 0.3, 0.0))
 
 
+## The in-gate: white rails and the HIDDEN K board, then the letters, the block and the lane.
 func _gate() -> void:
 	var white := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.62, Color(0.93, 0.91, 0.84))
 	var sign := MeshKit.mat_tex(MeshKit.harvest_tex([
@@ -271,6 +277,7 @@ func _gate() -> void:
 	_in_gate()
 
 
+## Planters marked IN, and the on-deck cone, pinny crate and wait board outside the gate.
 func _in_gate() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.66, Color(0.42, 0.30, 0.16))
 	var dirt := MeshKit.flower_soil()
@@ -314,6 +321,7 @@ func _in_gate() -> void:
 	add_child(deck)
 
 
+## The long mirror on the short end, framed in dark wood, so she can see the approach.
 func _mirrors() -> void:
 	var glass := MeshKit.mat_color(Color(0.42, 0.50, 0.56), 0.08, 0.82)
 	glass.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
@@ -326,6 +334,7 @@ func _mirrors() -> void:
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.08, MIRROR_H + 0.16, 0.10)), frame, "MR", Vector3(MIRROR_W * 0.5 + 0.07, MIRROR_H * 0.5 + 0.15, z))
 
 
+## Four poles at the corners. The lamps stay dark; the heads are there for a night show.
 func _lights() -> void:
 	var metal := MeshKit.mat_color(Color(0.22, 0.22, 0.24), 0.38, 0.62)
 	var head_m := MeshKit.mat_color(Color(0.85, 0.82, 0.72), 0.25, 0.4)
@@ -347,6 +356,7 @@ func _lights() -> void:
 			add_child(lamp)
 
 
+## True where a trunk would land on the ring, the lane, the school rail, the barn or the house.
 func _in_keepout(x: float, z: float) -> bool:
 	# Trunk plus canopy stay off the ring, apron, lane, school rail, barn, house.
 	# The old +22 / +26 moat left a geometric grass void around the ring.
@@ -365,6 +375,7 @@ func _in_keepout(x: float, z: float) -> bool:
 	return false
 
 
+## Kenney trees and bushes on the grass, seeded so a rebuild drops the same ones.
 func _trees() -> void:
 	var scenes: Array[PackedScene] = []
 	for path in [
@@ -420,6 +431,7 @@ func _trees() -> void:
 		bushes += 1
 
 
+## Tufts just past the dirt collar, so the lawn is not one flat sheet.
 func _grass_clumps() -> void:
 	# Tufts just past the dirt collar, so the lawn is not one flat sheet.
 	var mm := MultiMeshInstance3D.new()
@@ -454,6 +466,7 @@ func _grass_clumps() -> void:
 	add_child(mm)
 
 
+## The barn west of the ring: a hollow shell, an open Dutch door, and the yard around it.
 func _barn() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.68, Color(0.72, 0.62, 0.46))
 	var roof := MeshKit.barn_roof()
@@ -579,6 +592,7 @@ func _barn() -> void:
 	_yard_life(b)
 
 
+## The working aisle through the open Dutch door, with Abbott's stall named on the plate.
 func _aisle(barn: Node3D) -> void:
 	# Look through the open Dutch door and see a working aisle, not a black slab.
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.72, Color(0.58, 0.44, 0.28))
@@ -659,6 +673,7 @@ func _aisle(barn: Node3D) -> void:
 	MeshKit.add_child_mi(barn, MeshKit.box(Vector3(0.18, 0.12, 0.22)), MeshKit.mat_color(Color(0.16, 0.22, 0.38), 0.55), "Wraps", Vector3(-0.72, 0.42, -12.05))
 
 
+## The farmhouse east of the ring, porch lit, so the place reads as lived in.
 func _house() -> void:
 	var siding := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.7, Color(0.94, 0.93, 0.88))
 	var roof := MeshKit.house_roof()
@@ -845,6 +860,7 @@ func _house() -> void:
 	_yard_oak(h, Vector3(-4.8, 0.0, -10.5), 13.4)
 
 
+## A Kenney oak in the house yard. The keep-out keeps the shade pass off this ground.
 func _yard_oak(parent: Node3D, p: Vector3, h: float) -> void:
 	# The same Kenney oak as the rest of the farm, not a disc on a pole.
 	var packed := load("res://assets/cc0/kenney/tree_oak.glb") as PackedScene
@@ -860,6 +876,7 @@ func _yard_oak(parent: Node3D, p: Vector3, h: float) -> void:
 	parent.add_child(inst)
 
 
+## Dressage letters on posts around the ring. The game is a jumper; the letters are still real.
 func _letters() -> void:
 	var hw := RING_W * 0.5 + 1.15
 	var hd := RING_D * 0.5 + 1.15
@@ -900,6 +917,7 @@ func _letters() -> void:
 		n.add_child(lab)
 
 
+## The dirt lane from the in-gate toward the barn, with boxes on the gate.
 func _lane() -> void:
 	var dirt := MeshKit.mat_tex("res://assets/textures/sand_albedo.jpg", 0.86, Color(0.55, 0.46, 0.32))
 	var z0 := -RING_D * 0.5 - 2.4
@@ -912,6 +930,7 @@ func _lane() -> void:
 		MeshKit.add_child_mi(self, MeshKit.sphere(0.10, 8, 10), flower, "GateBloom", Vector3(x, 0.30, -RING_D * 0.5 + 0.55))
 
 
+## The three-step block inside the in-gate, and the wear where boots land.
 func _mounting_block() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.7, Color(0.62, 0.50, 0.34))
 	var blk := Node3D.new()
@@ -937,6 +956,7 @@ func _mounting_block() -> void:
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.92, 0.02, 3.6)), worn, "BlockPath", Vector3(2.35, 0.012, -RING_D * 0.5 + 1.1))
 
 
+## The rail paddock off the barn: trough, hay stack and a run-in shed.
 func _paddock(barn: Node3D) -> void:
 	var rail := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.7, Color(0.78, 0.70, 0.52))
 	var dark := MeshKit.mat_color(Color(0.22, 0.16, 0.10), 0.7)
@@ -1001,6 +1021,7 @@ func _paddock(barn: Node3D) -> void:
 	MeshKit.add_child_mi(barn, MeshKit.box(Vector3(0.26, 0.14, 0.18)), MeshKit.mat_color(Color(0.88, 0.84, 0.74), 0.50), "RunInSalt", Vector3(24.05, 0.10, 20.55))
 
 
+## The wash rack: pad, hose, ties, and the wet where a horse just stood.
 func _wash(barn: Node3D) -> void:
 	var conc := MeshKit.mat_tex("res://assets/textures/sand_albedo.jpg", 0.78, Color(0.62, 0.58, 0.52))
 	var steel := MeshKit.steel()
@@ -1045,6 +1066,7 @@ func _wash(barn: Node3D) -> void:
 	barn.add_child(wash_l)
 
 
+## Trailer, barrow and feed on the barn gravel, and the line where the rugs dry.
 func _yard_life(barn: Node3D) -> void:
 	# Two-horse gooseneck-look trailer on the gravel, not in the ring.
 	var white := MeshKit.mat_color(Color(0.88, 0.88, 0.86), 0.42)
@@ -1135,6 +1157,7 @@ func _yard_life(barn: Node3D) -> void:
 	MeshKit.add_child_mi(barn, MeshKit.box(Vector3(0.18, 0.32, 0.04)), MeshKit.mat_color(Color(0.16, 0.22, 0.38), 0.55), "LineWraps", Vector3(10.70, 1.82, 4.85))
 
 
+## Standards, poles and the hitch pile outside the rail, and the banner facing the in-gate.
 func _school_yard() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.68, Color(0.78, 0.70, 0.52))
 	var white := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.62, Color(0.93, 0.91, 0.84))
@@ -1240,6 +1263,7 @@ func _school_yard() -> void:
 	add_child(banner)
 
 
+## Gravel for the yard and the drive, the hedges, and the worn tracks between them.
 func _grounds() -> void:
 	var gravel := MeshKit.gravel()
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(38.0, 0.05, 42.0)), gravel, "BarnYard", Vector3(-78.0, -0.24, -48.0))
@@ -1282,6 +1306,7 @@ func _grounds() -> void:
 	_property()
 
 
+## The HIDDEN K STABLES board at the pull-in, Pfafftown, with an arrow marked IN.
 func _farm_sign() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.64, Color(0.42, 0.28, 0.16))
 	var white := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.58, Color(0.90, 0.86, 0.76))
@@ -1340,6 +1365,7 @@ func _farm_sign() -> void:
 	s.add_child(inn)
 
 
+## The farm gate left open at the pull-in, and the mailbox beside it.
 func _drive_gate() -> void:
 	# Open farm gate at the pull-in — you have arrived, not spawned on grass.
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.66, Color(0.70, 0.58, 0.38))
@@ -1395,6 +1421,7 @@ func _drive_gate() -> void:
 	box.add_child(hk)
 
 
+## The drag parked outside the boards, so the sand looks raked this morning.
 func _ring_drag() -> void:
 	# Parked outside the boards — someone raked this morning.
 	var steel := MeshKit.steel()
@@ -1421,6 +1448,7 @@ func _ring_drag() -> void:
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(2.6, 0.03, 2.2)), worn, "DragWear", Vector3(RING_W * 0.5 + 4.8, 0.015, -22.4))
 
 
+## The farm truck on the house gravel, so the yard is not a vacant lot.
 func _pickup() -> void:
 	# Dusty farm truck on the house gravel — someone is here, not a vacant lot.
 	var body := MeshKit.mat_color(Color(0.14, 0.22, 0.16), 0.42)
@@ -1470,6 +1498,7 @@ func _pickup() -> void:
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(6.2, 0.03, 3.4)), worn, "TruckWear", Vector3(50.6, -0.22, -46.0))
 
 
+## Four-board fence tying the ring, the drive, the barn and the house into one farm.
 func _property() -> void:
 	# Four-board oak around the ring and down the drive so barn, house, and
 	# sand sit on one farm — not three objects on a green sheet.
@@ -1486,6 +1515,7 @@ func _property() -> void:
 	_windbreak()
 
 
+## One run of four rails and capped posts from one point to the next.
 func _board_run(a: Vector3, b: Vector3) -> void:
 	var rail := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.68, Color(0.76, 0.66, 0.48))
 	var post := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.64, Color(0.70, 0.60, 0.42))
@@ -1506,6 +1536,7 @@ func _board_run(a: Vector3, b: Vector3) -> void:
 		MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.16, 0.05, 0.16)), cap, "FarmCap", Vector3(p.x, 1.34, p.z))
 
 
+## Low grass mounds, so the ground between the fences is not a flat sheet.
 func _swales() -> void:
 	var sod := MeshKit.grass_material()
 	var specs := [
@@ -1526,6 +1557,7 @@ func _swales() -> void:
 		mi.scale = s[1]
 
 
+## Oaks along the fence lines, skipped where a trunk would sit on the ring or a building.
 func _shade_trees() -> void:
 	var spots := [
 		Vector3(-28.0, 0, -8.0),
@@ -1550,6 +1582,7 @@ func _shade_trees() -> void:
 		_cc0_at(p, float(i) * 0.7, 5.2 + float(i % 3) * 0.6, i)
 
 
+## A pine line on the north and the west, the windbreak behind the farm.
 func _windbreak() -> void:
 	var bark := MeshKit.pine_bark()
 	var pine := MeshKit.pine_material()
@@ -1571,10 +1604,12 @@ func _windbreak() -> void:
 		z += 9.2
 
 
+## Places a Kenney pine. The bark and needle arguments are unused; the shared painter colours it.
 func _pine_at(p: Vector3, _bark: Material, _pine: Material, h: float) -> void:
 	_cc0_at(p, 0.4, h / 3.4, 2)
 
 
+## One Kenney tree, scaled and turned, painted before it joins the farm.
 func _cc0_at(pos: Vector3, yaw: float, sc: float, kind: int) -> void:
 	var paths: Array[String] = [
 		"res://assets/cc0/kenney/tree_oak.glb",
@@ -1594,6 +1629,7 @@ func _cc0_at(pos: Vector3, yaw: float, sc: float, kind: int) -> void:
 	add_child(inst)
 
 
+## A few greens and one bark, so a tree line is not a single flat colour.
 func _paint_tree(inst: Node) -> void:
 	if _leaf_mat == null:
 		_leaf_mat = MeshKit.mat_color(Color(0.30, 0.45, 0.24), 0.88, 0.0)
@@ -1607,6 +1643,7 @@ func _paint_tree(inst: Node) -> void:
 	_paint_node(inst, _leaf_mats[_tree_n % _leaf_mats.size()], _bark_mat)
 
 
+## Paints each surface by its material name, so bark stays bark and the canopy stays green.
 func _paint_node(n: Node, leaf: Material, bark: Material) -> void:
 	# By the model's own material names: Kenney's tree_default lists its bark
 	# first, and painting by surface order gave it a brown canopy.
@@ -1626,6 +1663,7 @@ func _paint_node(n: Node, leaf: Material, bark: Material) -> void:
 		_paint_node(c, leaf, bark)
 
 
+## A flattened, tipped mass on a limb, not a cone and not a balloon on the trunk.
 func _leaf_clump(
 	t: Node3D, mat: Material, p: Vector3, r: float, rng: RandomNumberGenerator, n: String
 ) -> void:
@@ -1643,6 +1681,7 @@ func _leaf_clump(
 	)
 
 
+## A pine from a tapering trunk, with the needles sitting on the boughs, not stacked cones.
 func _pine_plant(t: Node3D, h: float, bark: Material, pine: Material, rng: RandomNumberGenerator) -> void:
 	# Branches make the taper. Needle masses sit on the boughs. No stacked cones.
 	var bot := rng.randf_range(0.16, 0.22)
@@ -1677,6 +1716,7 @@ func _pine_plant(t: Node3D, h: float, bark: Material, pine: Material, rng: Rando
 			_leaf_clump(t, pine, ftip, lerpf(0.52, 0.22, u), rng, "Needles")
 
 
+## An oak from the limbs out, with the leaf on the limbs, not three balloons on a pole.
 func _oak_plant(t: Node3D, h: float, bark: Material, hardwood: Material, hardwood2: Material, rng: RandomNumberGenerator) -> void:
 	# Limbs first. Leaf on the limbs. Not three balloons on a pole.
 	var bot := rng.randf_range(0.28, 0.40)
@@ -1711,6 +1751,7 @@ func _oak_plant(t: Node3D, h: float, bark: Material, hardwood: Material, hardwoo
 	_leaf_clump(t, hardwood2, ltip, 1.02, rng, "LimbCanopy")
 
 
+## The table by the in-gate. The TIME face is the one the HUD writes while the clock runs.
 func _clock_booth() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.66, Color(0.70, 0.58, 0.40))
 	var white := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.60, Color(0.93, 0.91, 0.84))
@@ -1789,6 +1830,7 @@ func _clock_booth() -> void:
 	MeshKit.add_child_mi(booth, MeshKit.box(Vector3(0.32, 0.01, 0.22)), MeshKit.mat_color(Color(0.96, 0.94, 0.88), 0.62), "PrizeList", Vector3(-0.05, 1.225, 0.12), Vector3(0.0, -0.22, 0.0))
 
 
+## The covered ring by the barn. The letters on the wall are scenery, not a class.
 func _indoor() -> void:
 	# Covered schooling ring by the barn — the missing Hidden K landmark.
 	var inn := Node3D.new()
@@ -1917,6 +1959,7 @@ func _indoor() -> void:
 		inn.add_child(lm)
 
 
+## Low hills on the horizon, so the grass does not meet a hard sky line.
 func _ridges() -> void:
 	# Low Piedmont hills so the grass does not meet a hard sky line.
 	var far := MeshKit.mat_color(Color(0.52, 0.34, 0.16), 0.94)
@@ -1947,6 +1990,7 @@ func _ridges() -> void:
 		mi.extra_cull_margin = 80.0
 
 
+## Two stands past the far rail, facing the in-gate, so a ride sees the crowd.
 func _bleachers() -> void:
 	# Two stands past the far rail, facing the in-gate, so a ride sees the crowd.
 	var far := RING_D * 0.5 + 2.4
@@ -1954,6 +1998,7 @@ func _bleachers() -> void:
 	_one_bleacher(Vector3(6.4, 0.0, far))
 
 
+## The live TIME and FAULTS board just inside the left rail, where the rail cannot hide it.
 func _scoreboard() -> void:
 	# Outside the left rail, on the in-gate half, face toward the ring.
 	var root := Node3D.new()
@@ -2004,6 +2049,7 @@ func _scoreboard() -> void:
 		live.set(col[2], val)
 
 
+## One three-row stand. Show day fills every seat; a lesson keeps a few parents.
 func _one_bleacher(at: Vector3) -> void:
 	var wood := MeshKit.wood_oak()
 	var root := Node3D.new()
@@ -2032,6 +2078,7 @@ func _one_bleacher(at: Vector3) -> void:
 			root.add_child(person)
 
 
+## Michelle on a block at the rail, turned so she watches the ring.
 func _people() -> void:
 	var michelle := People.standing_trainer()
 	michelle.position = Vector3(RING_W * 0.5 + 0.85, 0.12, -8.0)
@@ -2043,6 +2090,7 @@ func _people() -> void:
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.08, 0.08, 0.85)), wood, "RailHold", Vector3(RING_W * 0.5 + 1.15, 1.18, -8.0))
 
 
+## A warm key light with shadows, and a cool fill so the shaded side of the horse still reads.
 func _sun() -> void:
 	var sun := DirectionalLight3D.new()
 	sun.light_energy = 1.22
@@ -2064,6 +2112,7 @@ func _sun() -> void:
 	add_child(fill)
 
 
+## Invisible walls just outside the boards, so the horse cannot leave the ring.
 func _walls() -> void:
 	var hx := RING_W * 0.5 + 0.15
 	var hz := RING_D * 0.5 + 0.15
@@ -2086,6 +2135,7 @@ func _walls() -> void:
 		add_child(b)
 
 
+## The sky and a little fog, and the outdoor loop on the ambience bus.
 func _sky() -> void:
 	var env := WorldEnvironment.new()
 	var we := Environment.new()
