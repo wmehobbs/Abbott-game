@@ -51,7 +51,7 @@ func _run() -> void:
 	_barn_note_player()
 	_land_feel()
 	_banner()
-	_score_sign()
+	await _score_sign()
 	_rail_bands()
 	_ground_quiet()
 	_current_ring()
@@ -1324,9 +1324,23 @@ func _rail_bands() -> void:
 
 
 func _score_sign() -> void:
-	var farm := FileAccess.get_file_as_string("res://scripts/farm.gd")
-	if not farm.contains("ScoreSign") or not farm.contains("TIME    FAULTS"):
-		_fail("score_sign", "the in-gate has no scoreboard")
+	# The board by the in-gate, with live TIME and FAULTS readings hooked up.
+	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
+	var arena: Node = packed.instantiate()
+	get_tree().root.add_child(arena)
+	await get_tree().process_frame
+	var sign := arena.find_child("ScoreSign", true, false)
+	var why := ""
+	if sign == null:
+		why = "the in-gate has no scoreboard"
+	else:
+		var live := sign.get_node_or_null("Live")
+		if live == null or live.get("time_lab") == null or live.get("faults_lab") == null:
+			why = "the scoreboard has no live readings"
+	arena.queue_free()
+	await get_tree().process_frame
+	if why != "":
+		_fail("score_sign", why)
 		return
 	_ok("score_sign")
 
