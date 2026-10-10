@@ -166,6 +166,13 @@ func _run() -> void:
 
 
 func _pose(p: Dictionary) -> void:
+	if p.has("ear_t"):
+		# Hold the ears mid-flick: time into each ear's flick, held long.
+		var el := (_horse.get("skel") as Node).get_node_or_null("EarLife")
+		if el:
+			var et: Array = p["ear_t"]
+			el.set("_t", [float(et[0]), float(et[1])] as Array[float])
+			el.set("_hold", [30.0, 30.0] as Array[float])
 	var gait := int(p.get("gait", 0))
 	var speeds: Array = _consts.get("GAIT_SPEED", [0.0, 1.6, 3.4, 5.6])
 	_horse.set("gait", gait)
