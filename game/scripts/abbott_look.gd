@@ -23,6 +23,7 @@ const SKIN := Color(0.86, 0.70, 0.58)
 const LEATHER := Color(0.22, 0.11, 0.07)
 
 
+## Put the horse, Madison, the bridle, and the dust on the host, and hand back the visual, the rider, and the skeleton.
 static func build(host: Node3D) -> Dictionary:
 	var visual := Node3D.new()
 	visual.name = "Visual"
@@ -50,6 +51,7 @@ static func build(host: Node3D) -> Dictionary:
 	return {visual = visual, rider = rider, skel = skel}
 
 
+## Turn the painted vertex colours on. The import leaves them off, and the coat draws white.
 static func _use_painted_coat(n: Node) -> void:
 	# The v2 coat is painted into the vertex colors. Godot's glTF import leaves
 	# those off, so the coat drew white. Turn them on, per surface that has them.
@@ -84,6 +86,7 @@ static func _use_painted_coat(n: Node) -> void:
 		_use_painted_coat(c)
 
 
+## Clear the Blender scale, face him the right way, and stand a 2.25 m horse with his feet on the ground.
 static func _fit_horse(root: Node3D) -> void:
 	root.position = Vector3.ZERO
 	root.scale = Vector3.ONE
@@ -119,6 +122,7 @@ static func _fit_horse(root: Node3D) -> void:
 	print("FIT length=", aabb.size.z, " height=", aabb.size.y, " scale=", root.scale)
 
 
+## Drop the armature 100x scale, or the fit is fighting a barn-sized horse.
 static func _flatten_blender_armature(n: Node) -> void:
 	if n is Node3D and n.name == "AnimalArmature":
 		var arm := n as Node3D
@@ -130,10 +134,12 @@ static func _flatten_blender_armature(n: Node) -> void:
 		_flatten_blender_armature(c)
 
 
+## The photo shader for the Quaternius mesh. The v2 coat never comes here.
 static func _paint_whitehorse(root: Node) -> void:
 	_paint_node(root)
 
 
+## Paint this mesh, then every mesh under it.
 static func _paint_node(n: Node) -> void:
 	if n is MeshInstance3D:
 		_paint_mesh(n as MeshInstance3D)
@@ -141,6 +147,7 @@ static func _paint_node(n: Node) -> void:
 		_paint_node(c)
 
 
+## Keep the skinned mesh and override each surface. Rebuilding the mesh broke Walk.
 static func _paint_mesh(mi: MeshInstance3D) -> void:
 	var src := mi.mesh
 	if src == null:
@@ -157,6 +164,7 @@ static func _paint_mesh(mi: MeshInstance3D) -> void:
 		mi.set_surface_override_material(s, _abbott_tex_mat(kind, _bind_scale(src)))
 
 
+## The material name, or a numbered stand-in when the import left it blank.
 static func _mat_name(mat: Material, surface: int) -> String:
 	if mat == null:
 		return "surf%d" % surface
@@ -168,6 +176,7 @@ static func _mat_name(mat: Material, surface: int) -> String:
 	return "surf%d" % surface
 
 
+## The bone with the strongest weight on this vertex.
 static func _dom_bone(skel: Skeleton3D, bones, weights, vi: int, stride: int) -> String:
 	if bones == null or skel == null:
 		return ""
@@ -188,6 +197,7 @@ static func _dom_bone(skel: Skeleton3D, bones, weights, vi: int, stride: int) ->
 	return skel.get_bone_name(best_i)
 
 
+## Which part of him a surface is, from the material name, or from the old index when the name says nothing.
 static func _surface_kind(mname: String, surface: int) -> String:
 	var key := mname.to_lower()
 	if "eye_black" in key:
@@ -221,6 +231,7 @@ static func _surface_kind(mname: String, surface: int) -> String:
 			return "coat"
 
 
+## This mesh length against the bind size the coat shader uses to line the photos up.
 static func _bind_scale(mesh: Mesh) -> float:
 	var z := mesh.get_aabb().size.z
 	if z < 0.001:
@@ -228,6 +239,7 @@ static func _bind_scale(mesh: Mesh) -> float:
 	return z / 0.048239
 
 
+## The photo shader for one part of him, or a flat colour when the shader file is missing.
 static func _abbott_tex_mat(kind: String, bind_s: float = 1.0) -> Material:
 	if not ResourceLoader.exists(SHADER):
 		var fb := StandardMaterial3D.new()
@@ -260,6 +272,7 @@ static func _abbott_tex_mat(kind: String, bind_s: float = 1.0) -> Material:
 	return m
 
 
+## A flat colour for that part when the photo shader cannot load.
 static func _fallback_albedo(kind: String) -> Color:
 	match kind:
 		"eye_black":
@@ -278,6 +291,7 @@ static func _fallback_albedo(kind: String) -> Color:
 			return Color(0.28, 0.10, 0.05)
 
 
+## Parent her to the seat bone, on the coat and in metres, so the skeleton scale does not resize her.
 static func _mount_on_spine(host: Node3D, skel: Skeleton3D, mesh_root: Node) -> Node3D:
 	if skel == null:
 		push_warning("WhiteHorse skeleton missing; cannot parent Madison to a bone")
@@ -314,6 +328,7 @@ static func _mount_on_spine(host: Node3D, skel: Skeleton3D, mesh_root: Node) -> 
 	return People.mounted_madison(seat, Vector3.ZERO)
 
 
+## A leather bridle on the head when the mesh has not already placed the bit. The bit markers stay, for the reins.
 static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 	if skel == null or skel.find_bone("Head") < 0:
 		return
@@ -379,6 +394,7 @@ static func _bridle(skel: Skeleton3D, mesh_root: Node) -> void:
 	print("TACK place crown=", crown, " brow=", brow, " nose=", nose, " bit=", bitp)
 
 
+## Find a node by name under this one.
 static func _named(n: Node, want: String) -> Node:
 	if n == null:
 		return null
@@ -391,6 +407,7 @@ static func _named(n: Node, want: String) -> Node:
 	return null
 
 
+## Hide every mesh under here, so a strap the bridle replaced stays out of sight.
 static func _hide_meshes(n: Node) -> void:
 	if n is MeshInstance3D or n is CSGShape3D:
 		n.visible = false
@@ -398,6 +415,7 @@ static func _hide_meshes(n: Node) -> void:
 		_hide_meshes(c)
 
 
+## That bone mesh in its own rest space, from the vertices weighted to it.
 static func _bone_local_aabb(skel: Skeleton3D, root: Node, bone: String) -> AABB:
 	var i := skel.find_bone(bone)
 	if i < 0:
@@ -447,6 +465,7 @@ static func _bone_local_aabb(skel: Skeleton3D, root: Node, bone: String) -> AABB
 	return box
 
 
+## The muzzle in head rest space, so the bit can sit on the mouth.
 static func _muzzle_local_aabb(skel: Skeleton3D, root: Node) -> AABB:
 	var i := skel.find_bone("Head")
 	if i < 0:
@@ -475,6 +494,7 @@ static func _muzzle_local_aabb(skel: Skeleton3D, root: Node) -> AABB:
 	return box
 
 
+## Torso2, then Torso, then Back. Never the neck or the head.
 static func _seat_bone(skel: Skeleton3D) -> String:
 	for n in SEAT_BONES:
 		var i := skel.find_bone(n)
@@ -486,6 +506,7 @@ static func _seat_bone(skel: Skeleton3D) -> String:
 	return ""
 
 
+## The highest point of the coat near the seat, so she sits on it and not in it.
 static func _back_y_near(n: Node, around: Vector3, radius: float) -> float:
 	var best := around.y
 	if n is MeshInstance3D:
@@ -505,6 +526,7 @@ static func _back_y_near(n: Node, around: Vector3, radius: float) -> float:
 	return best
 
 
+## World bounds of this node and the meshes under it.
 static func _aabb(n: Node) -> AABB:
 	var box := AABB()
 	var first := true
@@ -531,6 +553,7 @@ static func _aabb(n: Node) -> AABB:
 	return box
 
 
+## The first skeleton under this node.
 static func _find_skel(n: Node) -> Skeleton3D:
 	if n is Skeleton3D:
 		return n
@@ -541,6 +564,7 @@ static func _find_skel(n: Node) -> Skeleton3D:
 	return null
 
 
+## A short puff of sand at his feet. Off until something tells it to emit.
 static func _dust(host: Node3D) -> void:
 	var dust := GPUParticles3D.new()
 	dust.name = "Dust"
