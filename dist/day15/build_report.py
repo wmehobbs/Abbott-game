@@ -67,6 +67,7 @@ LATER = [
     ("rosette4/ribbon_head.png", None, "When she wins a ribbon at a show, the rosette is pinned on his bridle in that colour until the next round."),
     ("titlezoom/title_8000.png", None, "The title photo slowly drifts in and out, so the first screen is not a still picture."),
     ("tail2/tail_compare.png", None, "His tail flows down from a raised dock at the canter. The animation held it straight out like a flag. Standing, he swishes it now and then instead of every 3.3 seconds, and his ears flick back to listen to her."),
+    ("braids1/braids_compare.png", None, "On show day his mane is braided: a row of button braids down the crest, the way hunters go in the ring. In lessons and schooling it stays loose. The braids ride his neck, so they go with him over a fence."),
     ("final5/results.png", (0.298, 0.222, 0.698, 0.772), "After a round, the way on is a gold button: Next after a clear round, Retry otherwise, the jump-off when it is offered. A gamepad starts on it."),
 ]
 
