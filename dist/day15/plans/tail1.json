@@ -1,0 +1,7 @@
+{"poses": [
+ {"name": "can_side", "strip": 6, "gait": 3, "cams": [{"from": [4.6, 1.3, 0.4], "look": [0, 1.1, 0.4], "fov": 44}]},
+ {"name": "can_rear", "strip": 6, "gait": 3, "cams": [{"from": [1.6, 2.4, 5.2], "look": [0, 1.2, 0.0], "fov": 44}]},
+ {"name": "trot_rear", "strip": 4, "gait": 2, "cams": [{"from": [1.6, 2.4, 5.2], "look": [0, 1.2, 0.0], "fov": 44}]},
+ {"name": "walk_rear", "strip": 4, "gait": 1, "cams": [{"from": [1.6, 2.4, 5.2], "look": [0, 1.2, 0.0], "fov": 44}]},
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.3, "cams": [{"name": "side", "from": [3.6, 1.3, 0.6], "look": [0, 1.0, 0.6], "fov": 44}, {"name": "rear", "from": [1.6, 2.4, 5.2], "look": [0, 1.2, 0.0], "fov": 44}]}
+]}

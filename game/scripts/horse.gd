@@ -1282,6 +1282,11 @@ func _bind_rig() -> void:
 	skel = _find_skel(visual)
 	anim = _find_anim(visual)
 	if skel:
+		# The tail first, so a worried horse's lifted tail goes on top of it.
+		var tail: SkeletonModifier3D = preload("res://scripts/tail_carriage.gd").new()
+		tail.name = "TailCarriage"
+		tail.set("horse", self)
+		skel.add_child(tail)
 		# The back bends on top of the clip, after it poses. Not a second player.
 		var bas: SkeletonModifier3D = preload("res://scripts/bascule.gd").new()
 		bas.name = "Bascule"

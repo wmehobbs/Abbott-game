@@ -328,17 +328,31 @@ func _strip(p: Dictionary) -> void:
 	var step := period / float(n)
 	# Settle into the gait first.
 	for i in 90:
+		if p.has("turn"):
+			_horse.set("last_turn", float(p["turn"]))
 		_horse.call("_animate", 1.0 / 60.0, float(speeds[gait]))
 		_horse.call("_update_rider", 1.0 / 60.0)
 		await process_frame
+	if p.has("swish"):
+		var tc := (_horse.get("skel") as Node).get_node_or_null("TailCarriage")
+		if tc:
+			tc.set("_swish_in", float(p["swish"]))
 	var c: Dictionary = p.get("cams", [{}])[0]
 	var fr: Array = c.get("from", [3.4, 1.0, 0.0])
 	var lk: Array = c.get("look", [0, 0.85, 0])
 	for i in n:
 		var sub := 4
 		for k in sub:
+			if p.has("turn"):
+				_horse.set("last_turn", float(p["turn"]))
 			_horse.call("_animate", step / float(sub), float(speeds[gait]))
 			_horse.call("_update_rider", step / float(sub))
+		if p.has("swish_step"):
+			# Deterministic swish frames: put the tail's swish clock at i steps.
+			var tc2 := (_horse.get("skel") as Node).get_node_or_null("TailCarriage")
+			if tc2:
+				tc2.set("_swish_t", float(i) * float(p["swish_step"]))
+				tc2.set("_swish_side", 1.0)
 		var basis := _horse.global_transform.basis
 		var origin := _horse.global_position
 		_cam.fov = float(c.get("fov", 42.0))

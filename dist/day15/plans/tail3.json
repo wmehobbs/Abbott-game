@@ -1,0 +1,6 @@
+{"poses": [
+ {"name": "swish", "strip": 12, "gait": 0, "swish_step": 0.13, "cams": [{"from": [0.0, 2.2, 4.4], "look": [0, 1.0, 0.0], "fov": 44}]},
+ {"name": "swish_q", "strip": 6, "gait": 0, "swish_step": 0.26, "cams": [{"from": [2.6, 1.9, 3.6], "look": [0, 1.0, 0.4], "fov": 44}]},
+ {"name": "can_left", "strip": 3, "gait": 3, "turn": 0.9, "cams": [{"from": [0.0, 3.2, 5.0], "look": [0, 1.2, 0.0], "fov": 44}]},
+ {"name": "can_right", "strip": 3, "gait": 3, "turn": -0.9, "cams": [{"from": [0.0, 3.2, 5.0], "look": [0, 1.2, 0.0], "fov": 44}]}
+]}
