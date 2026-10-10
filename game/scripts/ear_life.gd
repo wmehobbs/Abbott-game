@@ -20,6 +20,7 @@ var _fwd := 0.0
 var _rng := RandomNumberGenerator.new()
 
 
+## Finds both ears. No ear bones, no flick.
 func _bind(sk: Skeleton3D) -> void:
 	_ears.clear()
 	for s in [".L", ".R"]:
@@ -32,6 +33,7 @@ func _bind(sk: Skeleton3D) -> void:
 	_wait = [_rng.randf_range(1.5, 4.0), _rng.randf_range(2.5, 6.0)]
 
 
+## Tips an ear back to listen at the quiet gaits, and both forward once he is cantering.
 func _process_modification_with_delta(delta: float) -> void:
 	var sk := get_skeleton()
 	if sk == null or horse == null or not is_instance_valid(horse):
@@ -69,6 +71,7 @@ func _process_modification_with_delta(delta: float) -> void:
 		_tip(sk, _ears[e], BACK * back * (1.0 - _fwd) - FORWARD * _fwd)
 
 
+## Starts one ear's flick. The hold is short, so it reads as a listen and not a pin.
 func _start(e: int) -> void:
 	_t[e] = 0.0
 	_hold[e] = _rng.randf_range(0.4, 1.2)
