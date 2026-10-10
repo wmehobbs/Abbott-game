@@ -24,6 +24,8 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | fences | done | (M5) | see M5 | Brush is a hedge and flower boxes are beds of blooms, one mesh each. 104 fps median. |
 | coat | done | (M5) | see M5 | A groomed gloss and soft rim on his coat. |
 | window | done | (M5) | see M5 | Opens at 1600×900. F11 or Alt+Enter for full screen, remembered. |
+| saddle, fists | done | (M6) | compile ok, selftest 52/0 | Broad low cantle, no gullet strip; fingers curl into the gloves. |
+| lens | done | (M7) | selftest 52/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The ride camera is no longer interpolated twice; the warning is gone. |
 
 ## What was wrong, and what changed
 
@@ -119,6 +121,13 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - **Window:**
   - The game opened a 1920×1080 window, which runs under the taskbar on a 1080p screen. It opens at 1600×900; the interface still lays out for 1920×1080 and scales.
   - F11 or Alt+Enter toggles full screen, and the choice is kept in `settings.cfg` (never the ride save).
+
+### Saddle, fists, lens (M6, M7)
+
+- **Saddle:** the cantle narrowed into a tube that rose behind her with a ball on the end, like a lever. The seat is a dish now, the cantle broad and low, the pommel a hand up. The gullet strip that sat on top of his withers is gone.
+- **Hands:** the gloves are rounded fists, and the fingers curl toward the palm (the first curl went up the back of the hand), a size smaller so they stay inside the glove.
+- **Lens:** the ride camera inherited physics interpolation from the horse and is placed every frame from the horse's already-interpolated pose. That interpolated it twice and logged a warning every ride. The camera's own interpolation is off now; the warning is gone. At about 100 fps the lens sits 4.6–5.0 m behind him.
+- **Probe strip mode:** holding a clip at a phase did not stick with how the horse's player is driven, so a `strip` pose plays the gait forward with real steps. The trot (Cursor's) is a proper two-beat with a moment of suspension; the canter nods naturally.
 
 ## Decisions
 

@@ -84,6 +84,9 @@ func _run() -> void:
 	if bool(extra.get("scene", false)):
 		_report_scene()
 	for pose in _plan.get("poses", []):
+		if pose.has("strip"):
+			await _strip(pose)
+			continue
 		await _pose(pose)
 		for c in pose.get("cams", []):
 			var basis := _horse.global_transform.basis
@@ -165,6 +168,21 @@ func _hold(p: Dictionary, phase: float) -> void:
 
 
 func _report_bones() -> void:
+	var ap := _horse.get("anim") as AnimationPlayer
+	if ap:
+		print("PROBE anims ", ap.get_animation_list())
+		for nm in ["Walk", "Trot", "Canter", "Gallop"]:
+			if ap.has_animation(nm):
+				var a := ap.get_animation(nm)
+				print("PROBE anim ", nm, " length=", a.length, " tracks=", a.get_track_count(), " loop=", a.loop_mode)
+				for ti in a.get_track_count():
+					var path := str(a.track_get_path(ti))
+					if path.ends_with(":FrontUpperLeg.L") and a.track_get_type(ti) == Animation.TYPE_ROTATION_3D:
+						var vals := []
+						for k in 6:
+							var q: Quaternion = a.rotation_track_interpolate(ti, a.length * float(k) / 6.0)
+							vals.append(snappedf(rad_to_deg(q.get_euler().x), 0.1))
+						print("PROBE track ", nm, " FrontUpperLeg.L rot.x over stride: ", vals, " keys=", a.track_get_key_count(ti))
 	var sk := _horse.get("skel") as Skeleton3D
 	if sk == null:
 		print("PROBE no horse skeleton")
@@ -255,3 +273,39 @@ func _report_scene() -> void:
 		print("PROBE meshes ", k, " count=", groups[k][0], " shadow=", groups[k][1], " surfaces=", groups[k][2])
 	for k in procs:
 		print("PROBE processing ", k, " x", procs[k])
+
+
+func _strip(p: Dictionary) -> void:
+	# Play the gait forward the way the game does (_animate with a real step)
+	# and take n frames over one stride from one camera.
+	var gait := int(p.get("gait", 1))
+	var speeds: Array = _consts.get("GAIT_SPEED", [0.0, 1.6, 3.4, 5.6])
+	var hz_list: Array = _consts.get("STRIDE_HZ", [1.0, 1.0, 1.4, 1.6])
+	_horse.set("gait", gait)
+	_horse.set("speed", float(speeds[gait]))
+	var n := int(p.get("strip", 8))
+	var period := 1.0 / maxf(float(hz_list[gait]), 0.01)
+	var step := period / float(n)
+	# Settle into the gait first.
+	for i in 90:
+		_horse.call("_animate", 1.0 / 60.0, float(speeds[gait]))
+		_horse.call("_update_rider", 1.0 / 60.0)
+		await process_frame
+	var c: Dictionary = p.get("cams", [{}])[0]
+	var fr: Array = c.get("from", [3.4, 1.0, 0.0])
+	var lk: Array = c.get("look", [0, 0.85, 0])
+	for i in n:
+		var sub := 4
+		for k in sub:
+			_horse.call("_animate", step / float(sub), float(speeds[gait]))
+			_horse.call("_update_rider", step / float(sub))
+		var basis := _horse.global_transform.basis
+		var origin := _horse.global_position
+		_cam.fov = float(c.get("fov", 42.0))
+		_cam.global_position = origin + basis * Vector3(fr[0], fr[1], fr[2])
+		_cam.look_at(origin + basis * Vector3(lk[0], lk[1], lk[2]), Vector3.UP)
+		await process_frame
+		await process_frame
+		var img := root.get_viewport().get_texture().get_image()
+		img.save_png(_out.path_join("%s_%02d.png" % [str(p.get("name", "strip")), i]))
+	print("PROBE strip ", p.get("name"), " n=", n, " period=", period)

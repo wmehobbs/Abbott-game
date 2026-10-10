@@ -333,6 +333,10 @@ func _make_camera() -> void:
 	cam.fov = _fov_base()
 	cam.near = 0.20
 	cam.far = 420.0
+	# _place_cam already reads the horse between physics ticks and sets the
+	# lens every frame. Interpolating the lens as well (inherited from the
+	# horse) smoothed it twice and logged a warning every ride.
+	cam.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	add_child(cam)
 	cam.current = mounted
 	_place_cam()
