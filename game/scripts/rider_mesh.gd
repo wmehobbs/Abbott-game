@@ -53,6 +53,7 @@ var _crop_mi: MeshInstance3D
 var _leg := {}
 var _life := 0.0
 var _post_k := 0.0
+var _canter_k := 0.0
 var _pat_t := -1.0
 var _patted := false
 
@@ -143,6 +144,13 @@ func _process(delta: float) -> void:
 	# she sits back as he settles (check_w rises in 0.18 s, gone by 1.2 s).
 	var stop := float(hz.check_w) if hz != null else 0.0
 	lean += 20.0 * stop
+	# Cantering between fences a hunter rider sits a little in front of the
+	# vertical and follows his lower neck with her hands. Not in the two-point,
+	# the land or a half-halt, which have their own seats. Eased with the gait.
+	var cantering := hz != null and int(hz.gait) >= 3 and not bool(hz.jumping) and not bool(hz.collecting)
+	cantering = cantering and float(hz.last_stride) <= 0.20 and float(hz.land_recover) <= 0.0
+	_canter_k = move_toward(_canter_k, 1.0 if cantering else 0.0, delta * 2.0)
+	lean += 6.0 * _canter_k
 	# Standing, she is not a statue: a slow breath and a look round now and
 	# then. Eased in when he stands, out when he moves off.
 	var halted := hz != null and int(hz.gait) == 0 and not bool(hz.jumping) and float(hz.speed) < 0.3
@@ -231,6 +239,8 @@ func _process(delta: float) -> void:
 		hand += Vector3(0.0, -0.06, -0.22) * on_neck
 		# Two-point folds the arm forward with the shoulders.
 		hand += Vector3(0.0, -0.05, -0.08) * clampf((lean - 15.0) / 30.0, 0.0, 1.0)
+		# At the canter, lower and a little forward, toward his mouth.
+		hand += Vector3(0.0, -0.040, -0.045) * _canter_k
 		# Thrown forward at a stop, the fists go down his neck.
 		hand += Vector3(0.0, -0.05, -0.10) * stop
 		if tag == "R" and pat > 0.0:
