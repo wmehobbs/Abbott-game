@@ -38,6 +38,7 @@ const WORRY_TAIL := -18.0
 const WORRY_EAR := -34.0
 
 
+## How much worry is on. Gone over a fence and just after the land, so the crest is the same at any confidence there.
 func _worry_w(u: float) -> float:
 	var t := clampf((70.0 - float(GameState.abbott_confidence)) / 40.0, 0.0, 1.0)
 	if t <= 0.0:
@@ -48,6 +49,7 @@ func _worry_w(u: float) -> float:
 	return t * back * air
 
 
+## Neck and ears up, tail up, and only while that weight is on.
 func _worry(sk: Skeleton3D, w: float) -> void:
 	if w <= 0.0005:
 		return
@@ -57,6 +59,7 @@ func _worry(sk: Skeleton3D, w: float) -> void:
 		_bend(sk, "Ear1" + s, WORRY_EAR * w)
 
 
+## The jump shape on top of the clip, the check after a refusal, and each hoof put back on its cannon.
 func _process_modification_with_delta(_delta: float) -> void:
 	var sk := get_skeleton()
 	if sk == null or horse == null or not is_instance_valid(horse):
@@ -112,6 +115,7 @@ func _process_modification_with_delta(_delta: float) -> void:
 	_keep_withers(sk)
 
 
+## Hoof on the cannon in the air. On the ground a hoof the clip has down meets the sand, and a check keeps the hinds down.
 func _legs(sk: Skeleton3D, ground: bool, plant_fore: bool, hind_w: float, reach: float = 0.0) -> void:
 	# In the air the hoof rides its cannon. On the ground a hoof the clip has
 	# down is on the sand, no hoof is under it, and in a check the hinds are
@@ -153,6 +157,7 @@ func _legs(sk: Skeleton3D, ground: bool, plant_fore: bool, hind_w: float, reach:
 		sk.set_bone_global_pose(ri, hoof * sk.get_bone_pose(hi).affine_inverse())
 
 
+## Bends the two leg bones so the hoof reaches without stretching either one.
 func _reach(sk: Skeleton3D, ui: int, li: int, tip_off: Vector3, target: Vector3) -> void:
 	# Two-bone reach, the knee kept in the plane it is already bent in.
 	var up_g := sk.get_bone_global_pose(ui)
@@ -180,6 +185,7 @@ func _reach(sk: Skeleton3D, ui: int, li: int, tip_off: Vector3, target: Vector3)
 	sk.set_bone_global_pose(li, Transform3D(Basis(q2) * lo_g.basis, lo_g.origin))
 
 
+## The drawn withers, after the bend, for her fists. A _process read of the bone would still see the clip.
 func _keep_withers(sk: Skeleton3D) -> void:
 	var i := sk.find_bone("Torso3")
 	if i >= 0:
@@ -187,6 +193,7 @@ func _keep_withers(sk: Skeleton3D) -> void:
 		has_withers = true
 
 
+## Tips one bone in the sagittal plane. A child inherits it, so the back rounds along its length.
 func _bend(sk: Skeleton3D, bone: String, deg_up: float) -> void:
 	if absf(deg_up) < 0.01:
 		return
