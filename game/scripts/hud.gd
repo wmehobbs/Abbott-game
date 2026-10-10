@@ -63,6 +63,7 @@ var _veil_dir: float = 0.0
 var _card_left: float = 0.0
 
 
+## Loads the fonts, builds the cards, and listens for faults, the finish and a mode change.
 func _ready() -> void:
 	layer = 20
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -76,6 +77,7 @@ func _ready() -> void:
 	GameState.mode_changed.connect(_on_mode)
 
 
+## The scoreboard, the hint band, the cards and the scene fade, then the HUD scale.
 func _build() -> void:
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -171,6 +173,7 @@ func _build() -> void:
 	apply_hud_scale()
 
 
+## The bottom line: pad wording when a pad was last used, keys otherwise, and the walk line on a walk.
 func _set_ride_hint() -> void:
 	if hint == null:
 		return
@@ -184,12 +187,14 @@ func _set_ride_hint() -> void:
 	hint.text = GameState.control_line()
 
 
+## The reins card, pad or keys, including when the clock starts and what early and late cost.
 func _reins_copy() -> String:
 	if GameState.last_device == "pad":
 		return "The reins\n\nD-pad up  walk, then trot, then canter\nD-pad down  come back a gait\nLeft stick  steer\nHold A  half-halt. He collects.\nLet A go at the canter  ask him to leave\nB  halt\nY  get off and walk the course\nStart  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThis card fades once you move."
 	return "The reins\n\nW  walk, then trot, then canter\nS  come back a gait\nA / D  steer\nHold Space  half-halt. He collects.\nLet Space go at the canter  ask him to leave\nShift  halt\nC  get off and walk the course\nEsc  pause\n\nThe clock starts when you pass the start flags.\nEarly is a refusal. Late is a rail.\nThis card fades once you move."
 
 
+## A dark edge on the picture, so the ring reads as a view and not a raw window.
 func _build_vignette(root: Control) -> void:
 	var veil := ColorRect.new()
 	veil.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -204,6 +209,7 @@ func _build_vignette(root: Control) -> void:
 	root.move_child(veil, 0)
 
 
+## The reins card on the right. Hidden until a ride starts, and it fades once she moves.
 func _build_reins(root: Control) -> void:
 	var card := Panel.new()
 	card.name = "Reins"
@@ -237,6 +243,7 @@ func _build_reins(root: Control) -> void:
 	body.text = _reins_copy()
 
 
+## The line shown while she rides him in a demo: she has the reins.
 func _build_watching(root: Control) -> void:
 	var lab := _label(root, "Watching  ·  she has the reins  ·  Esc to pause", 26, Vector2(0, 28), Color(0.96, 0.93, 0.86))
 	lab.name = "Watching"
@@ -251,6 +258,7 @@ func _build_watching(root: Control) -> void:
 		lab.add_theme_font_override("font", font_b)
 
 
+## The fault word, the grade, Clock running at the flags, and the click-to-ride line.
 func _build_callout(root: Control) -> void:
 	callout_lab = _label(root, "", 54, Vector2(0, 0), Color(0.96, 0.90, 0.78))
 	callout_lab.name = "Callout"
@@ -299,6 +307,7 @@ func _build_callout(root: Control) -> void:
 		capture_lab.add_theme_font_override("font", font_b)
 
 
+## A label in the Baskerville face, with an outline so cream type holds on the ring.
 func _label(parent: Control, text: String, size: int, pos: Vector2, col: Color) -> Label:
 	var l := Label.new()
 	l.text = text
@@ -313,6 +322,7 @@ func _label(parent: Control, text: String, size: int, pos: Vector2, col: Color) 
 	return l
 
 
+## The pause card: the round so far, the reins, and resume, restart, options, walk, quit.
 func _build_pause(root: Control) -> void:
 	pause_panel = Control.new()
 	pause_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -350,6 +360,7 @@ func _build_pause(root: Control) -> void:
 	_btn(box, "Quit to title", _quit_title)
 
 
+## The round-complete card: ribbon, stats, and the jump-off, retry and next buttons.
 func _build_result(root: Control) -> void:
 	result_panel = Control.new()
 	result_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -415,11 +426,13 @@ func _mark_primary() -> void:
 		_primary.grab_focus()
 
 
+## Puts time back to normal and asks to leave for the title.
 func _quit_title() -> void:
 	Engine.time_scale = 1.0
 	quit_requested.emit()
 
 
+## The lesson card at the top, with a skip, hidden until a lesson line is shown.
 func _build_lesson(root: Control) -> void:
 	lesson_card = PanelContainer.new()
 	lesson_card.name = "LessonCard"
@@ -449,6 +462,7 @@ func _build_lesson(root: Control) -> void:
 	skip.custom_minimum_size = Vector2(160, 44)
 
 
+## Shows the lesson line unless a menu is already up. An empty line hides the card.
 func show_lesson(line: String, on: bool) -> void:
 	if lesson_card == null:
 		return
@@ -462,6 +476,7 @@ func show_lesson(line: String, on: bool) -> void:
 		lesson_lab.text = line
 
 
+## The options dim, with the settings menu. Back returns focus to the pause button that opened it.
 func _build_options(root: Control) -> void:
 	options_panel = Control.new()
 	options_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -500,6 +515,7 @@ func _open_options() -> void:
 		menu.show_page("home")
 
 
+## Sizes the scoreboard and the hint from the HUD scale in settings.
 func apply_hud_scale() -> void:
 	var s := 1.0
 	if GameState.settings:
@@ -512,11 +528,13 @@ func apply_hud_scale() -> void:
 	_size_lab(hint, int(round(18.0 * s)))
 
 
+## Sets that label's size. Nothing, when the label was never built.
 func _size_lab(lab: Label, px: int) -> void:
 	if lab:
 		lab.add_theme_font_size_override("font_size", px)
 
 
+## Captures the mouse on a click, resumes on pause, focuses the gold button, and takes a rebind key.
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and _pointer_is_free():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -546,6 +564,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+## A menu button. A signal is emitted; anything else is called. Either way the click plays.
 func _btn(parent: Node, text: String, sig) -> Button:
 	var b := Button.new()
 	b.name = text
@@ -563,6 +582,7 @@ func _btn(parent: Node, text: String, sig) -> Button:
 	return b
 
 
+## The dark button with a gold edge, and the focus ring when a pad or the keys land on it.
 func _style_btn(b: Button) -> void:
 	if sans:
 		b.add_theme_font_override("font", sans)
@@ -628,6 +648,7 @@ func _style_primary(b: Button) -> void:
 	b.add_theme_stylebox_override("focus", _focus_ring())
 
 
+## The UI click, on the UI bus, freed when it finishes. Silent when the file is missing.
 func _click() -> void:
 	if ResourceLoader.exists("res://assets/audio/ui.wav"):
 		var p := AudioStreamPlayer.new()
@@ -638,6 +659,7 @@ func _click() -> void:
 		p.finished.connect(p.queue_free)
 
 
+## A centred card and the column the pause and result buttons sit in.
 func _menu_column(panel: Control) -> VBoxContainer:
 	var center := CenterContainer.new()
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -667,6 +689,7 @@ func _menu_column(panel: Control) -> VBoxContainer:
 var _found := {}
 
 
+## A named node, cached. A dead cache entry is looked up again.
 func _node(n: String) -> Node:
 	var hit: Node = _found.get(n)
 	if hit == null or not is_instance_valid(hit):
@@ -676,6 +699,7 @@ func _node(n: String) -> Node:
 	return hit
 
 
+## Hides the scoreboard and the hint while pause, the result or options is up.
 func _sync_board() -> void:
 	var board := _node("Scoreboard") as CanvasItem
 	if board == null or pause_panel == null:
@@ -689,6 +713,7 @@ func _sync_board() -> void:
 		band.visible = hint != null and hint.visible and hint.text != ""
 
 
+## Sizes the HUD to the window, and only when the size actually changed.
 func _fit_root() -> void:
 	if get_child_count() < 1:
 		return
@@ -706,6 +731,7 @@ func _fit_root() -> void:
 	root.size = sz
 
 
+## A short sideways shake. The horse has already stopped.
 func shake_refuse() -> void:
 	# Four pixels, a fifth of a second. The horse already stopped.
 	_shake = 0.22
@@ -716,6 +742,7 @@ var _reins_place := ""
 var _trainer_style := ""
 
 
+## One frame of the board: the clock, the gait, her line, and the cards that come and go.
 func _process(_delta: float) -> void:
 	_fit_root()
 	if _shake > 0.0 and get_child_count() > 0:
@@ -802,6 +829,7 @@ func _process(_delta: float) -> void:
 
 
 # reins_fade: the card leaves after the first step or 6 seconds. Pause brings it back.
+## Brings the reins card back, as a pause does.
 func reset_reins() -> void:
 	_reins_t = 0.0
 	_reins_fade = 1.0
@@ -809,6 +837,7 @@ func reset_reins() -> void:
 	_reins_latched = true
 
 
+## Shows the reins card on a ride, moves it down while paused, and fades it after the first step or six seconds.
 func _sync_reins(delta: float) -> void:
 	var body := _node("ReinsBody") as Label
 	if body != null and GameState.last_device != _reins_device:
@@ -872,6 +901,7 @@ func _sync_reins(delta: float) -> void:
 	reins.visible = _reins_fade > 0.02
 
 
+## One pip per fence: lit for a fence jumped, amber for the next, dim for the rest.
 func _sync_pips() -> void:
 	var row := _node("FencePips") as Control
 	if row == null:
@@ -907,6 +937,7 @@ func _sync_pips() -> void:
 			pip.color = Color(0.42, 0.36, 0.28, 0.9)
 
 
+## Writes the running time on the booth face, or TIME before the clock starts.
 func _sync_booth() -> void:
 	var n := get_tree().get_first_node_in_group("clock_face")
 	if not (n is Label3D):
@@ -920,6 +951,7 @@ func _sync_booth() -> void:
 		lab.text = "TIME"
 
 
+## Holds the fault word, Clock running and the grade for a short beat, and hides them under a menu.
 func _sync_callout(delta: float) -> void:
 	if GameState.fault_callout_id != _seen_callout:
 		_seen_callout = GameState.fault_callout_id
@@ -960,6 +992,7 @@ func _sync_callout(delta: float) -> void:
 			grade_lab.modulate = Color(base.r, base.g, base.b, ga2)
 
 
+## The distance word after a fence, coloured, for about a second. An unknown word is ignored.
 func show_grade(word: String) -> void:
 	if grade_lab == null:
 		return
@@ -981,11 +1014,13 @@ func show_grade(word: String) -> void:
 	grade_lab.visible = true
 
 
+## Click the ring to ride, while the pointer is free.
 func _sync_capture() -> void:
 	if capture_lab:
 		capture_lab.visible = _pointer_is_free()
 
 
+## True on a ride or a walk when the mouse is not captured and no menu is up. Shots never ask.
 func _pointer_is_free() -> bool:
 	for a in OS.get_cmdline_user_args():
 		if str(a) == "--shots" or str(a).begins_with("--shots-out="):
@@ -1001,6 +1036,7 @@ func _pointer_is_free() -> bool:
 	return GameState.mode == "ride" or GameState.mode == "walk"
 
 
+## Abbott, from the group. Null when he is not in the tree.
 func _horse() -> Horse:
 	var n := get_tree().get_first_node_in_group("abbott")
 	if n is Horse:
@@ -1008,11 +1044,13 @@ func _horse() -> Horse:
 	return null
 
 
+## The fault count, amber once it is no longer zero.
 func _on_faults(f: int) -> void:
 	fault_lab.text = "Faults  %d" % f
 	fault_lab.modulate = Color(0.96, 0.93, 0.86) if f == 0 else Color(0.93, 0.55, 0.38)
 
 
+## Opens the result card at zero and starts the count. A clear round drops confetti.
 func _on_finished(f: int, t: float) -> void:
 	result_panel.visible = true
 	_result_f = f
@@ -1044,6 +1082,7 @@ func _on_finished(f: int, t: float) -> void:
 
 
 # result_count: time, then faults, then the ribbon. A clear round drops confetti.
+## Counts the time up, then the faults, then settles the card. Confetti is gone after that.
 func _sync_result(delta: float) -> void:
 	if _result_age < 0.0 or result_panel == null or not result_panel.visible:
 		return
@@ -1062,6 +1101,7 @@ func _sync_result(delta: float) -> void:
 		_result_age = -1.0
 
 
+## The full line, the ribbon, and which button is the way on, once the count has finished.
 func _show_result_settled() -> void:
 	var stats: Label = result_panel.find_child("Stats", true, false)
 	if stats:
@@ -1104,6 +1144,7 @@ func _show_result_settled() -> void:
 			ribbon_name.modulate = col
 
 
+## Which fences dropped a rail, or nothing when none did.
 func _rail_line() -> String:
 	if GameState.rail_nums.is_empty():
 		return ""
@@ -1113,6 +1154,7 @@ func _rail_line() -> String:
 	return "\nRail down at fence %s." % ", ".join(bits)
 
 
+## A handful of flakes on a clear round.
 func _spawn_confetti() -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
@@ -1134,6 +1176,7 @@ func _spawn_confetti() -> void:
 		result_panel.add_child(flake)
 
 
+## Lets the flakes fall.
 func _tick_confetti(delta: float) -> void:
 	if result_panel == null:
 		return
@@ -1148,6 +1191,7 @@ func _tick_confetti(delta: float) -> void:
 		flake.position += Vector2(float(flake.get_meta("vx")), vy) * delta
 
 
+## Removes the flakes.
 func _clear_confetti() -> void:
 	if result_panel == null:
 		return
@@ -1156,6 +1200,7 @@ func _clear_confetti() -> void:
 			c.queue_free()
 
 
+## The next class she has unlocked, or nothing at the top of the order.
 func _next_class_id() -> String:
 	var order: PackedStringArray = PackedStringArray(["lesson", "beginner", "intermediate", "advanced"])
 	var i := order.find(GameState.class_id)
@@ -1168,6 +1213,7 @@ func _next_class_id() -> String:
 	return ""
 
 
+## Walk hint, faults and gait follow the mode, and a ride or a walk fades the course name in.
 func _on_mode(m: String) -> void:
 	walk_hint.visible = m == "walk"
 	fault_lab.visible = m == "ride" or m == "results"
@@ -1179,6 +1225,7 @@ func _on_mode(m: String) -> void:
 
 
 # scene_fade: a short black fade, then the course name.
+## Starts the short black fade and puts the course name on the card.
 func _kick_fade() -> void:
 	_veil_dir = 1.0
 	_card_left = 1.1
@@ -1186,6 +1233,7 @@ func _kick_fade() -> void:
 		_scene_card.text = GameState.class_title()
 
 
+## Fades to black and back, and holds the course name while the picture returns.
 func _sync_veil(delta: float) -> void:
 	if _veil == null:
 		return
@@ -1212,6 +1260,7 @@ const WALK_DEFAULT := "Course walk  ·  WASD  ·  Enter to mount  ·  clock star
 var _walk_course := ""
 
 
+## The walk banner, and the bottom hint for walking rather than riding.
 func set_walk_mode(on: bool, line: String = "") -> void:
 	walk_hint.visible = on
 	if on:
@@ -1229,6 +1278,7 @@ func set_walk_near(near: String) -> void:
 	walk_hint.text = _walk_course + ("\n" + near if near != "" else "")
 
 
+## Shows or hides pause, stops time while it is up, and focuses Resume.
 func show_pause(on: bool) -> void:
 	pause_panel.visible = on
 	GameState.ui_paused = on
