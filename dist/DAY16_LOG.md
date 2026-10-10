@@ -16,7 +16,7 @@ Every public function in `game_state.gd` and `content_library.gd` that returns a
 
 `dist/ARCHITECTURE.md` is a guide to the 31 scripts, the scene flow, the modifier chain, the gates, and her save. Nothing in the game changed for it.
 
-Doc comments are going onto the visual scripts, one file at a time. Comments only. The self-test stayed at 64/0.
+Doc comments are on the visual scripts. Comments only. The self-test stayed at 64/0. `trainer.gd` already had a comment on its one top-level function, so it was left as it was.
 
 Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd75b52d` (1109 bytes, last written by her session at 20:43 on Oct 9). The same hash was on the file after the copy. Copies are `dist/day16/save_snapshot.json` and `dist/day16/save_backup.json`. Neither is committed. Both are in `.git/info/exclude`.
 
@@ -52,7 +52,9 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 4 horse look | e699da42 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `abbott_look.gd`. |
 | 4 meshes | 4f5f2269 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `mesh_kit.gd`. |
 | 4 farm | a16abc30 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `farm.gd`. |
-| 4 hud | t4p | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `hud.gd`. |
+| 4 hud | 1bda3969 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `hud.gd`. |
+| 4 rider | t4q | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `rider_mesh.gd`. |
+| 4 trainer | none | no change | Every top-level func in `trainer.gd` already had a `##` comment. One function. No commit. |
 
 ## Baseline
 

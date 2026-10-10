@@ -58,10 +58,12 @@ var _pat_t := -1.0
 var _patted := false
 
 
+## Strips every AnimationPlayer, so a clip cannot hold the bones.
 func silence(packed_root: Node) -> void:
 	_silence(packed_root)
 
 
+## Fits the packed skeleton, dresses her, and caches the rest pose the seat is built from.
 func setup(packed_root: Node3D) -> void:
 	visual = packed_root
 	skel = _find_skel(visual)
@@ -84,6 +86,7 @@ func setup(packed_root: Node3D) -> void:
 	_curl_fingers()
 
 
+## Stores each bone's rest, and one seat point under the hips so the two sides match.
 func _cache_rest() -> void:
 	for i in skel.get_bone_count():
 		_rest[String(skel.get_bone_name(i))] = skel.get_bone_global_rest(i)
@@ -102,14 +105,17 @@ func _cache_rest() -> void:
 		_ankle_rest[tag] = f + Vector3(0.0, 0.053, 0.003)
 
 
+## That bone's rest origin.
 func _ro(bone: String) -> Vector3:
 	return (_rest[bone] as Transform3D).origin
 
 
+## That bone's rest basis.
 func _rb(bone: String) -> Basis:
 	return (_rest[bone] as Transform3D).basis
 
 
+## Poses her each frame from the seat pivots: the post, the hands up the crest, the canter seat, a halt, and the pats.
 func _process(delta: float) -> void:
 	if skel == null or _rest.is_empty():
 		return
@@ -268,6 +274,7 @@ func _process(delta: float) -> void:
 		print("RIDER mesh scale ", FIT, " bones ", skel.get_bone_count(), " k ", snappedf(_k, 0.001))
 
 
+## Writes a bone pose from the seat frame into the skeleton.
 func _set_global(bone: String, basis_seat: Basis, origin_seat: Vector3, S: Transform3D, V: Transform3D) -> void:
 	var bi := skel.find_bone(bone)
 	if bi < 0:
@@ -278,6 +285,7 @@ func _set_global(bone: String, basis_seat: Basis, origin_seat: Vector3, S: Trans
 	skel.set_bone_global_pose(bi, Transform3D(b, o))
 
 
+## A basis with Y along the bone and X toward the bend, so a limb has a facing.
 func _frame(d: Vector3, l: Vector3) -> Basis:
 	var y := d.normalized()
 	var x := (l - y * l.dot(y))
@@ -297,6 +305,7 @@ func _set_limb(bone: String, child_rest: Vector3, from: Vector3, to: Vector3, la
 	_set_global(bone, r * _q0 * _rb(bone), from, S, V)
 
 
+## The knee or the elbow. The bones keep their rest length; a far target is pulled in rather than stretching them.
 func _two_bone(root: Vector3, target: Vector3, pole: Vector3, a: float, b: float) -> Array:
 	var diff := target - root
 	var d := clampf(diff.length(), absf(a - b) + 0.001, a + b - 0.001)
@@ -311,6 +320,7 @@ func _two_bone(root: Vector3, target: Vector3, pole: Vector3, a: float, b: float
 	return [root + dir * (a * cos_a) + n * (a * sin_a), root + dir * d]
 
 
+## Heel down and toe out, and remembers the ball of the foot for the iron.
 func _set_foot(tag: String, sx: float, ankle: Vector3, S: Transform3D, V: Transform3D) -> void:
 	var turn := Basis(Vector3.UP, -sx * deg_to_rad(TOE_OUT)) * Basis(Vector3.RIGHT, deg_to_rad(HEEL_DOWN))
 	var fwd := turn * Vector3(0, 0, -1)
@@ -321,6 +331,7 @@ func _set_foot(tag: String, sx: float, ankle: Vector3, S: Transform3D, V: Transf
 	_leg[tag] = {"ankle": ankle, "fwd": fwd, "up": up, "heel": head, "ball": head + fwd * 0.085 - up * 0.012}
 
 
+## The fist: knuckles toward his mouth, thumbs up.
 func _set_hand(tag: String, sx: float, wrist: Vector3, S: Transform3D, V: Transform3D) -> void:
 	# Knuckles toward his mouth, thumbs up, palms facing: a fist on each rein.
 	var dir := Vector3(-sx * 0.10, -0.38, -1.0).normalized()
@@ -331,6 +342,7 @@ func _set_hand(tag: String, sx: float, wrist: Vector3, S: Transform3D, V: Transf
 	_set_global("Wrist" + tag, r * _q0 * _rb("Wrist" + tag), wrist, S, V)
 
 
+## Curls the fingers toward the palm, a little smaller so the fist stays inside the glove.
 func _curl_fingers() -> void:
 	for i in skel.get_bone_count():
 		var n := String(skel.get_bone_name(i))
@@ -348,6 +360,7 @@ func _curl_fingers() -> void:
 		skel.set_bone_pose_scale(i, Vector3.ONE * 0.85)
 
 
+## Abbott, walking up from this node, and kept.
 func _find_horse() -> Node:
 	if _horse != null and is_instance_valid(_horse):
 		return _horse
@@ -360,6 +373,7 @@ func _find_horse() -> Node:
 	return null
 
 
+## How far through the jump the fists should ride up the crest. Zero on the flat.
 func _on_neck_weight() -> float:
 	# 0 on the flat. Through the arc the fists ride up the crest and come home.
 	var h: Node = _find_horse()
@@ -369,10 +383,12 @@ func _on_neck_weight() -> float:
 	return smoothstep(0.0, 0.18, u) * (1.0 - smoothstep(0.78, 1.0, u))
 
 
+## A point in the seat frame, taken into the world.
 func _seat_to_world(S: Transform3D, p: Vector3) -> Vector3:
 	return S * p
 
 
+## Navy coat, beige breeches, skin and hair over the casual mesh.
 func _recolor() -> void:
 	var skin := _mat(SKIN, 0.55)
 	var navy := _mat(NAVY, 0.72)
@@ -387,6 +403,7 @@ func _recolor() -> void:
 	_paint("Cube001_3", hair)
 
 
+## Hides the glb's shoes. The tall boots replace them.
 func _hide_casual_feet() -> void:
 	for n in ["Cube070", "Cube070_1"]:
 		var node := _find_named(visual, n)
@@ -394,6 +411,7 @@ func _hide_casual_feet() -> void:
 			(node as Node3D).visible = false
 
 
+## Paints every surface of the named mesh.
 func _paint(node_name: String, mat: Material) -> void:
 	var n := _find_named(visual, node_name)
 	if n is MeshInstance3D:
@@ -402,10 +420,12 @@ func _paint(node_name: String, mat: Material) -> void:
 			mi.set_surface_override_material(s, mat)
 
 
+## The velvet helmet, on the head bone.
 func _cap() -> void:
 	_helmet_static(skel)
 
 
+## Coat tails on the hips and the stock tie on the chest, so they lean with her.
 func _coat_bits() -> void:
 	# On the bones now, so they lean with her chest and hips, not the old pivot.
 	var navy := _mat(NAVY, 0.7)
@@ -484,11 +504,13 @@ func _show_number() -> void:
 	waist.add_child(num)
 
 
+## A glove on each wrist.
 func _gloves() -> void:
 	_glove("WristL", "LGlove")
 	_glove("WristR", "RGlove")
 
 
+## A rounded fist in a dark glove, along the hand.
 func _glove(bone: String, node_name: String) -> void:
 	var att := _attach(bone, node_name)
 	if att == null:
@@ -508,6 +530,7 @@ func _glove(bone: String, node_name: String) -> void:
 	att.add_child(g)
 
 
+## The crop, built once. Placed each frame from the right glove.
 func _crop() -> void:
 	var crop := MeshInstance3D.new()
 	crop.name = "Crop"
@@ -521,6 +544,7 @@ func _crop() -> void:
 	_crop_mi = crop
 
 
+## Holds the crop in the right fist, the shaft down and back across her thigh.
 func _place_crop(S: Transform3D) -> void:
 	if _crop_mi == null:
 		return
@@ -534,6 +558,7 @@ func _place_crop(S: Transform3D) -> void:
 	_crop_mi.global_transform = Transform3D(_align_y(dir) * Basis.from_scale(Vector3(1.0, length, 1.0)), top + dir * (length * 0.5 - 0.03))
 
 
+## Shaft, tan cuff, foot and heel for each boot, built once.
 func _boot_nodes() -> void:
 	for tag in ["L", "R"]:
 		var root := Node3D.new()
@@ -574,6 +599,7 @@ func _boot_nodes() -> void:
 	_booted = true
 
 
+## Puts each boot on the solved leg: the shaft from knee to ankle, the foot along the toe.
 func _place_boots(S: Transform3D) -> void:
 	if not _booted:
 		return
@@ -601,6 +627,7 @@ func _place_boots(S: Transform3D) -> void:
 		heel.global_transform = Transform3D(fb, ankle_w - fwd_w * 0.040 - up_w * 0.075)
 
 
+## Leather, iron and tread for each side, built once.
 func _stirrups() -> void:
 	var strap := _mat(Color(0.16, 0.09, 0.05), 0.5)
 	var steel := MeshKit.steel()
@@ -631,6 +658,7 @@ func _stirrups() -> void:
 		_stir[tag] = {"leather": leather, "iron": iron, "tread": tread}
 
 
+## The tread under the ball of the foot, the iron around it, the leather up to the bar.
 func _place_stirrups(S: Transform3D) -> void:
 	for side in [["L", -1.0], ["R", 1.0]]:
 		var tag: String = side[0]
@@ -654,6 +682,7 @@ func _place_stirrups(S: Transform3D) -> void:
 		(parts["tread"] as MeshInstance3D).global_transform = Transform3D(Basis(side_w, up_w, -flat), tread_p)
 
 
+## A basis with Y along that direction, for a shaft or a leather.
 func _align_y(dir: Vector3) -> Basis:
 	var y := dir.normalized()
 	var x := y.cross(Vector3(0, 0, -1))
@@ -664,6 +693,7 @@ func _align_y(dir: Vector3) -> Basis:
 	return Basis(x, y, z)
 
 
+## A bone attachment on that bone. Nothing, when the bone is missing.
 func _attach(bone: String, node_name: String) -> BoneAttachment3D:
 	if skel == null or skel.find_bone(bone) < 0:
 		return null
@@ -674,6 +704,7 @@ func _attach(bone: String, node_name: String) -> BoneAttachment3D:
 	return att
 
 
+## A person on the ground from the same glb: Madison, Michelle with a clipboard, or someone in the stands.
 static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 	var root := Node3D.new()
 	root.name = "Michelle" if kind == "trainer" else "Madison"
@@ -731,6 +762,7 @@ static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 	return root
 
 
+## A velvet helmet on a standing head: dome, short peak and button.
 static func _helmet_static(skel: Skeleton3D) -> void:
 	# A velvet riding helmet over the hair: a dome to just above her brows and
 	# a short peak. Offsets are from the head bone: the hair is 0.23 wide,
@@ -774,6 +806,7 @@ static func _helmet_static(skel: Skeleton3D) -> void:
 	att.add_child(button)
 
 
+## Tall boots on the shin and the foot, so they stay on the leg in any pose.
 static func _boots_on_bones(skel: Skeleton3D) -> void:
 	# Tall boots on her own leg and foot bones, so they stay on the leg in any
 	# pose. The shin runs from the knee to the ankle, 5 cm above the foot bone.
@@ -839,6 +872,7 @@ static func _boots_on_bones(skel: Skeleton3D) -> void:
 		foot.add_child(heel)
 
 
+## The skeleton's transform in the visual's own space, so a foot height is measured there.
 static func _into_visual(skel: Skeleton3D, vis: Node3D) -> Transform3D:
 	var t := Transform3D.IDENTITY
 	var n: Node = skel
@@ -849,6 +883,7 @@ static func _into_visual(skel: Skeleton3D, vis: Node3D) -> Transform3D:
 	return t
 
 
+## Coat and skin for who is standing: Madison in navy, Michelle in a shirt, the crowd in everyday clothes.
 static func _paint_standing(vis: Node, kind: String) -> void:
 	var skin := _mat_static(SKIN if kind != "trainer" else Color(0.80, 0.64, 0.52), 0.55)
 	var hair := _mat_static(HAIR, 0.58)
@@ -879,6 +914,7 @@ static func _paint_standing(vis: Node, kind: String) -> void:
 	_paint_static(vis, "Cube001_3", hair)
 
 
+## Boot shafts on the standing rest pose, from the knee down to the heel.
 static func _boots_standing(root: Node3D, skel: Skeleton3D, vis: Node3D, into: Transform3D) -> void:
 	for tag in ["L", "R"]:
 		var ki := skel.find_bone("LowerLeg" + tag)
@@ -908,10 +944,12 @@ static func _boots_standing(root: Node3D, skel: Skeleton3D, vis: Node3D, into: T
 		root.add_child(foot)
 
 
+## A point on the visual after its scale and its drop onto the ground.
 static func _stood(vis: Node3D, local: Vector3) -> Vector3:
 	return vis.position + vis.scale * local
 
 
+## Michelle's clipboard, held in front of her.
 static func _clipboard(root: Node3D) -> void:
 	var board := MeshInstance3D.new()
 	var box := BoxMesh.new()
@@ -931,6 +969,7 @@ static func _clipboard(root: Node3D) -> void:
 	root.add_child(paper)
 
 
+## A flat velvet cap on a standing head, crown and peak.
 static func _cap_on(skel: Skeleton3D) -> void:
 	if skel.find_bone("Head") < 0:
 		return
@@ -957,6 +996,7 @@ static func _cap_on(skel: Skeleton3D) -> void:
 	att.add_child(peak)
 
 
+## A basis with Y along that direction, for a standing boot or a shaft.
 static func _align_y_static(dir: Vector3) -> Basis:
 	var y := dir.normalized()
 	var x := y.cross(Vector3(0, 0, -1))
@@ -966,6 +1006,7 @@ static func _align_y_static(dir: Vector3) -> Basis:
 	return Basis(x, y, x.cross(y).normalized())
 
 
+## Paints every surface of the named mesh on a standing figure.
 static func _paint_static(vis: Node, node_name: String, mat: Material) -> void:
 	var n := _find_named_static(vis, node_name)
 	if n is MeshInstance3D:
@@ -974,6 +1015,7 @@ static func _paint_static(vis: Node, node_name: String, mat: Material) -> void:
 			mi.set_surface_override_material(s, mat)
 
 
+## A flat colour for a standing coat, boot or helmet.
 static func _mat_static(c: Color, rough: float) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.albedo_color = c
@@ -981,6 +1023,7 @@ static func _mat_static(c: Color, rough: float) -> StandardMaterial3D:
 	return m
 
 
+## Removes every AnimationPlayer, so a clip cannot hold a standing pose.
 static func _silence_static(n: Node) -> void:
 	var doomed: Array[Node] = []
 	_collect_players_static(n, doomed)
@@ -991,6 +1034,7 @@ static func _silence_static(n: Node) -> void:
 		a.free()
 
 
+## Gathers AnimationPlayers. Stops at a player, so its clips are not walked.
 static func _collect_players_static(n: Node, out: Array[Node]) -> void:
 	if n is AnimationPlayer:
 		out.append(n)
@@ -999,6 +1043,7 @@ static func _collect_players_static(n: Node, out: Array[Node]) -> void:
 		_collect_players_static(c, out)
 
 
+## The first skeleton under that node.
 static func _find_skel_static(n: Node) -> Skeleton3D:
 	if n is Skeleton3D:
 		return n
@@ -1009,6 +1054,7 @@ static func _find_skel_static(n: Node) -> Skeleton3D:
 	return null
 
 
+## The first node of that name.
 static func _find_named_static(n: Node, want: String) -> Node:
 	if n.name == want:
 		return n
@@ -1019,6 +1065,7 @@ static func _find_named_static(n: Node, want: String) -> Node:
 	return null
 
 
+## A flat colour for a coat, a boot or a glove.
 func _mat(c: Color, rough: float) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.albedo_color = c
@@ -1026,6 +1073,7 @@ func _mat(c: Color, rough: float) -> StandardMaterial3D:
 	return m
 
 
+## Removes every AnimationPlayer under that node.
 func _silence(n: Node) -> void:
 	var doomed: Array[Node] = []
 	_collect_players(n, doomed)
@@ -1036,6 +1084,7 @@ func _silence(n: Node) -> void:
 		a.free()
 
 
+## Gathers AnimationPlayers. Stops at a player, so its clips are not walked.
 func _collect_players(n: Node, out: Array[Node]) -> void:
 	if n is AnimationPlayer:
 		out.append(n)
@@ -1044,6 +1093,7 @@ func _collect_players(n: Node, out: Array[Node]) -> void:
 		_collect_players(c, out)
 
 
+## The first skeleton under that node.
 func _find_skel(n: Node) -> Skeleton3D:
 	if n is Skeleton3D:
 		return n
@@ -1054,6 +1104,7 @@ func _find_skel(n: Node) -> Skeleton3D:
 	return null
 
 
+## The first node of that name.
 func _find_named(n: Node, want: String) -> Node:
 	if n.name == want:
 		return n
