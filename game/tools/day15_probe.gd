@@ -81,6 +81,8 @@ func _run() -> void:
 		_report_bones()
 	if bool(extra.get("rider", false)):
 		_report_rider()
+	if bool(extra.get("scene", false)):
+		_report_scene()
 	for pose in _plan.get("poses", []):
 		await _pose(pose)
 		for c in pose.get("cams", []):
@@ -184,3 +186,59 @@ func _report_rider() -> void:
 	if cap:
 		print("PROBE cap world ", cap.global_position, " head pose world ", sk.to_global(sk.get_bone_global_pose(sk.find_bone("Head")).origin))
 	print("PROBE skel xf ", sk.global_transform)
+
+
+func _report_scene() -> void:
+	# Visible meshes by top-level owner, and how many cast shadows.
+	var groups := {}
+	var stack: Array = [current_scene]
+	var procs := {}
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		for c in n.get_children():
+			stack.append(c)
+		if n.is_processing() and n.get_script() != null:
+			var sp := str((n.get_script() as Script).resource_path.get_file())
+			procs[sp] = int(procs.get(sp, 0)) + 1
+		if n is MeshInstance3D or n is MultiMeshInstance3D:
+			var gi := n as GeometryInstance3D
+			if not gi.is_visible_in_tree():
+				continue
+			var top := n
+			while top.get_parent() != current_scene and top.get_parent() != null:
+				top = top.get_parent()
+			var key := str(top.name)
+			if key.begins_with("@"):
+				key = "(unnamed)"
+			var row: Array = groups.get(key, [0, 0, 0])
+			row[0] += 1
+			if gi.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF:
+				row[1] += 1
+			if n is MeshInstance3D and (n as MeshInstance3D).mesh:
+				row[2] += (n as MeshInstance3D).mesh.get_surface_count()
+			groups[key] = row
+	var buckets := [0.1, 0.25, 0.5, 1.0, 2.0, 5.0, 1.0e9]
+	var hist := {}
+	var stack2: Array = [current_scene]
+	while not stack2.is_empty():
+		var m: Node = stack2.pop_back()
+		for c in m.get_children():
+			stack2.append(c)
+		if m is MeshInstance3D and (m as MeshInstance3D).is_visible_in_tree() and (m as MeshInstance3D).mesh:
+			var mi := m as MeshInstance3D
+			var ab := mi.global_transform * mi.get_aabb()
+			var big := maxf(ab.size.x, maxf(ab.size.y, ab.size.z))
+			var top := m
+			while top.get_parent() != current_scene and top.get_parent() != null:
+				top = top.get_parent()
+			for b in buckets:
+				if big < b:
+					var key := "%s<%s" % [str(top.name), str(b)]
+					hist[key] = int(hist.get(key, 0)) + 1
+					break
+	for k in hist:
+		print("PROBE size ", k, " n=", hist[k])
+	for k in groups:
+		print("PROBE meshes ", k, " count=", groups[k][0], " shadow=", groups[k][1], " surfaces=", groups[k][2])
+	for k in procs:
+		print("PROBE processing ", k, " x", procs[k])

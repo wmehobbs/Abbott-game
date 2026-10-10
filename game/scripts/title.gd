@@ -127,8 +127,8 @@ func _build() -> void:
 	best.visible = best.text != ""
 	if sans:
 		best.add_theme_font_override("font", sans)
-	best.add_theme_font_size_override("font_size", 20)
-	best.add_theme_color_override("font_color", Color(0.78, 0.72, 0.62))
+	best.add_theme_font_size_override("font_size", 24)
+	best.add_theme_color_override("font_color", Color(0.92, 0.87, 0.76))
 	stack.add_child(best)
 
 	var note := Label.new()
@@ -136,8 +136,8 @@ func _build() -> void:
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		note.add_theme_font_override("font", sans)
-	note.add_theme_font_size_override("font_size", 18)
-	note.add_theme_color_override("font_color", Color(0.80, 0.74, 0.60))
+	note.add_theme_font_size_override("font_size", 22)
+	note.add_theme_color_override("font_color", Color(0.88, 0.82, 0.70))
 	stack.add_child(note)
 
 	var row := HFlowContainer.new()
@@ -154,6 +154,21 @@ func _build() -> void:
 	_btn(row, "Quit", _quit)
 	var lesson: Button = row.get_child(0) as Button
 	if lesson:
+		# The way in: a gold button, so a new rider knows where to start.
+		var gold := StyleBoxFlat.new()
+		gold.bg_color = Color(0.66, 0.50, 0.22, 0.96)
+		gold.border_color = Color(0.94, 0.82, 0.52)
+		gold.set_border_width_all(2)
+		gold.content_margin_left = 20
+		gold.content_margin_right = 20
+		var gold_hi := gold.duplicate() as StyleBoxFlat
+		gold_hi.bg_color = Color(0.76, 0.59, 0.27, 1.0)
+		lesson.add_theme_stylebox_override("normal", gold)
+		lesson.add_theme_stylebox_override("hover", gold_hi)
+		lesson.add_theme_stylebox_override("pressed", gold_hi)
+		lesson.add_theme_stylebox_override("focus", gold_hi)
+		lesson.add_theme_color_override("font_color", Color(1.0, 0.97, 0.90))
+		lesson.add_theme_color_override("font_focus_color", Color(1.0, 0.97, 0.90))
 		lesson.grab_focus()
 
 	var help := Label.new()
@@ -162,8 +177,8 @@ func _build() -> void:
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if sans:
 		help.add_theme_font_override("font", sans)
-	help.add_theme_font_size_override("font_size", 18)
-	help.add_theme_color_override("font_color", Color(0.78, 0.72, 0.62))
+	help.add_theme_font_size_override("font_size", 20)
+	help.add_theme_color_override("font_color", Color(0.86, 0.80, 0.68))
 	stack.add_child(help)
 
 	_build_pick()

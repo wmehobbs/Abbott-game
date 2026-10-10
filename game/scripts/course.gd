@@ -15,6 +15,7 @@ func build(_indoor: bool, _seed: int) -> void:
 	_wipe()
 	_build_outdoor()
 	_start_finish()
+	MeshKit.tune_small(self)
 
 
 func reset_flags() -> void:

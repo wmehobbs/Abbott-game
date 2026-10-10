@@ -303,8 +303,17 @@ static func phrase(key: String, session: String = "", class_id: String = "") -> 
 	return _phrase_from(load_michelle(), key, session, class_id)
 
 
+## The fence catalog, read once. The HUD asks for the next fence's name every
+## frame, and reading and parsing this file each time cost 11.6 ms a frame.
+static var _fence_catalog: Variant = null
+static var _fence_catalog_read := false
+
+
 static func fence_name(kind: String, height: float, spread: float) -> String:
-	var data: Variant = _read_json("fences/catalog.json")
+	if not _fence_catalog_read:
+		_fence_catalog = _read_json("fences/catalog.json")
+		_fence_catalog_read = true
+	var data: Variant = _fence_catalog
 	if typeof(data) != TYPE_DICTIONARY:
 		return kind
 	var recipes: Variant = data.get("recipes", [])

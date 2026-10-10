@@ -18,6 +18,8 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | hooves | done | (M2) | same | The hoof plant and pastern limits are in metres, so they work on the v2 skeleton. |
 | look | done | (M2) | same | Softer vignette. Neck reaches further over the top of a jump. |
 | on foot | done | (M2) | same | Walking Madison wears the helmet; her and Michelle's boots ride the leg bones. |
+| frame rate | done | (M3) | see M3 | 35–40 fps to 70–95 fps on the same ride. The HUD was reading a file every frame. |
+| sharper | done | (M3) | see M3 | SMAA instead of FXAA on High and Medium. |
 
 ## What was wrong, and what changed
 
@@ -79,6 +81,23 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - **Hooves:** `bascule.gd` compared a hoof's lift and the pastern limit in skeleton units. Those are 0.85 m on the old mesh and 40 m on v2, so on v2 every hoof counted as "down" and the pastern had no limit. Both are converted to metres now.
 - **Look:** the vignette starts further out and is half as dark. Over the top of a jump the neck stretches 10° more.
 - **On foot:** walking Madison had no helmet, and her (and Michelle's) boots floated off the legs because they were placed from Blender coordinates. The helmet and the boots are shared code now, attached to the head, shin and foot bones.
+
+### Smoother and sharper (M3)
+
+- **Why it was not smooth:** with the GPU at about 2.5 ms a frame, the game ran at 30–40 fps (1600×900, windowed). Turning systems off one at a time pointed at the HUD, and timing its pieces found it: `GameState.next_fence_line()`, called every frame for "Fence 1 of 3 · white vertical", read and parsed `fences/catalog.json` from disk each call (11.6 ms).
+  - `ContentLibrary.fence_name` now reads the catalog once.
+  - The HUD frame went from 12,300 µs to 35 µs.
+  - The same ride now runs at 70–95 fps. Walk mode used the same reader for its fence lines, so it is faster too.
+- **The HUD also re-did layout work every frame:** it re-set the root size (a full re-layout), re-anchored the reins card (re-shaping its text), re-applied Michelle's caption font, and ran six recursive `find_child` searches. Each is now done only when something changes, and the lookups are cached.
+- **Draw calls:** the farm drew 2,400 meshes and a course 1,100 (flower heads, stems, bolts), nearly all casting shadows into four cascades: 2,000–8,000 draw calls a frame. `MeshKit.tune_small` runs once after the farm and each course are built:
+  - under 25 cm: no shadow, fade out past 45 m;
+  - under 50 cm: no shadow, fade past 80 m;
+  - under 1 m: fade past 140 m.
+
+  Draw calls fell to about 1,100–3,400. The fades dither, so nothing pops.
+- **Sharper:** FXAA blurred the whole picture about 13 percent (mean edge strength on the ride view); SMAA blurs about 7. High and Medium now use SMAA over their MSAA; Low keeps FXAA.
+- **New check:** `hud_frame_cost` in the selftest times the HUD frame and the fence line in the arena, so a file read per frame cannot come back unnoticed.
+- **New tools:** `game/tools/day15_perf.gd` (frame rate with each system off), `day15_hudtime.gd` (cost of each HUD piece), `day15_camlog.gd` (lens and horse per frame, plus draw calls).
 
 ## Decisions
 

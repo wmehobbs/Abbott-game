@@ -12,6 +12,7 @@ var _t0 := 0
 
 
 func _init() -> void:
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	call_deferred("_boot")
 
 
@@ -54,5 +55,7 @@ func _tick() -> void:
 		var ip := (_horse as Node3D).get_global_transform_interpolated().origin
 		var cp := _cam.global_position
 		print("CAMLOG t=%d j=%s ju=%.2f horse=(%.2f,%.2f,%.2f) interp=(%.2f,%.2f,%.2f) cam=(%.2f,%.2f,%.2f) dist=%.2f fps=%d" % [Time.get_ticks_msec() - _t0, j, float(_horse.get("jump_t")) / maxf(float(_horse.get("jump_dur")), 0.01), hp.x, hp.y, hp.z, ip.x, ip.y, ip.z, cp.x, cp.y, cp.z, Vector2(cp.x - ip.x, cp.z - ip.z).length(), Engine.get_frames_per_second()])
+	if _frames % 30 == 0:
+		print("PERF fps=%d process_ms=%.2f physics_ms=%.2f draw_calls=%d objects=%d prims=%d" % [Engine.get_frames_per_second(), Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0, Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000.0, Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME), Performance.get_monitor(Performance.RENDER_TOTAL_OBJECTS_IN_FRAME), Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
 	if _jumps >= 2 or Time.get_ticks_msec() - _t0 > 60000:
 		quit(0)

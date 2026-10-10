@@ -505,3 +505,36 @@ static func place_rod_global(mi: MeshInstance3D, a: Vector3, b: Vector3) -> void
 	x = x.normalized()
 	var z := x.cross(y).normalized()
 	mi.global_transform = Transform3D(Basis(x, y, z), (a + b) * 0.5)
+
+
+## Small things need no shadow and can fade out far away. On the ride view the
+## farm drew 2,400 meshes and a course 1,100 (flower heads, stems, bolts),
+## nearly all casting into four shadow cascades: the frame waited on the CPU
+## with the GPU at 2.5 ms. Sizes are each mesh's longest side in metres.
+static func tune_small(root: Node) -> void:
+	var stack: Array[Node] = [root]
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		for c in n.get_children():
+			stack.append(c)
+		if not (n is MeshInstance3D):
+			continue
+		var mi := n as MeshInstance3D
+		if mi.mesh == null or not mi.is_inside_tree():
+			continue
+		var ab := mi.global_transform * mi.get_aabb()
+		var big := maxf(ab.size.x, maxf(ab.size.y, ab.size.z))
+		if big < 0.25:
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			_fade_beyond(mi, 45.0)
+		elif big < 0.5:
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			_fade_beyond(mi, 80.0)
+		elif big < 1.0:
+			_fade_beyond(mi, 140.0)
+
+
+static func _fade_beyond(gi: GeometryInstance3D, d: float) -> void:
+	gi.visibility_range_end = d
+	gi.visibility_range_end_margin = d * 0.15
+	gi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF

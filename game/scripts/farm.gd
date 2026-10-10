@@ -37,6 +37,7 @@ func build() -> void:
 	_sun()
 	_walls()
 	_sky()
+	MeshKit.tune_small(self)
 
 
 func _ground() -> void:

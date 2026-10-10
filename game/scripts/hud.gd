@@ -120,17 +120,19 @@ func _build() -> void:
 	band.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	band.offset_left = 0
 	band.offset_right = 0
-	band.offset_top = -78
+	band.offset_top = -56
 	band.offset_bottom = 0
 	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	band.color = Color(0.04, 0.03, 0.02, 0.78)
+	band.color = Color(0.04, 0.03, 0.02, 0.74)
 	root.add_child(band)
-	hint = _label(root, "", 18, Vector2.ZERO, Color(0.96, 0.93, 0.86, 0.95))
+	# The keys sit in the middle of their band, not on its top edge.
+	hint = _label(root, "", 20, Vector2.ZERO, Color(0.97, 0.94, 0.87, 0.97))
 	hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	hint.offset_left = 48
 	hint.offset_right = -48
-	hint.offset_top = -72
-	hint.offset_bottom = -36
+	hint.offset_top = -56
+	hint.offset_bottom = 0
+	hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_set_ride_hint()
 
@@ -268,7 +270,8 @@ func _build_callout(root: Control) -> void:
 	grade_lab.visible = false
 	if font_b:
 		grade_lab.add_theme_font_override("font", font_b)
-	go_lab = _label(root, "Time", 64, Vector2(0, 0), Color(0.96, 0.93, 0.86))
+	# Said as he crosses the start flags. "Time" alone read like a stray label.
+	go_lab = _label(root, "Clock running", 64, Vector2(0, 0), Color(0.96, 0.93, 0.86))
 	go_lab.name = "Go"
 	go_lab.set_anchors_preset(Control.PRESET_CENTER)
 	go_lab.offset_left = -240
@@ -564,15 +567,29 @@ func _menu_column(panel: Control) -> VBoxContainer:
 	return box
 
 
+## Nodes the HUD looks up by name. Found once, not every frame: a recursive
+## find_child per frame for each of them was part of a 12 ms HUD frame.
+var _found := {}
+
+
+func _node(n: String) -> Node:
+	var hit: Node = _found.get(n)
+	if hit == null or not is_instance_valid(hit):
+		hit = find_child(n, true, false)
+		if hit:
+			_found[n] = hit
+	return hit
+
+
 func _sync_board() -> void:
-	var board := find_child("Scoreboard", true, false) as CanvasItem
+	var board := _node("Scoreboard") as CanvasItem
 	if board == null or pause_panel == null:
 		return
 	var menu := pause_panel.visible or result_panel.visible or options_panel.visible
 	board.visible = not menu
 	if hint:
 		hint.visible = not menu
-	var band := find_child("HintBand", true, false) as CanvasItem
+	var band := _node("HintBand") as CanvasItem
 	if band:
 		band.visible = hint != null and hint.visible and hint.text != ""
 
@@ -586,6 +603,10 @@ func _fit_root() -> void:
 	var sz := get_viewport().get_visible_rect().size
 	if sz.x < 2.0 or sz.y < 2.0:
 		return
+	# Setting the size re-lays the whole HUD out; only when it changed.
+	if sz == _fit_size and root.size == sz:
+		return
+	_fit_size = sz
 	root.position = Vector2.ZERO
 	root.size = sz
 
@@ -593,6 +614,11 @@ func _fit_root() -> void:
 func shake_refuse() -> void:
 	# Four pixels, a fifth of a second. The horse already stopped.
 	_shake = 0.22
+
+
+var _fit_size := Vector2.ZERO
+var _reins_place := ""
+var _trainer_style := ""
 
 
 func _process(_delta: float) -> void:
@@ -645,12 +671,16 @@ func _process(_delta: float) -> void:
 		var px := 42 if loud else 22
 		if GameState.settings:
 			px = int(round(float(px) * GameState.settings.hud_scale))
-		trainer_lab.add_theme_font_size_override("font_size", px)
-		if loud and font_b:
-			trainer_lab.add_theme_font_override("font", font_b)
-		elif font:
-			trainer_lab.add_theme_font_override("font", font)
-		trainer_lab.position = Vector2(48, -156 if loud else -108)
+		# A theme override re-shapes the text; only when the style changes.
+		var style := "%d:%s" % [px, loud]
+		if style != _trainer_style:
+			_trainer_style = style
+			trainer_lab.add_theme_font_size_override("font_size", px)
+			if loud and font_b:
+				trainer_lab.add_theme_font_override("font", font_b)
+			elif font:
+				trainer_lab.add_theme_font_override("font", font)
+			trainer_lab.position = Vector2(48, -156 if loud else -108)
 	if gait_lab:
 		var h := _horse()
 		if h:
@@ -665,7 +695,7 @@ func _process(_delta: float) -> void:
 	_sync_reins(_delta)
 	_sync_result(_delta)
 	_sync_veil(_delta)
-	var watching := find_child("Watching", true, false)
+	var watching := _node("Watching")
 	if watching:
 		watching.visible = (
 			GameState.demo_ride
@@ -685,11 +715,11 @@ func reset_reins() -> void:
 
 
 func _sync_reins(delta: float) -> void:
-	var body := find_child("ReinsBody", true, false) as Label
+	var body := _node("ReinsBody") as Label
 	if body != null and GameState.last_device != _reins_device:
 		_reins_device = GameState.last_device
 		body.text = _reins_copy()
-	var reins := find_child("Reins", true, false) as Control
+	var reins := _node("Reins") as Control
 	if reins == null or pause_panel == null or result_panel == null:
 		return
 	var in_ride := (
@@ -707,21 +737,26 @@ func _sync_reins(delta: float) -> void:
 		reins.modulate.a = 1.0
 		return
 	if pause_panel.visible:
-		reins.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-		reins.offset_left = 36.0
-		reins.offset_top = -540.0
-		reins.offset_right = 560.0
-		reins.offset_bottom = -28.0
-		reins.z_index = 8
+		# Anchors re-lay the card's text out: only on the change of place.
+		if _reins_place != "pause":
+			_reins_place = "pause"
+			reins.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+			reins.offset_left = 36.0
+			reins.offset_top = -540.0
+			reins.offset_right = 560.0
+			reins.offset_bottom = -28.0
+			reins.z_index = 8
 		reins.visible = true
 		reins.modulate.a = 1.0
 		return
-	reins.z_index = 0
-	reins.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
-	reins.offset_left = -560.0
-	reins.offset_top = -250.0
-	reins.offset_right = -36.0
-	reins.offset_bottom = 250.0
+	if _reins_place != "ride":
+		_reins_place = "ride"
+		reins.z_index = 0
+		reins.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+		reins.offset_left = -560.0
+		reins.offset_top = -250.0
+		reins.offset_right = -36.0
+		reins.offset_bottom = 250.0
 	if not GameState.start_crossed and GameState.time_sec < 0.05 and not _reins_latched:
 		_reins_t = 0.0
 		_reins_fade = 1.0
@@ -743,7 +778,7 @@ func _sync_reins(delta: float) -> void:
 
 
 func _sync_pips() -> void:
-	var row := find_child("FencePips", true, false) as Control
+	var row := _node("FencePips") as Control
 	if row == null:
 		return
 	var n := GameState.fences_needed()

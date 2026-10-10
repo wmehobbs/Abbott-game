@@ -119,6 +119,9 @@ func apply_display() -> void:
 	if vp:
 		vp.scaling_3d_scale = render_scale
 		vp.msaa_3d = msaa_level()
+		# SMAA over the MSAA edges: about half the softening FXAA put on the
+		# whole picture (measured on the ride view). Low keeps cheap FXAA.
+		vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if quality == "Low" else Viewport.SCREEN_SPACE_AA_SMAA
 	var env := _find_class(tree.root, "WorldEnvironment") as WorldEnvironment
 	if env and env.environment:
 		var on := quality != "Low"

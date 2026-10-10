@@ -44,6 +44,7 @@ func _run() -> void:
 	_kick_wood()
 	_bleachers()
 	await _leg_tuck()
+	await _hud_frame_cost()
 	_bridle_fit()
 	_coat_clean()
 	_barn_note_player()
@@ -1193,6 +1194,40 @@ func _leg_tuck() -> void:
 		_fail("leg_tuck", why)
 		return
 	_ok("leg_tuck")
+
+
+func _hud_frame_cost() -> void:
+	# The HUD once read and parsed the fence catalog every frame (11.6 ms) to
+	# name the next fence, which held the game near 35 fps. Its frame work and
+	# that line stay cheap.
+	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
+	var arena: Node = packed.instantiate()
+	get_tree().root.add_child(arena)
+	for i in 3:
+		await get_tree().process_frame
+	var hud: Node = arena.get_node_or_null("HUD")
+	var why := ""
+	if hud == null:
+		why = "no HUD"
+	else:
+		var t0 := Time.get_ticks_usec()
+		for i in 40:
+			hud.call("_process", 0.016)
+		var per := float(Time.get_ticks_usec() - t0) / 40.0
+		var t1 := Time.get_ticks_usec()
+		for i in 40:
+			GameState.next_fence_line()
+		var line := float(Time.get_ticks_usec() - t1) / 40.0
+		if per > 1500.0:
+			why = "HUD frame %.0f us" % per
+		elif line > 300.0:
+			why = "next_fence_line %.0f us" % line
+	arena.queue_free()
+	await get_tree().process_frame
+	if why != "":
+		_fail("hud_frame_cost", why)
+		return
+	_ok("hud_frame_cost")
 
 
 func _refuse_cam() -> void:
