@@ -71,6 +71,7 @@ func _run() -> void:
 	_result_lines()
 	_class_best_display()
 	_class_clock()
+	_glass_lines()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -997,6 +998,54 @@ func _class_clock() -> void:
 		_fail("class_clock", why)
 		return
 	_ok("class_clock")
+
+
+func _glass_lines() -> void:
+	# class_title, is_show, info and the control line, for key and pad.
+	var was_id := GameState.class_id
+	var was_kind := GameState.session_kind
+	var was_jo := GameState.jump_off
+	var was_dev := GameState.last_device
+	var why := ""
+	GameState.jump_off = false
+	GameState.session_kind = "lesson"
+	GameState.class_id = "lesson"
+	if GameState.class_title() != "Lesson  ·  Hidden K  ·  poles to 2'3\"":
+		why = "lesson title " + GameState.class_title()
+	if why == "" and GameState.is_show():
+		why = "a lesson counted as a show"
+	GameState.session_kind = "schooling"
+	GameState.class_id = "beginner"
+	if why == "" and GameState.class_title() != "Schooling  ·  Crossrails  ·  2'3\"":
+		why = "school title " + GameState.class_title()
+	GameState.session_kind = "show"
+	GameState.class_id = "intermediate"
+	if why == "" and GameState.class_title() != "Classic  ·  Table A  ·  2'6\"":
+		why = "show title " + GameState.class_title()
+	if why == "" and not GameState.is_show():
+		why = "show was not a show"
+	GameState.class_id = "advanced"
+	GameState.jump_off = true
+	if why == "" and GameState.class_title() != "Jump-off  ·  Table A  ·  3'0\"":
+		why = "jump-off title " + GameState.class_title()
+	GameState.jump_off = false
+	GameState.class_id = "no-such-class"
+	if why == "" and str(GameState.info().get("name", "")) != "Crossrails":
+		why = "unknown class did not fall back to beginner"
+	GameState.last_device = "key"
+	if why == "" and not GameState.control_line().begins_with("W/S gait"):
+		why = "key line " + GameState.control_line()
+	GameState.last_device = "pad"
+	if why == "" and not GameState.control_line().begins_with("D-pad up/down gait"):
+		why = "pad line " + GameState.control_line()
+	GameState.class_id = was_id
+	GameState.session_kind = was_kind
+	GameState.jump_off = was_jo
+	GameState.last_device = was_dev
+	if why != "":
+		_fail("glass_lines", why)
+		return
+	_ok("glass_lines")
 
 
 func _season() -> void:
