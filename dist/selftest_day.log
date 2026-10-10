@@ -10,7 +10,7 @@ ERROR: Parse JSON failed. Error at line 0: Expected '}'
        [0] _parse_save_file (res://scripts/game_state.gd:807)
        [1] _read_save (res://scripts/game_state.gd:816)
        [2] read_save_migrated (res://scripts/game_state.gd:731)
-       [3] _bak_recovers (res://scripts/selftest.gd:170)
+       [3] _bak_recovers (res://scripts/selftest.gd:180)
        [4] _run (res://scripts/selftest.gd:26)
 WARNING: Abbott save is not valid JSON: user://selftest/trunc.json
    at: push_warning (core/variant/variant_utility.cpp:1033)
@@ -18,14 +18,14 @@ WARNING: Abbott save is not valid JSON: user://selftest/trunc.json
        [0] _parse_save_file (res://scripts/game_state.gd:810)
        [1] _read_save (res://scripts/game_state.gd:816)
        [2] read_save_migrated (res://scripts/game_state.gd:731)
-       [3] _bak_recovers (res://scripts/selftest.gd:170)
+       [3] _bak_recovers (res://scripts/selftest.gd:180)
        [4] _run (res://scripts/selftest.gd:26)
 WARNING: Abbott save rejected. Trying the backup.
    at: push_warning (core/variant/variant_utility.cpp:1033)
    GDScript backtrace (most recent call first):
        [0] _read_save (res://scripts/game_state.gd:820)
        [1] read_save_migrated (res://scripts/game_state.gd:731)
-       [2] _bak_recovers (res://scripts/selftest.gd:170)
+       [2] _bak_recovers (res://scripts/selftest.gd:180)
        [3] _run (res://scripts/selftest.gd:26)
 SELFTEST PASS truncated_recovers_from_bak
 ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'this'
@@ -34,7 +34,7 @@ ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', 
        [0] _parse_save_file (res://scripts/game_state.gd:807)
        [1] _read_save (res://scripts/game_state.gd:816)
        [2] read_save_migrated (res://scripts/game_state.gd:731)
-       [3] _garbage_defaults (res://scripts/selftest.gd:183)
+       [3] _garbage_defaults (res://scripts/selftest.gd:193)
        [4] _run (res://scripts/selftest.gd:27)
 WARNING: Abbott save is not valid JSON: user://selftest/garbage.json
    at: push_warning (core/variant/variant_utility.cpp:1033)
@@ -42,20 +42,20 @@ WARNING: Abbott save is not valid JSON: user://selftest/garbage.json
        [0] _parse_save_file (res://scripts/game_state.gd:810)
        [1] _read_save (res://scripts/game_state.gd:816)
        [2] read_save_migrated (res://scripts/game_state.gd:731)
-       [3] _garbage_defaults (res://scripts/selftest.gd:183)
+       [3] _garbage_defaults (res://scripts/selftest.gd:193)
        [4] _run (res://scripts/selftest.gd:27)
 WARNING: Abbott save rejected. Trying the backup.
    at: push_warning (core/variant/variant_utility.cpp:1033)
    GDScript backtrace (most recent call first):
        [0] _read_save (res://scripts/game_state.gd:820)
        [1] read_save_migrated (res://scripts/game_state.gd:731)
-       [2] _garbage_defaults (res://scripts/selftest.gd:183)
+       [2] _garbage_defaults (res://scripts/selftest.gd:193)
        [3] _run (res://scripts/selftest.gd:27)
 WARNING: Abbott save unreadable at user://selftest/garbage.json. Using defaults.
    at: push_warning (core/variant/variant_utility.cpp:1033)
    GDScript backtrace (most recent call first):
        [0] read_save_migrated (res://scripts/game_state.gd:733)
-       [1] _garbage_defaults (res://scripts/selftest.gd:183)
+       [1] _garbage_defaults (res://scripts/selftest.gd:193)
        [2] _run (res://scripts/selftest.gd:27)
 SELFTEST PASS garbage_uses_defaults
 SELFTEST PASS old_save_migrates
@@ -87,7 +87,7 @@ FIT length=2.25 height=1.91995716094971 scale=(39.88721, 39.88721, 39.88721)
 SEAT bone=Torso2 bone_pos=(-0.0, 1.09827, -0.036818) back_y=1.3647962808609 seat=(-0.0, 1.364796, -0.036818)
 HORSE mesh=WhiteHorse anim=true seat=Torso2 rider_parent=Seat
 RIDER mesh scale 0.91304347826087 bones 62 k 0.776
-SELFTEST PASS tail_hangs 43° below level (clip 12°)
+SELFTEST PASS tail_hangs 34° below level (clip -3°)
 FIT flatten armature scale=(100.0, 99.99998, 99.99998) keep_rot=(-90.0, 0.0, 0.0)
 FIT length=2.25 height=1.91995716094971 scale=(39.88721, 39.88721, 39.88721)
 SEAT bone=Torso2 bone_pos=(-0.0, 1.09827, -0.036818) back_y=1.3647962808609 seat=(-0.0, 1.364796, -0.036818)
@@ -148,6 +148,18 @@ SELFTEST PASS pause
 SELFTEST PASS options_focus
 SELFTEST PASS results
 SELFTEST PASS class_best_display
+SELFTEST PASS class_clock
+SELFTEST PASS glass_lines
+SELFTEST PASS show_card
+SELFTEST PASS horse_scales
+SELFTEST PASS round_numbers
+MICHELLE soft | Sit.
+MICHELLE soft | Now.
+SELFTEST PASS voice_and_start
+SELFTEST PASS library_lines
+SELFTEST PASS built_meshes
+SELFTEST PASS standing_people
+SELFTEST PASS cue_files
 SELFTEST PASS season
 FIT flatten armature scale=(100.0, 99.99998, 99.99998) keep_rot=(-90.0, 0.0, 0.0)
 FIT length=2.25 height=1.91995716094971 scale=(39.88721, 39.88721, 39.88721)
@@ -164,4 +176,4 @@ HORSE mesh=WhiteHorse anim=true seat=Torso2 rider_parent=Seat
 RIDER mesh scale 0.91304347826087 bones 62 k 0.776
 SELFTEST PASS arena_scene
 SELFTEST PASS player_save_untouched
-SELFTEST SUMMARY pass=57 fail=0
+SELFTEST SUMMARY pass=67 fail=0
