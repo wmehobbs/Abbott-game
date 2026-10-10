@@ -4,7 +4,13 @@ Saturday, October 10. Branch `day16-grok`, from `day15-claude`. Version stays 2.
 
 ## Summary for Ernie
 
-Baseline is in. Madison's save was copied and not touched. The rest of the backlog is still ahead of this note; the summary above the status table is rewritten as the work lands.
+A course checker is in (`game/tools/validate_content.gd`). It only reports. No course file was edited, and nothing about how the game plays changed.
+
+It read 23 course files. The index lists the same 23, ids match the file names, fence numbers run 1..N, every kind is in the catalog, heights sit in the class band, every fence is inside the ring, and the walk text and fence names come out non-empty. The prompt said 24 course files. There is no 24th file in `game/content/courses/`.
+
+The shortest jump-to-jump distance on a shipped course is 7.25 m, hk_adv_001 fence 8 to 9. Nothing is shorter.
+
+19 courses store a time allowed that the clock does not use. Lessons match (180 s). The others are shorter than `CLASS_INFO`. A jump-off file is shorter than `max(28, class time × 0.42)`. She rides the game clock, not the number in the file. Left for you. Details are in `dist/day16/content_report.md`.
 
 Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd75b52d` (1109 bytes, last written by her session at 20:43 on Oct 9). The same hash was on the file after the copy. Copies are `dist/day16/save_snapshot.json` and `dist/day16/save_backup.json`. Neither is committed. Both are in `.git/info/exclude`.
 
@@ -14,7 +20,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 
 | task | commit | gates (compile, selftest x/0, playtest, les/beg/jo times, save) | notes |
 | --- | --- | --- | --- |
-| setup | baseline | compile 1 errors=0, selftest 57/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | Beg time is 0.01 s off the printed 62.14. That is the allowed wobble. Jump-off `success=false` is the jump-off round. |
+| setup | bdfde927 | compile 1 errors=0, selftest 57/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | Beg time is 0.01 s off the printed 62.14. That is the allowed wobble. Jump-off `success=false` is the jump-off round. |
+| 1 content | t1 | compile 1 errors=0, selftest 57/0, tool exit 0. Playtest and ride not run: this is a new tool, not game code. | 23 courses, 0 failed checks. Report `dist/day16/content_report.md`. |
 
 ## Baseline
 
@@ -38,7 +45,8 @@ GATES_DONE
 
 ## Needs Ernie
 
-Nothing from the checks yet. Findings from the course report and the asset audit will land here.
+- The course files and the clock disagree on 19 courses. The game uses `CLASS_INFO` (`time_allowed()`), not `time_allowed_school` / `time_allowed_show` in the file. Beginner file 82.0 / 77.9, game 100 / 95. Intermediate 73.8 / 69.7 against 90 / 85. Advanced 65.6 / 61.5 against 80 / 75. Jump-off beginner 34.4 / 32.7 against 42.00 / 39.90, intermediate 31.0 / 29.3 against 37.80 / 35.70, advanced 28.0 / 28.0 against 33.60 / 31.50. Lessons already match. I did not change a course or the clock.
+- There are 23 course files, not 24. Index and files agree. No missing id turned up.
 
 ## Blocked
 
