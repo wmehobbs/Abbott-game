@@ -38,10 +38,11 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
    - his tail flows down at the canter (the clip held it straight out like a flag) and swishes now and then standing (the clip swung it every 3.3 s);
    - his ears flick back to listen to her, and go forward at the canter.
 8. **The results card marks the way on:** one gold button (Next after a clear round, Retry otherwise, the jump-off when offered). A gamepad starts on it; on the keyboard the first arrow or Tab does. The gold buttons letter in dark brown now: cream on gold was hard to read.
+9. **Two fixes found on review:** Options opened from the pause menu now takes the gamepad focus (it was left on the pause buttons behind the dim), and the rosette stays on the bridle when Abbott is worried (his lifted neck left it on his noseband; his default confidence of 48 is in that range).
 
 ## Final checks
 
-- Compile clean; selftest 54 pass, 0 fail (new: tail_hangs).
+- Compile clean; selftest 56 pass, 0 fail (new since the 03:40 run: tail_hangs, options_focus, rosette_on_bridle; the last two fail on the code before their fix).
 - Playtest clear 0, refuse 4, rail 4.
 - hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.14, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final3`, 03:40.
 - Madison's save unchanged all night (compared after every run).
@@ -88,6 +89,12 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | score board | done | (M12) | compile ok, selftest 53/0, playtest pass | The arena board shows the live time and faults. |
 | title, trot | done | (M13) | compile ok, selftest 53/0 | A slow push-in on the title photo; the rising-trot lift eases in and out. |
 | reins, crowd | done | (M10) | selftest 53/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The reins run along his neck to the bit and drape at a halt; she breathes and looks round standing; a varied crowd. |
+| tail | done | (M17) | selftest 53/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.45, save match | The canter tail flows down from the dock; standing, a swish now and then instead of the clip's 3.3 s metronome. |
+| results card | done | (M18) | selftest 54/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.45, save match | One gold button marks the way on; pad focus; dark lettering on gold (title too). New test tail_hangs. |
+| ears | done | (M19) | selftest 54/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.45, save match | An ear tips back to listen every few seconds; both forward at the canter. |
+| canter seat | done | (M20) | selftest 54/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.44, save match | At the canter she sits 6° more forward with her fists 4 cm lower and forward. |
+| options focus | done | (M21) | selftest 55/0, playtest 0/4/4, les 25.42, beg 62.14 jo 33.44, save match | Options from the pause menu takes the pad focus; Back returns it. New test options_focus. |
+| rosette fix | done | (M22) | selftest 56/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44, save match | The rosette stays on the bridle when he is worried. New test rosette_on_bridle. |
 
 ## What was wrong, and what changed
 
@@ -209,10 +216,22 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - **Eyes and hooves:** a wet glint in his eye (roughness 0.10) and a little sheen on the hooves.
 - **The crowd:** the six people in the stands were copies of Michelle, clipboards and all. They are now spectators in everyday colours with their own shoes, still watching him.
 
+### Tail, ears, results card, canter seat (M17–M20)
+
+- **Tail:** the Canter and Gallop clips lift Tail3 about 30° and hold the tail straight out like a flag; Idle swings it ±25° every 3.3 s. `tail_carriage.gd`, a modifier before the bascule, lets the canter tail 55% of the way back to its hang (the dock keeps more) with a small stride wave, damps the Idle swing by 75% and adds a curved swish every 4–9 s, and lets the tail follow the bend of a turn. Measured: the canter tail hangs 40° below level, the clip alone 8°. The carriage publishes `hang_deg`, because the skeleton read from outside its update is the clip before the modifiers.
+- **Ears:** `ear_life.gd` tips one ear back 38° to listen every 2.5–7 s (now and then both), and both go 10° forward at the canter and over a fence. Before the bascule, so a worried horse's pricked ears still go on top.
+- **Results card:** once the count settles, one button is gold: the jump-off when offered, Next after a clear round, Retry otherwise. A pad gets it focused; on the keyboard the first arrow or Tab lands on it, so a Space held from the last fence cannot press it. Cream lettering on that gold measured about 3.4:1; the gold buttons (here and the title's Lesson) now letter in dark brown, a touch heavier.
+- **Canter seat:** at the canter, between fences, Madison leans 6° more and her fists come 4 cm lower and forward, eased with the gait; not in the two-point, the land or a half-halt.
+
+### Found on review (M21, M22)
+
+- **Options from pause:** it opened with the focus left on the pause buttons behind the dim, so a pad could not reach the options. It now opens as the title's does and Back returns the focus. `options_focus` fails on the old HUD ("focus on Resume").
+- **Rosette:** it was placed from the head bone read in `_process`, which is the clip before the bascule. A worried horse's neck lifts, and the rosette stayed on his noseband (0.34 m from the bit calm, 0.18 m worried). It now reads the head through a bone attachment, which follows the drawn pose. `rosette_on_bridle` fails on the old rosette.
+
 ## Decisions
 
 - The jump and leave math, the rules, `ride_ai.gd`, the course files and horse.gd's rider signals were not touched. The ride gate is the proof: lesson 25.43, beginner 62.14 and jump-off 33.45, the same faults and offers as before.
-- `abbott_v2b.glb` was an intermediate (sibling layout, still world-space vertices) and was deleted. Only v2c is kept.
+- `abbott_v2b.glb` was an intermediate (sibling layout, still world-space vertices) and was deleted. `abbott_v2d.glb` (v2c with the bridle) is the horse; v2c is in the history.
 
 ## NEEDS ERNIE
 
