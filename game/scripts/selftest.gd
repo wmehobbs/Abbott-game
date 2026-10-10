@@ -65,6 +65,7 @@ func _run() -> void:
 	await _gamepad()
 	await _buses()
 	await _pause_round()
+	await _options_focus()
 	_result_lines()
 	_class_best_display()
 	_season()
@@ -724,6 +725,49 @@ func _settings() -> void:
 		_fail("settings", why)
 		return
 	_ok("settings")
+
+
+func _options_focus() -> void:
+	# From the pause menu, Options takes the focus into its own list, so a pad
+	# is not left steering the pause buttons behind the dim; Back returns it.
+	var vp := SubViewport.new()
+	vp.size = Vector2i(1280, 720)
+	vp.disable_3d = true
+	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(vp)
+	var script: GDScript = load("res://scripts/hud.gd") as GDScript
+	var hud: Node = script.new()
+	vp.add_child(hud)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	hud.call("show_pause", true)
+	await get_tree().process_frame
+	var why := ""
+	var pause := hud.get("pause_panel") as Control
+	var options := hud.get("options_panel") as Control
+	var opt_btn := pause.find_child("Options", true, false) as Button if pause else null
+	if opt_btn == null or options == null:
+		why = "no Options on the pause menu"
+	else:
+		opt_btn.pressed.emit()
+		await get_tree().process_frame
+		var f := vp.gui_get_focus_owner()
+		if f == null or not options.is_ancestor_of(f):
+			why = "Options opened with the focus on %s" % (str(f.name) if f else "nothing")
+		else:
+			options.find_child("SettingsMenu", true, false).emit_signal("back_pressed")
+			await get_tree().process_frame
+			var f2 := vp.gui_get_focus_owner()
+			if f2 != opt_btn:
+				why = "Back left the focus on %s" % (str(f2.name) if f2 else "nothing")
+	Engine.time_scale = 1.0
+	GameState.ui_paused = false
+	hud.free()
+	vp.free()
+	if why != "":
+		_fail("options_focus", why)
+		return
+	_ok("options_focus")
 
 
 func _pause_round() -> void:

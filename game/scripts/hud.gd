@@ -345,7 +345,7 @@ func _build_pause(root: Control) -> void:
 	box.add_child(reins)
 	_btn(box, "Resume", resume_requested)
 	_btn(box, "Restart round", retry_requested)
-	_btn(box, "Options", func() -> void: options_panel.visible = true)
+	_btn(box, "Options", _open_options)
 	_btn(box, "Walk the course", walk_requested)
 	_btn(box, "Quit to title", _quit_title)
 
@@ -479,11 +479,25 @@ func _build_options(root: Control) -> void:
 	menu.back_pressed.connect(func() -> void:
 		waiting_rebind = ""
 		options_panel.visible = false
+		# Back to the pause button that opened it, as the title does.
+		if pause_panel != null and pause_panel.visible:
+			var opt := pause_panel.find_child("Options", true, false) as Control
+			if opt:
+				opt.grab_focus()
 	)
 	menu.rebind_asked.connect(func(action: String) -> void:
 		waiting_rebind = action
 	)
 	box.add_child(menu)
+
+
+## As the title opens its options: rebuilt on show, so the first button takes
+## the focus and a pad is not left steering the pause menu behind the dim.
+func _open_options() -> void:
+	options_panel.visible = true
+	var menu := options_panel.find_child("SettingsMenu", true, false) as SettingsMenu
+	if menu:
+		menu.show_page("home")
 
 
 func apply_hud_scale() -> void:
