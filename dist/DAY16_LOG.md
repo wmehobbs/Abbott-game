@@ -25,7 +25,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 2 clock | dae4f4cb | compile 1 errors=0, selftest 58/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `class_clock`. Lesson time 0.01 s under 25.43, inside 0.10. |
 | 2 glass | 1708c625 | compile 1 errors=0, selftest 59/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.44, SAVE_MATCH | New test `glass_lines`. Jump-off time 0.01 s under 33.45, inside 0.10. |
 | 2 show card | 193d3b18 | compile 1 errors=0, selftest 60/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | New test `show_card`: unlocks, jump-off offer, ribbons. |
-| 2 scales | t2d | compile 1 errors=0, selftest 61/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | New test `horse_scales`. Beginner time 0.01 s over 62.14, inside 0.10. |
+| 2 scales | 4eb5cd47 | compile 1 errors=0, selftest 61/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | New test `horse_scales`. Beginner time 0.01 s over 62.14, inside 0.10. |
+| 2 numbers | t2e | compile 1 errors=0, selftest 62/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | New test `round_numbers`: official time, finish, best, key name, next fence. |
 
 ## Baseline
 

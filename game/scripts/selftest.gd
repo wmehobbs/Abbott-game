@@ -74,6 +74,7 @@ func _run() -> void:
 	_glass_lines()
 	_show_card()
 	_horse_scales()
+	_round_numbers()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1256,6 +1257,105 @@ func _horse_scales() -> void:
 		_fail("horse_scales", why)
 		return
 	_ok("horse_scales")
+
+
+func _round_numbers() -> void:
+	# Official time, a finish, the saved best, the key name, and the next-fence line.
+	var was_id := GameState.class_id
+	var was_jo := GameState.jump_off
+	var was_mode := GameState.mode
+	var was_done := GameState.round_complete
+	var was_elim := GameState.eliminated
+	var was_start := GameState.start_crossed
+	var was_next := GameState.next_fence
+	var was_best_f := GameState.best_faults
+	var was_best_t := GameState.best_time
+	var was_last := GameState.last_time
+	var was_cents := GameState.official_cents
+	var was_bests: Dictionary = GameState.best_by_class.duplicate(true)
+	var was_bind: Dictionary = GameState.bindings.duplicate(true)
+	var why := ""
+	if not is_equal_approx(GameState.official_time(1.239), 1.23):
+		why = "official " + str(GameState.official_time(1.239))
+	if why == "" and GameState.format_official(1.239) != "1.23":
+		why = "format " + GameState.format_official(1.239)
+	if why == "" and GameState.format_official(-2.0) != "0.00":
+		why = "negative format " + GameState.format_official(-2.0)
+	GameState.official_cents = -1
+	GameState.last_time = 12.0
+	if why == "" and GameState.official_text() != "12.00":
+		why = "text from last " + GameState.official_text()
+	GameState.official_cents = 2500
+	if why == "" and GameState.official_text() != "25.00":
+		why = "text from cents " + GameState.official_text()
+	GameState.class_id = "beginner"
+	GameState.jump_off = false
+	GameState.eliminated = false
+	GameState.start_crossed = false
+	GameState.round_complete = false
+	GameState.next_fence = 9
+	if why == "" and GameState.can_finish():
+		why = "finished before the flags"
+	GameState.start_crossed = true
+	if why == "" and not GameState.can_finish():
+		why = "did not finish after the last fence"
+	GameState.next_fence = 8
+	if why == "" and GameState.can_finish():
+		why = "finished on the last fence"
+	GameState.eliminated = true
+	GameState.next_fence = 9
+	if why == "" and GameState.can_finish():
+		why = "eliminated still finished"
+	GameState.eliminated = false
+	GameState.best_faults = 999
+	if why == "" and GameState.has_best():
+		why = "empty card had a best"
+	GameState.best_faults = 0
+	GameState.best_time = 25.41
+	if why == "" and not GameState.has_best():
+		why = "a clear was not a best"
+	if why == "" and GameState.best_line() != "Best  ·  0 faults  ·  25.41s":
+		why = "best line " + GameState.best_line()
+	GameState.best_by_class = {"beginner": {"faults": 4, "time": 25.41}}
+	if why == "" and GameState.class_best_line("beginner") != "4 f  ·  25.4s":
+		why = "class best " + GameState.class_best_line("beginner")
+	if why == "" and GameState.class_best_line("nope") != "—":
+		why = "missing class best " + GameState.class_best_line("nope")
+	GameState.bindings = {"gait_up": [KEY_W]}
+	if why == "" and GameState.key_name("gait_up") != "W":
+		why = "key " + GameState.key_name("gait_up")
+	if why == "" and GameState.key_name("nope") != "—":
+		why = "missing key " + GameState.key_name("nope")
+	GameState.mode = "title"
+	if why == "" and GameState.next_fence_line() != "":
+		why = "title showed a fence"
+	GameState.mode = "ride"
+	GameState.round_complete = false
+	GameState.class_id = "beginner"
+	GameState.jump_off = false
+	GameState.next_fence = 1
+	if why == "" and GameState.next_fence_line() != "Fence 1 of 8":
+		why = "next " + GameState.next_fence_line()
+	GameState.next_fence = 9
+	if why == "" and GameState.next_fence_line() != "Ride through the finish":
+		why = "finish line " + GameState.next_fence_line()
+	GameState.class_id = was_id
+	GameState.jump_off = was_jo
+	GameState.mode = was_mode
+	GameState.round_complete = was_done
+	GameState.eliminated = was_elim
+	GameState.start_crossed = was_start
+	GameState.next_fence = was_next
+	GameState.best_faults = was_best_f
+	GameState.best_time = was_best_t
+	GameState.last_time = was_last
+	GameState.official_cents = was_cents
+	GameState.best_by_class = was_bests
+	GameState.bindings = was_bind
+	if why != "":
+		_fail("round_numbers", why)
+		return
+	_ok("round_numbers")
 
 
 func _season() -> void:
