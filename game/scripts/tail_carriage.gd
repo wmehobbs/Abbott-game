@@ -21,6 +21,9 @@ const SWISH := 30.0  # degrees at the end of the tail
 const SWISH_DUR := 1.1
 
 var horse: Node = null
+## The tail as it is drawn, dock to tip, in degrees below his level. Reading
+## the skeleton from outside its update sees the clip before this modifier.
+var hang_deg := 0.0
 var _bones := PackedInt32Array()
 var _rest: Array[Quaternion] = []
 var _drop := 0.0
@@ -98,6 +101,10 @@ func _process_modification_with_delta(delta: float) -> void:
 		if absf(lift) > 0.01:
 			q = q * Quaternion((rb * side_sk).normalized(), deg_to_rad(lift))
 		sk.set_bone_pose_rotation(b, q)
+	var dock := sk.get_bone_global_pose(_bones[0]).origin
+	var tip := sk.get_bone_global_pose(_bones[n - 1]).origin
+	var d := (horse as Node3D).global_transform.basis.orthonormalized().inverse() * (sk.global_transform.basis * (tip - dock))
+	hang_deg = rad_to_deg(asin(clampf(-d.normalized().y, -1.0, 1.0)))
 
 
 ## A swish: out to one side and back once, about a second and a half.

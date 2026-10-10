@@ -13,6 +13,10 @@ signal lesson_skip_requested
 
 var jump_off_btn: Button
 var next_btn: Button
+var retry_btn: Button
+## The results card's way on: the jump-off when offered, Next after a clear
+## round, Retry otherwise. Gold, and focused for a pad.
+var _primary: Button
 var lesson_card: PanelContainer
 var lesson_lab: Label
 
@@ -381,12 +385,34 @@ func _build_result(root: Control) -> void:
 	box.add_child(stats)
 	jump_off_btn = _btn(box, "Stay for the jump-off", jump_off_requested)
 	jump_off_btn.visible = false
-	_btn(box, "Ride again", retry_requested).text = "Retry"
+	retry_btn = _btn(box, "Ride again", retry_requested)
+	retry_btn.text = "Retry"
 	next_btn = _btn(box, "Next class", next_class_requested)
 	next_btn.text = "Next"
 	next_btn.visible = false
 	_btn(box, "Course walk", walk_requested).text = "Walk the course"
 	_btn(box, "Back to the barn", _quit_title).text = "Menu"
+
+
+## Once the card settles: one gold button, the way on. A pad gets it focused
+## straight away; on the keyboard the first arrow or Tab lands on it, so a
+## Space still held from the last fence cannot press it by surprise.
+func _mark_primary() -> void:
+	var clear := _result_f == 0 and not GameState.eliminated
+	_primary = retry_btn
+	if clear and next_btn and next_btn.visible:
+		_primary = next_btn
+	if jump_off_btn and jump_off_btn.visible:
+		_primary = jump_off_btn
+	for b in [jump_off_btn, retry_btn, next_btn]:
+		if b == null:
+			continue
+		if b == _primary:
+			_style_primary(b)
+		else:
+			_style_btn(b)
+	if _primary and _primary.is_visible_in_tree() and GameState.last_device == "pad":
+		_primary.grab_focus()
 
 
 func _quit_title() -> void:
@@ -487,6 +513,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		resume_requested.emit()
 		get_viewport().set_input_as_handled()
 		return
+	var on_card := result_panel != null and result_panel.visible and _primary != null and _primary.is_visible_in_tree()
+	if on_card and get_viewport().gui_get_focus_owner() == null:
+		for a in ["ui_up", "ui_down", "ui_left", "ui_right", "ui_focus_next", "ui_focus_prev"]:
+			if event.is_action_pressed(a):
+				_primary.grab_focus()
+				get_viewport().set_input_as_handled()
+				return
 	if waiting_rebind == "":
 		return
 	if event is InputEventKey and event.pressed:
@@ -517,8 +550,13 @@ func _btn(parent: Node, text: String, sig) -> Button:
 
 
 func _style_btn(b: Button) -> void:
+	if sans:
+		b.add_theme_font_override("font", sans)
 	b.add_theme_color_override("font_color", Color(0.95, 0.92, 0.85))
 	b.add_theme_color_override("font_hover_color", Color(1, 0.95, 0.8))
+	b.add_theme_color_override("font_focus_color", Color(1, 0.95, 0.8))
+	b.add_theme_color_override("font_pressed_color", Color(1, 0.95, 0.8))
+	b.add_theme_color_override("font_hover_pressed_color", Color(1, 0.95, 0.8))
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(0.12, 0.09, 0.06, 0.92)
 	sb.border_color = Color(0.72, 0.58, 0.32)
@@ -528,9 +566,52 @@ func _style_btn(b: Button) -> void:
 	sb.content_margin_top = 8
 	sb.content_margin_bottom = 8
 	b.add_theme_stylebox_override("normal", sb)
-	var sbh := sb.duplicate()
-	sbh.bg_color = Color(0.22, 0.16, 0.08, 0.95)
-	b.add_theme_stylebox_override("hover", sbh)
+	var hi := sb.duplicate() as StyleBoxFlat
+	hi.bg_color = Color(0.22, 0.16, 0.09, 0.96)
+	hi.border_color = Color(0.90, 0.76, 0.46)
+	b.add_theme_stylebox_override("hover", hi)
+	b.add_theme_stylebox_override("pressed", hi)
+	b.add_theme_stylebox_override("focus", _focus_ring())
+
+
+## Drawn over the button when it has focus: a brighter gold edge, no fill.
+func _focus_ring() -> StyleBoxFlat:
+	var ring := StyleBoxFlat.new()
+	ring.draw_center = false
+	ring.border_color = Color(1.0, 0.88, 0.58)
+	ring.set_border_width_all(3)
+	ring.expand_margin_left = 2
+	ring.expand_margin_right = 2
+	ring.expand_margin_top = 2
+	ring.expand_margin_bottom = 2
+	return ring
+
+
+## The gold of the title's Lesson button, for the one button that goes on.
+func _style_primary(b: Button) -> void:
+	# Dark lettering, as on the title: cream on this gold is under 3.5:1.
+	# A touch heavier, so the thin sans holds up on the bright ground.
+	for c in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color", "font_hover_pressed_color"]:
+		b.add_theme_color_override(c, Color(0.12, 0.08, 0.03))
+	if sans:
+		var heavy := FontVariation.new()
+		heavy.base_font = sans
+		heavy.variation_embolden = 0.6
+		b.add_theme_font_override("font", heavy)
+	var gold := StyleBoxFlat.new()
+	gold.bg_color = Color(0.66, 0.50, 0.22, 0.96)
+	gold.border_color = Color(0.94, 0.82, 0.52)
+	gold.set_border_width_all(2)
+	gold.content_margin_left = 18
+	gold.content_margin_right = 18
+	gold.content_margin_top = 8
+	gold.content_margin_bottom = 8
+	var gold_hi := gold.duplicate() as StyleBoxFlat
+	gold_hi.bg_color = Color(0.76, 0.59, 0.27, 1.0)
+	b.add_theme_stylebox_override("normal", gold)
+	b.add_theme_stylebox_override("hover", gold_hi)
+	b.add_theme_stylebox_override("pressed", gold_hi)
+	b.add_theme_stylebox_override("focus", _focus_ring())
 
 
 func _click() -> void:
@@ -934,6 +1015,11 @@ func _on_finished(f: int, t: float) -> void:
 		jump_off_btn.visible = false
 	if next_btn:
 		next_btn.visible = false
+	# No way on is marked until the count settles.
+	_primary = null
+	for btn in [jump_off_btn, retry_btn, next_btn]:
+		if btn:
+			_style_btn(btn)
 	var ribbon: ColorRect = result_panel.find_child("Ribbon", true, false)
 	var ribbon_name: Label = result_panel.find_child("RibbonName", true, false)
 	if ribbon:
@@ -977,6 +1063,7 @@ func _show_result_settled() -> void:
 		jump_off_btn.visible = GameState.can_offer_jump_off()
 	if next_btn:
 		next_btn.visible = _next_class_id() != ""
+	_mark_primary()
 	var ribbon: ColorRect = result_panel.find_child("Ribbon", true, false)
 	var ribbon_name: Label = result_panel.find_child("RibbonName", true, false)
 	if ribbon:

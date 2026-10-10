@@ -175,8 +175,14 @@ func _build() -> void:
 		lesson.add_theme_stylebox_override("hover", gold_hi)
 		lesson.add_theme_stylebox_override("pressed", gold_hi)
 		lesson.add_theme_stylebox_override("focus", gold_hi)
-		lesson.add_theme_color_override("font_color", Color(1.0, 0.97, 0.90))
-		lesson.add_theme_color_override("font_focus_color", Color(1.0, 0.97, 0.90))
+		# Dark lettering: cream on this gold was under 3.5:1, dark is over 6.
+		for c in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color"]:
+			lesson.add_theme_color_override(c, Color(0.12, 0.08, 0.03))
+		if sans:
+			var heavy := FontVariation.new()
+			heavy.base_font = sans
+			heavy.variation_embolden = 0.6
+			lesson.add_theme_font_override("font", heavy)
 		lesson.grab_focus()
 
 	var help := Label.new()

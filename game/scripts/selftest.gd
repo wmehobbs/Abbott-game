@@ -44,6 +44,7 @@ func _run() -> void:
 	_kick_wood()
 	_bleachers()
 	await _leg_tuck()
+	await _tail_hangs()
 	await _hud_frame_cost()
 	_walker_forward()
 	_bridle_fit()
@@ -1233,6 +1234,48 @@ func _hud_frame_cost() -> void:
 		_fail("hud_frame_cost", why)
 		return
 	_ok("hud_frame_cost")
+
+
+func _tail_hangs() -> void:
+	# The canter clip carries his tail straight out behind like a flag. With
+	# the tail carriage on, the line from dock to tip hangs well below level.
+	# The skeleton read from here is the clip before its modifiers, so the
+	# clip and the drawn tail (the carriage's own hang_deg) are the same frame.
+	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
+	var arena: Node = packed.instantiate()
+	get_tree().root.add_child(arena)
+	for i in 4:
+		await get_tree().process_frame
+	var horse := arena.get_node_or_null("Abbott") as Node3D
+	var sk := horse.get("skel") as Skeleton3D if horse else null
+	var tc := sk.get_node_or_null("TailCarriage") if sk else null
+	var why := ""
+	var clip := 0.0
+	var drawn := 0.0
+	if tc == null:
+		why = "no tail carriage on his skeleton"
+	else:
+		horse.set_physics_process(false)
+		horse.set("gait", 3)
+		horse.set("speed", 5.6)
+		# Real time, not frames: the carriage eases in over its own clock.
+		var t0 := Time.get_ticks_msec()
+		while Time.get_ticks_msec() - t0 < 1500:
+			horse.call("_animate", 1.0 / 60.0, 5.6)
+			await get_tree().process_frame
+		var dock := sk.to_global(sk.get_bone_global_pose(sk.find_bone("Tail1")).origin)
+		var tip := sk.to_global(sk.get_bone_global_pose(sk.find_bone("Tail7")).origin)
+		var d := (horse.global_transform.basis.orthonormalized().inverse() * (tip - dock)).normalized()
+		clip = rad_to_deg(asin(clampf(-d.y, -1.0, 1.0)))
+		drawn = float(tc.get("hang_deg"))
+		if drawn - clip < 8.0 or drawn < 20.0:
+			why = "canter tail %.0f° below level, the clip alone %.0f°" % [drawn, clip]
+	arena.queue_free()
+	await get_tree().process_frame
+	if why != "":
+		_fail("tail_hangs", why)
+		return
+	_ok("tail_hangs %.0f° below level (clip %.0f°)" % [drawn, clip])
 
 
 func _walker_forward() -> void:
