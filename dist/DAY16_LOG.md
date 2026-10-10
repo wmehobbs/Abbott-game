@@ -21,7 +21,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | task | commit | gates (compile, selftest x/0, playtest, les/beg/jo times, save) | notes |
 | --- | --- | --- | --- |
 | setup | bdfde927 | compile 1 errors=0, selftest 57/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | Beg time is 0.01 s off the printed 62.14. That is the allowed wobble. Jump-off `success=false` is the jump-off round. |
-| 1 content | t1 | compile 1 errors=0, selftest 57/0, tool exit 0. Playtest and ride not run: this is a new tool, not game code. | 23 courses, 0 failed checks. Report `dist/day16/content_report.md`. |
+| 1 content | 485becd1 | compile 1 errors=0, selftest 57/0, tool exit 0. Playtest and ride not run: this is a new tool, not game code. | 23 courses, 0 failed checks. Report `dist/day16/content_report.md`. |
+| 2 clock | t2a | compile 1 errors=0, selftest 58/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `class_clock`. Lesson time 0.01 s under 25.43, inside 0.10. |
 
 ## Baseline
 

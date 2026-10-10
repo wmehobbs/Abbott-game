@@ -70,6 +70,7 @@ func _run() -> void:
 	await _options_focus()
 	_result_lines()
 	_class_best_display()
+	_class_clock()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -949,6 +950,53 @@ func _class_best_display() -> void:
 		_fail("class_best_display", why)
 		return
 	_ok("class_best_display")
+
+
+func _class_clock() -> void:
+	# time_allowed, the double limit, and fences_needed for every class and a jump-off.
+	var was_id := GameState.class_id
+	var was_kind := GameState.session_kind
+	var was_jo := GameState.jump_off
+	var why := ""
+	var cases: Array[Dictionary] = [
+		{"id": "lesson", "kind": "schooling", "jo": false, "t": 180.0, "n": 3},
+		{"id": "lesson", "kind": "show", "jo": false, "t": 180.0, "n": 3},
+		{"id": "beginner", "kind": "schooling", "jo": false, "t": 100.0, "n": 8},
+		{"id": "beginner", "kind": "show", "jo": false, "t": 95.0, "n": 8},
+		{"id": "intermediate", "kind": "schooling", "jo": false, "t": 90.0, "n": 10},
+		{"id": "intermediate", "kind": "show", "jo": false, "t": 85.0, "n": 10},
+		{"id": "advanced", "kind": "schooling", "jo": false, "t": 80.0, "n": 12},
+		{"id": "advanced", "kind": "show", "jo": false, "t": 75.0, "n": 12},
+		{"id": "lesson", "kind": "schooling", "jo": true, "t": 75.6, "n": 4},
+		{"id": "lesson", "kind": "show", "jo": true, "t": 75.6, "n": 4},
+		{"id": "beginner", "kind": "schooling", "jo": true, "t": 42.0, "n": 4},
+		{"id": "beginner", "kind": "show", "jo": true, "t": 39.9, "n": 4},
+		{"id": "intermediate", "kind": "schooling", "jo": true, "t": 37.8, "n": 4},
+		{"id": "intermediate", "kind": "show", "jo": true, "t": 35.7, "n": 4},
+		{"id": "advanced", "kind": "schooling", "jo": true, "t": 33.6, "n": 4},
+		{"id": "advanced", "kind": "show", "jo": true, "t": 31.5, "n": 4},
+	]
+	for c in cases:
+		GameState.class_id = str(c["id"])
+		GameState.session_kind = str(c["kind"])
+		GameState.jump_off = bool(c["jo"])
+		var want_t := float(c["t"])
+		if not is_equal_approx(GameState.time_allowed(), want_t):
+			why = "%s %s jo=%s allowed %s" % [str(c["id"]), str(c["kind"]), str(c["jo"]), str(GameState.time_allowed())]
+			break
+		if not is_equal_approx(GameState.time_limit(), want_t * 2.0):
+			why = "%s limit %s" % [str(c["id"]), str(GameState.time_limit())]
+			break
+		if GameState.fences_needed() != int(c["n"]):
+			why = "%s fences %d" % [str(c["id"]), GameState.fences_needed()]
+			break
+	GameState.class_id = was_id
+	GameState.session_kind = was_kind
+	GameState.jump_off = was_jo
+	if why != "":
+		_fail("class_clock", why)
+		return
+	_ok("class_clock")
 
 
 func _season() -> void:
