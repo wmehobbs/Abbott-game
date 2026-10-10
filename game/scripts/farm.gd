@@ -1936,8 +1936,8 @@ func _one_bleacher(at: Vector3) -> void:
 		step.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		var xs: Array[float] = [-1.3 + float(i) * 1.3]
 		if show:
-			var lean := (float(i) - 1.0) * 0.2
-			xs = [-1.5 + lean, 0.0 + lean, 1.5 + lean]
+			var stagger := (float(i) - 1.0) * 0.2
+			xs = [-1.5 + stagger, 0.0 + stagger, 1.5 + stagger]
 		for x in xs:
 			var person := RiderMeshScript.make_standing("spectator%d" % (_crowd_n))
 			_crowd_n += 1

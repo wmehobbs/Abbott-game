@@ -38,14 +38,14 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
    - his tail flows down at the canter (the clip held it straight out like a flag) and swishes now and then standing (the clip swung it every 3.3 s);
    - his ears flick back to listen to her, and go forward at the canter.
 8. **The results card marks the way on:** one gold button (Next after a clear round, Retry otherwise, the jump-off when offered). A gamepad starts on it; on the keyboard the first arrow or Tab does. The gold buttons letter in dark brown now: cream on gold was hard to read.
-9. **Show day braids:** on show day his mane is braided, twelve button braids down the off side of the crest; lessons and schooling keep it loose. Standing a while, he blows out or snorts now and then.
+9. **Show day:** his mane is braided, twelve button braids down the off side of the crest, and the stands fill (eighteen people instead of six). Lessons and schooling keep the loose mane and the few parents. Standing a while, he blows out or snorts now and then.
 10. **Two fixes found on review:** Options opened from the pause menu now takes the gamepad focus (it was left on the pause buttons behind the dim), and the rosette stays on the bridle when Abbott is worried (his lifted neck left it on his noseband; his default confidence of 48 is in that range).
 
 ## Final checks
 
 - Compile clean; selftest 57 pass, 0 fail (new since the 03:40 run: tail_hangs, options_focus, rosette_on_bridle, show_braids; options_focus and rosette_on_bridle fail on the code before their fix).
 - Playtest clear 0, refuse 4, rail 4.
-- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.14, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final3`, 03:40.
+- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final4`, 05:03. The times wobble by 0.01 s from run to run; the limit is 0.10 s.
 - Madison's save unchanged all night (compared after every run).
 
 ## Needs Ernie
@@ -98,6 +98,7 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | rosette fix | done | (M22) | selftest 56/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.44, save match | The rosette stays on the bridle when he is worried. New test rosette_on_bridle. |
 | idle voice | done | (M23) | selftest 56/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.45, save match | Standing a while he blows out or snorts; its own random generator, ride times unchanged. |
 | braids | done | (M24) | selftest 57/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | Show day: twelve button braids on his neck bones. New test show_braids. |
+| show crowd | done | (M25) | selftest 57/0, playtest 0/4/4, les 25.43, beg 62.15 jo 33.45, save match (final4) | Eighteen spectators on show day, six otherwise; about 0.6 ms a frame. |
 
 ## What was wrong, and what changed
 
@@ -235,6 +236,8 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 
 - **Voice:** his voices played only at events, so a long halt was silent. Standing with her on him, he blows out (one time in three, snorts) 8–14 s after stopping and every 14–26 s after, never over a sound already playing, with its own random generator so nothing the ride draws moves.
 - **Braids:** `braids.gd` samples the crest from the body mesh in its bind pose, puts twelve button braids just to the off side, coloured from the painted mane under them, and hangs each on its neck bone (Neck1–Neck3) through a bone attachment, placed relative to the bone at rest, so it moves as the skin over it does. Shown only when `session_kind` is "show".
+
+- **Crowd:** on show day each bleacher row fills to three, eighteen spectators in all, each watching, idling and waving like the rest. Measured standing in the arena with vsync off: lesson 89–95 fps, show 84–90 (`game/tools/day15_fps.gd`).
 
 ## Decisions
 
