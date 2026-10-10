@@ -538,3 +538,49 @@ static func _fade_beyond(gi: GeometryInstance3D, d: float) -> void:
 	gi.visibility_range_end = d
 	gi.visibility_range_end_margin = d * 0.15
 	gi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+
+
+## Many squashed spheres in one mesh, each with its own colour: a hedge, a
+## bank of leaves, a bed of blooms. One draw call where a planter used to be
+## a hundred stems and petals. Each clump is [centre, radii, colour].
+static func clumps(list: Array, rings: int = 5, segs: int = 9) -> ArrayMesh:
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var count := 0
+	for c in list:
+		var o: Vector3 = c[0]
+		var r: Vector3 = c[1]
+		var col: Color = c[2]
+		var base := count
+		for i in range(rings + 1):
+			var phi := float(i) / float(rings) * PI
+			for j in range(segs):
+				var th := float(j) / float(segs) * TAU
+				var n := Vector3(sin(phi) * cos(th), cos(phi), sin(phi) * sin(th))
+				st.set_color(col)
+				st.set_normal((n / r).normalized())
+				st.add_vertex(o + n * r)
+		count += (rings + 1) * segs
+		for i in range(rings):
+			for j in range(segs):
+				var j2 := (j + 1) % segs
+				var a := base + i * segs + j
+				var b := base + i * segs + j2
+				var cc := base + (i + 1) * segs + j
+				var d := base + (i + 1) * segs + j2
+				# Clockwise seen from outside: Godot's front face.
+				st.add_index(a)
+				st.add_index(cc)
+				st.add_index(b)
+				st.add_index(b)
+				st.add_index(cc)
+				st.add_index(d)
+	return st.commit()
+
+
+## The material for clumps: their colour is in the vertices.
+static func clump_material(rough: float = 0.86) -> StandardMaterial3D:
+	var m := StandardMaterial3D.new()
+	m.vertex_color_use_as_albedo = true
+	m.roughness = rough
+	return m

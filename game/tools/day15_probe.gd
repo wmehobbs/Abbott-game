@@ -36,8 +36,8 @@ func _init() -> void:
 
 func _boot() -> void:
 	var gs: Node = root.get_node_or_null("GameState")
-	gs.call("start_session", "lesson", "lesson")
-	gs.set("course_seed", 0)
+	gs.call("start_session", str(_plan.get("session", "lesson")), str(_plan.get("class", "lesson")))
+	gs.set("course_seed", int(_plan.get("seed", 0)))
 	gs.set("jump_off", false)
 	gs.call("set_mode", str(_plan.get("mode", "ride")))
 	change_scene_to_file("res://scenes/arena.tscn")
@@ -97,6 +97,14 @@ func _run() -> void:
 				if wk:
 					from = wk.global_transform * from
 					look = wk.global_transform * look
+			elif str(c.get("rel", "")).begins_with("fence"):
+				var course := current_scene.get_node_or_null("Course")
+				var fl: Array = course.get("fences") if course else []
+				var fi := int(str(c.get("rel", "")).substr(5)) if str(c.get("rel", "")).length() > 5 else 0
+				if fi < fl.size():
+					var fn := fl[fi] as Node3D
+					from = fn.global_transform * from
+					look = fn.global_transform * look
 			elif str(c.get("rel", "")) == "trainer":
 				var tr := current_scene.find_child("Michelle", true, false) as Node3D
 				if tr:

@@ -423,12 +423,28 @@ func control_line() -> String:
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		# F11 or Alt+Enter: full screen and back, remembered in settings.cfg.
+		var k := event as InputEventKey
+		if k.physical_keycode == KEY_F11 or (k.physical_keycode == KEY_ENTER and k.alt_pressed):
+			_toggle_fullscreen()
+			get_viewport().set_input_as_handled()
+			return
 	if event is InputEventKey and event.pressed:
 		last_device = "key"
 	elif event is InputEventJoypadButton and event.pressed:
 		last_device = "pad"
 	elif event is InputEventJoypadMotion and absf(event.axis_value) > 0.25:
 		last_device = "pad"
+
+
+func _toggle_fullscreen() -> void:
+	if settings == null or DisplayServer.get_name() == "headless":
+		return
+	settings.fullscreen = not settings.fullscreen
+	settings.apply_display()
+	if _skip_save_reason() == "":
+		settings.save_to()
 
 
 func rebind(action: String, keycode: int) -> void:

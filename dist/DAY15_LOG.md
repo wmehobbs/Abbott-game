@@ -20,6 +20,10 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | on foot | done | (M2) | same | Walking Madison wears the helmet; her and Michelle's boots ride the leg bones. |
 | frame rate | done | (M3) | see M3 | 35–40 fps to 70–95 fps on the same ride. The HUD was reading a file every frame. |
 | sharper | done | (M3) | see M3 | SMAA instead of FXAA on High and Medium. |
+| even legs | done | (M4) | compile ok, selftest 52/0 | Both knees level and forward; her thighs wrap him from behind instead of splaying. |
+| fences | done | (M5) | see M5 | Brush is a hedge and flower boxes are beds of blooms, one mesh each. 104 fps median. |
+| coat | done | (M5) | see M5 | A groomed gloss and soft rim on his coat. |
+| window | done | (M5) | see M5 | Opens at 1600×900. F11 or Alt+Enter for full screen, remembered. |
 
 ## What was wrong, and what changed
 
@@ -98,6 +102,23 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - **Sharper:** FXAA blurred the whole picture about 13 percent (mean edge strength on the ride view); SMAA blurs about 7. High and Medium now use SMAA over their MSAA; Low keeps FXAA.
 - **New check:** `hud_frame_cost` in the selftest times the HUD frame and the fence line in the arena, so a file read per frame cannot come back unnoticed.
 - **New tools:** `game/tools/day15_perf.gd` (frame rate with each system off), `day15_hudtime.gd` (cost of each HUD piece), `day15_camlog.gd` (lens and horse per frame, plus draw calls).
+
+### Even legs (M4)
+
+- The glb's hip joints are not mirror images (its rest pose is turned a little), which put her left knee 2.4 cm higher and 3.3 cm further back than her right. Both hips now come from one mirrored offset.
+- From the ride camera her right thigh splayed out sideways. The knee pole leans forward instead of out, so the knees sit level at 0.22 m off his centre line and her thighs wrap him.
+
+### Fences, coat, window (M5)
+
+- **Fences:** the brush fill was 22 sticks with a ball on top, and the flower boxes and wing planters were dozens of separate stems, leaves and petal parts (a course was 1,100 meshes). From the saddle they read as lollipops.
+  - The brush is now three rows of small packed clumps: a hedge.
+  - The flower boxes and planters are a bed of leaves with blooms on top (white, yellow, orange, red, pink).
+  - Each fill is one mesh with its colour in the vertices (`MeshKit.clumps`).
+  - The riding test runs at a median of 104 fps (56 to 126) with vsync off; 1,980 draw calls median.
+- **Coat:** roughness 0.58 to 0.42 and a soft rim, so his coat reads as groomed.
+- **Window:**
+  - The game opened a 1920×1080 window, which runs under the taskbar on a 1080p screen. It opens at 1600×900; the interface still lays out for 1920×1080 and scales.
+  - F11 or Alt+Enter toggles full screen, and the choice is kept in `settings.cfg` (never the ride save).
 
 ## Decisions
 

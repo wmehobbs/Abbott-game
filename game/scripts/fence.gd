@@ -316,32 +316,28 @@ func _hunter_gate() -> void:
 
 func _brush() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.70, Color(0.62, 0.50, 0.34))
-	var twig := MeshKit.mat_color(Color(0.32, 0.22, 0.12), 0.70)
-	var green := MeshKit.mat_color(Color(0.18, 0.30, 0.12), 0.86)
-	var green2 := MeshKit.mat_color(Color(0.22, 0.36, 0.14), 0.84)
-	var rust := MeshKit.mat_color(Color(0.52, 0.32, 0.12), 0.78)
-	var rust2 := MeshKit.mat_color(Color(0.62, 0.38, 0.14), 0.80)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = number * 31 + 9
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.82, 0.46, 0.50)), wood, "BrushBox", Vector3(0, 0.23, 0.02))
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.84, 0.05, 0.08)), wood, "BrushRimF", Vector3(0, 0.48, 0.24))
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.84, 0.05, 0.08)), wood, "BrushRimB", Vector3(0, 0.48, -0.20))
-	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.78, 0.04, 0.42)), MeshKit.mat_color(Color(0.28, 0.20, 0.12), 0.86), "BrushSoil", Vector3(0, 0.47, 0.02))
-	for i in range(22):
-		var base := Vector3(rng.randf_range(-width * 0.36, width * 0.36), 0.48, rng.randf_range(-0.16, 0.16))
-		var tip := base + Vector3(rng.randf_range(-0.16, 0.16), rng.randf_range(0.28, 0.52), rng.randf_range(-0.10, 0.10))
-		MeshKit.add_rod(self, twig, "Stem", base, tip, rng.randf_range(0.007, 0.012))
-		var spray_m: Material = rust if i % 4 == 0 else (rust2 if i % 5 == 0 else (green if i % 2 == 0 else green2))
-		var spray := MeshKit.add_child_mi(self, MeshKit.sphere(0.055, 6, 8), spray_m, "Spray", tip)
-		spray.scale = Vector3(1.15, 0.55, 0.90)
-		spray.rotation = Vector3(rng.randf_range(-0.45, 0.45), rng.randf_range(-0.90, 0.90), rng.randf_range(-0.35, 0.35))
-		if i % 2 == 0:
-			var mid := base.lerp(tip, 0.48)
-			var fork := mid + Vector3(rng.randf_range(-0.14, 0.14), rng.randf_range(0.10, 0.20), rng.randf_range(-0.08, 0.08))
-			MeshKit.add_rod(self, twig, "Fork", mid, fork, 0.006)
-			var fs := MeshKit.add_child_mi(self, MeshKit.sphere(0.040, 6, 8), rust if i % 6 == 0 else green2, "Spray", fork)
-			fs.scale = Vector3(1.10, 0.50, 0.85)
-			fs.rotation = Vector3(rng.randf_range(-0.40, 0.40), rng.randf_range(-0.80, 0.80), rng.randf_range(-0.30, 0.30))
+	# A packed hedge of fir and birch brush with a ragged top, not sticks with
+	# balls on them. One mesh, its colour in the clumps.
+	var greens: Array[Color] = [Color(0.15, 0.25, 0.10), Color(0.19, 0.30, 0.12), Color(0.23, 0.33, 0.14), Color(0.27, 0.30, 0.14), Color(0.36, 0.28, 0.14)]
+	var list: Array = []
+	var half := width * 0.39
+	# Three rows of small clumps: a fine hedge, not a row of cabbages.
+	for row in 3:
+		var n := int(width * (18.0 - float(row) * 4.0))
+		var y0: float = [0.52, 0.64, 0.75][row]
+		var z0: float = [0.10, -0.06, 0.02][row]
+		for i in n:
+			var x := lerpf(-half, half, (float(i) + rng.randf()) / float(n))
+			var r := rng.randf_range(0.075, 0.12) * (1.0 - 0.15 * float(row))
+			var c: Color = greens[rng.randi() % greens.size()] * rng.randf_range(0.85, 1.12)
+			var p := Vector3(x, y0 + rng.randf_range(-0.03, 0.04), z0 + rng.randf_range(-0.07, 0.07))
+			list.append([p, Vector3(r * 1.2, r * 1.05, r * 0.95), c])
+	MeshKit.add_child_mi(self, MeshKit.clumps(list), MeshKit.clump_material(0.92), "Brush")
 
 
 func _flag(half: float, std_h: float, white: Material) -> void:
@@ -353,70 +349,43 @@ func _flag(half: float, std_h: float, white: Material) -> void:
 
 func _wing_planter(pos: Vector3) -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.64, Color(0.82, 0.76, 0.62))
-	var dirt := MeshKit.mat_color(Color(0.26, 0.18, 0.11), 0.86)
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.48, 0.22, 0.36)), wood, "WingBox", pos + Vector3(0, 0.12, 0))
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.50, 0.03, 0.05)), wood, "WingRimF", pos + Vector3(0, 0.24, 0.16))
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.50, 0.03, 0.05)), wood, "WingRimB", pos + Vector3(0, 0.24, -0.16))
-	MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.42, 0.05, 0.28)), dirt, "WingSoil", pos + Vector3(0, 0.24, 0))
-	var leaf := MeshKit.mat_color(Color(0.22, 0.38, 0.16), 0.78)
-	var stem_m := MeshKit.mat_color(Color(0.18, 0.28, 0.10), 0.70)
-	var blooms: Array[Color] = [
-		Color(0.92, 0.90, 0.86),
-		Color(0.90, 0.70, 0.22),
-		Color(0.78, 0.38, 0.12),
-		Color(0.94, 0.92, 0.88),
-	]
 	var rng := RandomNumberGenerator.new()
 	rng.seed = number * 41 + int(pos.x * 10.0) + 5
-	for i in range(28):
-		var p := pos + Vector3(rng.randf_range(-0.20, 0.20), 0.28 + rng.randf() * 0.14, rng.randf_range(-0.14, 0.14))
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.005, 0.11, 0.0035, 5), stem_m, "WingStem", p + Vector3(0, 0.04, 0), Vector3(rng.randf_range(-0.22, 0.22), 0, rng.randf_range(-0.18, 0.18)))
-		MeshKit.add_child_mi(self, MeshKit.sphere(0.048, 6, 8), leaf, "WingLeaf", p).scale = Vector3(1.20, 0.52, 1.05)
-		if i % 2 == 0:
-			var tilt := Vector3(rng.randf_range(-0.30, 0.55), rng.randf_range(-0.40, 0.40), 0.0)
-			_bloom_head(p + Vector3(0, 0.10, 0), blooms[i % blooms.size()], i % 3, tilt)
+	MeshKit.add_child_mi(self, MeshKit.clumps(_bed(pos + Vector3(0, 0.25, 0), 0.20, 0.13, 16, 14, rng)), MeshKit.clump_material(0.8), "WingBed")
+
+
+## Leaves packed over the soil and blooms on top: a planter bed in one mesh.
+func _bed(top: Vector3, hx: float, hz: float, leaves: int, blooms: int, rng: RandomNumberGenerator) -> Array:
+	var list: Array = []
+	var greens: Array[Color] = [Color(0.18, 0.34, 0.13), Color(0.22, 0.38, 0.16), Color(0.15, 0.30, 0.11)]
+	var flowers: Array[Color] = [
+		Color(0.95, 0.93, 0.88), Color(0.93, 0.76, 0.22), Color(0.86, 0.42, 0.12),
+		Color(0.80, 0.16, 0.14), Color(0.92, 0.55, 0.62), Color(0.96, 0.94, 0.90),
+	]
+	for i in leaves:
+		var r := rng.randf_range(0.055, 0.085)
+		var p := top + Vector3(rng.randf_range(-hx, hx), rng.randf_range(0.0, 0.04), rng.randf_range(-hz, hz))
+		list.append([p, Vector3(r * 1.25, r * 0.75, r * 1.1), greens[rng.randi() % greens.size()] * rng.randf_range(0.9, 1.1)])
+	for i in blooms:
+		var b := rng.randf_range(0.024, 0.036)
+		var q := top + Vector3(rng.randf_range(-hx * 0.95, hx * 0.95), rng.randf_range(0.05, 0.09), rng.randf_range(-hz * 0.9, hz * 0.9))
+		list.append([q, Vector3(b, b * 0.7, b), flowers[rng.randi() % flowers.size()]])
+	return list
 
 
 func _flower_box() -> void:
 	var wood := MeshKit.mat_tex("res://assets/textures/wood_albedo.jpg", 0.65, Color(0.85, 0.82, 0.75))
-	var dirt := MeshKit.mat_color(Color(0.28, 0.20, 0.12), 0.86)
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.74, 0.30, 0.42)), wood, "Box", Vector3(0, 0.16, 0.02))
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.76, 0.04, 0.06)), wood, "BoxRimF", Vector3(0, 0.32, 0.20))
 	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.76, 0.04, 0.06)), wood, "BoxRimB", Vector3(0, 0.32, -0.16))
-	MeshKit.add_child_mi(self, MeshKit.box(Vector3(width * 0.70, 0.07, 0.34)), dirt, "Soil", Vector3(0, 0.33, 0.02))
-	var leaf := MeshKit.mat_color(Color(0.22, 0.38, 0.18), 0.75)
-	var leaf2 := MeshKit.mat_color(Color(0.16, 0.32, 0.12), 0.80)
-	var stem_m := MeshKit.mat_color(Color(0.18, 0.28, 0.10), 0.70)
-	var blooms: Array[Color] = [
-		Color(0.92, 0.90, 0.84),
-		Color(0.90, 0.70, 0.20),
-		Color(0.78, 0.36, 0.10),
-		Color(0.94, 0.92, 0.88),
-		Color(0.82, 0.28, 0.16),
-	]
 	var rng := RandomNumberGenerator.new()
 	rng.seed = number * 17 + 3
-	for i in range(48):
-		var p := Vector3(rng.randf_range(-width * 0.36, width * 0.36), 0.36 + rng.randf() * 0.16, rng.randf_range(-0.16, 0.16))
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.006, 0.14, 0.004, 5), stem_m, "Stem", p + Vector3(0, 0.04, 0), Vector3(rng.randf_range(-0.25, 0.25), 0, rng.randf_range(-0.20, 0.20)))
-		MeshKit.add_child_mi(self, MeshKit.sphere(0.055, 6, 8), leaf if i % 2 == 0 else leaf2, "Leaf", p).scale = Vector3(1.22, 0.55, 1.05)
-		if i % 2 == 0:
-			var tilt := Vector3(rng.randf_range(-0.30, 0.55), rng.randf_range(-0.40, 0.40), 0.0)
-			_bloom_head(p + Vector3(0, 0.12, 0), blooms[i % blooms.size()], i % 3, tilt)
-
-
-func _bloom_head(pos: Vector3, color: Color, kind: int, tilt: Vector3) -> void:
-	var petal := MeshKit.mat_color(color, 0.52)
-	var eye := MeshKit.mat_color(Color(0.86, 0.70, 0.22), 0.48)
-	if kind == 0:
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.030, 0.010, 0.028, 8), petal, "Head", pos, tilt)
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.010, 0.008, 0.010, 6), eye, "Eye", pos + Vector3(0, 0.008, 0), tilt)
-	elif kind == 1:
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.026, 0.016, 0.022, 8), petal, "Head", pos, tilt)
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.018, 0.012, 0.016, 7), petal, "HeadIn", pos + Vector3(0, 0.008, 0), tilt)
-	else:
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.028, 0.012, 0.026, 8), petal, "Head", pos, tilt)
-		MeshKit.add_child_mi(self, MeshKit.cyl(0.012, 0.008, 0.012, 6), eye, "Eye", pos + Vector3(0, 0.008, 0), tilt)
+	# A full bed of leaves and blooms, like a show's flower boxes.
+	var bed := _bed(Vector3(0, 0.35, 0.02), width * 0.35, 0.15, int(width * 22.0), int(width * 26.0), rng)
+	MeshKit.add_child_mi(self, MeshKit.clumps(bed), MeshKit.clump_material(0.8), "Bed")
 
 
 func _on_knock_body(body: Node) -> void:

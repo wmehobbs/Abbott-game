@@ -65,6 +65,13 @@ static func _use_painted_coat(n: Node) -> void:
 				var d := m.duplicate() as StandardMaterial3D
 				d.vertex_color_use_as_albedo = true
 				d.vertex_color_is_srgb = false
+				# A groomed coat: some gloss and a soft rim where it turns from
+				# the light, so he reads as a horse and not matte plastic.
+				if str(m.resource_name).to_lower().contains("coat"):
+					d.roughness = 0.42
+					d.rim_enabled = true
+					d.rim = 0.22
+					d.rim_tint = 0.55
 				mi.set_surface_override_material(s, d)
 	for c in n.get_children():
 		_use_painted_coat(c)
