@@ -58,6 +58,14 @@ func _build() -> void:
 		bg.texture = load(tex_path)
 	bg.modulate = Color(1, 1, 1)
 	add_child(bg)
+	# A slow push-in on him and back, so the first screen breathes. Off when
+	# the player has turned camera motion down.
+	var calm := GameState.settings != null and GameState.settings.camera_motion < 10.0
+	if not calm:
+		bg.resized.connect(func() -> void: bg.pivot_offset = bg.size * 0.5)
+		var tw := create_tween().set_loops()
+		tw.tween_property(bg, "scale", Vector2.ONE * 1.07, 26.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw.tween_property(bg, "scale", Vector2.ONE, 26.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	var shade := ColorRect.new()
 	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
