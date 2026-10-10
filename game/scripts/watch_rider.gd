@@ -19,11 +19,13 @@ var _cheered := false
 var _cheer_in := -1.0
 
 
+## Neck and head. Those are the only bones this turn is allowed to move.
 func bind(s: Skeleton3D) -> void:
 	_neck = s.find_bone("Neck")
 	_head = s.find_bone("Head")
 
 
+## Idle, each figure starting on a different breath so the stands are not in step.
 func start_idle(seed: int) -> void:
 	if anim == null:
 		return
@@ -39,6 +41,7 @@ func start_idle(seed: int) -> void:
 			anim.play("Idle", 0.3))
 
 
+## Eases her look toward Abbott, neck first, and waves once when the round is clear.
 func _process_modification_with_delta(delta: float) -> void:
 	var sk := get_skeleton()
 	if sk == null or _head < 0:
@@ -58,6 +61,7 @@ func _process_modification_with_delta(delta: float) -> void:
 	_turn(sk, _head, _yaw * (1.0 - NECK_SHARE))
 
 
+## Yaw on top of her own clip, about that bone's up axis.
 func _turn(sk: Skeleton3D, bone: int, yaw: float) -> void:
 	if bone < 0:
 		return
@@ -65,6 +69,7 @@ func _turn(sk: Skeleton3D, bone: int, yaw: float) -> void:
 	sk.set_bone_pose_rotation(bone, sk.get_bone_pose_rotation(bone) * Quaternion(axis, yaw))
 
 
+## One wave after a clear. Each figure waits a moment of her own, so the crowd is ragged.
 func _cheer(delta: float) -> void:
 	if anim == null or not anim.has_animation("Wave"):
 		return
