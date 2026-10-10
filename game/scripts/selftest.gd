@@ -610,6 +610,7 @@ func _settings() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("user://selftest"))
 	var path := "user://selftest/settings.cfg"
 	var s := PlayerSettings.new()
+	add_child(s)  # freed with the test node, not leaked at exit
 	s.fov = 90.0
 	s.master_db = -8.0
 	s.music_db = -4.0
@@ -622,6 +623,7 @@ func _settings() -> void:
 	s.hud_scale = 1.2
 	s.save_to(path)
 	var t := PlayerSettings.new()
+	add_child(t)  # freed with the test node, not leaked at exit
 	t.load_from(path)
 	if absf(t.fov - 62.0) > 0.01 or absf(t.master_db - (-8.0)) > 0.01 or t.quality != "Low":
 		_fail("settings", "round trip fov %.2f quality %s" % [t.fov, t.quality])
@@ -653,12 +655,14 @@ func _settings() -> void:
 	junk.store_string("this is not a config")
 	junk.close()
 	var bad := PlayerSettings.new()
+	add_child(bad)  # freed with the test node, not leaked at exit
 	bad.fov = 44.0
 	bad.load_from(path)
 	if absf(bad.fov - 52.0) > 0.01 or bad.quality != "High":
 		_fail("settings", "corrupt file kept fov %.2f" % bad.fov)
 		return
 	var missing := PlayerSettings.new()
+	add_child(missing)  # freed with the test node, not leaked at exit
 	missing.fov = 44.0
 	missing.load_from("user://selftest/no_such_settings.cfg")
 	if absf(missing.fov - 52.0) > 0.01:

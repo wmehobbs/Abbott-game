@@ -1,45 +1,86 @@
-extends Node
+extends SkeletonModifier3D
 
 ## A standing figure turns her head to follow Abbott round the ring: Michelle
 ## on the rail, the people in the stands. Neck and head only, eased, and no
-## further than a person turns without moving her feet.
+## further than a person turns without moving her feet. A modifier, so the
+## turn goes on top of whatever the figure's own animation is doing.
+## With an AnimationPlayer (the crowd), she idles, and waves once when
+## Madison finishes a clear round.
 
 const REACH := 1.2  # radians either way
 const NECK_SHARE := 0.35
 
-var skel: Skeleton3D
+var anim: AnimationPlayer
 var _yaw := 0.0
 var _neck := -1
 var _head := -1
 var _horse: Node3D
+var _cheered := false
+var _cheer_in := -1.0
 
 
 func bind(s: Skeleton3D) -> void:
-	skel = s
-	_neck = skel.find_bone("Neck")
-	_head = skel.find_bone("Head")
+	_neck = s.find_bone("Neck")
+	_head = s.find_bone("Head")
 
 
-func _process(delta: float) -> void:
-	if skel == null or _head < 0:
+func start_idle(seed: int) -> void:
+	if anim == null:
 		return
+	for clip in ["Idle", "Wave"]:
+		if anim.has_animation(clip):
+			anim.get_animation(clip).loop_mode = Animation.LOOP_LINEAR if clip == "Idle" else Animation.LOOP_NONE
+	if anim.has_animation("Idle"):
+		anim.play("Idle")
+		# Not all in step: each starts somewhere else in the breath.
+		anim.seek(fposmod(float(seed) * 0.73, anim.get_animation("Idle").length), true)
+	anim.animation_finished.connect(func(n: StringName) -> void:
+		if n == &"Wave" and anim.has_animation("Idle"):
+			anim.play("Idle", 0.3))
+
+
+func _process_modification_with_delta(delta: float) -> void:
+	var sk := get_skeleton()
+	if sk == null or _head < 0:
+		return
+	_cheer(delta)
 	if _horse == null or not is_instance_valid(_horse):
 		_horse = get_tree().get_first_node_in_group("abbott") as Node3D
 		if _horse == null:
 			return
-	var head_w := skel.to_global(skel.get_bone_global_rest(_head).origin)
+	var head_w := sk.to_global(sk.get_bone_global_pose(_head).origin)
 	var to := _horse.global_position + Vector3(0.0, 1.4, 0.0) - head_w
 	# Into the skeleton's frame, where she faces +Z.
-	var d := (skel.global_transform.basis.orthonormalized().inverse() * to)
+	var d := (sk.global_transform.basis.orthonormalized().inverse() * to)
 	var want := clampf(atan2(d.x, d.z), -REACH, REACH)
 	_yaw = lerpf(_yaw, want, 1.0 - pow(0.05, delta))
-	_turn(_neck, _yaw * NECK_SHARE)
-	_turn(_head, _yaw * (1.0 - NECK_SHARE))
+	_turn(sk, _neck, _yaw * NECK_SHARE)
+	_turn(sk, _head, _yaw * (1.0 - NECK_SHARE))
 
 
-func _turn(bone: int, yaw: float) -> void:
+func _turn(sk: Skeleton3D, bone: int, yaw: float) -> void:
 	if bone < 0:
 		return
-	var rest := skel.get_bone_rest(bone)
-	var axis := (skel.get_bone_global_rest(bone).basis.inverse() * Vector3.UP).normalized()
-	skel.set_bone_pose_rotation(bone, (rest.basis * Basis(axis, yaw)).get_rotation_quaternion())
+	var axis := (sk.get_bone_global_rest(bone).basis.inverse() * Vector3.UP).normalized()
+	sk.set_bone_pose_rotation(bone, sk.get_bone_pose_rotation(bone) * Quaternion(axis, yaw))
+
+
+func _cheer(delta: float) -> void:
+	if anim == null or not anim.has_animation("Wave"):
+		return
+	var gs := get_node_or_null("/root/GameState")
+	if gs == null:
+		return
+	var clear := bool(gs.get("round_complete")) and int(gs.get("last_faults")) == 0
+	if not clear:
+		_cheered = false
+		_cheer_in = -1.0
+		return
+	if not _cheered and _cheer_in < 0.0:
+		# A ragged crowd, not a drill team: each waits a moment of her own.
+		_cheer_in = randf_range(0.1, 0.9)
+	if _cheer_in >= 0.0:
+		_cheer_in -= delta
+		if _cheer_in < 0.0:
+			_cheered = true
+			anim.play("Wave", 0.2)

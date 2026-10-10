@@ -88,7 +88,7 @@ func _run() -> void:
 		for i in 30:
 			await process_frame
 		for w in current_scene.find_children("WatchRider", "", true, false):
-			var sk := w.get("skel") as Skeleton3D
+			var sk := (w as SkeletonModifier3D).get_skeleton()
 			var hi := sk.find_bone("Head")
 			var hg := sk.global_transform * sk.get_bone_global_pose(hi)
 			var rest_fwd := sk.global_transform.basis.orthonormalized() * Vector3(0, 0, 1)

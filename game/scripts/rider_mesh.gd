@@ -632,8 +632,8 @@ static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 		return root
 	var vis: Node3D = packed.instantiate()
 	vis.name = "Casual"
-	# Walking Madison keeps the glb's own Walk and Idle; the rest stand still.
-	if not keep_anim:
+	# Walking Madison and the crowd keep the glb's own clips; the rest stand still.
+	if not keep_anim and not kind.begins_with("spectator"):
 		_silence_static(vis)
 	root.add_child(vis)
 	vis.scale = Vector3.ONE * FIT
@@ -667,11 +667,15 @@ static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 	if kind == "trainer":
 		_clipboard(root)
 	if kind == "trainer" or spectator:
-		# Michelle and the people in the stands follow him round the ring.
+		# Michelle and the people in the stands follow him round the ring: a
+		# modifier on her skeleton, so it turns her head on top of her idle.
 		var watch: Node = load("res://scripts/watch_rider.gd").new()
 		watch.name = "WatchRider"
-		root.add_child(watch)
+		skel.add_child(watch)
 		watch.call("bind", skel)
+		if spectator:
+			watch.set("anim", vis.find_child("AnimationPlayer", true, false))
+			watch.call("start_idle", int(kind.substr(9)) if kind.length() > 9 else 0)
 	return root
 
 
