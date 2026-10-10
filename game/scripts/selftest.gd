@@ -77,6 +77,7 @@ func _run() -> void:
 	_round_numbers()
 	_voice_and_start()
 	_library_lines()
+	_built_meshes()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1521,6 +1522,54 @@ func _library_lines() -> void:
 		_fail("library_lines", why)
 		return
 	_ok("library_lines")
+
+
+func _built_meshes() -> void:
+	# MeshKit builders. Sizes stay what was asked, and each mesh has faces.
+	var why := ""
+	var box := MeshKit.box(Vector3(1.25, 0.4, 2.0))
+	if box.size != Vector3(1.25, 0.4, 2.0) or box.get_faces().is_empty():
+		why = "box"
+	var ball := MeshKit.sphere(0.35)
+	if why == "" and (absf(ball.radius - 0.35) > 0.0001 or absf(ball.height - 0.7) > 0.0001 or ball.get_faces().is_empty()):
+		why = "sphere"
+	var pipe := MeshKit.cyl(0.2, 1.5)
+	if why == "" and (absf(pipe.bottom_radius - 0.2) > 0.0001 or absf(pipe.top_radius - 0.2) > 0.0001 or pipe.get_faces().is_empty()):
+		why = "cylinder"
+	var cone := MeshKit.cyl(0.2, 1.5, 0.05)
+	if why == "" and (absf(cone.top_radius - 0.05) > 0.0001 or cone.get_faces().is_empty()):
+		why = "cylinder top"
+	var cap := MeshKit.cap(0.15, 0.8)
+	if why == "" and (absf(cap.radius - 0.15) > 0.0001 or absf(cap.height - 0.8) > 0.0001 or cap.get_faces().is_empty()):
+		why = "capsule"
+	var prism := MeshKit.prism(Vector3(0.4, 0.2, 1.0))
+	if why == "" and (prism.size != Vector3(0.4, 0.2, 1.0) or prism.get_faces().is_empty()):
+		why = "prism"
+	var ring := MeshKit.torus(0.2, 0.5)
+	if why == "" and (absf(ring.inner_radius - 0.2) > 0.0001 or absf(ring.outer_radius - 0.5) > 0.0001 or ring.get_faces().is_empty()):
+		why = "torus"
+	var arm := MeshKit.limb(Vector3(0, 0, 0), Vector3(0, 0.4, 0.1), 0.06, 0.04)
+	if why == "" and (arm.get_surface_count() < 1 or arm.get_faces().is_empty()):
+		why = "limb"
+	var a := MeshKit.station(Vector3(0, 0, 0), 0.12, 0.08)
+	var b := MeshKit.station(Vector3(0, 0.4, 0), 0.10, 0.07)
+	if why == "" and (float(a.get("rx")) != 0.12 or float(b.get("ry")) != 0.07):
+		why = "station"
+	var tube := MeshKit.loft([a, b], 8)
+	if why == "" and (tube.get_surface_count() < 1 or tube.get_faces().is_empty()):
+		why = "loft"
+	var host := Node3D.new()
+	add_child(host)
+	var rod := MeshKit.add_rod(host, MeshKit.mat_color(Color(0.2, 0.2, 0.2)), "Bit", Vector3.ZERO, Vector3(0, 0.4, 0), 0.02)
+	if why == "" and (rod == null or rod.mesh == null or rod.mesh.get_faces().is_empty()):
+		why = "rod"
+	if why == "" and MeshKit.add_rod(host, MeshKit.mat_color(Color(0.2, 0.2, 0.2)), "None", Vector3.ZERO, Vector3.ZERO, 0.02) != null:
+		why = "rod on one point"
+	host.free()
+	if why != "":
+		_fail("built_meshes", why)
+		return
+	_ok("built_meshes")
 
 
 func _season() -> void:

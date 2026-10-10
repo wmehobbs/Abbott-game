@@ -22,6 +22,8 @@ Those same scripts were already typed. Declarations, parameters, and return type
 
 `dist/day16/assets_report.md` lists all 5,398 files under `game/assets/`, except `.import` and `.uid`. Nothing was deleted, moved, or re-encoded. 1,430 are not named by a script or a data file. 1,389 of those are plates under `textures/harvest/proc/`. Five textures are larger than 2048 px on a side. Three files are over 5 MB. 3,808 have no credit line. The ones that need a decision are under Needs Ernie.
 
+`MeshKit` boxes, spheres, cylinders, capsules, prisms, rings, limbs, lofts, and rods now have a self-test. They come back the size that was asked, and each mesh has faces. A rod between one point and itself stays empty. The settings round trip was already pinned, so it was not added again.
+
 Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd75b52d` (1109 bytes, last written by her session at 20:43 on Oct 9). The same hash was on the file after the copy. Copies are `dist/day16/save_snapshot.json` and `dist/day16/save_backup.json`. Neither is committed. Both are in `.git/info/exclude`.
 
 `photos_jpg/` stays deleted and unstaged. The Day 15 compile logs stay untracked.
@@ -60,7 +62,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 4 rider | 67ece06a | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `rider_mesh.gd`. |
 | 4 trainer | none | no change | Every top-level func in `trainer.gd` already had a `##` comment. One function. No commit. |
 | 5 types | none | no change | No untyped `var` and no missing return type in the named files. `hud.gd` `_btn` still takes `sig` with no type: the call sites pass a Signal or a Callable, and one parameter cannot be both. For-loop variables were left as they are. No commit. |
-| 6 assets | t6 | no gates: markdown only | `dist/day16/assets_report.md`. 5398 files. Referenced 3968. Unreferenced 1430. No credit 3808. Over 2048 px: 5. Over 5 MB: 3. Nothing deleted. |
+| 6 assets | ad959cee | no gates: markdown only | `dist/day16/assets_report.md`. 5398 files. Referenced 3968. Unreferenced 1430. No credit 3808. Over 2048 px: 5. Over 5 MB: 3. Nothing deleted. |
+| 7 meshes | t7a | compile 1 errors=0, selftest 65/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `built_meshes`. Lesson time 0.01 s under 25.43, inside 0.10. The settings round trip was already pinned by `_settings`, so it was not added again. |
 
 ## Baseline
 
