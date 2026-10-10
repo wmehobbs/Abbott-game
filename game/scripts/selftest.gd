@@ -79,6 +79,7 @@ func _run() -> void:
 	_library_lines()
 	_built_meshes()
 	_standing_people()
+	_cue_files()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1610,6 +1611,37 @@ func _standing_people() -> void:
 		_fail("standing_people", why)
 		return
 	_ok("standing_people")
+
+
+func _cue_files() -> void:
+	# The paths _make_audio builds. A missing file is a silent horse, so they stay.
+	var why := ""
+	for i in range(1, 13):
+		var hit := "res://assets/audio/hoof/hit_%02d.wav" % i
+		if not ResourceLoader.exists(hit):
+			why = hit
+			break
+	if why == "":
+		for k in ["hoof_walk", "hoof_trot", "hoof_canter"]:
+			var hoof := "res://assets/audio/%s.wav" % k
+			if not ResourceLoader.exists(hoof):
+				why = hoof
+				break
+	if why == "":
+		for k in ["walk_on", "trot", "canter", "whoa", "easy", "good_boy", "come_on", "steady", "and_up"]:
+			var line := "res://assets/audio/rider/%s.wav" % k
+			if not ResourceLoader.exists(line):
+				why = line
+				break
+	if why == "":
+		for path in ["res://assets/audio/jump.wav", "res://assets/audio/land.wav", "res://assets/audio/refuse.wav", "res://assets/audio/rail.wav", "res://assets/audio/horse/snort.wav", "res://assets/audio/horse/blow.wav", "res://assets/audio/horse/nicker.wav", "res://assets/audio/horse/grunt.wav", "res://assets/audio/horse/neigh.wav", "res://assets/audio/ambient_outdoor.wav"]:
+			if not ResourceLoader.exists(path):
+				why = path
+				break
+	if why != "":
+		_fail("cue_files", why)
+		return
+	_ok("cue_files")
 
 
 func _season() -> void:
