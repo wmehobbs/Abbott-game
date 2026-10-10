@@ -1320,6 +1320,11 @@ func _bind_rig() -> void:
 		bas.name = "Bascule"
 		bas.set("horse", self)
 		skel.add_child(bas)
+		# Show day braids, built once on the bones, shown only at a show.
+		var braids: Node = preload("res://scripts/braids.gd").new()
+		braids.name = "Braids"
+		add_child(braids)
+		braids.call("build", self, skel, visual)
 	if anim == null:
 		return
 	anim.active = true

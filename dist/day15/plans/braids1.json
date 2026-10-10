@@ -1,0 +1,9 @@
+{"session": "show", "class": "lesson", "poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "off", "from": [1.9, 2.0, -0.9], "look": [0, 1.65, -1.0], "fov": 40},
+  {"name": "near", "from": [-1.9, 2.0, -0.9], "look": [0, 1.65, -1.0], "fov": 40},
+  {"name": "top", "from": [0.9, 3.0, 0.9], "look": [0, 1.7, -1.1], "fov": 40},
+  {"name": "ride", "from": [-1.2, 3.1, 4.6], "look": [0, 1.5, -1.6], "fov": 50}]},
+ {"name": "apex", "gait": 3, "jump_u": 0.5, "cams": [
+  {"name": "off", "from": [2.6, 2.2, -0.6], "look": [0, 1.8, -0.9], "fov": 44}]}
+]}
