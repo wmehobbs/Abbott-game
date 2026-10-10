@@ -159,7 +159,7 @@ Playtest prints four lines: clear faults 0 complete, refuse faults 4, rail fault
 
 Compile is `COMPILE 1 errors=0`.
 
-The self-test on `day15-claude` was `pass=57 fail=0`. Day 16 added characterization tests. After `library_lines` the count is `pass=64 fail=0`. A new test must keep `fail=0` and raise the pass count by the tests it adds. Do not edit a test, a baseline, or the gate to make a red run green. If a new characterization test fails, the test is wrong.
+The self-test on `day15-claude` was `pass=57 fail=0`. Day 16 added characterization tests. After `cue_files` the count is `pass=67 fail=0`: `library_lines` had reached 64, then `built_meshes`, `standing_people`, and `cue_files`. A new test must keep `fail=0` and raise the pass count by the tests it adds. Do not edit a test, a baseline, or the gate to make a red run green. If a new characterization test fails, the test is wrong.
 
 `gates.sh` rewrites `dist/selftest_day.log`, `dist/playtest_day.log`, `dist/ridecert_fresh.log`, `dist/playtest_results.json`, `dist/ridecert_fresh_one.json`, and `dist/traces/*`. Those stay unstaged until the final commit of the day. `dist/day12/compile_check_*.log` stays untracked. The deleted files under `photos_jpg/` stay unstaged.
 
@@ -189,6 +189,6 @@ Never start Godot by hand. One process at a time. Never kill a Godot process thi
 
 Each day's note is `dist/DAY<n>_LOG.md`. This run is `dist/DAY16_LOG.md`. Older measure notes sit beside some of them (`DAY<n>_MEASURE.md`).
 
-Per-day artifacts are `dist/day<n>/`. Day 16's gate copies are `dist/day16/logs/`. The course report is `dist/day16/content_report.md`. The prompt for this run is `dist/day16/GROK_PROMPT.md`.
+Per-day artifacts are `dist/day<n>/`. Day 16's gate copies are `dist/day16/logs/`. The course report is `dist/day16/content_report.md`. The asset audit is `dist/day16/assets_report.md`. The prompt for this run is `dist/day16/GROK_PROMPT.md`.
 
 `dist/STATUS.md` is the short standing status. `dist/RIDE_CERT.md` is the certificate note.
