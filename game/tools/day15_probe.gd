@@ -175,6 +175,10 @@ func _pose(p: Dictionary) -> void:
 	if ju >= 0.0:
 		_horse.set("jump_dur", 0.8)
 		_horse.set("jump_t", ju * 0.8)
+	if p.has("clear_done"):
+		var gs2: Node = root.get_node_or_null("GameState")
+		gs2.set("round_complete", true)
+		gs2.set("last_faults", 0)
 	var phase := float(p.get("phase", 0.0))
 	# Converge the rider's smoothing, then hold the clip at the phase.
 	for i in 24:

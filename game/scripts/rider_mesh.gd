@@ -52,6 +52,8 @@ var _crop_mi: MeshInstance3D
 ## Last solved leg points per side, seat frame: knee, ankle, fwd, up, ball.
 var _leg := {}
 var _life := 0.0
+var _pat_t := -1.0
+var _patted := false
 
 
 func silence(packed_root: Node) -> void:
@@ -142,6 +144,20 @@ func _process(delta: float) -> void:
 	var t := float(Time.get_ticks_msec()) / 1000.0
 	lean += 0.8 * sin(t * TAU * 0.24) * _life
 	var glance := deg_to_rad(9.0 * sin(t * 0.31) + 4.0 * sin(t * 0.73 + 1.3)) * _life
+	# After a clear round, once he walks or stands: three pats on his neck.
+	var gs := get_node_or_null("/root/GameState")
+	var clear := gs != null and bool(gs.get("round_complete")) and int(gs.get("last_faults")) == 0
+	if not clear:
+		_patted = false
+	elif _pat_t < 0.0 and not _patted and hz != null and int(hz.gait) <= 1:
+		_pat_t = 0.0
+	var pat := 0.0
+	if _pat_t >= 0.0:
+		_pat_t += delta
+		pat = smoothstep(0.0, 0.35, _pat_t) * (1.0 - smoothstep(2.1, 2.5, _pat_t))
+		if _pat_t > 2.5:
+			_pat_t = -1.0
+			_patted = true
 	var head_x := 12.0
 	var hp := body.get_node_or_null("Head") as Node3D
 	if hp:
@@ -211,6 +227,10 @@ func _process(delta: float) -> void:
 		hand += Vector3(0.0, -0.05, -0.08) * clampf((lean - 15.0) / 30.0, 0.0, 1.0)
 		# Thrown forward at a stop, the fists go down his neck.
 		hand += Vector3(0.0, -0.05, -0.10) * stop
+		if tag == "R" and pat > 0.0:
+			# Down onto the side of his neck and three soft pats.
+			var bob := maxf(0.0, sin(_pat_t * TAU * 1.6)) * 0.045
+			hand = hand.lerp(Vector3(0.15, -0.02 + bob, -0.40), pat)
 		var pole := shoulder + Vector3(sx * ELBOW_POLE.x, ELBOW_POLE.y, ELBOW_POLE.z)
 		var a := (_ro("LowerArm" + tag) - _ro("UpperArm" + tag)).length() * _k
 		var b := (_ro("Wrist" + tag) - _ro("LowerArm" + tag)).length() * _k
