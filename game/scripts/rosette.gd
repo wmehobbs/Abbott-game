@@ -15,6 +15,10 @@ const COLORS := {
 var horse: Node3D
 var _petal: StandardMaterial3D
 var _shown := ""
+## His head bone as drawn. Read straight off the skeleton in _process it is
+## the clip before the bascule, and a worried horse's lifted neck left the
+## rosette down on his noseband.
+var _poll_att: BoneAttachment3D
 
 
 func _ready() -> void:
@@ -63,6 +67,12 @@ func _process(_delta: float) -> void:
 	var gs := get_node_or_null("/root/GameState")
 	if gs == null or horse == null:
 		return
+	var sk := horse.get("skel") as Skeleton3D
+	if sk != null and (_poll_att == null or not is_instance_valid(_poll_att)) and sk.find_bone("Head") >= 0:
+		_poll_att = BoneAttachment3D.new()
+		_poll_att.name = "RosettePoll"
+		_poll_att.bone_name = "Head"
+		sk.add_child(_poll_att)
 	var ribbon := str(gs.get("last_ribbon"))
 	var on := bool(gs.get("round_complete")) and COLORS.has(ribbon)
 	visible = on
@@ -72,15 +82,12 @@ func _process(_delta: float) -> void:
 	if ribbon != _shown:
 		_shown = ribbon
 		_petal.albedo_color = COLORS[ribbon]
-	var sk := horse.get("skel") as Skeleton3D
 	var bit := horse.get("bit_l") as Node3D
-	if sk == null or bit == null:
-		return
-	var hi := sk.find_bone("Head")
-	if hi < 0:
+	if _poll_att == null or not is_instance_valid(_poll_att) or bit == null:
 		return
 	# The head bone sits at his poll; the bit ring at the corner of his mouth.
-	var poll := sk.to_global(sk.get_bone_global_pose(hi).origin)
+	# Both as drawn, after the bascule.
+	var poll := _poll_att.global_position
 	var mouth := bit.global_position
 	var near := -horse.global_transform.basis.x.normalized()
 	var down := (mouth - poll)

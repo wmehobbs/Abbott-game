@@ -45,6 +45,7 @@ func _run() -> void:
 	_bleachers()
 	await _leg_tuck()
 	await _tail_hangs()
+	await _rosette_on_bridle()
 	await _hud_frame_cost()
 	_walker_forward()
 	_bridle_fit()
@@ -1320,6 +1321,50 @@ func _tail_hangs() -> void:
 		_fail("tail_hangs", why)
 		return
 	_ok("tail_hangs %.0f° below level (clip %.0f°)" % [drawn, clip])
+
+
+func _rosette_on_bridle() -> void:
+	# A won ribbon rides on his bridle: the same distance from the bit ring
+	# calm or worried. A worried horse's neck lifts (the bascule), and the
+	# rosette, placed from the clip's head, once stayed down on his noseband.
+	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
+	var arena: Node = packed.instantiate()
+	get_tree().root.add_child(arena)
+	for i in 4:
+		await get_tree().process_frame
+	var horse := arena.get_node_or_null("Abbott") as Node3D
+	var ros := horse.get_node_or_null("Rosette") as Node3D if horse else null
+	var bit := horse.get("bit_l") as Node3D if horse else null
+	var conf0 := GameState.abbott_confidence
+	var complete0 := GameState.round_complete
+	var ribbon0 := GameState.last_ribbon
+	var why := ""
+	var gaps: Array[float] = []
+	if ros == null or bit == null:
+		why = "no rosette or bit ring"
+	else:
+		horse.set_physics_process(false)
+		GameState.round_complete = true
+		GameState.last_ribbon = "Blue"
+		for conf in [95.0, 20.0]:
+			GameState.abbott_confidence = conf
+			var t0 := Time.get_ticks_msec()
+			while Time.get_ticks_msec() - t0 < 400:
+				await get_tree().process_frame
+			gaps.append(ros.global_position.distance_to(bit.global_position))
+		if not ros.visible:
+			why = "no rosette after a won ribbon"
+		elif absf(gaps[1] - gaps[0]) > 0.03:
+			why = "rosette %.2f m from the bit calm, %.2f m worried" % [gaps[0], gaps[1]]
+	GameState.abbott_confidence = conf0
+	GameState.round_complete = complete0
+	GameState.last_ribbon = ribbon0
+	arena.queue_free()
+	await get_tree().process_frame
+	if why != "":
+		_fail("rosette_on_bridle", why)
+		return
+	_ok("rosette_on_bridle")
 
 
 func _walker_forward() -> void:

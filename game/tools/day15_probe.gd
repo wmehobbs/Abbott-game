@@ -186,6 +186,8 @@ func _pose(p: Dictionary) -> void:
 	if ju >= 0.0:
 		_horse.set("jump_dur", 0.8)
 		_horse.set("jump_t", ju * 0.8)
+	if p.has("confidence"):
+		root.get_node("GameState").set("abbott_confidence", float(p["confidence"]))
 	if p.has("clear_done"):
 		var gs2: Node = root.get_node_or_null("GameState")
 		gs2.set("round_complete", true)
