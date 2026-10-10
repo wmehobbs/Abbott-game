@@ -11,6 +11,13 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | --- | --- | --- | --- | --- |
 | horse visible | done | (M1) | compile ok, selftest 51/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | Abbott was invisible in the game. Fixed. |
 | rider seat | done | (M1) | same | Madison sits in the saddle behind the withers, legs down his sides, feet in the irons, fists over the withers, helmet on. |
+| bridle | done | (M2) | compile ok, selftest 51/0, playtest 0/4/4, les 25.42, beg 62.15 jo 33.44, save match | A real bridle fitted to his head, in `abbott_v2d.glb`. |
+| trees | done | (M2) | same | No brown canopies, no disc trees. Four greens. |
+| aid marks | done | (M2) | same | Stride dots and the takeoff ring are flat chalk marks on the sand. |
+| jump lens | done | (M2) | same | He stays in the frame over the fence. |
+| hooves | done | (M2) | same | The hoof plant and pastern limits are in metres, so they work on the v2 skeleton. |
+| look | done | (M2) | same | Softer vignette. Neck reaches further over the top of a jump. |
+| on foot | done | (M2) | same | Walking Madison wears the helmet; her and Michelle's boots ride the leg bones. |
 
 ## What was wrong, and what changed
 
@@ -55,6 +62,23 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - New tools:
   - `game/tools/day15_probe.gd` and `dist/day15/run_probe.py`: windowed stills of horse and rider from any camera, at any gait or jump moment, in about 20 seconds;
   - `dist/day15/blender/*.py`: model inspection and the layout fix.
+
+### Second pass (M2)
+
+- **The bridle:** Cursor's v2 "bridle" was only two bit rings and two short bars at the mouth. `dist/day15/blender/build_bridle.py` builds one on his head and weights it to the Head bone:
+  - a crownpiece and throatlatch behind the ears;
+  - a browband;
+  - two cheekpieces to the bit;
+  - a cavesson noseband;
+  - loose rings at the mouth corners, with new BitL and BitR markers at the rings so the reins start at the bit.
+
+  Every strap is fitted as a smooth loop around his measured head, off the coat. The result goes through the same layout fix, and the game loads `abbott_v2d.glb`.
+- **Trees:** Kenney's `tree_default` lists its bark before its leaves, and the farm painted by surface order, so a third of the trees had brown canopies. Trees are now painted by material name, in four greens. The three hand-built yard oaks (the last disc trees) are Kenney oaks.
+- **Aid marks:** the lesson stride dots were 32 cm yellow balls in the air. They are flat discs on the sand, and the takeoff ring is flattened with them.
+- **Jump lens:** over a fence the camera aimed at the top rail alone, looked down past the horse, and he flew out of the top of the frame. Half the aim now stays a stride ahead of him. A frame-by-frame log of a real jump (`game/tools/day15_camlog.gd`) shows the lens 4.6 to 5.0 m behind him the whole way, rising with him. The old strip only looked frozen because the stills harness runs at a few frames a second.
+- **Hooves:** `bascule.gd` compared a hoof's lift and the pastern limit in skeleton units. Those are 0.85 m on the old mesh and 40 m on v2, so on v2 every hoof counted as "down" and the pastern had no limit. Both are converted to metres now.
+- **Look:** the vignette starts further out and is half as dark. Over the top of a jump the neck stretches 10° more.
+- **On foot:** walking Madison had no helmet, and her (and Michelle's) boots floated off the legs because they were placed from Blender coordinates. The helmet and the boots are shared code now, attached to the head, shin and foot bones.
 
 ## Decisions
 

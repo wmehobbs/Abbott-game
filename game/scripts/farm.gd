@@ -12,6 +12,9 @@ const MIRROR_H := 3.05
 
 var _leaf_mat: Material
 var _bark_mat: Material
+var _leaf_mats: Array[Material] = []
+var _pine_mat: Material
+var _tree_n := 0
 
 
 func build() -> void:
@@ -756,13 +759,18 @@ func _house() -> void:
 
 
 func _yard_oak(parent: Node3D, p: Vector3, h: float) -> void:
-	var t := Node3D.new()
-	t.name = "YardOak"
-	t.position = p
-	parent.add_child(t)
-	var rng := RandomNumberGenerator.new()
-	rng.seed = int(absf(p.x * 13.0 + p.z * 29.0) * 80.0) + 11
-	_oak_plant(t, h, MeshKit.pine_bark(), MeshKit.hardwood_material(true), MeshKit.hardwood_material(false), rng)
+	# The same Kenney oak as the rest of the farm, not a disc on a pole.
+	var packed := load("res://assets/cc0/kenney/tree_oak.glb") as PackedScene
+	if packed == null:
+		return
+	var inst := packed.instantiate() as Node3D
+	inst.name = "YardOak"
+	inst.position = p
+	inst.rotation.y = fposmod(p.x * 1.7 + p.z * 0.9, TAU)
+	var sc := h / 2.1
+	inst.scale = Vector3(sc, sc, sc)
+	_paint_tree(inst)
+	parent.add_child(inst)
 
 
 func _letters() -> void:
@@ -1503,18 +1511,30 @@ func _paint_tree(inst: Node) -> void:
 	if _leaf_mat == null:
 		_leaf_mat = MeshKit.mat_color(Color(0.30, 0.45, 0.24), 0.88, 0.0)
 		_bark_mat = MeshKit.mat_color(Color(0.38, 0.25, 0.15), 0.82, 0.0)
-	_paint_node(inst, _leaf_mat, _bark_mat)
+	if _leaf_mats.is_empty():
+		# A few greens, so a tree line reads as trees and not one flat colour.
+		for c in [Color(0.30, 0.45, 0.24), Color(0.25, 0.40, 0.20), Color(0.36, 0.48, 0.25), Color(0.22, 0.36, 0.19)]:
+			_leaf_mats.append(MeshKit.mat_color(c, 0.88, 0.0))
+		_pine_mat = MeshKit.mat_color(Color(0.16, 0.30, 0.17), 0.9, 0.0)
+	_tree_n += 1
+	_paint_node(inst, _leaf_mats[_tree_n % _leaf_mats.size()], _bark_mat)
 
 
 func _paint_node(n: Node, leaf: Material, bark: Material) -> void:
+	# By the model's own material names: Kenney's tree_default lists its bark
+	# first, and painting by surface order gave it a brown canopy.
 	if n is MeshInstance3D:
 		var mi := n as MeshInstance3D
 		if mi.mesh:
-			var nsurf := mi.mesh.get_surface_count()
-			if nsurf > 0:
-				mi.set_surface_override_material(0, leaf)
-			if nsurf > 1:
-				mi.set_surface_override_material(1, bark)
+			for s in mi.mesh.get_surface_count():
+				var src := mi.mesh.surface_get_material(s)
+				var nm := src.resource_name.to_lower() if src else ""
+				if nm.contains("wood") or nm.contains("bark"):
+					mi.set_surface_override_material(s, bark)
+				elif nm.contains("dark"):
+					mi.set_surface_override_material(s, _pine_mat if _pine_mat else leaf)
+				else:
+					mi.set_surface_override_material(s, leaf)
 	for c in n.get_children():
 		_paint_node(c, leaf, bark)
 

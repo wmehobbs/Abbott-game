@@ -5,7 +5,7 @@ extends RefCounted
 ## Madison is parented to the Torso bone (behind the withers, ahead of the hips).
 
 const People := preload("res://scripts/person_look.gd")
-const MESH := "res://assets/meshes/abbott_v2c.glb"
+const MESH := "res://assets/meshes/abbott_v2d.glb"
 const TARGET_LENGTH := 2.25
 ## Madison and the saddle, relative to metres. See _mount_on_spine.
 const RIDER_SCALE := 0.85

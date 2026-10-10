@@ -242,14 +242,14 @@ func _sync_aid() -> void:
 		var dist := 2.55 + 3.35 * float(k + 1)
 		var dot: MeshInstance3D = _aid_dots[k]
 		dot.visible = true
-		dot.global_position = fence.global_position - dir * dist + Vector3(0.0, 0.06, 0.0)
+		dot.global_position = fence.global_position - dir * dist + Vector3(0.0, 0.012, 0.0)
 		var mat := dot.material_override as StandardMaterial3D
 		var lit := ahead <= dist + 0.4
-		mat.albedo_color = Color(0.95, 0.86, 0.42, 0.95) if lit else Color(0.75, 0.72, 0.62, 0.35)
+		mat.albedo_color = Color(0.98, 0.84, 0.36, 0.85) if lit else Color(0.86, 0.81, 0.66, 0.30)
 	var ring_on := charging and gait == CANTER
 	_aid_ring.visible = ring_on
 	if ring_on:
-		_aid_ring.global_position = fence.takeoff_point() + Vector3(0.0, 0.05, 0.0)
+		_aid_ring.global_position = fence.takeoff_point() + Vector3(0.0, 0.02, 0.0)
 		var rm := _aid_ring.material_override as StandardMaterial3D
 		var ideal := _leave_word(ahead) == "Now."
 		rm.albedo_color = Color(0.45, 0.82, 0.38, 0.9) if ideal else Color(0.92, 0.86, 0.62, 0.55)
@@ -270,10 +270,13 @@ func _ensure_aid() -> void:
 		return
 	for _i in 3:
 		var dot := MeshInstance3D.new()
-		var sphere := SphereMesh.new()
-		sphere.radius = 0.16
-		sphere.height = 0.32
-		dot.mesh = sphere
+		# Flat marks on the sand, like chalk, not balls in the air.
+		var disc := CylinderMesh.new()
+		disc.top_radius = 0.20
+		disc.bottom_radius = 0.20
+		disc.height = 0.008
+		disc.radial_segments = 24
+		dot.mesh = disc
 		dot.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		var mat := StandardMaterial3D.new()
 		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -285,9 +288,11 @@ func _ensure_aid() -> void:
 		_aid_dots.append(dot)
 	var ring := MeshInstance3D.new()
 	var tor := TorusMesh.new()
-	tor.inner_radius = 0.72
-	tor.outer_radius = 0.92
+	tor.inner_radius = 0.78
+	tor.outer_radius = 0.88
 	ring.mesh = tor
+	# Flattened onto the sand with the dots.
+	ring.scale = Vector3(1.0, 0.12, 1.0)
 	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var rmat := StandardMaterial3D.new()
 	rmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -701,6 +706,10 @@ func _place_cam() -> void:
 		var rail := fp + Vector3(0.0, jump_fence.height, 0.0)
 		var face_look := look.lerp(fp + Vector3(0.0, 0.85, 0.0), 0.88)
 		var on_rail := face_look.lerp(rail, smoothstep(0.0, 0.25, ju))
+		# Hold the rail and him both: aimed at the rail alone the lens looked
+		# down past him and he flew out of the top of the frame. Half the aim
+		# stays a stride ahead of him at his own height.
+		on_rail = on_rail.lerp(look, 0.5 * smoothstep(0.05, 0.30, ju))
 		# Coming down, start giving the look back: 60 % of the way by the land.
 		look = on_rail.lerp(look, 0.60 * smoothstep(0.60, 1.0, ju))
 		_look_rail = look

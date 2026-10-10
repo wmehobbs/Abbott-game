@@ -342,44 +342,7 @@ func _paint(node_name: String, mat: Material) -> void:
 
 
 func _cap() -> void:
-	# A velvet riding helmet over the hair: a dome to just above her brows and
-	# a short peak. Offsets are from the head bone: the hair is 0.23 wide,
-	# 0.29 deep and tops out 0.26 above it; her brow is 0.13 in front of it.
-	var att := _attach("Head", "Cap")
-	if att == null:
-		return
-	var hb := _rb("Head")
-	var velvet := _mat(Color(0.05, 0.05, 0.07), 0.82)
-	var dome := MeshInstance3D.new()
-	dome.name = "Dome"
-	var sm := SphereMesh.new()
-	sm.radius = 1.0
-	sm.height = 1.0
-	sm.is_hemisphere = true
-	sm.radial_segments = 20
-	sm.rings = 8
-	dome.mesh = sm
-	dome.material_override = velvet
-	var base := Vector3(0.0, 0.098, 0.006)
-	dome.transform = Transform3D(hb.inverse() * Basis.from_scale(Vector3(0.130, 0.176, 0.162)), hb.inverse() * base)
-	att.add_child(dome)
-	var peak := MeshInstance3D.new()
-	peak.name = "Peak"
-	var box := BoxMesh.new()
-	box.size = Vector3(0.150, 0.010, 0.060)
-	peak.mesh = box
-	peak.material_override = velvet
-	var tip := Basis(Vector3.RIGHT, deg_to_rad(14.0))
-	peak.transform = Transform3D(hb.inverse() * tip, hb.inverse() * Vector3(0.0, 0.102, 0.160))
-	att.add_child(peak)
-	var button := MeshInstance3D.new()
-	var bs := SphereMesh.new()
-	bs.radius = 0.012
-	bs.height = 0.016
-	button.mesh = bs
-	button.material_override = velvet
-	button.position = hb.inverse() * Vector3(0.0, 0.272, 0.006)
-	att.add_child(button)
+	_helmet_static(skel)
 
 
 func _coat_bits() -> void:
@@ -643,11 +606,119 @@ static func make_standing(kind: String) -> Node3D:
 		if node is Node3D:
 			(node as Node3D).visible = false
 	if kind != "trainer":
-		_cap_on(skel)
-	_boots_standing(root, skel, vis, into)
+		_helmet_static(skel)
+	_boots_on_bones(skel)
 	if kind == "trainer":
 		_clipboard(root)
 	return root
+
+
+static func _helmet_static(skel: Skeleton3D) -> void:
+	# A velvet riding helmet over the hair: a dome to just above her brows and
+	# a short peak. Offsets are from the head bone: the hair is 0.23 wide,
+	# 0.29 deep and tops out 0.26 above it; her brow is 0.13 in front of it.
+	var hi := skel.find_bone("Head")
+	if hi < 0:
+		return
+	var att := BoneAttachment3D.new()
+	att.name = "Cap"
+	att.bone_name = "Head"
+	skel.add_child(att)
+	var hb := skel.get_bone_global_rest(hi).basis
+	var velvet := _mat_static(Color(0.05, 0.05, 0.07), 0.82)
+	var dome := MeshInstance3D.new()
+	dome.name = "Dome"
+	var sm := SphereMesh.new()
+	sm.radius = 1.0
+	sm.height = 1.0
+	sm.is_hemisphere = true
+	sm.radial_segments = 20
+	sm.rings = 8
+	dome.mesh = sm
+	dome.material_override = velvet
+	dome.transform = Transform3D(hb.inverse() * Basis.from_scale(Vector3(0.130, 0.176, 0.162)), hb.inverse() * Vector3(0.0, 0.098, 0.006))
+	att.add_child(dome)
+	var peak := MeshInstance3D.new()
+	peak.name = "Peak"
+	var box := BoxMesh.new()
+	box.size = Vector3(0.150, 0.010, 0.060)
+	peak.mesh = box
+	peak.material_override = velvet
+	peak.transform = Transform3D(hb.inverse() * Basis(Vector3.RIGHT, deg_to_rad(14.0)), hb.inverse() * Vector3(0.0, 0.102, 0.160))
+	att.add_child(peak)
+	var button := MeshInstance3D.new()
+	var bs := SphereMesh.new()
+	bs.radius = 0.012
+	bs.height = 0.016
+	button.mesh = bs
+	button.material_override = velvet
+	button.position = hb.inverse() * Vector3(0.0, 0.272, 0.006)
+	att.add_child(button)
+
+
+static func _boots_on_bones(skel: Skeleton3D) -> void:
+	# Tall boots on her own leg and foot bones, so they stay on the leg in any
+	# pose. The shin runs from the knee to the ankle, 5 cm above the foot bone.
+	var leather := _mat_static(BOOT, 0.38)
+	var tan := _mat_static(TAN, 0.5)
+	for tag in ["L", "R"]:
+		var li := skel.find_bone("LowerLeg" + tag)
+		var fi := skel.find_bone("Foot" + tag)
+		if li < 0 or fi < 0:
+			continue
+		var lr := skel.get_bone_global_rest(li)
+		var fr := skel.get_bone_global_rest(fi)
+		var ankle := fr.origin + Vector3(0.0, 0.053, 0.003)
+		var shin := BoneAttachment3D.new()
+		shin.name = "BootShin" + tag
+		shin.bone_name = "LowerLeg" + tag
+		skel.add_child(shin)
+		var top := lr.origin.lerp(ankle, 0.12)
+		var bottom := ankle + Vector3(0.0, -0.02, 0.0)
+		var span := bottom - top
+		var shaft := MeshInstance3D.new()
+		shaft.name = "Shaft"
+		var cyl := CylinderMesh.new()
+		cyl.top_radius = 0.050
+		cyl.bottom_radius = 0.040
+		cyl.height = 1.0
+		shaft.mesh = cyl
+		shaft.material_override = leather
+		var inv := lr.basis.inverse()
+		shaft.transform = Transform3D(inv * _align_y_static(span) * Basis.from_scale(Vector3(1.0, span.length(), 1.0)), inv * ((top + bottom) * 0.5 - lr.origin))
+		shin.add_child(shaft)
+		var cuff := MeshInstance3D.new()
+		cuff.name = "Cuff"
+		var cm := CylinderMesh.new()
+		cm.top_radius = 0.054
+		cm.bottom_radius = 0.052
+		cm.height = 0.035
+		cuff.mesh = cm
+		cuff.material_override = tan
+		cuff.transform = Transform3D(inv * _align_y_static(span), inv * (top + span.normalized() * 0.012 - lr.origin))
+		shin.add_child(cuff)
+		var foot := BoneAttachment3D.new()
+		foot.name = "BootFoot" + tag
+		foot.bone_name = "Foot" + tag
+		skel.add_child(foot)
+		var finv := fr.basis.inverse()
+		var sole := MeshInstance3D.new()
+		sole.name = "Foot"
+		var fb := BoxMesh.new()
+		fb.size = Vector3(0.078, 0.055, 0.21)
+		sole.mesh = fb
+		sole.material_override = leather
+		# Ahead of the heel along her +Z, a little up off the sole line.
+		sole.transform = Transform3D(finv, finv * Vector3(0.0, 0.015, 0.06))
+		foot.add_child(sole)
+		var heel := MeshInstance3D.new()
+		heel.name = "Heel"
+		var hb2 := BoxMesh.new()
+		hb2.size = Vector3(0.062, 0.035, 0.055)
+		heel.mesh = hb2
+		heel.material_override = leather
+		heel.transform = Transform3D(finv, finv * Vector3(0.0, -0.008, -0.03))
+		foot.add_child(heel)
 
 
 static func _into_visual(skel: Skeleton3D, vis: Node3D) -> Transform3D:

@@ -39,7 +39,7 @@ func _boot() -> void:
 	gs.call("start_session", "lesson", "lesson")
 	gs.set("course_seed", 0)
 	gs.set("jump_off", false)
-	gs.call("set_mode", "ride")
+	gs.call("set_mode", str(_plan.get("mode", "ride")))
 	change_scene_to_file("res://scenes/arena.tscn")
 	process_frame.connect(_tick)
 
@@ -73,6 +73,9 @@ func _run() -> void:
 	_cam.far = 500.0
 	arena.add_child(_cam)
 	_cam.current = true
+	if _plan.has("ssaa"):
+		root.get_viewport().screen_space_aa = int(_plan["ssaa"]) as Viewport.ScreenSpaceAA
+		print("PROBE ssaa=", root.get_viewport().screen_space_aa, " msaa=", root.get_viewport().msaa_3d, " max=", Viewport.SCREEN_SPACE_AA_MAX)
 	var extra: Dictionary = _plan.get("report", {})
 	if bool(extra.get("bones", false)):
 		_report_bones()
@@ -87,7 +90,17 @@ func _run() -> void:
 			var lk: Array = c.get("look", [0, 1.2, 0])
 			var from := Vector3(fr[0], fr[1], fr[2])
 			var look := Vector3(lk[0], lk[1], lk[2])
-			if not bool(c.get("world", false)):
+			if str(c.get("rel", "")) == "walker":
+				var wk := current_scene.get_node_or_null("Walker") as Node3D
+				if wk:
+					from = wk.global_transform * from
+					look = wk.global_transform * look
+			elif str(c.get("rel", "")) == "trainer":
+				var tr := current_scene.find_child("Michelle", true, false) as Node3D
+				if tr:
+					from = tr.global_transform * from
+					look = tr.global_transform * look
+			elif not bool(c.get("world", false)):
 				from = origin + basis * from
 				look = origin + basis * look
 			_cam.fov = float(c.get("fov", 40.0))

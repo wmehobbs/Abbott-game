@@ -190,7 +190,7 @@ func _build_vignette(root: Control) -> void:
 	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	veil.color = Color(1, 1, 1, 1)
 	var sh := Shader.new()
-	sh.code = "shader_type canvas_item;\nrender_mode blend_mix, unshaded;\nvoid fragment() {\n\tvec2 p = UV * 2.0 - 1.0;\n\tp.x *= 1.2;\n\tfloat v = smoothstep(0.42, 1.35, dot(p, p));\n\tCOLOR = vec4(0.04, 0.025, 0.015, v * 0.38);\n}\n"
+	sh.code = "shader_type canvas_item;\nrender_mode blend_mix, unshaded;\nvoid fragment() {\n\tvec2 p = UV * 2.0 - 1.0;\n\tp.x *= 1.2;\n\tfloat v = smoothstep(0.80, 1.95, dot(p, p));\n\tCOLOR = vec4(0.04, 0.025, 0.015, v * 0.20);\n}\n"
 	var mat := ShaderMaterial.new()
 	mat.shader = sh
 	veil.material = mat

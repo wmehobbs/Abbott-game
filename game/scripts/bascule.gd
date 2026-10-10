@@ -101,7 +101,9 @@ func _process_modification_with_delta(_delta: float) -> void:
 	_bend(sk, "Torso", 20.0 * round)
 	_bend(sk, "Torso2", -8.0 * round)
 	_bend(sk, "Torso3", -16.0 * round + 4.0 * open)
-	_bend(sk, "Neck1", 14.0 * up - 32.0 * round - 8.0 * open)
+	# Over the top the neck reaches out and down: on the smooth v2 head the
+	# old -32 still read as a horse looking at the sky.
+	_bend(sk, "Neck1", 14.0 * up - 42.0 * round - 8.0 * open)
 	for s in [".L", ".R"]:
 		_bend(sk, "FrontUpperLeg" + s, -18.0 * round + 6.0 * open)
 		_bend(sk, "FrontLowerLeg" + s, -50.0 * round + 10.0 * open)
@@ -130,7 +132,9 @@ func _legs(sk: Skeleton3D, ground: bool, plant_fore: bool, hind_w: float, reach:
 		if r > 0.0:
 			var hind := k >= 2
 			var rel := sk.get_bone_global_pose(hi).origin.z - sk.get_bone_global_rest(hi).origin.z
-			var w := 1.0 - smoothstep(0.02, 0.05, rel)
+			# In metres: skeleton units are 0.85 m on the old mesh and 40 m on
+			# v2c, so 1.7 to 4.3 cm of lift is "up" on either.
+			var w := 1.0 - smoothstep(0.017, 0.043, rel * up_scale)
 			if not hind and not plant_fore:
 				w = 0.0
 			var y := sk.to_global(hoof.origin).y
@@ -144,7 +148,8 @@ func _legs(sk: Skeleton3D, ground: bool, plant_fore: bool, hind_w: float, reach:
 				var goal := sk.to_local(tw)
 				_reach(sk, ui, li, off.origin, goal)
 				hoof = sk.get_bone_global_pose(li) * off
-				hoof.origin += (goal - hoof.origin).limit_length(PASTERN)
+				# PASTERN is in old-mesh skeleton units (0.85 m each); in metres here.
+				hoof.origin += (goal - hoof.origin).limit_length(PASTERN * 0.85 / maxf(up_scale, 0.001))
 		sk.set_bone_global_pose(ri, hoof * sk.get_bone_pose(hi).affine_inverse())
 
 
