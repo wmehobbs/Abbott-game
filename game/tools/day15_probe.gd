@@ -186,7 +186,7 @@ func _pose(p: Dictionary) -> void:
 		gs2.set("last_ribbon", str(p.get("ribbon", "")))
 	var phase := float(p.get("phase", 0.0))
 	# Converge the rider's smoothing, then hold the clip at the phase.
-	for i in 24:
+	for i in 24 + int(p.get("settle", 0)):
 		_horse.set("stride_u", phase)
 		_horse.call("_animate", 0.0, float(_horse.get("speed")))
 		_horse.call("_update_rider", 0.5)

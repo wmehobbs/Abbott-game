@@ -111,6 +111,9 @@ func _rb(bone: String) -> Basis:
 func _process(delta: float) -> void:
 	if skel == null or _rest.is_empty():
 		return
+	# Off his back (walking the course) the mounted rider is hidden: no pose.
+	if visual == null or not visual.is_visible_in_tree():
+		return
 	var body := get_parent() as Node3D
 	if body == null:
 		return
