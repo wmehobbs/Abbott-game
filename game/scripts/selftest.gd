@@ -1369,14 +1369,16 @@ func _rosette_on_bridle() -> void:
 
 
 func _show_braids() -> void:
-	# Show day braids: a row of button braids on his neck bones, hidden in a
-	# lesson, shown when the session is a show.
+	# Show day: a row of button braids on his neck bones and her number on her
+	# back. The braids hide when the session is not a show; the number is built
+	# for a show only (Next keeps the session kind, so it never changes mid-scene).
+	var kind0 := GameState.session_kind
+	GameState.session_kind = "show"
 	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
 	var arena: Node = packed.instantiate()
 	get_tree().root.add_child(arena)
 	for i in 3:
 		await get_tree().process_frame
-	var kind0 := GameState.session_kind
 	var why := ""
 	var horse := arena.get_node_or_null("Abbott") as Node3D
 	var sk := horse.get("skel") as Skeleton3D if horse else null
@@ -1387,23 +1389,22 @@ func _show_braids() -> void:
 				knots.append_array(att.get_children())
 	if knots.size() < 8:
 		why = "%d braids on his neck" % knots.size()
+	elif arena.find_child("ShowNumber", true, false) == null:
+		why = "no number on her back at a show"
+	elif not (knots[0] as Node3D).is_visible_in_tree():
+		why = "no braids at a show"
 	else:
 		GameState.session_kind = "lesson"
 		await get_tree().process_frame
 		if (knots[0] as Node3D).is_visible_in_tree():
 			why = "braids showing in a lesson"
-		else:
-			GameState.session_kind = "show"
-			await get_tree().process_frame
-			if not (knots[0] as Node3D).is_visible_in_tree():
-				why = "no braids at a show"
 	GameState.session_kind = kind0
 	arena.queue_free()
 	await get_tree().process_frame
 	if why != "":
 		_fail("show_braids", why)
 		return
-	_ok("show_braids %d" % knots.size())
+	_ok("show_braids %d and her number" % knots.size())
 
 
 func _walker_forward() -> void:

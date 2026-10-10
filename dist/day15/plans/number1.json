@@ -1,0 +1,7 @@
+{"session": "show", "class": "lesson", "poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "back", "from": [0.0, 2.1, 1.6], "look": [0, 1.75, 0.0], "fov": 40},
+  {"name": "ride", "from": [-1.2, 3.1, 4.6], "look": [0, 1.5, -1.6], "fov": 50},
+  {"name": "side", "from": [-1.8, 1.9, 0.6], "look": [0, 1.75, 0.1], "fov": 40}]},
+ {"name": "canter", "strip": 2, "gait": 3, "cams": [{"from": [-1.0, 3.0, 4.8], "look": [0, 1.5, -1.6], "fov": 50}]}
+]}

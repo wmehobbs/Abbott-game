@@ -76,6 +76,7 @@ func setup(packed_root: Node3D) -> void:
 	_hide_casual_feet()
 	_cap()
 	_coat_bits()
+	_show_number()
 	_gloves()
 	_crop()
 	_boot_nodes()
@@ -443,6 +444,44 @@ func _coat_bits() -> void:
 		pin.material_override = gold
 		pin.position = cb.inverse() * (neck_up * 0.80 + Vector3(0.0, 0.0, 0.114))
 		chest.add_child(pin)
+
+
+## At a show she wears her number on her back, tied round her waist like
+## every hunter rider, so from the saddle camera it is in view all round.
+## Built once: a show is chosen on the title, and Next keeps the same kind.
+func _show_number() -> void:
+	var gs := get_node_or_null("/root/GameState")
+	if gs == null or str(gs.get("session_kind")) != "show":
+		return
+	# On the lower spine, at her waist where the strings tie: hung off the
+	# chest it swung out from her back like a fin when she folded.
+	var waist := _attach("Abdomen", "ShowNumber")
+	if waist == null:
+		return
+	var cb := _rb("Abdomen")
+	# Her back is -Z in the glb; the card and its figures face that way.
+	var away := Basis(Vector3.UP, PI)
+	var card := MeshInstance3D.new()
+	card.name = "Card"
+	var q := QuadMesh.new()
+	q.size = Vector2(0.17, 0.125)
+	card.mesh = q
+	card.material_override = _mat(Color(0.95, 0.95, 0.92), 0.85)
+	card.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	card.position = cb.inverse() * Vector3(0.0, 0.03, -0.104)
+	card.basis = cb.inverse() * away
+	waist.add_child(card)
+	var num := Label3D.new()
+	num.name = "Figures"
+	num.text = str(100 + absi(hash(str(gs.get("class_id")))) % 900)
+	num.font_size = 62
+	num.pixel_size = 0.0012
+	num.modulate = Color(0.07, 0.07, 0.09)
+	num.outline_size = 0
+	num.double_sided = false
+	num.position = cb.inverse() * Vector3(0.0, 0.026, -0.107)
+	num.basis = cb.inverse() * away
+	waist.add_child(num)
 
 
 func _gloves() -> void:

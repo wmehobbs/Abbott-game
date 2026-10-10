@@ -1,0 +1,9 @@
+{"session": "show", "class": "lesson", "poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "side", "from": [-1.1, 1.85, 0.45], "look": [0, 1.75, 0.15], "fov": 36},
+  {"name": "oside", "from": [1.1, 1.85, 0.45], "look": [0, 1.75, 0.15], "fov": 36},
+  {"name": "back", "from": [0.0, 2.1, 1.6], "look": [0, 1.75, 0.0], "fov": 40}]},
+ {"name": "two_point", "gait": 3, "last_stride": 1.0, "cams": [
+  {"name": "side", "from": [-1.4, 1.9, 0.5], "look": [0, 1.75, 0.1], "fov": 40},
+  {"name": "back", "from": [0.0, 2.4, 1.8], "look": [0, 1.8, 0.0], "fov": 40}]}
+]}
