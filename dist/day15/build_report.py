@@ -58,7 +58,7 @@ PAIRS = [
 
 LATER = [
     ("reins2/halt_side.png", None, "The reins run along his neck to the bit and drape when he stands. They used to run straight through his neck."),
-    ("crowd/crowd_stands.png", None, "The crowd faces the ring and watches him. They were six copies of Michelle with clipboards, facing the field."),
+    ("wave/wave_stands.png", None, "The crowd faces the ring, watches him, and waves when she goes clear. They were six copies of Michelle with clipboards, facing the field."),
     ("score/score_board.png", None, "The arena board shows the running time and faults during a round."),
     ("walkmove/walkmove_02.png", (0.25, 0.30, 0.75, 1.0), "Walking the course, Madison faces the way she walks and uses her own walk. She used to walk backwards, frozen."),
     ("refuse/refuse_lside.png", None, "When he stops at a fence, she is thrown forward and sits back as he settles."),

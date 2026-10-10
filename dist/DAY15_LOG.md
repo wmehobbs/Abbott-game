@@ -40,7 +40,7 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
 
 - Compile clean; selftest 53 pass, 0 fail.
 - Playtest clear 0, refuse 4, rail 4.
-- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.44; teleported false (start of night 25.43 / 62.14 / 33.45).
+- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.14, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final3`, 03:40.
 - Madison's save unchanged all night (compared after every run).
 
 ## Needs Ernie
