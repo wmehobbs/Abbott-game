@@ -73,6 +73,7 @@ func _run() -> void:
 	_class_clock()
 	_glass_lines()
 	_show_card()
+	_horse_scales()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1191,6 +1192,70 @@ func _show_card() -> void:
 		_fail("show_card", why)
 		return
 	_ok("show_card")
+
+
+func _horse_scales() -> void:
+	# Window, refusal, scope, turn and balance for the class and the horse's numbers.
+	var was_id := GameState.class_id
+	var was_c := GameState.abbott_confidence
+	var was_s := GameState.abbott_scope
+	var was_r := GameState.abbott_rideability
+	var was_f := GameState.madison_feel
+	var why := ""
+	GameState.abbott_confidence = 0.0
+	GameState.abbott_scope = 0.0
+	GameState.abbott_rideability = 0.0
+	GameState.madison_feel = 0.0
+	GameState.class_id = "lesson"
+	if not is_equal_approx(GameState.window_scale(), 1.24):
+		why = "lesson window"
+	if why == "" and not is_equal_approx(GameState.balance_need(), 0.12):
+		why = "lesson balance"
+	GameState.class_id = "beginner"
+	if why == "" and not is_equal_approx(GameState.window_scale(), 1.16):
+		why = "beginner window"
+	GameState.class_id = "intermediate"
+	if why == "" and not is_equal_approx(GameState.window_scale(), 1.0):
+		why = "intermediate window"
+	if why == "" and not is_equal_approx(GameState.balance_need(), 0.18):
+		why = "intermediate balance"
+	GameState.class_id = "advanced"
+	if why == "" and not is_equal_approx(GameState.window_scale(), 0.88):
+		why = "advanced window"
+	if why == "" and not is_equal_approx(GameState.balance_need(), 0.24):
+		why = "advanced balance"
+	if why == "" and not is_equal_approx(GameState.refuse_scale(), 1.0):
+		why = "refuse at zero confidence"
+	if why == "" and not is_equal_approx(GameState.scope_bonus(), 0.0):
+		why = "scope at zero"
+	if why == "" and not is_equal_approx(GameState.turn_scale(), 0.88):
+		why = "turn at zero"
+	GameState.abbott_confidence = 90.0
+	GameState.abbott_scope = 50.0
+	GameState.abbott_rideability = 40.0
+	GameState.madison_feel = 100.0
+	if why == "" and not is_equal_approx(GameState.refuse_scale(), 1.5):
+		why = "refuse at 90"
+	if why == "" and not is_equal_approx(GameState.scope_bonus(), 0.12):
+		why = "scope at 50"
+	if why == "" and not is_equal_approx(GameState.turn_scale(), 0.98):
+		why = "turn at 40"
+	if why == "" and not is_equal_approx(GameState.balance_need(), 0.19):
+		why = "advanced balance with feel"
+	if why == "" and not is_equal_approx(GameState.charge_need(), GameState.balance_need()):
+		why = "charge left balance"
+	GameState.class_id = "lesson"
+	if why == "" and not is_equal_approx(GameState.balance_need(), 0.08):
+		why = "lesson balance floored"
+	GameState.class_id = was_id
+	GameState.abbott_confidence = was_c
+	GameState.abbott_scope = was_s
+	GameState.abbott_rideability = was_r
+	GameState.madison_feel = was_f
+	if why != "":
+		_fail("horse_scales", why)
+		return
+	_ok("horse_scales")
 
 
 func _season() -> void:
