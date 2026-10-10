@@ -9,6 +9,7 @@ var step: int = 0
 var _held: bool = false
 
 
+## Opens on a real lesson when the tutorial is still ahead. A demo or a cert never starts it.
 func try_start() -> void:
 	active = false
 	step = 0
@@ -22,6 +23,7 @@ func try_start() -> void:
 	active = true
 
 
+## The one line for this step, said for a keyboard or a pad.
 func line() -> String:
 	var pad := GameState.last_device == "pad"
 	match step:
@@ -43,6 +45,7 @@ func line() -> String:
 			return "Canter the next fence."
 
 
+## Moves on when she does the thing the line asked for.
 func tick(horse: Horse) -> void:
 	if not active or horse == null:
 		return
@@ -75,10 +78,12 @@ func tick(horse: Horse) -> void:
 				_finish()
 
 
+## Ends it from the card. Same result as riding the last step.
 func skip() -> void:
 	_finish()
 
 
+## The next line. Past the last step, the lesson is over.
 func _advance() -> void:
 	step += 1
 	_held = false
@@ -86,6 +91,7 @@ func _advance() -> void:
 		_finish()
 
 
+## Marks the tutorial done and saves, so the card does not come back next time.
 func _finish() -> void:
 	active = false
 	GameState.tutorial_done = true
