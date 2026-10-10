@@ -38,7 +38,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 3 architecture | 9a540281 | no gates: markdown only | `dist/ARCHITECTURE.md`. All 31 scripts in `game/scripts/`. |
 
 | 4 scoreboard | 8127da3b | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `scoreboard_live.gd`. |
-| 4 rosette | t4b | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `rosette.gd`. |
+| 4 rosette | 16f4a161 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `rosette.gd`. |
+| 4 tail | t4c | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `tail_carriage.gd`. |
 ## Baseline
 
 ```

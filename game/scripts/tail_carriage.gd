@@ -35,6 +35,7 @@ var _swish_side := 1.0
 var _rng := RandomNumberGenerator.new()
 
 
+## Finds the tail bones and keeps the clip's rest, so the hang has a pose to return toward.
 func _bind(sk: Skeleton3D) -> void:
 	_bones.clear()
 	_rest.clear()
@@ -48,6 +49,7 @@ func _bind(sk: Skeleton3D) -> void:
 	_swish_in = _rng.randf_range(2.0, 5.0)
 
 
+## Lets the tail down from the flag of the clip, swishes at the halt, and follows a turn a beat late.
 func _process_modification_with_delta(delta: float) -> void:
 	var sk := get_skeleton()
 	if sk == null or horse == null or not is_instance_valid(horse):
