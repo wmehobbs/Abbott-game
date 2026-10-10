@@ -8,6 +8,7 @@ var pitch: float = 0.0
 var body: Node3D
 var _was_active: bool = false
 var _held: bool = false
+var _anim: AnimationPlayer
 
 
 func _ready() -> void:
@@ -73,12 +74,36 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	rotation.y = yaw
 	cam.rotation.x = pitch * 0.35
+	_step_anim()
+
+
+func _step_anim() -> void:
+	# Her own Walk while she moves, sped to her pace (the clip walks about
+	# 1.4 m/s; she covers 2.4), and Idle when she stops.
+	if _anim == null:
+		return
+	var v := Vector2(velocity.x, velocity.z).length()
+	var want := "Walk" if v > 0.2 else "Idle"
+	if not _anim.has_animation(want):
+		return
+	if _anim.current_animation != want:
+		_anim.play(want, 0.2)
+	_anim.speed_scale = clampf(v / 1.4, 0.7, 1.8) if want == "Walk" else 1.0
 
 
 func _madison() -> Node3D:
 	const MeshScript := preload("res://scripts/rider_mesh.gd")
 	if ResourceLoader.exists(MeshScript.GLB):
-		return MeshScript.make_standing("hunt")
+		var m: Node3D = MeshScript.make_standing("hunt", true)
+		# The glb faces +Z and she walks toward -Z: unturned, she walked the
+		# course backwards, facing the camera.
+		m.rotation_degrees.y = 180.0
+		_anim = m.find_child("AnimationPlayer", true, false) as AnimationPlayer
+		if _anim:
+			for clip in ["Walk", "Idle"]:
+				if _anim.has_animation(clip):
+					_anim.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+		return m
 	var n := Node3D.new()
 	n.name = "Madison"
 	return n

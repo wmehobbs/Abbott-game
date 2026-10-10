@@ -585,7 +585,7 @@ func _attach(bone: String, node_name: String) -> BoneAttachment3D:
 	return att
 
 
-static func make_standing(kind: String) -> Node3D:
+static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 	var root := Node3D.new()
 	root.name = "Michelle" if kind == "trainer" else "Madison"
 	if not ResourceLoader.exists(GLB):
@@ -595,7 +595,9 @@ static func make_standing(kind: String) -> Node3D:
 		return root
 	var vis: Node3D = packed.instantiate()
 	vis.name = "Casual"
-	_silence_static(vis)
+	# Walking Madison keeps the glb's own Walk and Idle; the rest stand still.
+	if not keep_anim:
+		_silence_static(vis)
 	root.add_child(vis)
 	vis.scale = Vector3.ONE * FIT
 	var skel := _find_skel_static(vis)

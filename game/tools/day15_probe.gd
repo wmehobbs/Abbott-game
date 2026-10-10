@@ -83,6 +83,11 @@ func _run() -> void:
 		_report_rider()
 	if bool(extra.get("scene", false)):
 		_report_scene()
+	if _plan.has("walkmove"):
+		await _walkmove()
+		print("PROBE done")
+		quit(0)
+		return
 	for pose in _plan.get("poses", []):
 		if pose.has("strip"):
 			await _strip(pose)
@@ -116,6 +121,16 @@ func _run() -> void:
 			elif not bool(c.get("world", false)):
 				from = origin + basis * from
 				look = origin + basis * look
+			if str(c.get("use", "")) == "walker":
+				var wk2 := current_scene.get_node_or_null("Walker")
+				if wk2:
+					(wk2.get("cam") as Camera3D).current = true
+					await process_frame
+					await process_frame
+					var img2 := root.get_viewport().get_texture().get_image()
+					img2.save_png(_out.path_join("%s_%s.png" % [str(pose.get("name", "p")), str(c.get("name", "c"))]))
+					_cam.current = true
+					continue
 			_cam.fov = float(c.get("fov", 40.0))
 			_cam.global_position = from
 			if from.distance_to(look) > 0.01:
@@ -309,3 +324,23 @@ func _strip(p: Dictionary) -> void:
 		var img := root.get_viewport().get_texture().get_image()
 		img.save_png(_out.path_join("%s_%02d.png" % [str(p.get("name", "strip")), i]))
 	print("PROBE strip ", p.get("name"), " n=", n, " period=", period)
+
+
+func _walkmove() -> void:
+	# Walk mode: press forward for a while and shoot the walker's own camera.
+	var wk := current_scene.get_node_or_null("Walker")
+	if wk == null:
+		print("PROBE no walker")
+		return
+	(wk.get("cam") as Camera3D).current = true
+	Input.action_press("gait_up")
+	for i in 40:
+		await process_frame
+	for k in 4:
+		for i in 6:
+			await process_frame
+		root.get_viewport().get_texture().get_image().save_png(_out.path_join("walkmove_%02d.png" % k))
+	Input.action_release("gait_up")
+	for i in 40:
+		await process_frame
+	root.get_viewport().get_texture().get_image().save_png(_out.path_join("walkstop.png"))

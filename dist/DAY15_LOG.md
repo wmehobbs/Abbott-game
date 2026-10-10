@@ -26,6 +26,7 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | window | done | (M5) | see M5 | Opens at 1600×900. F11 or Alt+Enter for full screen, remembered. |
 | saddle, fists | done | (M6) | compile ok, selftest 52/0 | Broad low cantle, no gullet strip; fingers curl into the gloves. |
 | lens | done | (M7) | selftest 52/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The ride camera is no longer interpolated twice; the warning is gone. |
+| walk mode | done | (M8) | compile ok, selftest 52/0, playtest pass, save match | Madison walks the course facing forward, with her own Walk and Idle. |
 
 ## What was wrong, and what changed
 
@@ -128,6 +129,11 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - **Hands:** the gloves are rounded fists, and the fingers curl toward the palm (the first curl went up the back of the hand), a size smaller so they stay inside the glove.
 - **Lens:** the ride camera inherited physics interpolation from the horse and is placed every frame from the horse's already-interpolated pose. That interpolated it twice and logged a warning every ride. The camera's own interpolation is off now; the warning is gone. At about 100 fps the lens sits 4.6–5.0 m behind him.
 - **Probe strip mode:** holding a clip at a phase did not stick with how the horse's player is driven, so a `strip` pose plays the gait forward with real steps. The trot (Cursor's) is a proper two-beat with a moment of suspension; the canter nods naturally.
+
+### Walk mode (M8)
+
+- **Facing:** the walking Madison faced +Z (the glb's front) while the walker moves toward −Z, so she walked the course backwards, facing the camera. She is turned 180°.
+- **Animation:** she was also a frozen statue sliding over the sand. The glb carries Walk, Idle, Run and more; walking Madison keeps its AnimationPlayer and plays Walk while she moves (sped to her 2.4 m/s pace) and Idle when she stops, both looped. Her helmet and boots ride her bones, so they follow.
 
 ## Decisions
 
