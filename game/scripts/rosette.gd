@@ -21,6 +21,7 @@ var _shown := ""
 var _poll_att: BoneAttachment3D
 
 
+## Builds the palm-sized rosette and keeps it hidden until a round wins one.
 func _ready() -> void:
 	top_level = true
 	visible = false
@@ -63,6 +64,7 @@ func _ready() -> void:
 		add_child(tail)
 
 
+## Pins it on the near cheekpiece after a ribbon, in that colour, until the next round.
 func _process(_delta: float) -> void:
 	var gs := get_node_or_null("/root/GameState")
 	if gs == null or horse == null:

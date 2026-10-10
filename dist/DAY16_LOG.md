@@ -37,7 +37,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 2 library | 99e8f480 | compile 1 errors=0, selftest 64/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.44, SAVE_MATCH | New test `library_lines`. Beginner 0.01 s over 62.14 and jump-off 0.01 s under 33.45, both inside 0.10. Task 2 is done: every public function that returns a value in `game_state.gd` and `content_library.gd` has a test. `load_course`, `specs_from_course` and `load_ship` were already in the older course tests. Functions that return nothing are not pinned. `load_save` is not called from a test, because it reads her save. |
 | 3 architecture | 9a540281 | no gates: markdown only | `dist/ARCHITECTURE.md`. All 31 scripts in `game/scripts/`. |
 
-| 4 scoreboard | t4a | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `scoreboard_live.gd`. |
+| 4 scoreboard | 8127da3b | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `scoreboard_live.gd`. |
+| 4 rosette | t4b | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `rosette.gd`. |
 ## Baseline
 
 ```
