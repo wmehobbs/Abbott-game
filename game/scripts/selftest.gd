@@ -72,6 +72,7 @@ func _run() -> void:
 	_class_best_display()
 	_class_clock()
 	_glass_lines()
+	_show_card()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1046,6 +1047,150 @@ func _glass_lines() -> void:
 		_fail("glass_lines", why)
 		return
 	_ok("glass_lines")
+
+
+func _show_card() -> void:
+	# Who is unlocked, when a jump-off is offered, and the ribbon for a placing.
+	var was_id := GameState.class_id
+	var was_kind := GameState.session_kind
+	var was_jo := GameState.jump_off
+	var was_elim := GameState.eliminated
+	var was_faults := GameState.last_faults
+	var was_tf := GameState.time_faults
+	var was_time := GameState.last_time
+	var was_posted: Dictionary = GameState.rounds_posted.duplicate(true)
+	var was_clears: Dictionary = GameState.clears.duplicate(true)
+	var was_faults_now := GameState.faults
+	var was_tsec := GameState.time_sec
+	var was_clock := GameState.clock_running
+	var was_done := GameState.round_complete
+	var was_start := GameState.start_crossed
+	var was_jumped := GameState.fences_jumped
+	var was_next := GameState.next_fence
+	var was_applied := GameState.time_faults_applied
+	var was_refs := GameState.refusals_this_round
+	var was_rails_n := GameState.rails_this_round
+	var was_rails: Array[int] = []
+	for n in GameState.rail_nums:
+		was_rails.append(int(n))
+	var was_refuse: Array[int] = []
+	for n2 in GameState.refuse_nums:
+		was_refuse.append(int(n2))
+	var was_rib := GameState.last_ribbon
+	var was_cents := GameState.official_cents
+	var was_reason := GameState.eliminate_reason
+	var was_line := GameState.trainer_line
+	var was_until := GameState.trainer_until
+	var was_leave := GameState.last_leave
+	var why := ""
+	GameState.rounds_posted = {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0}
+	GameState.clears = {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0}
+	GameState.session_kind = "schooling"
+	if not GameState.class_unlocked("lesson") or not GameState.class_unlocked("beginner"):
+		why = "lesson or beginner was locked"
+	if why == "" and GameState.class_unlocked("intermediate"):
+		why = "intermediate opened with no beginner round"
+	if why == "" and GameState.class_unlocked("advanced"):
+		why = "advanced opened early"
+	if why == "" and GameState.class_unlocked("nope"):
+		why = "an unknown class was unlocked"
+	GameState.rounds_posted["beginner"] = 1
+	if why == "" and not GameState.class_unlocked("intermediate"):
+		why = "intermediate stayed locked after a beginner round"
+	GameState.session_kind = "show"
+	if why == "" and GameState.class_unlocked("advanced"):
+		why = "show advanced opened without a clear"
+	GameState.clears["intermediate"] = 1
+	if why == "" and not GameState.class_unlocked("advanced"):
+		why = "show advanced stayed locked after a clear"
+	GameState.session_kind = "schooling"
+	GameState.rounds_posted["intermediate"] = 1
+	if why == "" and not GameState.class_unlocked("advanced"):
+		why = "schooling advanced stayed locked"
+	GameState.jump_off = false
+	GameState.eliminated = false
+	GameState.last_faults = 0
+	GameState.time_faults = 0
+	GameState.class_id = "beginner"
+	GameState.last_time = 90.0
+	GameState.session_kind = "schooling"
+	if why == "" and GameState.can_offer_jump_off():
+		why = "schooling offered a jump-off"
+	if why == "" and GameState.begin_jump_off():
+		why = "schooling started a jump-off"
+	GameState.session_kind = "show"
+	if why == "" and not GameState.can_offer_jump_off():
+		why = "a clear show round did not offer"
+	GameState.last_time = 95.05
+	if why == "" and not GameState.can_offer_jump_off():
+		why = "the time margin was dropped"
+	GameState.last_time = 95.06
+	if why == "" and GameState.can_offer_jump_off():
+		why = "a slow clear still offered"
+	GameState.last_time = 90.0
+	GameState.last_faults = 4
+	if why == "" and GameState.can_offer_jump_off():
+		why = "faults still offered"
+	GameState.last_faults = 0
+	GameState.time_faults = 1
+	if why == "" and GameState.can_offer_jump_off():
+		why = "time faults still offered"
+	GameState.time_faults = 0
+	GameState.eliminated = true
+	if why == "" and GameState.can_offer_jump_off():
+		why = "elimination still offered"
+	GameState.eliminated = false
+	if why == "" and not GameState.begin_jump_off():
+		why = "a clear show round did not start the jump-off"
+	if why == "" and not GameState.jump_off:
+		why = "the jump-off flag did not stick"
+	if why == "" and GameState.can_offer_jump_off():
+		why = "a second jump-off was offered"
+	if why == "" and GameState._ribbon(0, true) != "Blue":
+		why = "first clear ribbon"
+	if why == "" and GameState._ribbon(0, false) != "Red":
+		why = "later clear ribbon"
+	if why == "" and GameState._ribbon(4, false) != "Yellow":
+		why = "four fault ribbon"
+	if why == "" and GameState._ribbon(8, false) != "White":
+		why = "eight fault ribbon"
+	if why == "" and GameState._ribbon(12, false) != "Pink":
+		why = "twelve fault ribbon"
+	GameState.class_id = was_id
+	GameState.session_kind = was_kind
+	GameState.jump_off = was_jo
+	GameState.eliminated = was_elim
+	GameState.last_faults = was_faults
+	GameState.time_faults = was_tf
+	GameState.last_time = was_time
+	GameState.rounds_posted = was_posted
+	GameState.clears = was_clears
+	GameState.faults = was_faults_now
+	GameState.time_sec = was_tsec
+	GameState.clock_running = was_clock
+	GameState.round_complete = was_done
+	GameState.start_crossed = was_start
+	GameState.fences_jumped = was_jumped
+	GameState.next_fence = was_next
+	GameState.time_faults_applied = was_applied
+	GameState.refusals_this_round = was_refs
+	GameState.rails_this_round = was_rails_n
+	GameState.rail_nums.clear()
+	for n3 in was_rails:
+		GameState.rail_nums.append(n3)
+	GameState.refuse_nums.clear()
+	for n4 in was_refuse:
+		GameState.refuse_nums.append(n4)
+	GameState.last_ribbon = was_rib
+	GameState.official_cents = was_cents
+	GameState.eliminate_reason = was_reason
+	GameState.trainer_line = was_line
+	GameState.trainer_until = was_until
+	GameState.last_leave = was_leave
+	if why != "":
+		_fail("show_card", why)
+		return
+	_ok("show_card")
 
 
 func _season() -> void:
