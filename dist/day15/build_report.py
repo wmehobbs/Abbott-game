@@ -30,7 +30,8 @@ PAIRS = [
     ("seat", "Madison sits like a rider",
      "She sat on his loins, her shin bones were stretched to reach the stirrups, her arms reached for his ears, and her "
      "whole body tipped as one block. Now she sits in the dip behind his withers. Her legs hang at full length to the "
-     "stirrups on his sides, with her knees on the knee rolls. Her hands are on the reins over his withers, and she wears a helmet.",
+     "stirrups on his sides, with her knees on the knee rolls. Her hands are on the reins over his withers, and she wears a helmet. "
+     "At the canter she sits a little forward with her hands low, like a hunter rider.",
      ("rider1/halt_lside.png", None), ("rb1/halt_lside.png", None)),
     ("ridecam", "From the saddle camera",
      "The view you ride with, at the start of a round.",
@@ -65,6 +66,8 @@ LATER = [
     ("pat/pat_rside.png", None, "After a clear round, once he walks or stands, she pats his neck."),
     ("rosette4/ribbon_head.png", None, "When she wins a ribbon at a show, the rosette is pinned on his bridle in that colour until the next round."),
     ("titlezoom/title_8000.png", None, "The title photo slowly drifts in and out, so the first screen is not a still picture."),
+    ("tail2/tail_compare.png", None, "His tail flows down from a raised dock at the canter. The animation held it straight out like a flag. Standing, he swishes it now and then instead of every 3.3 seconds, and his ears flick back to listen to her."),
+    ("final5/results.png", (0.298, 0.222, 0.698, 0.772), "After a round, the way on is a gold button: Next after a clear round, Retry otherwise, the jump-off when it is offered. A gamepad starts on it."),
 ]
 
 

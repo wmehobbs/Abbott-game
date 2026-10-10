@@ -12,7 +12,7 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
    - legs at full length to stirrups on his sides, knees level and forward;
    - hands on the reins over the withers, fingers curled;
    - a real helmet.
-   She rises in the trot, folds over a fence and is thrown forward at a refusal.
+   She rises in the trot, sits a little forward with low hands at the canter, folds over a fence and is thrown forward at a refusal.
 3. **About 100 fps**, from 35–40. The scoreboard read and parsed a file from disk every frame. Small things no longer cast shadows, and fences are one piece each.
 4. **Sharper:** SMAA instead of FXAA. The vignette is softer.
 5. **Looks:**
@@ -34,11 +34,14 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
    - Madison breathes and looks round standing, and pats his neck after a clear round;
    - the title photo slowly drifts in;
    - a ribbon won at a show is pinned on his bridle as a rosette in its colour;
-   - the crowd idles (each out of step with the others) and waves when she goes clear.
+   - the crowd idles (each out of step with the others) and waves when she goes clear;
+   - his tail flows down at the canter (the clip held it straight out like a flag) and swishes now and then standing (the clip swung it every 3.3 s);
+   - his ears flick back to listen to her, and go forward at the canter.
+8. **The results card marks the way on:** one gold button (Next after a clear round, Retry otherwise, the jump-off when offered). A gamepad starts on it; on the keyboard the first arrow or Tab does. The gold buttons letter in dark brown now: cream on gold was hard to read.
 
 ## Final checks
 
-- Compile clean; selftest 53 pass, 0 fail.
+- Compile clean; selftest 54 pass, 0 fail (new: tail_hangs).
 - Playtest clear 0, refuse 4, rail 4.
 - hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.14, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final3`, 03:40.
 - Madison's save unchanged all night (compared after every run).
