@@ -24,6 +24,8 @@ Those same scripts were already typed. Declarations, parameters, and return type
 
 `MeshKit` boxes, spheres, cylinders, capsules, prisms, rings, limbs, lofts, and rods now have a self-test. They come back the size that was asked, and each mesh has faces. A rod between one point and itself stays empty. The settings round trip was already pinned, so it was not added again.
 
+Standing Madison has her helmet and not her casual shoes. Michelle has her clipboard and no helmet. Someone in the stands keeps their shoes. The built head and coat meshes have faces.
+
 Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd75b52d` (1109 bytes, last written by her session at 20:43 on Oct 9). The same hash was on the file after the copy. Copies are `dist/day16/save_snapshot.json` and `dist/day16/save_backup.json`. Neither is committed. Both are in `.git/info/exclude`.
 
 `photos_jpg/` stays deleted and unstaged. The Day 15 compile logs stay untracked.
@@ -63,7 +65,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 4 trainer | none | no change | Every top-level func in `trainer.gd` already had a `##` comment. One function. No commit. |
 | 5 types | none | no change | No untyped `var` and no missing return type in the named files. `hud.gd` `_btn` still takes `sig` with no type: the call sites pass a Signal or a Callable, and one parameter cannot be both. For-loop variables were left as they are. No commit. |
 | 6 assets | ad959cee | no gates: markdown only | `dist/day16/assets_report.md`. 5398 files. Referenced 3968. Unreferenced 1430. No credit 3808. Over 2048 px: 5. Over 5 MB: 3. Nothing deleted. |
-| 7 meshes | t7a | compile 1 errors=0, selftest 65/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `built_meshes`. Lesson time 0.01 s under 25.43, inside 0.10. The settings round trip was already pinned by `_settings`, so it was not added again. |
+| 7 meshes | be71f45b | compile 1 errors=0, selftest 65/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `built_meshes`. Lesson time 0.01 s under 25.43, inside 0.10. The settings round trip was already pinned by `_settings`, so it was not added again. |
+| 7 standing | t7b | compile 1 errors=0, selftest 66/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.45, SAVE_MATCH | New test `standing_people`. Lesson time 0.01 s under 25.43, inside 0.10. |
 
 ## Baseline
 

@@ -78,6 +78,7 @@ func _run() -> void:
 	_voice_and_start()
 	_library_lines()
 	_built_meshes()
+	_standing_people()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1570,6 +1571,45 @@ func _built_meshes() -> void:
 		_fail("built_meshes", why)
 		return
 	_ok("built_meshes")
+
+
+func _standing_people() -> void:
+	# Standing Madison, Michelle, and the built coat meshes. Freed before the next test.
+	var why := ""
+	var head := PersonLook._head_mesh()
+	var torso := PersonLook._torso_mesh()
+	var seat := PersonLook._seated_torso()
+	if head.get_faces().is_empty() or torso.get_faces().is_empty() or seat.get_faces().is_empty():
+		why = "built figure mesh"
+	var madison := PersonLook.standing_madison()
+	if why == "" and (madison == null or madison.name != "Madison" or madison.find_child("Cap", true, false) == null):
+		why = "madison on her feet"
+	var shoe := madison.find_child("Cube070", true, false) if madison != null else null
+	if why == "" and shoe is Node3D and (shoe as Node3D).visible:
+		why = "madison still in her casual shoes"
+	if madison != null:
+		madison.free()
+	var michelle := PersonLook.standing_trainer()
+	if why == "" and (michelle == null or michelle.name != "Michelle" or michelle.get_child_count() < 3):
+		why = "michelle on her feet"
+	if why == "" and michelle != null and michelle.find_child("Cap", true, false) != null:
+		why = "michelle in a helmet"
+	if michelle != null:
+		michelle.free()
+	var crowd := RiderMesh.make_standing("spectator1", true)
+	if why == "" and (crowd == null or crowd.name != "Madison"):
+		why = "crowd"
+	var crowd_shoe := crowd.find_child("Cube070", true, false) if crowd != null else null
+	if why == "" and (crowd_shoe == null or not (crowd_shoe as Node3D).visible):
+		why = "crowd shoes"
+	if why == "" and crowd != null and crowd.find_child("Cap", true, false) != null:
+		why = "crowd helmet"
+	if crowd != null:
+		crowd.free()
+	if why != "":
+		_fail("standing_people", why)
+		return
+	_ok("standing_people")
 
 
 func _season() -> void:
