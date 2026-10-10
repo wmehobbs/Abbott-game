@@ -1,0 +1,5 @@
+{"horse_at": [0.0, 0.0, -60.0], "poses": [{"name": "pano", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "n", "world": true, "from": [0.0, 2.6, 0.0], "look": [0.0, 2.0, -40.0], "fov": 70},
+  {"name": "e", "world": true, "from": [0.0, 2.6, 0.0], "look": [40.0, 2.0, 0.0], "fov": 70},
+  {"name": "s", "world": true, "from": [0.0, 2.6, 0.0], "look": [0.0, 2.0, 40.0], "fov": 70},
+  {"name": "w", "world": true, "from": [0.0, 2.6, 0.0], "look": [-40.0, 2.0, 0.0], "fov": 70}]}]}

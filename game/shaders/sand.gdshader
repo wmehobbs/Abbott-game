@@ -40,10 +40,20 @@ void fragment() {
 	col = mix(col, col * vec3(0.72, 0.64, 0.48), track * 0.40);
 	float rake2 = sin(world_p.z * 6.2 + world_p.x * 0.22) * 0.5 + 0.5;
 	col *= mix(0.97, 1.03, rake2 * track);
+	// The rail track: a churned band about 2 m wide, 2.2 m in from the
+	// rail, the shape of the ring with rounded corners, where every round
+	// goes. Darker, rougher, a little busier.
+	vec2 rr_b = arena_half - vec2(2.2);
+	float rr_r = 4.5;
+	vec2 rr_q = abs(world_p.xz) - (rr_b - vec2(rr_r));
+	float rr_d = length(max(rr_q, vec2(0.0))) + min(max(rr_q.x, rr_q.y), 0.0) - rr_r;
+	float rail_track = 1.0 - smoothstep(0.25, 1.15, abs(rr_d));
+	float churn = texture(albedo_tex, uv * 4.3 + vec2(0.33, 0.07)).r;
+	col = mix(col, col * vec3(0.64, 0.55, 0.42) * mix(0.88, 1.10, churn), rail_track * 0.55);
 	ALBEDO = col * tint;
-	ROUGHNESS = mix(0.82, 0.96, 1.0 - center * 0.28 - track * 0.16);
+	ROUGHNESS = clamp(mix(0.82, 0.96, 1.0 - center * 0.28 - track * 0.16) + rail_track * 0.04, 0.0, 1.0);
 	METALLIC = 0.0;
 	SPECULAR = 0.10 + center * 0.08;
 	NORMAL_MAP = texture(normal_tex, uv * 1.15).rgb;
-	NORMAL_MAP_DEPTH = 0.72;
+	NORMAL_MAP_DEPTH = 0.72 + rail_track * 0.45;
 }
