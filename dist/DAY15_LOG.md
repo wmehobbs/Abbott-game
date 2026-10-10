@@ -45,7 +45,7 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
 
 - Compile clean; selftest 57 pass, 0 fail (new since the 03:40 run: tail_hangs, options_focus, rosette_on_bridle, show_braids; options_focus and rosette_on_bridle fail on the code before their fix).
 - Playtest clear 0, refuse 4, rail 4.
-- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final4`, 05:03. The times wobble by 0.01 s from run to run; the limit is 0.10 s.
+- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45). Run `final5`, 05:26, on the finished tree. The times wobble by 0.01 s from run to run; the limit is 0.10 s.
 - Madison's save unchanged all night (compared after every run).
 
 ## Needs Ernie
