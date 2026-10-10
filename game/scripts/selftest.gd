@@ -75,6 +75,7 @@ func _run() -> void:
 	_show_card()
 	_horse_scales()
 	_round_numbers()
+	_voice_and_start()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1356,6 +1357,100 @@ func _round_numbers() -> void:
 		_fail("round_numbers", why)
 		return
 	_ok("round_numbers")
+
+
+func _voice_and_start() -> void:
+	# A soft line yields, the barn note falls back, and a locked class does not start.
+	var was_kind := GameState.session_kind
+	var was_id := GameState.class_id
+	var was_jo := GameState.jump_off
+	var was_done := GameState.lesson_done
+	var was_c := GameState.abbott_confidence
+	var was_r := GameState.abbott_rideability
+	var was_t := GameState.madison_timing
+	var was_line := GameState.trainer_line
+	var was_until := GameState.trainer_until
+	var was_leave := GameState.last_leave
+	var was_posted: Dictionary = GameState.rounds_posted.duplicate(true)
+	var why := ""
+	GameState.trainer_line = "held"
+	GameState.trainer_until = 0.0
+	GameState.last_leave = ""
+	if GameState.speak_soft(""):
+		why = "an empty line was spoken"
+	if why == "" and not GameState.speak_soft("Sit."):
+		why = "a quiet line was refused"
+	if why == "" and GameState.trainer_line != "Sit.":
+		why = "soft line was " + GameState.trainer_line
+	GameState.trainer_line = "held"
+	GameState.trainer_until = 2.0
+	GameState.last_leave = "spot"
+	if why == "" and GameState.speak_soft("Sit."):
+		why = "a soft line talked over the leave"
+	if why == "" and GameState.trainer_line != "held":
+		why = "the leave line was replaced"
+	if why == "" and not GameState.speak_soft("Now."):
+		why = "a stride word did not talk over"
+	if why == "" and not is_equal_approx(GameState.trainer_until, 2.0):
+		why = "a stride word reset the hold"
+	GameState.session_kind = "zzz"
+	GameState.lesson_done = true
+	GameState.abbott_confidence = -1.0
+	GameState.abbott_rideability = 0.0
+	GameState.madison_timing = 50.0
+	if why == "" and GameState.barn_note() != "Abbott is looky. Walk him, then a quiet canter. Don't chase the fences.":
+		why = "looky note " + GameState.barn_note()
+	GameState.abbott_confidence = 40.0
+	if why == "" and not GameState.barn_note().begins_with("He's a little fresh."):
+		why = "fresh note " + GameState.barn_note()
+	GameState.abbott_confidence = 80.0
+	GameState.abbott_rideability = 90.0
+	if why == "" and not GameState.barn_note().begins_with("He's with you."):
+		why = "with you note " + GameState.barn_note()
+	GameState.abbott_confidence = 60.0
+	GameState.abbott_rideability = 50.0
+	GameState.madison_timing = 20.0
+	if why == "" and not GameState.barn_note().begins_with("Half-halt"):
+		why = "half-halt note " + GameState.barn_note()
+	GameState.madison_timing = 50.0
+	if why == "" and not GameState.barn_note().begins_with("Quiet day"):
+		why = "quiet note " + GameState.barn_note()
+	GameState.lesson_done = false
+	if why == "" and not GameState.barn_note().begins_with("Lesson first."):
+		why = "lesson note " + GameState.barn_note()
+	GameState.class_id = "beginner"
+	GameState.session_kind = "schooling"
+	GameState.jump_off = true
+	if why == "" and GameState.start_session("show", "nope"):
+		why = "an unknown class started"
+	if why == "" and GameState.class_id != "beginner":
+		why = "unknown class changed the card"
+	if why == "" and not GameState.jump_off:
+		why = "unknown class cleared the jump-off"
+	GameState.rounds_posted = {"lesson": 0, "beginner": 0, "intermediate": 0, "advanced": 0}
+	if why == "" and GameState.start_session("schooling", "intermediate"):
+		why = "a locked class started"
+	if why == "" and GameState.class_id != "intermediate":
+		why = "a locked start did not take the class"
+	if why == "" and not GameState.start_session("lesson", "advanced"):
+		why = "the lesson did not start"
+	if why == "" and GameState.class_id != "lesson":
+		why = "the lesson kept the other class"
+	GameState.session_kind = was_kind
+	GameState.class_id = was_id
+	GameState.jump_off = was_jo
+	GameState.lesson_done = was_done
+	GameState.abbott_confidence = was_c
+	GameState.abbott_rideability = was_r
+	GameState.madison_timing = was_t
+	GameState.trainer_line = was_line
+	GameState.trainer_until = was_until
+	GameState.last_leave = was_leave
+	GameState.rounds_posted = was_posted
+	if why != "":
+		_fail("voice_and_start", why)
+		return
+	_ok("voice_and_start")
 
 
 func _season() -> void:
