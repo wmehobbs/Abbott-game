@@ -41,6 +41,8 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
 9. **Show day:** his mane is braided (twelve button braids down the off side of the crest), the ring is dressed with bunting on poles above the rail, the stands fill (eighteen people instead of six), and Madison wears her number at her waist. Lessons and schooling stay plain. Standing a while, he blows out or snorts now and then.
 10. **Two fixes found on review:** Options opened from the pause menu now takes the gamepad focus (it was left on the pause buttons behind the dim), and the rosette stays on the bridle when Abbott is worried (his lifted neck left it on his noseband; his default confidence of 48 is in that range).
 
+11. **Title art (after the night, at Ernie's ask):** the opening screen's photo of Abbott is now a drawing of him: sepia ink and watercolour made from the same stall photo (`dist/day15/title_drawing.py`, OpenCV), fading into cream paper and framed 16:9 so his whole head shows, ears to muzzle. "Hidden K Stables" is printed in the drawing's ink; the bottom band is a warm dark brown. The photo is kept (`abbott_title.jpg`) and is used if the drawing is missing. Gates `title1`: selftest 57/0, playtest 0/4/4, 25.42 / 62.15 / 33.44, save unchanged.
+
 ## Final checks
 
 - Compile clean; selftest 57 pass, 0 fail (new since the 03:40 run: tail_hangs, options_focus, rosette_on_bridle, show_braids; options_focus and rosette_on_bridle fail on the code before their fix).

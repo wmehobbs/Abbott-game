@@ -53,9 +53,16 @@ func _build() -> void:
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	bg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	var tex_path := "res://assets/photos/abbott_title.jpg"
+	# Abbott in ink and watercolour, drawn from his stall photo (the photo is
+	# kept beside it), on paper, his whole head to the height of the screen.
+	var tex_path := "res://assets/photos/abbott_title_drawn.jpg"
+	if not ResourceLoader.exists(tex_path):
+		tex_path = "res://assets/photos/abbott_title.jpg"
 	if ResourceLoader.exists(tex_path):
 		bg.texture = load(tex_path)
+	# Fine pen lines shimmer when drawn smaller than the image without
+	# mipmaps, most of all through the slow push-in.
+	bg.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	bg.modulate = Color(1, 1, 1)
 	add_child(bg)
 	# A slow push-in on him and back, so the first screen breathes. Off when
@@ -69,13 +76,15 @@ func _build() -> void:
 
 	var shade := ColorRect.new()
 	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
-	shade.color = Color(0.02, 0.015, 0.01, 0.18)
+	# A light hand: the drawing is on pale paper, not a dark photo.
+	shade.color = Color(0.02, 0.015, 0.01, 0.06)
 	add_child(shade)
 
 	var bottom := ColorRect.new()
 	bottom.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	bottom.offset_top = -400
-	bottom.color = Color(0.03, 0.025, 0.018, 0.72)
+	# Nearly solid, warm dark brown: see-through grey went muddy over the paper.
+	bottom.color = Color(0.085, 0.062, 0.042, 0.93)
 	add_child(bottom)
 
 	var stack := VBoxContainer.new()
@@ -106,9 +115,8 @@ func _build() -> void:
 	if serif_b:
 		stamp.add_theme_font_override("font", serif_b)
 	stamp.add_theme_font_size_override("font_size", 28)
-	stamp.add_theme_color_override("font_color", Color(0.93, 0.88, 0.76))
-	stamp.add_theme_color_override("font_outline_color", Color(0.05, 0.04, 0.03, 0.95))
-	stamp.add_theme_constant_override("outline_size", 8)
+	# Printed on the paper in the drawing's sepia ink.
+	stamp.add_theme_color_override("font_color", Color(0.29, 0.20, 0.12))
 	add_child(stamp)
 	var ver := Label.new()
 	ver.text = "2.348.0.0"
@@ -118,7 +126,7 @@ func _build() -> void:
 	if sans:
 		ver.add_theme_font_override("font", sans)
 	ver.add_theme_font_size_override("font_size", 16)
-	ver.add_theme_color_override("font_color", Color(0.78, 0.72, 0.62, 0.85))
+	ver.add_theme_color_override("font_color", Color(0.40, 0.31, 0.22, 0.85))
 	add_child(ver)
 
 	var sub := Label.new()
