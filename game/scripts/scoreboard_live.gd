@@ -8,6 +8,7 @@ var faults_lab: Label3D
 var _acc := 0.0
 
 
+## Copies the clock and the faults onto the board. Ten times a second is enough to read.
 func _process(delta: float) -> void:
 	_acc += delta
 	if _acc < 0.1:
