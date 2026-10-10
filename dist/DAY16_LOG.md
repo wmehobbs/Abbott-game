@@ -47,7 +47,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 4 walk | 2389869a | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `walker.gd`. |
 | 4 bascule | 1a3af23b | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `bascule.gd`. |
 | 4 options | b0a83af4 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `settings_menu.gd`. |
-| 4 people | t4k | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `person_look.gd`. |
+| 4 people | 4c9062a2 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `person_look.gd`. |
+| 4 title | t4l | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `title.gd`. |
 
 ## Baseline
 

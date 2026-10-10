@@ -5,6 +5,7 @@ var serif_b: FontFile
 var sans: FontFile
 
 
+## Fonts, the theme, and the card. A self-test or a shot stays here. A headless ride goes straight to the arena.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	serif = load("res://assets/fonts/LibreBaskerville-Regular.ttf")
@@ -48,6 +49,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file.call_deferred("res://scenes/arena.tscn")
 
 
+## The card: her best line, the barn note, and the way in. Lesson is the gold button.
 func _build() -> void:
 	var bg := TextureRect.new()
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -216,6 +218,7 @@ var opt_panel: Control
 var season_panel: Control
 
 
+## Sound and picture over the title. Controls stay on the pause menu, not here.
 func _build_options() -> void:
 	opt_panel = Control.new()
 	opt_panel.name = "TitleOptions"
@@ -249,6 +252,7 @@ func _build_options() -> void:
 	card.add_child(menu)
 
 
+## Shows the options card and takes the title buttons off, so a pad cannot press through it.
 func _open_options() -> void:
 	opt_panel.visible = true
 	_title_buttons(false)
@@ -257,6 +261,7 @@ func _open_options() -> void:
 		menu.show_page("home")
 
 
+## Back to the title, with Lesson focused again.
 func _close_options() -> void:
 	opt_panel.visible = false
 	_title_buttons(true)
@@ -265,6 +270,7 @@ func _close_options() -> void:
 		lesson.grab_focus()
 
 
+## Enables or disables the title buttons. Buttons inside a card are left alone.
 func _title_buttons(on: bool) -> void:
 	for n in find_children("*", "Button", true, false):
 		var b: Button = n as Button
@@ -275,6 +281,7 @@ func _title_buttons(on: bool) -> void:
 		b.disabled = not on
 
 
+## The season card, empty until it is opened. It scrolls, because the classes do not fit.
 func _build_season() -> void:
 	season_panel = Control.new()
 	season_panel.name = "SeasonPanel"
@@ -310,6 +317,7 @@ func _build_season() -> void:
 	scroll.add_child(box)
 
 
+## Fills the season from her record and focuses the first class she can ride.
 func _open_season() -> void:
 	_fill_season()
 	season_panel.visible = true
@@ -322,6 +330,7 @@ func _open_season() -> void:
 				break
 
 
+## Closes the season card and puts the focus back on Lesson.
 func _close_season() -> void:
 	season_panel.visible = false
 	_title_buttons(true)
@@ -330,6 +339,7 @@ func _close_season() -> void:
 		lesson.grab_focus()
 
 
+## One row per class: lessons, schooling, show day. A locked row cannot be pressed.
 func _fill_season() -> void:
 	var box: VBoxContainer = season_panel.find_child("SeasonBox", true, false)
 	if box == null:
@@ -382,6 +392,7 @@ func _fill_season() -> void:
 	box.add_child(back)
 
 
+## Starts the class on that row and goes to the arena. A locked row does nothing.
 func _start_season(row: Dictionary) -> void:
 	if str(row.get("state", "")) == "locked":
 		return
@@ -400,6 +411,7 @@ func _start_season(row: Dictionary) -> void:
 	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
+## The height card, hidden until School or Show day asks for it.
 func _build_pick() -> void:
 	pick_panel = Control.new()
 	pick_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -418,6 +430,7 @@ func _build_pick() -> void:
 	center.add_child(box)
 
 
+## Lists the classes for schooling or for show day. A locked one is shown, and it cannot be pressed.
 func _open_pick(kind: String) -> void:
 	pick_kind = kind
 	GameState.session_kind = kind
@@ -473,6 +486,7 @@ func _open_pick(kind: String) -> void:
 	pick_panel.visible = true
 
 
+## A lesson, then the arena. If the session will not start, she stays on the title.
 func _go_lesson() -> void:
 	_ui()
 	if not GameState.start_session("lesson", "lesson"):
@@ -481,6 +495,7 @@ func _go_lesson() -> void:
 	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
+## Watch a round: a beginner show at the first course, ridden for her. Not her save.
 func _watch_round() -> void:
 	_ui()
 	GameState.demo_ride = true
@@ -493,6 +508,7 @@ func _watch_round() -> void:
 	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
+## The class she picked, then the arena. A locked class leaves her on the card.
 func _go_ride(cid: String) -> void:
 	_ui()
 	if not GameState.start_session(pick_kind, cid):
@@ -501,6 +517,7 @@ func _go_ride(cid: String) -> void:
 	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
+## A title button. The click plays, then it does the thing.
 func _btn(parent: Node, text: String, cb: Callable, wide: float = 200.0) -> void:
 	var b := Button.new()
 	b.name = text
@@ -529,6 +546,7 @@ func _btn(parent: Node, text: String, cb: Callable, wide: float = 200.0) -> void
 	)
 
 
+## True only for the self-test arg. The game then stays on this scene and runs the checks.
 func _selftest_requested() -> bool:
 	for a in OS.get_cmdline_user_args():
 		if str(a) == "--selftest":
@@ -536,6 +554,7 @@ func _selftest_requested() -> bool:
 	return false
 
 
+## True for the still-camera pass. That one is for people, and it must not write her save.
 func _shots_requested() -> bool:
 	for a in OS.get_cmdline_user_args():
 		if str(a) == "--shots" or str(a).begins_with("--shots-out="):
@@ -543,6 +562,7 @@ func _shots_requested() -> bool:
 	return false
 
 
+## The menu click, on the UI bus.
 func _ui() -> void:
 	if ResourceLoader.exists("res://assets/audio/ui.wav"):
 		var p := AudioStreamPlayer.new()
@@ -552,20 +572,24 @@ func _ui() -> void:
 		p.play()
 
 
+## Opens the arena in ride mode. Nothing here starts a class.
 func _play() -> void:
 	GameState.set_mode("ride")
 	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
+## Into the arena on foot, to walk the course before she mounts.
 func _walk() -> void:
 	GameState.set_mode("walk")
 	get_tree().change_scene_to_file("res://scenes/arena.tscn")
 
 
+## Escape or the pause key leaves the game from the title.
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") or (event is InputEventKey and event.pressed and event.physical_keycode == KEY_ESCAPE):
 		get_tree().quit()
 
 
+## The Quit button.
 func _quit() -> void:
 	get_tree().quit()
