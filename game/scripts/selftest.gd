@@ -45,6 +45,7 @@ func _run() -> void:
 	_bleachers()
 	await _leg_tuck()
 	await _hud_frame_cost()
+	_walker_forward()
 	_bridle_fit()
 	_coat_clean()
 	_barn_note_player()
@@ -1228,6 +1229,27 @@ func _hud_frame_cost() -> void:
 		_fail("hud_frame_cost", why)
 		return
 	_ok("hud_frame_cost")
+
+
+func _walker_forward() -> void:
+	# Walking Madison once faced the glb's +Z while the walker moves toward
+	# -Z, so she walked the course backwards. Her front faces the way she walks.
+	var w := Walker.new()
+	get_tree().root.add_child(w)
+	var body: Node3D = w.get("body")
+	var why := ""
+	if body == null:
+		why = "no body"
+	else:
+		var her_front := (body.global_transform.basis * Vector3(0, 0, 1)).normalized()
+		var walk_dir := (w.global_transform.basis * Vector3(0, 0, -1)).normalized()
+		if her_front.dot(walk_dir) < 0.9:
+			why = "she faces %.2f off the walk" % her_front.dot(walk_dir)
+	w.queue_free()
+	if why != "":
+		_fail("walker_forward", why)
+		return
+	_ok("walker_forward")
 
 
 func _refuse_cam() -> void:
