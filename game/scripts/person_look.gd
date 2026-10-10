@@ -17,6 +17,7 @@ const HAIR := Color(0.62, 0.48, 0.32)
 const HAIR_M := Color(0.22, 0.14, 0.10)
 
 
+## Her in the saddle. The kit mesh when the file is there, and the English saddle under her either way.
 static func mounted_madison(host: Node3D, seat: Vector3) -> Node3D:
 	var root := Node3D.new()
 	root.name = "Rider"
@@ -127,6 +128,7 @@ static func mounted_madison(host: Node3D, seat: Vector3) -> Node3D:
 	return root
 
 
+## Empty head and leg pivots. The ride pitches these, and the mesh reads the angles.
 static func _pivot_tree(body: Node3D) -> void:
 	# Empty pivots. _update_rider pitches these. The mesh reads the angles.
 	var head := Node3D.new()
@@ -146,6 +148,7 @@ static func _pivot_tree(body: Node3D) -> void:
 		leg.add_child(shin)
 
 
+## The casual mesh, turned to face his ears. False when the file is missing, and the built body is used.
 static func _mount_mesh(body: Node3D) -> bool:
 	if not ResourceLoader.exists(RiderMeshScript.GLB):
 		return false
@@ -167,6 +170,7 @@ static func _mount_mesh(body: Node3D) -> bool:
 	return true
 
 
+## Madison on her feet. The posed mesh when the file is there, otherwise the built figure.
 static func standing_madison() -> Node3D:
 	if ResourceLoader.exists(RiderMeshScript.GLB):
 		return RiderMeshScript.make_standing("hunt")
@@ -176,6 +180,7 @@ static func standing_madison() -> Node3D:
 	return root
 
 
+## Michelle on her feet, the same way, with no helmet.
 static func standing_trainer() -> Node3D:
 	if ResourceLoader.exists(RiderMeshScript.GLB):
 		return RiderMeshScript.make_standing("trainer")
@@ -185,6 +190,7 @@ static func standing_trainer() -> Node3D:
 	return root
 
 
+## The built figure for when the mesh file is missing. Coat, breeches, and a head.
 static func _standing_figure(root: Node3D, height: float, madison: bool) -> void:
 	var s := height / HEIGHT
 	var navy := MeshKit.mat_color(NAVY if madison else Color(0.16, 0.20, 0.16), 0.55)
@@ -271,6 +277,7 @@ static func _standing_figure(root: Node3D, height: float, madison: bool) -> void
 		MeshKit.add_child_mi(root, MeshKit.cyl(0.014 * s, 0.012 * s, 0.014 * s, 8), MeshKit.mat_color(Color(0.18, 0.16, 0.12), 0.40, 0.35), "Watch", Vector3(0.14 * s, 1.10 * s, 0.08 * s))
 
 
+## Her face from the kit photos when asked, otherwise a built face. A helmet in the saddle, a cap on the rail.
 static func _girl_head(head: Node3D, face_mat: Material, skin: Material, hair_c: Color, helmet: bool, gold: Material, photo_face: bool) -> void:
 	var hair := MeshKit.mat_color(hair_c, 0.58)
 	var black := MeshKit.mat_color(BLACK, 0.28)
@@ -329,6 +336,7 @@ static func _girl_head(head: Node3D, face_mat: Material, skin: Material, hair_c:
 		MeshKit.add_child_mi(head, MeshKit.box(Vector3(0.10, 0.006, 0.042)), cap, "Peak", Vector3(0, 0.082, -0.048))
 
 
+## The lofted skull the face photos sit on.
 static func _head_mesh() -> ArrayMesh:
 	var stations: Array = []
 	stations.append(MeshKit.station(Vector3(0, 0.074, 0.008), 0.034, 0.038, Vector3.UP))
@@ -341,6 +349,7 @@ static func _head_mesh() -> ArrayMesh:
 	return MeshKit.loft(stations, 24)
 
 
+## A standing coat, from the hips up to the collar.
 static func _torso_mesh() -> ArrayMesh:
 	var stations: Array = []
 	stations.append(MeshKit.station(Vector3(0, 0.00, 0.012), 0.145, 0.100, Vector3.UP))
@@ -352,6 +361,7 @@ static func _torso_mesh() -> ArrayMesh:
 	return MeshKit.loft(stations, 18)
 
 
+## The same coat folded into a hunt seat, shoulders forward over the knee.
 static func _seated_torso() -> ArrayMesh:
 	var stations: Array = []
 	stations.append(MeshKit.station(Vector3(0, 0.00, 0.038), 0.094, 0.086, Vector3.UP))
@@ -364,6 +374,7 @@ static func _seated_torso() -> ArrayMesh:
 	return MeshKit.loft(stations, 20)
 
 
+## One hunt tail, hanging past the cantle. The pair is split by the vent.
 static func _coat_tail(sx: float) -> ArrayMesh:
 	# Hunt tails hang past the cantle from the saddle camera, split by the vent.
 	var stations: Array = []
@@ -374,6 +385,7 @@ static func _coat_tail(sx: float) -> ArrayMesh:
 	return MeshKit.loft(stations, 12)
 
 
+## A thin flap along the shoulder, not a flat board standing off his side.
 static func _saddle_flap(sx: float, thick: float, drop: float, chord: float) -> ArrayMesh:
 	# Thin panel: loft along the shoulder, not a door box.
 	var stations: Array = []
@@ -393,6 +405,7 @@ const BARREL := [
 	[-0.596, 0.201], [-0.655, 0.180], [-0.698, 0.110], [-0.712, 0.0]]
 
 
+## Half his width at a height under the saddle, so the pad and the girth meet him.
 static func _barrel(y: float) -> float:
 	if y >= float(BARREL[0][0]):
 		return float(BARREL[0][1])
@@ -436,6 +449,7 @@ static func _girth_mesh(z: float, width: float, thick: float) -> ArrayMesh:
 	return MeshKit.loft(st, 8)
 
 
+## The close-contact saddle, the pad, the flaps, and the girth. Built once.
 static func _english_saddle(host: Node3D, seat: Vector3) -> void:
 	if host.get_node_or_null("Saddle"):
 		return
@@ -489,6 +503,7 @@ static func _english_saddle(host: Node3D, seat: Vector3) -> void:
 	MeshKit.add_child_mi(root, _girth_mesh(-0.120, 0.030, 0.006), dark, "Girth")
 
 
+## One slice of the three-view kit. A flat colour when the photos or the shader are missing.
 static func _part_mat(v0: float, v1: float, fallback: Color, width_scale: float, depth_scale: float, y0: float = 0.0, y1: float = 1.0, u0: float = 0.32, u1: float = 0.68, su0: float = 0.42, su1: float = 0.60) -> Material:
 	if not ResourceLoader.exists("res://shaders/person.gdshader"):
 		return _kit_fallback(fallback)
@@ -509,6 +524,7 @@ static func _part_mat(v0: float, v1: float, fallback: Color, width_scale: float,
 	return m
 
 
+## Wool, pad cloth, or a flat colour, so a missing photo still reads as cloth.
 static func _kit_fallback(fallback: Color) -> Material:
 	if fallback.b > fallback.r + 0.04:
 		var w := MeshKit.hunt_wool()
@@ -521,6 +537,7 @@ static func _kit_fallback(fallback: Color) -> Material:
 	return MeshKit.mat_color(fallback, 0.55)
 
 
+## A closed fist above the withers, and a mark the reins can find.
 static func _glove(body: Node3D, black: Material, sx: float) -> void:
 	# Closed fist on the withers. Fingers curl under; crop stays in the right.
 	var palm_p := Vector3(sx * 0.004, 0.064, -0.278)
@@ -547,6 +564,7 @@ static func _glove(body: Node3D, black: Material, sx: float) -> void:
 	body.add_child(mark)
 
 
+## Her face from the tight crop. Brows through the mouth, not the visor.
 static func _face_mat() -> Material:
 	if not ResourceLoader.exists("res://shaders/madison_face.gdshader"):
 		return MeshKit.mat_color(SKIN, 0.52)
