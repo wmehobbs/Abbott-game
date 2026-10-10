@@ -1,3 +1,47 @@
+# Morning
+
+Saturday, October 10. Branch `day15-claude` (on top of Cursor's `day14-horse`). Version stays 2.348.0.0. Nothing pushed, nothing exported.
+
+Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJPrk1 (private to Ernie).
+
+## What you will notice
+
+1. **Abbott is back.** Cursor's Day 14 horse loaded 100 times too big and lying on its side in Godot, so the ring showed Madison floating in the air. The model is rebuilt (`abbott_v2d.glb`), his chestnut coat shows, and he has a bridle fitted to his head.
+2. **Madison sits like a rider:**
+   - in the dip behind his withers (she sat on his loins);
+   - legs at full length to stirrups on his sides, knees level and forward;
+   - hands on the reins over the withers, fingers curled;
+   - a real helmet.
+   She rises in the trot, folds over a fence and is thrown forward at a refusal.
+3. **About 100 fps**, from 35–40. The scoreboard read and parsed a file from disk every frame. Small things no longer cast shadows, and fences are one piece each.
+4. **Sharper:** SMAA instead of FXAA. The vignette is softer.
+5. **Looks:**
+   - hedge brush and flower beds on the fences;
+   - all trees green;
+   - a worn rail track in the sand;
+   - a glossier coat;
+   - a reshaped saddle and white pad.
+6. **Smaller fixes:**
+   - walking Madison faces forward and walks;
+   - the crowd faces the ring and watches him, and so does Michelle;
+   - the camera keeps him in frame over a fence;
+   - a gold Lesson button and clearer title text;
+   - F11 or Alt+Enter for full screen; the window opens at 1600×900.
+
+## Final checks
+
+- Compile clean; selftest 53 pass, 0 fail.
+- Playtest clear 0, refuse 4, rail 4.
+- hk_les_001 0 faults 25.43; hk_beg_035 0 faults 62.15, jump-off 0 faults 33.45; teleported false (start of night 25.43 / 62.14 / 33.45).
+- Madison's save unchanged all night (compared after every run).
+
+## Needs Ernie
+
+- "Best · 0 faults · 5.86s" on the title is Madison's saved beginner record. No round is that short; it almost certainly came from old automated runs. Left alone; it can be reset.
+- No music in the game yet.
+- `photos_jpg/` was deleted before tonight, outside this session. The deletion is not committed.
+- Nothing is merged to main.
+
 # Day 15 — Claude, overnight (Oct 9–10)
 
 Branch `day15-claude`, from `day14-horse`. Version stays 2.348.0.0. Nothing pushed, nothing exported.

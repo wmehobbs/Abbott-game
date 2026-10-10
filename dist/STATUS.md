@@ -1,5 +1,16 @@
 # Hidden K — ride cert status
 
+**10 Oct, overnight (Claude). Abbott visible again, Madison seated, twice the frame rate.**
+
+- **Abbott:** the Day 14 horse was 100× too big and lying on its side in Godot. `abbott_v2d.glb` is rebuilt with a fitted bridle.
+- **Madison:** she sits behind the withers with her legs to the irons, hands on the reins and a helmet.
+- **Frame rate:** about 100 fps (was 35–40). The HUD read `fences/catalog.json` from disk every frame.
+- **Checks:** selftest 53/0, playtest 0/4/4, hk_les_001 25.43, hk_beg_035 62.15, jump-off 33.45, save unchanged.
+
+Details: `dist/DAY15_LOG.md`. Report: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJPrk1
+
+---
+
 **9 Oct, day. Abbott is the painted horse.**
 `MESH` in abbott_look.gd points at abbott_v2.glb. Lesson 25.45, beginner 62.14, jump-off 33.44, playtest pass, selftest 50/0. Nothing free beat v2. Version stays 2.348.0.0.
 

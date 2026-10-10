@@ -1,0 +1,254 @@
+<title>Abbott Overnight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #eceee6;
+    --surface: #fbfbf7;
+    --ink: #1f1913;
+    --muted: #5d564b;
+    --line: #d5d3c6;
+    --gold: #8e6d30;
+    --chestnut: #94401f;
+    --good: #3b6a31;
+    --before: #7b6a58;
+    --serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #15110d;
+      --surface: #201913;
+      --ink: #f2eadb;
+      --muted: #b3a690;
+      --line: #3b3027;
+      --gold: #c9a35a;
+      --chestnut: #d1774c;
+      --good: #92c27a;
+      --before: #a8977f;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #15110d;
+    --surface: #201913;
+    --ink: #f2eadb;
+    --muted: #b3a690;
+    --line: #3b3027;
+    --gold: #c9a35a;
+    --chestnut: #d1774c;
+    --good: #92c27a;
+    --before: #a8977f;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    padding-inline: 20px;
+    padding-block: 40px 72px;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; display: grid; gap: 56px; }
+  header { display: grid; gap: 14px; border-bottom: 1px solid var(--line); padding-bottom: 32px; }
+  .eyebrow {
+    font: 600 13px/1.2 var(--sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  h1 {
+    font: 700 clamp(34px, 6vw, 56px)/1.05 var(--serif);
+    margin: 0;
+    text-wrap: balance;
+  }
+  h2 {
+    font: 700 clamp(24px, 3.4vw, 30px)/1.2 var(--serif);
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 { font: 700 21px/1.3 var(--serif); margin: 0; text-wrap: balance; }
+  p { margin: 0; max-width: 66ch; }
+  .lede { font-size: 19px; color: var(--ink); }
+  .meta { color: var(--muted); font-size: 15px; }
+  .glance {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .glance li { background: var(--surface); padding: 18px 20px; display: grid; gap: 4px; }
+  .glance b { font: 700 16px/1.3 var(--serif); }
+  .glance span { color: var(--muted); font-size: 15px; }
+  .section { display: grid; gap: 22px; }
+  .pair { display: grid; gap: 16px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .pair-text { display: grid; gap: 8px; }
+  .pair-text p { color: var(--muted); }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  figure { margin: 0; display: grid; gap: 8px; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
+  figcaption { font-size: 14px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+  .tag {
+    font: 700 11px/1 var(--sans);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border: 1px solid currentColor;
+  }
+  .tag.before { color: var(--before); }
+  .tag.after { color: var(--good); }
+  .bars { display: grid; gap: 14px; max-width: 760px; }
+  .bar-row { display: grid; grid-template-columns: 150px 1fr 90px; gap: 12px; align-items: center; }
+  .bar-row .label { font-size: 15px; color: var(--muted); }
+  .bar-track { height: 18px; background: var(--line); position: relative; }
+  .bar-fill { height: 100%; background: var(--chestnut); }
+  .bar-fill.old { background: var(--before); }
+  .bar-row .num { font: 700 16px/1 var(--sans); font-variant-numeric: tabular-nums; text-align: right; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+  .fact { display: grid; gap: 4px; }
+  .fact .big { font: 700 26px/1.15 var(--serif); font-variant-numeric: tabular-nums; }
+  .fact .small { color: var(--muted); font-size: 15px; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--line); font-size: 15px; }
+  th { font: 600 12px/1.2 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+  .ok { color: var(--good); font-weight: 700; }
+  .needs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .needs li { display: grid; gap: 4px; padding-left: 16px; border-left: 3px solid var(--gold); }
+  .needs b { font: 700 16px/1.35 var(--serif); }
+  .needs span { color: var(--muted); }
+  .cmd-box { display: grid; gap: 10px; background: var(--surface); border: 1px solid var(--line); padding: 20px; }
+  .cmd-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  code {
+    font: 500 15px/1.4 ui-monospace, "Cascadia Code", Consolas, monospace;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    overflow-wrap: anywhere;
+  }
+  button {
+    font: 600 14px/1 var(--sans);
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--gold);
+    padding: 9px 14px;
+    cursor: pointer;
+  }
+  button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .shots { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 1fr 70px; }
+    .bar-row .label { grid-column: 1 / -1; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Hidden K Stables · Day 15 · Saturday, October 10</div>
+    <h1>Abbott Overnight</h1>
+    <p class="lede">You asked for the rider to look normal, and for the whole game to look, run and feel better. Madison now sits Abbott like a hunter rider. Abbott is back in the ring (he had disappeared), with a bridle that fits. The game runs more than twice as fast, and the picture is sharper.</p>
+    <p class="meta">Worked from 12:42 to about 6:45 a.m. on branch <b>day15-claude</b>. Every change was committed separately, with the checks below run along the way. Nothing was pushed or exported, the jump and scoring rules were not touched, and Madison's save was compared after every run.</p>
+  </header>
+
+  <section class="section">
+    <h2>At a glance</h2>
+    <ul class="glance">
+      <li><b>Madison's seat</b><span>In the saddle behind the withers, legs down his sides, feet in the irons, hands on the reins.</span></li>
+      <li><b>Abbott visible again</b><span>The Day 14 model was 100× too big in the game. Fixed, with his chestnut coat on.</span></li>
+      <li><b>About 100 fps</b><span>Up from 35–40. The scoreboard was reading a file from disk every frame.</span></li>
+      <li><b>Sharper picture</b><span>SMAA replaces FXAA, and small objects stop casting shadows.</span></li>
+      <li><b>Real tack and fences</b><span>A fitted bridle, a reshaped saddle, hedge brush and flower beds.</span></li>
+      <li><b>Small fixes</b><span>Walking Madison faces forward, the crowd faces the ring, F11 toggles full screen.</span></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Before and after</h2>
+<!--PAIRS-->
+  </section>
+
+  <section class="section" id="smoother">
+    <h2>Smoother</h2>
+    <p>The same ride, on this computer, with the computer rider and vsync off. The graphics card was never the problem: it needs about 2.5&nbsp;ms a frame. The processor was waiting on the scoreboard, which read and parsed the fence list from disk every frame just to show "Fence 1 of 3 · white vertical."</p>
+    <div class="bars" role="img" aria-label="Frames per second: 37 at the start of the night, 104 this morning">
+      <div class="bar-row"><span class="label">Start of the night</span><div class="bar-track"><div class="bar-fill old" style="width:30.8%"></div></div><span class="num">37 fps</span></div>
+      <div class="bar-row"><span class="label">This morning</span><div class="bar-track"><div class="bar-fill" style="width:86.7%"></div></div><span class="num">104 fps</span></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="big">12.3 ms → 0.035 ms</span><span class="small">Scoreboard work each frame. The fence list is read once now.</span></div>
+      <div class="fact"><span class="big">2–8k → about 2k</span><span class="small">Draw calls each frame. Flowers and bolts no longer cast shadows, and each fence fill is one piece.</span></div>
+      <div class="fact"><span class="big">7% instead of 13%</span><span class="small">How much the anti-aliasing softens the picture (SMAA replacing FXAA).</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="checks">
+    <h2>Checked after every change</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Check</th><th>Start of the night</th><th>This morning</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Self-tests</td><td>51 pass</td><td>53 pass, 0 fail</td><td class="ok">Pass</td></tr>
+          <tr><td>Playtest (clear, refusal, rail)</td><td>0 / 4 / 4</td><td>0 / 4 / 4</td><td class="ok">Pass</td></tr>
+          <tr><td>Lesson ride, hk_les_001</td><td>0 faults, 25.43 s</td><td>0 faults, 25.43 s</td><td class="ok">Same</td></tr>
+          <tr><td>Beginner ride, hk_beg_035</td><td>0 faults, 62.14 s</td><td>0 faults, 62.15 s</td><td class="ok">Same</td></tr>
+          <tr><td>Beginner jump-off</td><td>0 faults, 33.45 s</td><td>0 faults, 33.45 s</td><td class="ok">Same</td></tr>
+          <tr><td>Madison's save</td><td>Your 8:43 p.m. play</td><td>Unchanged</td><td class="ok">Safe</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="meta">The ride times must stay within 0.10&nbsp;s of the start of the night. That proves the horse moves exactly as before, since everything tonight was visual or performance work. Two new self-tests guard tonight's fixes: one checks the seat (it would have caught the giant horse), and one checks that walking Madison faces forward.</p>
+  </section>
+
+  <section class="section" id="needs">
+    <h2>For you to decide</h2>
+    <ul class="needs">
+      <li><b>"Best · 0 faults · 5.86s" on the title</b><span>That is Madison's saved beginner record, and no real round is that short. It almost certainly came from old automated test runs before saves were protected (her save also lists about 1,900 beginner rounds). I left it alone because it's her data. Say the word and it can be reset.</span></li>
+      <li><b>No music yet</b><span>The game has hoofbeats, horse and rider sounds, and ambience, but no music. Music makes a big difference. Pick a style you like, and a free track can go in.</span></li>
+      <li><b>The photos_jpg folder</b><span>It was deleted from the repo folder before tonight, outside this session. I didn't commit that deletion; restore it or confirm it should go.</span></li>
+      <li><b>Merging</b><span>Tonight's work is on branch day15-claude, on top of Cursor's day14-horse. Nothing is merged to main.</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="play">
+    <h2>Play this version</h2>
+    <div class="cmd-box">
+      <p>Press Win+R, paste this, and press Enter. The game opens in a 1600×900 window. Press F11 (or Alt+Enter) for full screen; it remembers your choice.</p>
+      <div class="cmd-row">
+        <code id="cmd">godot --path "E:\Workspace\Madison\game"</code>
+        <button id="copy" type="button">Copy</button>
+      </div>
+      <p class="meta">Try a Lesson first. Then try Walk on the title menu, which now has Madison walking the course properly.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy");
+    var code = document.getElementById("cmd");
+    btn.addEventListener("click", function () {
+      var text = code.textContent;
+      var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1600); };
+      var fallback = function () {
+        var r = document.createRange();
+        r.selectNodeContents(code);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+        btn.textContent = "Selected";
+      };
+      try {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } catch (e) {
+        fallback();
+      }
+    });
+  })();
+</script>
