@@ -76,6 +76,7 @@ func _run() -> void:
 	_horse_scales()
 	_round_numbers()
 	_voice_and_start()
+	_library_lines()
 	_season()
 	await _first_lesson()
 	_sharp()
@@ -1451,6 +1452,75 @@ func _voice_and_start() -> void:
 		_fail("voice_and_start", why)
 		return
 	_ok("voice_and_start")
+
+
+func _library_lines() -> void:
+	# Catalog names, a missing phrase, barn-note ranges, and a line on every shipped course.
+	var why := ""
+	if ContentLibrary.fence_name("vertical", 0.65, 0.0) != "white vertical":
+		why = "vertical name " + ContentLibrary.fence_name("vertical", 0.65, 0.0)
+	if why == "" and ContentLibrary.fence_name("oxer", 0.65, 0.4) != "brush oxer":
+		why = "oxer name " + ContentLibrary.fence_name("oxer", 0.65, 0.4)
+	if why == "" and ContentLibrary.fence_name("flower", 0.62, 0.0) != "flower box":
+		why = "flower name " + ContentLibrary.fence_name("flower", 0.62, 0.0)
+	if why == "" and ContentLibrary.fence_name("gate", 0.65, 0.0) != "gate":
+		why = "unknown kind was renamed"
+	if why == "" and ContentLibrary.fence_name("vertical", 0.1, 0.0) != "vertical":
+		why = "a short pole was renamed"
+	if why == "" and ContentLibrary.phrase("no-such-line") != "":
+		why = "missing phrase was not empty"
+	if why == "" and ContentLibrary.phrase("spot") == "":
+		why = "spot had no phrase"
+	var lesson_note := ContentLibrary.barn_note("lesson", 50.0, 50.0, 50.0)
+	if why == "" and (lesson_note == "" or lesson_note.contains("Hidden K note")):
+		why = "lesson barn note"
+	if why == "" and ContentLibrary.barn_note("zzz", -1.0, 0.0, 0.0) != "":
+		why = "barn note matched nothing and still spoke"
+	var rows: Variant = ContentLibrary.load_index().get("courses", [])
+	if why == "" and (typeof(rows) != TYPE_ARRAY or (rows as Array).size() != 23):
+		why = "index size"
+	var les := ContentLibrary.ship_course("lesson", false, 0, false)
+	if why == "" and str(les.get("id", "")) != "hk_les_001":
+		why = "lesson seed 0 was " + str(les.get("id", ""))
+	if why == "" and ContentLibrary.specs_from_course(les).is_empty():
+		why = "lesson specs empty"
+	var jo := ContentLibrary.ship_course("beginner", true, 0, false)
+	if why == "" and str(jo.get("id", "")) != "hk_jo_beg_001":
+		why = "jump-off was " + str(jo.get("id", ""))
+	if why == "" and ContentLibrary.load_ship().is_empty():
+		why = "ship empty"
+	if why == "" and ContentLibrary.load_michelle_ship().is_empty():
+		why = "michelle ship empty"
+	if why == "" and ContentLibrary.load_michelle().is_empty():
+		why = "michelle pile empty"
+	var ids: Array[String] = []
+	_collect_ids(ContentLibrary.load_ship(), ids)
+	for id in ids:
+		var course := ContentLibrary.load_course(id)
+		if ContentLibrary.walk_line(course) == "":
+			why = id + " walk line empty"
+			break
+		var fences: Variant = course.get("fences", [])
+		if typeof(fences) != TYPE_ARRAY:
+			why = id + " no fences"
+			break
+		for f in fences:
+			if typeof(f) != TYPE_DICTIONARY:
+				continue
+			var pos: Variant = (f as Dictionary).get("pos", [])
+			if typeof(pos) != TYPE_ARRAY or pos.size() < 3:
+				why = id + " fence position"
+				break
+			var at := Vector3(float(pos[0]), float(pos[1]), float(pos[2]))
+			if ContentLibrary.near_line(course, at) == "":
+				why = id + " near line empty"
+				break
+		if why != "":
+			break
+	if why != "":
+		_fail("library_lines", why)
+		return
+	_ok("library_lines")
 
 
 func _season() -> void:

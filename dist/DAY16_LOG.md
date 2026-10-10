@@ -12,6 +12,8 @@ The shortest jump-to-jump distance on a shipped course is 7.25 m, hk_adv_001 fen
 
 19 courses store a time allowed that the clock does not use. Lessons match (180 s). The others are shorter than `CLASS_INFO`. A jump-off file is shorter than `max(28, class time × 0.42)`. She rides the game clock, not the number in the file. Left for you. Details are in `dist/day16/content_report.md`.
 
+Every public function in `game_state.gd` and `content_library.gd` that returns a value now has a self-test. Functions that return nothing were left alone. `load_save` is not called from a test, because it reads her save.
+
 Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd75b52d` (1109 bytes, last written by her session at 20:43 on Oct 9). The same hash was on the file after the copy. Copies are `dist/day16/save_snapshot.json` and `dist/day16/save_backup.json`. Neither is committed. Both are in `.git/info/exclude`.
 
 `photos_jpg/` stays deleted and unstaged. The Day 15 compile logs stay untracked.
@@ -27,7 +29,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 2 show card | 193d3b18 | compile 1 errors=0, selftest 60/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | New test `show_card`: unlocks, jump-off offer, ribbons. |
 | 2 scales | 4eb5cd47 | compile 1 errors=0, selftest 61/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | New test `horse_scales`. Beginner time 0.01 s over 62.14, inside 0.10. |
 | 2 numbers | 70802036 | compile 1 errors=0, selftest 62/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | New test `round_numbers`: official time, finish, best, key name, next fence. |
-| 2 voice | t2f | compile 1 errors=0, selftest 63/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.44, SAVE_MATCH | New test `voice_and_start`. Lesson and jump-off 0.01 s inside the wobble. |
+| 2 voice | 5bcc40ce | compile 1 errors=0, selftest 63/0, playtest 0/4/4 pass, 25.42 / 62.14 / 33.44, SAVE_MATCH | New test `voice_and_start`. Lesson and jump-off 0.01 s inside the wobble. |
+| 2 library | t2g | compile 1 errors=0, selftest 64/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.44, SAVE_MATCH | New test `library_lines`. Beginner 0.01 s over 62.14 and jump-off 0.01 s under 33.45, both inside 0.10. Task 2 is done: every public function that returns a value in `game_state.gd` and `content_library.gd` has a test. `load_course`, `specs_from_course` and `load_ship` were already in the older course tests. Functions that return nothing are not pinned. `load_save` is not called from a test, because it reads her save. |
 
 ## Baseline
 
