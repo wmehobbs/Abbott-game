@@ -66,7 +66,8 @@ func _run() -> void:
 	_consts = _horse.get_script().get_script_constant_map()
 	_horse.set("controllable", false)
 	_horse.set_physics_process(false)
-	_horse.global_position = Vector3(0.0, 0.0, -8.0)
+	var ha: Array = _plan.get("horse_at", [0.0, 0.0, -8.0])
+	_horse.global_position = Vector3(ha[0], ha[1], ha[2])
 	_horse.rotation = Vector3(0.0, PI, 0.0)
 	_cam = Camera3D.new()
 	_cam.near = 0.05
@@ -83,6 +84,20 @@ func _run() -> void:
 		_report_rider()
 	if bool(extra.get("scene", false)):
 		_report_scene()
+	if bool(extra.get("watch", false)):
+		for i in 30:
+			await process_frame
+		for w in current_scene.find_children("WatchRider", "", true, false):
+			var sk := w.get("skel") as Skeleton3D
+			var hi := sk.find_bone("Head")
+			var hg := sk.global_transform * sk.get_bone_global_pose(hi)
+			var rest_fwd := sk.global_transform.basis.orthonormalized() * Vector3(0, 0, 1)
+			var head_fwd := (sk.global_transform.basis.orthonormalized() * (sk.get_bone_global_pose(hi).basis * sk.get_bone_global_rest(hi).basis.inverse() * Vector3(0, 0, 1)))
+			var to := _horse.global_position - hg.origin
+			to.y = 0.0
+			head_fwd.y = 0.0
+			rest_fwd.y = 0.0
+			print("PROBE watch yaw=", snappedf(float(w.get("_yaw")), 0.01), " body_vs_horse=", snappedf(rad_to_deg(rest_fwd.signed_angle_to(to, Vector3.UP)), 0.1), " head_vs_horse=", snappedf(rad_to_deg(head_fwd.signed_angle_to(to, Vector3.UP)), 0.1))
 	if _plan.has("walkmove"):
 		await _walkmove()
 		print("PROBE done")
@@ -154,6 +169,7 @@ func _pose(p: Dictionary) -> void:
 	_horse.set("collecting", bool(p.get("collect", false)))
 	_horse.set("last_stride", float(p.get("last_stride", 0.0)))
 	_horse.set("land_recover", float(p.get("land", 0.0)))
+	_horse.set("check_w", float(p.get("check", 0.0)))
 	var ju := float(p.get("jump_u", -1.0))
 	_horse.set("jumping", ju >= 0.0)
 	if ju >= 0.0:

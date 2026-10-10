@@ -1916,6 +1916,9 @@ func _one_bleacher(at: Vector3) -> void:
 		step.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		var person := People.standing_trainer()
 		person.position = Vector3(-1.3 + float(i) * 1.3, h, z)
+		# The rows rise away from the ring; the glb faces +Z, so turned round
+		# they watch the ring instead of the field behind them.
+		person.rotation.y = PI
 		root.add_child(person)
 
 

@@ -130,6 +130,10 @@ func _process(delta: float) -> void:
 	if hz != null and int(hz.gait) == 2 and not bool(hz.jumping):
 		lift.y *= 2.2
 		lift.z *= 2.0
+	# A refusal: he stops under her and her weight goes on up his neck, then
+	# she sits back as he settles (check_w rises in 0.18 s, gone by 1.2 s).
+	var stop := float(hz.check_w) if hz != null else 0.0
+	lean += 20.0 * stop
 	var head_x := 12.0
 	var hp := body.get_node_or_null("Head") as Node3D
 	if hp:
@@ -197,6 +201,8 @@ func _process(delta: float) -> void:
 		hand += Vector3(0.0, -0.06, -0.22) * on_neck
 		# Two-point folds the arm forward with the shoulders.
 		hand += Vector3(0.0, -0.05, -0.08) * clampf((lean - 15.0) / 30.0, 0.0, 1.0)
+		# Thrown forward at a stop, the fists go down his neck.
+		hand += Vector3(0.0, -0.05, -0.10) * stop
 		var pole := shoulder + Vector3(sx * ELBOW_POLE.x, ELBOW_POLE.y, ELBOW_POLE.z)
 		var a := (_ro("LowerArm" + tag) - _ro("UpperArm" + tag)).length() * _k
 		var b := (_ro("Wrist" + tag) - _ro("LowerArm" + tag)).length() * _k
@@ -626,6 +632,11 @@ static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 	_boots_on_bones(skel)
 	if kind == "trainer":
 		_clipboard(root)
+		# Michelle and the people in the stands follow him round the ring.
+		var watch: Node = load("res://scripts/watch_rider.gd").new()
+		watch.name = "WatchRider"
+		root.add_child(watch)
+		watch.call("bind", skel)
 	return root
 
 

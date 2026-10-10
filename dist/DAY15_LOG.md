@@ -27,6 +27,7 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | saddle, fists | done | (M6) | compile ok, selftest 52/0 | Broad low cantle, no gullet strip; fingers curl into the gloves. |
 | lens | done | (M7) | selftest 52/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The ride camera is no longer interpolated twice; the warning is gone. |
 | walk mode | done | (M8) | compile ok, selftest 52/0, playtest pass, save match | Madison walks the course facing forward, with her own Walk and Idle. |
+| life | done | (M9) | compile ok, selftest 52/0, playtest pass (refuse 4), save match | Michelle and the crowd watch him; the crowd faces the ring; Madison is thrown forward at a stop. |
 
 ## What was wrong, and what changed
 
@@ -134,6 +135,12 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 
 - **Facing:** the walking Madison faced +Z (the glb's front) while the walker moves toward −Z, so she walked the course backwards, facing the camera. She is turned 180°.
 - **Animation:** she was also a frozen statue sliding over the sand. The glb carries Walk, Idle, Run and more; walking Madison keeps its AnimationPlayer and plays Walk while she moves (sped to her 2.4 m/s pace) and Idle when she stops, both looped. Her helmet and boots ride her bones, so they follow.
+
+### Life in the ring (M9)
+
+- **The crowd faced away:** the six people in the stands stood with their backs to the ring (Abbott 153–179° behind them). They are turned round.
+- **Watching:** `watch_rider.gd` turns Michelle's and the spectators' neck and head toward Abbott, eased, no more than 69° either way. Measured: the spectators look within 5° of him.
+- **A stop has weight:** at a refusal (horse.gd's `check_w`), Madison pitches up to 20° forward and her fists go down his neck, then she sits back as he settles.
 
 ## Decisions
 
