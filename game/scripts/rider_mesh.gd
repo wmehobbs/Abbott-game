@@ -52,6 +52,7 @@ var _crop_mi: MeshInstance3D
 ## Last solved leg points per side, seat frame: knee, ankle, fwd, up, ball.
 var _leg := {}
 var _life := 0.0
+var _post_k := 0.0
 var _pat_t := -1.0
 var _patted := false
 
@@ -130,9 +131,11 @@ func _process(delta: float) -> void:
 	# Rising trot: horse.gd lifts the seat a few centimetres. A posting seat
 	# rises a hand's width and comes forward over the pommel.
 	var hz := _find_horse()
-	if hz != null and int(hz.gait) == 2 and not bool(hz.jumping):
-		lift.y *= 2.2
-		lift.z *= 2.0
+	# Eased, so a change of gait mid-rise does not drop her in one frame.
+	var trotting := hz != null and int(hz.gait) == 2 and not bool(hz.jumping)
+	_post_k = move_toward(_post_k, 1.0 if trotting else 0.0, delta * 3.0)
+	lift.y *= lerpf(1.0, 2.2, _post_k)
+	lift.z *= lerpf(1.0, 2.0, _post_k)
 	# A refusal: he stops under her and her weight goes on up his neck, then
 	# she sits back as he settles (check_w rises in 0.18 s, gone by 1.2 s).
 	var stop := float(hz.check_w) if hz != null else 0.0
