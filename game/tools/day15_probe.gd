@@ -153,6 +153,10 @@ func _run() -> void:
 			_cam.current = true
 			await process_frame
 			await process_frame
+			var ros := _horse.get_node_or_null("Rosette") as Node3D
+			if ros and pose.has("ribbon"):
+				var gsx: Node = root.get_node_or_null("GameState")
+				print("PROBE rosette visible=", ros.visible, " pos=", ros.global_position, " horse=", _horse.global_position, " ribbon=", gsx.get("last_ribbon"), " complete=", gsx.get("round_complete"))
 			var img := root.get_viewport().get_texture().get_image()
 			var path := _out.path_join("%s_%s.png" % [str(pose.get("name", "p")), str(c.get("name", "c"))])
 			img.save_png(path)
@@ -179,6 +183,7 @@ func _pose(p: Dictionary) -> void:
 		var gs2: Node = root.get_node_or_null("GameState")
 		gs2.set("round_complete", true)
 		gs2.set("last_faults", 0)
+		gs2.set("last_ribbon", str(p.get("ribbon", "")))
 	var phase := float(p.get("phase", 0.0))
 	# Converge the rider's smoothing, then hold the clip at the phase.
 	for i in 24:

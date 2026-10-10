@@ -63,6 +63,8 @@ LATER = [
     ("walkmove/walkmove_02.png", (0.25, 0.30, 0.75, 1.0), "Walking the course, Madison faces the way she walks and uses her own walk. She used to walk backwards, frozen."),
     ("refuse/refuse_lside.png", None, "When he stops at a fence, she is thrown forward and sits back as he settles."),
     ("pat/pat_rside.png", None, "After a clear round, once he walks or stands, she pats his neck."),
+    ("rosette4/ribbon_head.png", None, "When she wins a ribbon at a show, the rosette is pinned on his bridle in that colour until the next round."),
+    ("titlezoom/title_8000.png", None, "The title photo slowly drifts in and out, so the first screen is not a still picture."),
 ]
 
 

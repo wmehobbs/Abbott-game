@@ -185,6 +185,11 @@ func _ready() -> void:
 	dust = get_node_or_null("Dust")
 	_bind_rig()
 	_make_reins()
+	# Her ribbon on his bridle after a show round that wins one.
+	var rosette: Node3D = load("res://scripts/rosette.gd").new()
+	rosette.name = "Rosette"
+	rosette.set("horse", self)
+	add_child(rosette)
 	if skel:
 		for n in AbbottLook.SEAT_BONES:
 			if skel.find_bone(n) >= 0:

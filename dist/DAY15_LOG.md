@@ -32,7 +32,8 @@ Report with before/after pictures: https://claude.ai/artifact/Lw6HooyzKj7aZd5CDJ
    - the arena board shows the live time and faults;
    - the crowd is in everyday clothes (it was six Michelles);
    - Madison breathes and looks round standing, and pats his neck after a clear round;
-   - the title photo slowly drifts in.
+   - the title photo slowly drifts in;
+   - a ribbon won at a show is pinned on his bridle as a rosette in its colour.
 
 ## Final checks
 
@@ -78,6 +79,7 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | lens | done | (M7) | selftest 52/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The ride camera is no longer interpolated twice; the warning is gone. |
 | walk mode | done | (M8) | compile ok, selftest 52/0, playtest pass, save match | Madison walks the course facing forward, with her own Walk and Idle. |
 | life | done | (M9) | compile ok, selftest 52/0, playtest pass (refuse 4), save match | Michelle and the crowd watch him; the crowd faces the ring; Madison is thrown forward at a stop. |
+| rosette | done | (M14) | see M14 | A won ribbon shows as a rosette on his bridle. |
 | score board | done | (M12) | compile ok, selftest 53/0, playtest pass | The arena board shows the live time and faults. |
 | title, trot | done | (M13) | compile ok, selftest 53/0 | A slow push-in on the title photo; the rising-trot lift eases in and out. |
 | reins, crowd | done | (M10) | selftest 53/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The reins run along his neck to the bit and drape at a halt; she breathes and looks round standing; a varied crowd. |
