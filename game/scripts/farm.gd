@@ -128,6 +128,90 @@ func _boards() -> void:
 			MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.20, 0.06, 0.20)), cap, "PostCap", Vector3(p.x, 1.54, p.z))
 			MeshKit.add_child_mi(self, MeshKit.box(Vector3(0.28, 0.08, 0.28)), cap, "PostFoot", Vector3(p.x, 0.04, p.z))
 	_rail_flowers()
+	if GameState.session_kind == "show":
+		_bunting(segs)
+
+
+## Show day: strings of pennants swagged round the ring on short white poles
+## above the posts, the way a show ground is dressed. High enough to clear
+## the rails and big enough to read from the middle of the ring. One
+## double-sided mesh, no shadows.
+func _bunting(segs: Array) -> void:
+	var colors: Array[Color] = [
+		Color(0.78, 0.14, 0.14), Color(0.95, 0.95, 0.92), Color(0.14, 0.22, 0.48),
+		Color(0.92, 0.72, 0.18), Color(0.20, 0.45, 0.25),
+	]
+	const TOP := 2.05
+	const SAG := 0.16
+	const W := 0.24
+	const DROP := 0.30
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var n := 0
+	for sg in segs:
+		var a: Vector3 = sg[0]
+		var b: Vector3 = sg[1]
+		var posts := int(a.distance_to(b) / 2.6) + 1
+		for i in range(posts + 1):
+			var pp := a.lerp(b, float(i) / float(posts))
+			_bunting_pole(st, pp + Vector3(0, 1.57, 0), TOP - 1.57 + 0.04)
+		for i in range(posts):
+			var p0 := a.lerp(b, float(i) / float(posts)) + Vector3(0, TOP, 0)
+			var p1 := a.lerp(b, float(i + 1) / float(posts)) + Vector3(0, TOP, 0)
+			var along := (p1 - p0).normalized()
+			var nrm := along.cross(Vector3.UP).normalized()
+			var flags := maxi(1, int(p0.distance_to(p1) / (W * 1.55)))
+			for k in range(flags):
+				var tm := (float(k) + 0.5) / float(flags)
+				var half := W * 0.5 / p0.distance_to(p1)
+				var t0 := tm - half
+				var t1 := tm + half
+				var q0 := p0.lerp(p1, t0) - Vector3(0, SAG * 4.0 * t0 * (1.0 - t0), 0)
+				var q1 := p0.lerp(p1, t1) - Vector3(0, SAG * 4.0 * t1 * (1.0 - t1), 0)
+				var tip := p0.lerp(p1, tm) - Vector3(0, SAG * 4.0 * tm * (1.0 - tm) + DROP, 0)
+				st.set_color(colors[n % colors.size()])
+				st.set_normal(nrm)
+				st.add_vertex(q0)
+				st.add_vertex(q1)
+				st.add_vertex(tip)
+				n += 1
+			# The string itself: a thin dark ribbon along the sag.
+			for k in range(8):
+				var u0 := float(k) / 8.0
+				var u1 := float(k + 1) / 8.0
+				var s0 := p0.lerp(p1, u0) - Vector3(0, SAG * 4.0 * u0 * (1.0 - u0), 0)
+				var s1 := p0.lerp(p1, u1) - Vector3(0, SAG * 4.0 * u1 * (1.0 - u1), 0)
+				var up := Vector3(0, 0.008, 0)
+				st.set_color(Color(0.12, 0.10, 0.08))
+				st.set_normal(nrm)
+				for v in [s0 + up, s1 + up, s1 - up, s0 + up, s1 - up, s0 - up]:
+					st.add_vertex(v)
+	var mat := StandardMaterial3D.new()
+	mat.vertex_color_use_as_albedo = true
+	mat.roughness = 0.8
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var mi := MeshInstance3D.new()
+	mi.name = "Bunting"
+	mi.mesh = st.commit()
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(mi)
+
+
+## A slim white pole standing on a post top, four faces (the material is
+## double-sided).
+func _bunting_pole(st: SurfaceTool, base: Vector3, h: float) -> void:
+	var r := 0.022
+	var white := Color(0.93, 0.93, 0.90)
+	var c := [Vector3(-r, 0, -r), Vector3(r, 0, -r), Vector3(r, 0, r), Vector3(-r, 0, r)]
+	for f in 4:
+		var e0: Vector3 = base + c[f]
+		var e1: Vector3 = base + c[(f + 1) % 4]
+		var top := Vector3(0, h, 0)
+		st.set_color(white)
+		st.set_normal(((e0 + e1) * 0.5 - base).normalized())
+		for v in [e0, e1, e1 + top, e0, e1 + top, e0 + top]:
+			st.add_vertex(v)
 
 
 func _rail_flowers() -> void:

@@ -1369,9 +1369,10 @@ func _rosette_on_bridle() -> void:
 
 
 func _show_braids() -> void:
-	# Show day: a row of button braids on his neck bones and her number on her
-	# back. The braids hide when the session is not a show; the number is built
-	# for a show only (Next keeps the session kind, so it never changes mid-scene).
+	# Show day: a row of button braids on his neck bones, her number on her
+	# back and bunting round the ring. The braids hide when the session is not
+	# a show; the number and bunting are built for a show only (Next keeps the
+	# session kind, so it never changes mid-scene).
 	var kind0 := GameState.session_kind
 	GameState.session_kind = "show"
 	var packed: PackedScene = load("res://scenes/arena.tscn") as PackedScene
@@ -1391,6 +1392,8 @@ func _show_braids() -> void:
 		why = "%d braids on his neck" % knots.size()
 	elif arena.find_child("ShowNumber", true, false) == null:
 		why = "no number on her back at a show"
+	elif arena.find_child("Bunting", true, false) == null:
+		why = "no bunting round the ring at a show"
 	elif not (knots[0] as Node3D).is_visible_in_tree():
 		why = "no braids at a show"
 	else:
@@ -1404,7 +1407,7 @@ func _show_braids() -> void:
 	if why != "":
 		_fail("show_braids", why)
 		return
-	_ok("show_braids %d and her number" % knots.size())
+	_ok("show_braids %d, her number, the bunting" % knots.size())
 
 
 func _walker_forward() -> void:
