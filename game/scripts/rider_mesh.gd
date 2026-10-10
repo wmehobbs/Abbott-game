@@ -287,11 +287,14 @@ func _curl_fingers() -> void:
 			continue
 		var rg := skel.get_bone_global_rest(i)
 		var left := rg.origin.x > 0.0
-		var axis_skel := Vector3(0, 0, -1) if left else Vector3(0, 0, 1)
+		# Toward the palm. The first guess curled them up the back of the hand.
+		var axis_skel := Vector3(0, 0, 1) if left else Vector3(0, 0, -1)
 		var amount := 0.35 if n.begins_with("Thumb") else 1.30
 		var axis := (rg.basis.inverse() * axis_skel).normalized()
 		var rl := skel.get_bone_rest(i)
 		skel.set_bone_pose_rotation(i, (rl.basis * Basis(axis, amount)).get_rotation_quaternion())
+		# A little smaller, so the fist stays inside the glove.
+		skel.set_bone_pose_scale(i, Vector3.ONE * 0.85)
 
 
 func _find_horse() -> Node:
@@ -402,13 +405,17 @@ func _glove(bone: String, node_name: String) -> void:
 	if att == null:
 		return
 	var g := MeshInstance3D.new()
-	var box := BoxMesh.new()
-	box.size = Vector3(0.075, 0.05, 0.065)
-	g.mesh = box
+	# A rounded fist in a glove, not a box: along the hand, flattened a little.
+	var sm := SphereMesh.new()
+	sm.radius = 0.5
+	sm.height = 1.0
+	sm.radial_segments = 12
+	sm.rings = 6
+	g.mesh = sm
 	g.material_override = _mat(Color(0.04, 0.04, 0.045), 0.45)
-	# Over the curled fingers, along the hand from the wrist.
 	var dir := 1.0 if bone.ends_with("L") else -1.0
-	g.position = _rb(bone).inverse() * Vector3(dir * 0.045, -0.012, 0.0)
+	var inv := _rb(bone).inverse()
+	g.transform = Transform3D(inv * Basis.from_scale(Vector3(0.085, 0.055, 0.068)), inv * Vector3(dir * 0.045, -0.010, 0.0))
 	att.add_child(g)
 
 

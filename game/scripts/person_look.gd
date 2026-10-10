@@ -456,24 +456,25 @@ static func _english_saddle(host: Node3D, seat: Vector3) -> void:
 		MeshKit.add_child_mi(root, _drape(sx, -0.040, -0.355, 0.006, 0.020, 0.10, 0.300, 0.007), pad_m, "Pad")
 		MeshKit.add_child_mi(root, _drape(sx, -0.350, -0.372, 0.008, 0.020 - 0.035, 0.10, 0.306, 0.008, 3), trim, "PadEdge")
 	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.24, 0.012, 0.60)), pad_m, "PadTop", Vector3(0, -0.044, 0.020))
-	# Close-contact tree: pinched waist, pommel up, cantle dish a hip can sit in.
+	# Close-contact tree: a dished seat, the pommel up a hand, and a broad low
+	# cantle behind her. The old cantle narrowed to a tube that rose behind her
+	# like a lever, with a ball on the end.
 	var stations: Array = []
-	stations.append(MeshKit.station(Vector3(0, 0.138, -0.225), 0.028, 0.036, Vector3(0, 0.18, 1)))
-	stations.append(MeshKit.station(Vector3(0, 0.078, -0.128), 0.046, 0.030, Vector3(0, 0.06, 1)))
-	stations.append(MeshKit.station(Vector3(0, 0.026, -0.018), 0.058, 0.024, Vector3(0, 0, 1)))
-	stations.append(MeshKit.station(Vector3(0, 0.022, 0.082), 0.100, 0.036, Vector3(0, 0.02, 1)))
-	stations.append(MeshKit.station(Vector3(0, 0.096, 0.188), 0.074, 0.030, Vector3(0, 0.30, 1)))
-	stations.append(MeshKit.station(Vector3(0, 0.172, 0.270), 0.040, 0.020, Vector3(0, 0.50, 1)))
+	stations.append(MeshKit.station(Vector3(0, 0.110, -0.230), 0.034, 0.034, Vector3(0, 0.30, 1)))
+	stations.append(MeshKit.station(Vector3(0, 0.062, -0.130), 0.058, 0.030, Vector3(0, 0.25, 1)))
+	stations.append(MeshKit.station(Vector3(0, 0.030, -0.020), 0.086, 0.026, Vector3(0, 0.05, 1)))
+	stations.append(MeshKit.station(Vector3(0, 0.032, 0.080), 0.110, 0.030, Vector3(0, -0.05, 1)))
+	stations.append(MeshKit.station(Vector3(0, 0.072, 0.170), 0.116, 0.034, Vector3(0, 0.30, 1)))
+	stations.append(MeshKit.station(Vector3(0, 0.108, 0.232), 0.104, 0.030, Vector3(0, 0.60, 1)))
 	MeshKit.add_child_mi(root, MeshKit.loft(stations, 18), leather, "Seat")
 	var suede_st: Array = []
-	suede_st.append(MeshKit.station(Vector3(0, 0.088, -0.108), 0.034, 0.022, Vector3(0, 0.06, 1)))
-	suede_st.append(MeshKit.station(Vector3(0, 0.034, -0.008), 0.046, 0.020, Vector3(0, 0, 1)))
-	suede_st.append(MeshKit.station(Vector3(0, 0.030, 0.082), 0.082, 0.028, Vector3(0, 0.02, 1)))
-	suede_st.append(MeshKit.station(Vector3(0, 0.090, 0.172), 0.054, 0.022, Vector3(0, 0.28, 1)))
+	suede_st.append(MeshKit.station(Vector3(0, 0.070, -0.110), 0.046, 0.022, Vector3(0, 0.25, 1)))
+	suede_st.append(MeshKit.station(Vector3(0, 0.038, -0.010), 0.074, 0.020, Vector3(0, 0.05, 1)))
+	suede_st.append(MeshKit.station(Vector3(0, 0.040, 0.080), 0.096, 0.024, Vector3(0, -0.05, 1)))
+	suede_st.append(MeshKit.station(Vector3(0, 0.074, 0.160), 0.094, 0.026, Vector3(0, 0.30, 1)))
 	MeshKit.add_child_mi(root, MeshKit.loft(suede_st, 14), suede, "Suede")
-	MeshKit.add_child_mi(root, MeshKit.sphere(0.048, 10, 12), leather, "Pommel", Vector3(0, 0.150, -0.230)).scale = Vector3(0.70, 0.88, 1.16)
-	MeshKit.add_child_mi(root, MeshKit.sphere(0.056, 10, 12), leather, "Cantle", Vector3(0, 0.182, 0.268)).scale = Vector3(1.36, 0.40, 0.56)
-	MeshKit.add_child_mi(root, MeshKit.box(Vector3(0.026, 0.016, 0.14)), dark, "Gullet", Vector3(0, 0.010, -0.14))
+	MeshKit.add_child_mi(root, MeshKit.sphere(0.044, 10, 12), leather, "Pommel", Vector3(0, 0.118, -0.232)).scale = Vector3(0.78, 0.70, 1.05)
+	MeshKit.add_child_mi(root, MeshKit.sphere(0.056, 10, 12), leather, "Cantle", Vector3(0, 0.116, 0.236)).scale = Vector3(1.85, 0.34, 0.50)
 	# Panels under the seat, so the tree reads as sitting on him.
 	for sx in [-1.0, 1.0]:
 		MeshKit.add_child_mi(root, _drape(sx, -0.010, -0.080, 0.016, -0.010, 0.0, 0.230, 0.020, 4), leather, "Panel")

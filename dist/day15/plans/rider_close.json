@@ -1,0 +1,9 @@
+{"poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "f34", "from": [1.1, 2.0, -1.5], "look": [0, 1.75, -0.05], "fov": 34},
+  {"name": "back34", "from": [-1.2, 2.1, 1.6], "look": [0, 1.7, -0.05], "fov": 34}]},
+ {"name": "canter", "gait": 3, "clip": "Canter", "phase": 0.55, "cams": [
+  {"name": "side", "from": [1.7, 1.85, -0.1], "look": [0, 1.65, -0.1], "fov": 36}]},
+ {"name": "walk", "gait": 1, "clip": "Walk", "phase": 0.5, "cams": [
+  {"name": "rside", "from": [-1.7, 1.85, -0.2], "look": [0, 1.65, -0.1], "fov": 36}]}
+]}
