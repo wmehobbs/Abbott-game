@@ -11,6 +11,7 @@ var _held: bool = false
 var _anim: AnimationPlayer
 
 
+## A body, a camera, and a capsule. Hidden until walk mode, so the ring does not show two of her.
 func _ready() -> void:
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 	collision_layer = 1
@@ -35,6 +36,7 @@ func _ready() -> void:
 	floor_snap_length = 0.3
 
 
+## Walks on the ride's keys. The clock stays on the flags; this does not run it.
 func _physics_process(delta: float) -> void:
 	if active and not _was_active:
 		if _held:
@@ -77,6 +79,7 @@ func _physics_process(delta: float) -> void:
 	_step_anim()
 
 
+## Her Walk while she moves, sped to her pace, and Idle when she stops.
 func _step_anim() -> void:
 	# Her own Walk while she moves, sped to her pace (the clip walks about
 	# 1.4 m/s; she covers 2.4), and Idle when she stops.
@@ -91,6 +94,7 @@ func _step_anim() -> void:
 	_anim.speed_scale = clampf(v / 1.4, 0.7, 1.8) if want == "Walk" else 1.0
 
 
+## The standing hunt-seat mesh, turned to face the way she walks.
 func _madison() -> Node3D:
 	const MeshScript := preload("res://scripts/rider_mesh.gd")
 	if ResourceLoader.exists(MeshScript.GLB):
@@ -109,6 +113,7 @@ func _madison() -> Node3D:
 	return n
 
 
+## Sets her down on his near side, facing the way he faces.
 func _step_off() -> void:
 	var n := get_tree().get_first_node_in_group("abbott")
 	if not (n is Node3D):
@@ -122,6 +127,7 @@ func _step_off() -> void:
 	yaw = horse.rotation.y
 
 
+## Mouse look while she is on foot and the pointer is captured.
 func _input(event: InputEvent) -> void:
 	if not active:
 		return

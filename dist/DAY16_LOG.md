@@ -43,7 +43,8 @@ Her save SHA-256 is `03d19706fc11dd9737786f3012904b2d82981e797a72032dcb1a58d4dd7
 | 4 ears | a4b0a3fc | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `ear_life.gd`. |
 | 4 braids | 55140975 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `braids.gd`. |
 | 4 crowd | 6f021143 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `watch_rider.gd`. |
-| 4 lesson | t4g | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `first_lesson.gd`. |
+| 4 lesson | 511564b8 | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `first_lesson.gd`. |
+| 4 walk | t4h | selftest 64/0. Comment only, so compile, playtest and the rides were not run. | Doc comments on `walker.gd`. |
 ## Baseline
 
 ```
