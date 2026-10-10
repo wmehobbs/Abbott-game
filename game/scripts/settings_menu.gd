@@ -9,11 +9,13 @@ signal rebind_asked(action: String)
 var show_controls: bool = true
 
 
+## Opens on the options home. Sound, picture, and controls are pages under it.
 func _ready() -> void:
 	add_theme_constant_override("separation", 8)
 	show_page("home")
 
 
+## Rebuilds one page and puts the focus on its first button, so a pad is never lost.
 func show_page(page: String) -> void:
 	for c in get_children():
 		remove_child(c)
@@ -32,6 +34,7 @@ func show_page(page: String) -> void:
 		first.grab_focus()
 
 
+## Sound, picture, controls when pause asked for them, and back.
 func _home() -> void:
 	_heading("Options")
 	_action("Sound", func() -> void: show_page("sound"))
@@ -41,6 +44,7 @@ func _home() -> void:
 	_action("Back", func() -> void: back_pressed.emit())
 
 
+## One slider per bus. The names are hers, not the bus names.
 func _sound() -> void:
 	_heading("Sound")
 	_db("Master", "master_db")
@@ -52,6 +56,7 @@ func _sound() -> void:
 	_action("Back", func() -> void: show_page("home"))
 
 
+## Look, camera, the riding aid, and the picture. Quality is its own row under them.
 func _picture() -> void:
 	_heading("Picture")
 	_slider("Look left and right", 0.03, 0.16, 0.01, "mouse_sensitivity", false)
@@ -76,6 +81,7 @@ func _picture() -> void:
 	_action("Back", func() -> void: show_page("home"))
 
 
+## One button per ride key, showing what it is bound to. Pressing one waits for a new key.
 func _controls() -> void:
 	_heading("Controls")
 	var rows: Array = [
@@ -106,10 +112,12 @@ func _controls() -> void:
 	_action("Back", func() -> void: show_page("home"))
 
 
+## A bus slider, in decibels, written through as soon as it moves.
 func _db(label: String, field: String) -> void:
 	_slider(label, -24.0, 6.0, 1.0, field, true)
 
 
+## A labelled slider. Audio ones apply the mix immediately. Every move is saved.
 func _slider(label: String, lo: float, hi: float, step: float, field: String, audio: bool) -> void:
 	var s := _settings()
 	var lab := Label.new()
@@ -140,6 +148,7 @@ func _slider(label: String, lo: float, hi: float, step: float, field: String, au
 	add_child(slider)
 
 
+## The line beside a slider: decibels, a percent, or the plain number.
 func _slider_text(label: String, v: float, audio: bool) -> String:
 	if audio:
 		return "%s   %d dB" % [label, int(round(v))]
@@ -152,6 +161,7 @@ func _slider_text(label: String, v: float, audio: bool) -> String:
 	return "%s   %0.2f" % [label, v]
 
 
+## A yes or no. It saves as soon as it toggles.
 func _check(label: String, field: String) -> void:
 	var b := CheckButton.new()
 	b.text = label
@@ -170,6 +180,7 @@ func _check(label: String, field: String) -> void:
 	add_child(b)
 
 
+## One quality button. The current one is warmer, and picking one rebuilds the page.
 func _quality(row: HBoxContainer, name: String) -> void:
 	var b := Button.new()
 	b.name = name
@@ -192,6 +203,7 @@ func _quality(row: HBoxContainer, name: String) -> void:
 	row.add_child(b)
 
 
+## The page title.
 func _heading(text: String) -> void:
 	var lab := Label.new()
 	lab.text = text
@@ -200,6 +212,7 @@ func _heading(text: String) -> void:
 	add_child(lab)
 
 
+## A menu button. The click sound plays, then the page changes.
 func _action(text: String, cb: Callable) -> void:
 	var b := Button.new()
 	b.name = text
@@ -214,6 +227,7 @@ func _action(text: String, cb: Callable) -> void:
 	add_child(b)
 
 
+## The dark button with a brass edge, same as the rest of the menus.
 func _style(b: Button) -> void:
 	b.add_theme_color_override("font_color", Color(0.95, 0.92, 0.85))
 	b.add_theme_color_override("font_hover_color", Color(1, 0.95, 0.8))
@@ -231,10 +245,12 @@ func _style(b: Button) -> void:
 	b.add_theme_stylebox_override("hover", sbh)
 
 
+## The live settings. Never the ride save.
 func _settings() -> PlayerSettings:
 	return GameState.settings
 
 
+## HUD size is read by whoever owns this menu. Walk up until someone applies it.
 func _refresh_hud() -> void:
 	var n: Node = self
 	while n:
@@ -244,6 +260,7 @@ func _refresh_hud() -> void:
 		n = n.get_parent()
 
 
+## The first button on the page, including one sitting in a row. A pad lands here.
 func _first_button() -> Button:
 	for c in get_children():
 		if c is Button:
@@ -255,6 +272,7 @@ func _first_button() -> Button:
 	return null
 
 
+## The menu click, on the UI bus, and freed when it finishes.
 func _click() -> void:
 	if not ResourceLoader.exists("res://assets/audio/ui.wav"):
 		return
