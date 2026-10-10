@@ -1892,17 +1892,32 @@ func _scoreboard() -> void:
 	title.modulate = Color(0.96, 0.93, 0.86)
 	title.outline_modulate = Color(0.08, 0.06, 0.04)
 	title.outline_size = 10
-	title.position = Vector3(0.0, 2.72, 0.06)
+	title.position = Vector3(0.0, 2.84, 0.06)
 	root.add_child(title)
-	var sub := Label3D.new()
-	sub.text = "TIME    FAULTS"
-	sub.font_size = 36
-	sub.pixel_size = 0.007
-	sub.modulate = Color(0.98, 0.86, 0.42)
-	sub.outline_modulate = Color(0.08, 0.06, 0.04)
-	sub.outline_size = 8
-	sub.position = Vector3(0.0, 2.05, 0.06)
-	root.add_child(sub)
+	# TIME and FAULTS, each over its live reading in amber.
+	var live: Node = load("res://scripts/scoreboard_live.gd").new()
+	live.name = "Live"
+	root.add_child(live)
+	for col in [["TIME", -0.78, "time_lab"], ["FAULTS", 0.78, "faults_lab"]]:
+		var head := Label3D.new()
+		head.text = col[0]
+		head.font_size = 32
+		head.pixel_size = 0.007
+		head.modulate = Color(0.98, 0.86, 0.42)
+		head.outline_modulate = Color(0.08, 0.06, 0.04)
+		head.outline_size = 8
+		head.position = Vector3(col[1], 2.36, 0.06)
+		root.add_child(head)
+		var val := Label3D.new()
+		val.text = "--.--" if col[0] == "TIME" else "0"
+		val.font_size = 70
+		val.pixel_size = 0.007
+		val.modulate = Color(1.0, 0.70, 0.28)
+		val.outline_modulate = Color(0.06, 0.04, 0.02)
+		val.outline_size = 8
+		val.position = Vector3(col[1], 1.93, 0.06)
+		root.add_child(val)
+		live.set(col[2], val)
 
 
 func _one_bleacher(at: Vector3) -> void:
