@@ -72,6 +72,7 @@ Madison's save: Ernie played at 20:43 on Oct 9, so the live save is the referenc
 | lens | done | (M7) | selftest 52/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The ride camera is no longer interpolated twice; the warning is gone. |
 | walk mode | done | (M8) | compile ok, selftest 52/0, playtest pass, save match | Madison walks the course facing forward, with her own Walk and Idle. |
 | life | done | (M9) | compile ok, selftest 52/0, playtest pass (refuse 4), save match | Michelle and the crowd watch him; the crowd faces the ring; Madison is thrown forward at a stop. |
+| reins, crowd | done | (M10) | selftest 53/0, playtest 0/4/4, les 25.43, beg 62.14 jo 33.45, save match | The reins run along his neck to the bit and drape at a halt; she breathes and looks round standing; a varied crowd. |
 
 ## What was wrong, and what changed
 
@@ -185,6 +186,13 @@ Pictures (not committed): `dist/day15/shots/rider1` (before, horse visible) and 
 - **The crowd faced away:** the six people in the stands stood with their backs to the ring (Abbott 153–179° behind them). They are turned round.
 - **Watching:** `watch_rider.gd` turns Michelle's and the spectators' neck and head toward Abbott, eased, no more than 69° either way. Measured: the spectators look within 5° of him.
 - **A stop has weight:** at a refusal (horse.gd's `check_w`), Madison pitches up to 20° forward and her fists go down his neck, then she sits back as he settles.
+
+### Reins, standing life, crowd (M10)
+
+- **Reins:** each rein was one straight rod from her fist to the bit, which ran through the middle of his neck, so only its ends showed. It was also rebuilt as a new cylinder every frame. Each rein is now six unit rods along a curve that bows out along his side of the neck (11 cm) and drapes when slack: 5.5 cm standing, 3 at the walk, 1.2 on contact.
+- **Standing life:** at a halt, Madison breathes (0.8° at 0.24 Hz) and looks round now and then (up to 13°), eased in and out.
+- **Eyes and hooves:** a wet glint in his eye (roughness 0.10) and a little sheen on the hooves.
+- **The crowd:** the six people in the stands were copies of Michelle, clipboards and all. They are now spectators in everyday colours with their own shoes, still watching him.
 
 ## Decisions
 

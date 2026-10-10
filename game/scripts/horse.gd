@@ -68,6 +68,11 @@ var dust: GPUParticles3D
 var _land_spray: GPUParticles3D
 var rein_l: MeshInstance3D
 var rein_r: MeshInstance3D
+## Each rein as a chain of rods (see _make_reins); its sag eases with the gait.
+const REIN_SEGS := 6
+const REIN_BOW := 0.11
+var _rein_segs := {}
+var _rein_sag := 0.03
 var bit_l: Node3D
 var bit_r: Node3D
 var glove_l: Node3D
@@ -1770,13 +1775,23 @@ func _hand_unrest() -> float:
 
 
 func _make_reins() -> void:
+	# Each rein is a short chain of unit rods along a shallow curve, so it can
+	# drape when it is loose; scaled, not rebuilt, every frame.
 	var leather := MeshKit.leather(Color(0.34, 0.18, 0.10), 0.40)
-	rein_l = MeshKit.mesh_instance(MeshKit.cyl(0.0092, 0.45, -1.0, 6), leather, "ReinL")
-	rein_r = MeshKit.mesh_instance(MeshKit.cyl(0.0092, 0.45, -1.0, 6), leather, "ReinR")
-	rein_l.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	rein_r.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	add_child(rein_l)
-	add_child(rein_r)
+	for side in ["L", "R"]:
+		var segs: Array = []
+		for i in REIN_SEGS:
+			var cyl := CylinderMesh.new()
+			cyl.top_radius = 0.0092
+			cyl.bottom_radius = 0.0092
+			cyl.height = 1.0
+			cyl.radial_segments = 6
+			cyl.rings = 1
+			var mi := MeshKit.mesh_instance(cyl, leather, "Rein%s%d" % [side, i])
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			add_child(mi)
+			segs.append(mi)
+		_rein_segs[side] = segs
 	bit_l = _find_named(self, "BitL") as Node3D
 	bit_r = _find_named(self, "BitR") as Node3D
 	glove_l = _find_named(self, "LGlove") as Node3D
@@ -1785,10 +1800,9 @@ func _make_reins() -> void:
 
 func _update_reins() -> void:
 	var show := mounted and rider != null and rider.visible
-	if rein_l:
-		rein_l.visible = show
-	if rein_r:
-		rein_r.visible = show
+	for side in _rein_segs:
+		for mi in _rein_segs[side]:
+			(mi as MeshInstance3D).visible = show
 	if not show:
 		return
 	if bit_l == null or not is_instance_valid(bit_l):
@@ -1799,10 +1813,44 @@ func _update_reins() -> void:
 		glove_l = _find_named(self, "LGlove") as Node3D
 	if glove_r == null or not is_instance_valid(glove_r):
 		glove_r = _find_named(self, "RGlove") as Node3D
+	# On contact at the trot and canter the rein is nearly straight; at the
+	# walk it gives a little and standing it drapes.
+	var want := 0.055 if gait == 0 else (0.03 if gait == 1 else 0.012)
+	if jumping:
+		want = 0.02
+	_rein_sag = lerpf(_rein_sag, want, 1.0 - pow(0.02, get_process_delta_time()))
 	if bit_l and glove_l:
-		MeshKit.place_rod_global(rein_l, bit_l.global_position, glove_l.global_position)
+		_drape_rein(_rein_segs["L"], bit_l.global_position, glove_l.global_position, -1.0)
 	if bit_r and glove_r:
-		MeshKit.place_rod_global(rein_r, bit_r.global_position, glove_r.global_position)
+		_drape_rein(_rein_segs["R"], bit_r.global_position, glove_r.global_position, 1.0)
+
+
+func _drape_rein(segs: Array, a: Vector3, b: Vector3, side: float) -> void:
+	var n := segs.size()
+	var prev := a
+	# Out along his own side of the neck: a straight line from her fist to the
+	# bit ran through the middle of his neck and only its ends showed.
+	var out := global_transform.basis.x.normalized() * side
+	for i in n:
+		var t := float(i + 1) / float(n)
+		var bow := 4.0 * t * (1.0 - t)
+		# A parabola under the straight line, deepest in the middle.
+		var p := a.lerp(b, t) - Vector3.UP * (_rein_sag * bow) + out * (REIN_BOW * bow)
+		var mi := segs[i] as MeshInstance3D
+		var d := p - prev
+		var len := d.length()
+		if len < 0.001:
+			mi.visible = false
+		else:
+			var y := d / len
+			var x := y.cross(Vector3.UP)
+			if x.length() < 0.02:
+				x = y.cross(Vector3.RIGHT)
+			x = x.normalized()
+			var z := x.cross(y).normalized()
+			# A touch longer than the gap so the joints do not show.
+			mi.global_transform = Transform3D(Basis(x, y * (len * 1.06), z), (prev + p) * 0.5)
+		prev = p
 
 
 func _find_named(n: Node, want: String) -> Node:

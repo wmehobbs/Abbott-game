@@ -51,6 +51,7 @@ var _stir := {}
 var _crop_mi: MeshInstance3D
 ## Last solved leg points per side, seat frame: knee, ankle, fwd, up, ball.
 var _leg := {}
+var _life := 0.0
 
 
 func silence(packed_root: Node) -> void:
@@ -134,6 +135,13 @@ func _process(delta: float) -> void:
 	# she sits back as he settles (check_w rises in 0.18 s, gone by 1.2 s).
 	var stop := float(hz.check_w) if hz != null else 0.0
 	lean += 20.0 * stop
+	# Standing, she is not a statue: a slow breath and a look round now and
+	# then. Eased in when he stands, out when he moves off.
+	var halted := hz != null and int(hz.gait) == 0 and not bool(hz.jumping) and float(hz.speed) < 0.3
+	_life = move_toward(_life, 1.0 if halted else 0.0, delta * 1.2)
+	var t := float(Time.get_ticks_msec()) / 1000.0
+	lean += 0.8 * sin(t * TAU * 0.24) * _life
+	var glance := deg_to_rad(9.0 * sin(t * 0.31) + 4.0 * sin(t * 0.73 + 1.3)) * _life
 	var head_x := 12.0
 	var hp := body.get_node_or_null("Head") as Node3D
 	if hp:
@@ -164,10 +172,10 @@ func _process(delta: float) -> void:
 	# Eyes up the line: the face tips down a little more when he worries her.
 	var face_down := 8.0 - 0.6 * (head_x - lean)
 	var lift_head := face_down - lean
-	var r_neck := r_chest * Basis(Vector3.RIGHT, -deg_to_rad(lift_head * 0.45))
+	var r_neck := r_chest * Basis(Vector3.UP, glance * 0.4) * Basis(Vector3.RIGHT, -deg_to_rad(lift_head * 0.45))
 	var p_neck := p_chest + r_chest * (_q0 * ((_ro("Neck") - _ro("Chest")) * _k))
 	_set_global("Neck", r_neck * _q0 * _rb("Neck"), p_neck, S, V)
-	var r_head := r_neck * Basis(Vector3.RIGHT, -deg_to_rad(lift_head * 0.55))
+	var r_head := r_neck * Basis(Vector3.UP, glance * 0.6) * Basis(Vector3.RIGHT, -deg_to_rad(lift_head * 0.55))
 	var p_head := p_neck + r_neck * (_q0 * ((_ro("Head") - _ro("Neck")) * _k))
 	_set_global("Head", r_head * _q0 * _rb("Head"), p_head, S, V)
 
@@ -623,15 +631,19 @@ static func make_standing(kind: String, keep_anim: bool = false) -> Node3D:
 			low = minf(low, p.y)
 		vis.position.y = -low * FIT
 	_paint_standing(vis, kind)
+	# Riders wear boots over the glb's shoes; the crowd keeps its own shoes.
 	for n in ["Cube070", "Cube070_1"]:
 		var node := _find_named_static(vis, n)
 		if node is Node3D:
-			(node as Node3D).visible = false
-	if kind != "trainer":
+			(node as Node3D).visible = kind.begins_with("spectator")
+	var spectator := kind.begins_with("spectator")
+	if kind != "trainer" and not spectator:
 		_helmet_static(skel)
-	_boots_on_bones(skel)
+	if not spectator:
+		_boots_on_bones(skel)
 	if kind == "trainer":
 		_clipboard(root)
+	if kind == "trainer" or spectator:
 		# Michelle and the people in the stands follow him round the ring.
 		var watch: Node = load("res://scripts/watch_rider.gd").new()
 		watch.name = "WatchRider"
@@ -768,6 +780,17 @@ static func _paint_standing(vis: Node, kind: String) -> void:
 		top = _mat_static(Color(0.22, 0.28, 0.18), 0.62)
 		arms = _mat_static(Color(0.90, 0.88, 0.82), 0.6)
 		pants = _mat_static(Color(0.42, 0.36, 0.26), 0.68)
+	elif kind.begins_with("spectator"):
+		# Parents and barn friends in everyday clothes, not six Michelles.
+		var shirts: Array[Color] = [Color(0.20, 0.32, 0.55), Color(0.62, 0.18, 0.16), Color(0.86, 0.84, 0.76), Color(0.36, 0.38, 0.40), Color(0.28, 0.45, 0.30), Color(0.70, 0.52, 0.22)]
+		var trousers: Array[Color] = [Color(0.16, 0.20, 0.30), Color(0.30, 0.26, 0.20), Color(0.55, 0.50, 0.42)]
+		var hairs: Array[Color] = [Color(0.22, 0.14, 0.10), Color(0.45, 0.32, 0.18), Color(0.12, 0.10, 0.09), Color(0.70, 0.58, 0.36)]
+		var n := int(kind.substr(9)) if kind.length() > 9 else 0
+		top = _mat_static(shirts[n % shirts.size()], 0.7)
+		arms = top
+		pants = _mat_static(trousers[n % trousers.size()], 0.72)
+		hair = _mat_static(hairs[(n * 7 + 1) % hairs.size()], 0.6)
+		skin = _mat_static([SKIN, Color(0.74, 0.56, 0.42), Color(0.55, 0.38, 0.27), Color(0.90, 0.76, 0.66)][(n * 3) % 4], 0.55)
 	_paint_static(vis, "Cube037", arms)
 	_paint_static(vis, "Cube037_1", top)
 	_paint_static(vis, "Casual_Legs", pants)

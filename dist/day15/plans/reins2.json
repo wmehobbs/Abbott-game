@@ -1,0 +1,7 @@
+{"poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "side", "from": [1.9, 1.6, -0.6], "look": [0, 1.45, -0.7], "fov": 40},
+  {"name": "top", "from": [0.5, 2.9, 0.4], "look": [0, 1.4, -0.8], "fov": 45}]},
+ {"name": "canter", "gait": 3, "clip": "Canter", "phase": 0.3, "cams": [
+  {"name": "side", "from": [1.9, 1.6, -0.6], "look": [0, 1.45, -0.7], "fov": 40}]}
+]}

@@ -15,6 +15,8 @@ var _bark_mat: Material
 var _leaf_mats: Array[Material] = []
 var _pine_mat: Material
 var _tree_n := 0
+var _crowd_n := 0
+const RiderMeshScript := preload("res://scripts/rider_mesh.gd")
 
 
 func build() -> void:
@@ -1914,7 +1916,8 @@ func _one_bleacher(at: Vector3) -> void:
 		var z := 0.40 + float(i) * 0.74
 		var step := MeshKit.add_child_mi(root, MeshKit.box(Vector3(4.6, h, 0.78)), wood, "Step", Vector3(0.0, h * 0.5, z))
 		step.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		var person := People.standing_trainer()
+		var person := RiderMeshScript.make_standing("spectator%d" % (_crowd_n))
+		_crowd_n += 1
 		person.position = Vector3(-1.3 + float(i) * 1.3, h, z)
 		# The rows rise away from the ring; the glb faces +Z, so turned round
 		# they watch the ring instead of the field behind them.
