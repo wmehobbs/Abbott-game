@@ -186,6 +186,11 @@ func _report_rider() -> void:
 	if cap:
 		print("PROBE cap world ", cap.global_position, " head pose world ", sk.to_global(sk.get_bone_global_pose(sk.find_bone("Head")).origin))
 	print("PROBE skel xf ", sk.global_transform)
+	var leg: Dictionary = rm.get("_leg")
+	for tag in ["L", "R"]:
+		if leg.has(tag):
+			var d: Dictionary = leg[tag]
+			print("PROBE leg ", tag, " knee=", d.get("knee"), " ankle=", d.get("ankle"))
 
 
 func _report_scene() -> void:

@@ -1,0 +1,10 @@
+{"poses": [
+ {"name": "trotup", "gait": 2, "clip": "Trot", "phase": 0.25, "cams": [
+  {"name": "lside", "from": [2.3, 1.5, 0.05], "look": [0, 1.45, -0.05], "fov": 40}]},
+ {"name": "twopoint", "gait": 3, "clip": "Canter", "phase": 0.1, "last_stride": 1.0, "cams": [
+  {"name": "lside", "from": [2.4, 1.5, 0.05], "look": [0, 1.45, -0.05], "fov": 40}]},
+ {"name": "apex", "gait": 3, "clip": "Gallop_Jump", "phase": 0.5, "jump_u": 0.5, "cams": [
+  {"name": "lside", "from": [3.0, 1.7, 0.05], "look": [0, 1.6, -0.05], "fov": 44}]},
+ {"name": "land", "gait": 3, "clip": "Canter", "phase": 0.6, "land": 1.5, "cams": [
+  {"name": "lside", "from": [2.4, 1.5, 0.05], "look": [0, 1.45, -0.05], "fov": 40}]}
+]}

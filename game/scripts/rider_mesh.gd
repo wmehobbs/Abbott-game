@@ -24,7 +24,7 @@ const HAIR := Color(0.22, 0.14, 0.10)
 ## half-wide from 0.2 m to 0.45 m below his back, and his belly is 0.6 m down.
 ## Her ankle hangs on that barrel under her hip. The knee rides the knee roll.
 const ANKLE := Vector3(0.250, -0.505, 0.010)
-const KNEE_POLE := Vector3(0.62, -0.12, -0.80)
+const KNEE_POLE := Vector3(0.42, -0.06, -1.00)
 const TOE_OUT := 14.0
 const HEEL_DOWN := 16.0
 ## Stirrup bar, under the front of the skirt.
@@ -46,6 +46,7 @@ var _k := 0.776
 var _rest := {}
 var _contact := Vector3.ZERO
 var _ankle_rest := {}
+var _hip_off := Vector3.ZERO
 var _stir := {}
 var _crop_mi: MeshInstance3D
 ## Last solved leg points per side, seat frame: knee, ankle, fwd, up, ball.
@@ -84,6 +85,11 @@ func _cache_rest() -> void:
 	var hr: Vector3 = (_rest["UpperLegR"] as Transform3D).origin
 	# Seat bones: under and a touch behind the hip joints. She faces +Z in the glb.
 	_contact = (hl + hr) * 0.5 + Vector3(0.0, -0.075, -0.02)
+	# The glb's hips are not mirror images (its rest pose is turned a little),
+	# which put one knee 2 cm higher and 3 cm back. One mirrored offset.
+	var ol := hl - _contact
+	var orr := hr - _contact
+	_hip_off = Vector3((ol.x - orr.x) * 0.5, (ol.y + orr.y) * 0.5, (ol.z + orr.z) * 0.5)
 	for tag in ["L", "R"]:
 		var f: Vector3 = (_rest["Foot" + tag] as Transform3D).origin
 		# The shin bone ends at the ankle, 5 cm above the foot bone's head.
@@ -165,7 +171,8 @@ func _process(delta: float) -> void:
 	for side in [["L", -1.0], ["R", 1.0]]:
 		var tag: String = side[0]
 		var sx: float = side[1]
-		var hip := p_body + r_pel * (_q0 * ((_ro("UpperLeg" + tag) - o_body) * _k))
+		var off := Vector3(_hip_off.x if tag == "L" else -_hip_off.x, _hip_off.y, _hip_off.z)
+		var hip := c_seat + r_pel * (_q0 * (off * _k))
 		var ankle_t := Vector3(sx * ANKLE.x, ANKLE.y, ANKLE.z)
 		var pole := Vector3(sx * KNEE_POLE.x, KNEE_POLE.y, KNEE_POLE.z)
 		var a := (_ro("LowerLeg" + tag) - _ro("UpperLeg" + tag)).length() * _k
