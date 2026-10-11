@@ -1,0 +1,9 @@
+{"session": "show", "class": "beginner", "seed": 0, "poses": [
+ {"name": "view", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "ride", "from": [-1.6, 2.5, 3.4], "look": [0.6, 1.5, -3.0], "fov": 55},
+  {"name": "gate", "world": true, "from": [0.0, 2.6, -30.0], "look": [0.0, 1.0, -39.2], "fov": 36},
+  {"name": "judge", "world": true, "from": [-4.5, 2.4, 10.0], "look": [-17.6, 1.5, 10.0], "fov": 36},
+  {"name": "wide", "world": true, "from": [36.0, 16.0, 0.0], "look": [-4.0, 1.0, 20.0], "fov": 50},
+  {"name": "trailers", "world": true, "from": [20.0, 5.2, 54.0], "look": [-1.0, 1.3, 48.0], "fov": 38}
+ ]}
+]}

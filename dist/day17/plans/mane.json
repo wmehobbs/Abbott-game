@@ -1,0 +1,11 @@
+{"session": "lesson", "class": "lesson", "seed": 0, "poses": [
+ {"name": "halt", "gait": 0, "clip": "Idle", "phase": 0.0, "cams": [
+  {"name": "near", "from": [-1.55, 1.72, -0.35], "look": [0.02, 1.52, -0.65], "fov": 26},
+  {"name": "off", "from": [1.55, 1.72, -0.35], "look": [-0.02, 1.52, -0.65], "fov": 26},
+  {"name": "ride", "from": [-0.35, 2.35, 3.5], "look": [0.08, 1.42, -1.1], "fov": 40},
+  {"name": "threeq", "from": [1.25, 1.62, -2.35], "look": [0.0, 1.52, -0.45], "fov": 30}]},
+ {"name": "canter", "strip": 4, "gait": 3, "cams": [
+  {"name": "off", "from": [1.65, 1.75, -0.15], "look": [0.0, 1.48, -0.55], "fov": 28}]},
+ {"name": "apex", "gait": 3, "jump_u": 0.5, "cams": [
+  {"name": "off", "from": [1.75, 1.95, -0.25], "look": [0.0, 1.7, -0.65], "fov": 30}]}
+]}

@@ -18,3 +18,7 @@ __pycache__/
 .env
 *.pem
 credentials.json
+
+# Raw screenshot folders from the day runs. Gigabytes; the review sheets
+# and reports that matter are committed beside them.
+/dist/day*/shots/
