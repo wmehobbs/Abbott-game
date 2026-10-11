@@ -19,6 +19,8 @@ var retry_btn: Button
 var _primary: Button
 var lesson_card: PanelContainer
 var lesson_lab: Label
+const CourseMapScript := preload("res://scripts/course_map.gd")
+var course_map: Control
 
 var time_lab: Label
 var fault_lab: Label
@@ -149,6 +151,9 @@ func _build() -> void:
 	_build_reins(root)
 	_build_watching(root)
 	_build_callout(root)
+	course_map = CourseMapScript.new()
+	course_map.name = "CourseMap"
+	root.add_child(course_map)
 	_build_pause(root)
 	_build_result(root)
 	_build_options(root)
@@ -527,6 +532,8 @@ func apply_hud_scale() -> void:
 	_size_lab(next_lab, int(round(22.0 * s)))
 	_size_lab(best_lab, int(round(20.0 * s)))
 	_size_lab(hint, int(round(18.0 * s)))
+	if course_map:
+		course_map.call("apply_scale", s)
 
 
 ## Sets that label's size. Nothing, when the label was never built.
@@ -816,6 +823,7 @@ func _process(_delta: float) -> void:
 	_sync_callout(_delta)
 	_sync_capture()
 	_sync_reins(_delta)
+	_sync_map()
 	_sync_result(_delta)
 	_sync_veil(_delta)
 	var watching := _node("Watching")
@@ -900,6 +908,31 @@ func _sync_reins(delta: float) -> void:
 	_reins_fade = move_toward(_reins_fade, want, delta / 0.45)
 	reins.modulate.a = _reins_fade
 	reins.visible = _reins_fade > 0.02
+
+
+## The course map sits top-right. It gives that corner up while the reins card
+## or a menu is using the screen.
+func _sync_map() -> void:
+	if course_map == null:
+		return
+	var on := GameState.mode == "ride" or GameState.mode == "walk"
+	if GameState.settings and not GameState.settings.course_map:
+		on = false
+	if pause_panel and pause_panel.visible:
+		on = false
+	if result_panel and result_panel.visible:
+		on = false
+	if options_panel and options_panel.visible:
+		on = false
+	if lesson_card and lesson_card.visible:
+		on = false
+	var reins := _node("Reins") as CanvasItem
+	if reins and reins.visible:
+		on = false
+	var was := course_map.visible
+	course_map.visible = on
+	if on and not was:
+		course_map.call("refresh")
 
 
 ## One pip per fence: lit for a fence jumped, amber for the next, dim for the rest.

@@ -25,6 +25,7 @@ var render_scale: float = 1.0
 var quality: String = "High"
 var subtitles: bool = true
 var hud_scale: float = 1.0
+var course_map: bool = true
 
 
 func load_from(path: String = PATH) -> void:
@@ -55,6 +56,7 @@ func load_from(path: String = PATH) -> void:
 	quality = q if q in ["Low", "Medium", "High"] else "High"
 	subtitles = bool(cfg.get_value("text", "subtitles", subtitles))
 	hud_scale = clampf(float(cfg.get_value("text", "hud_scale", hud_scale)), 0.8, 1.6)
+	course_map = bool(cfg.get_value("picture", "course_map", course_map))
 
 
 func save_to(path: String = PATH) -> void:
@@ -78,6 +80,7 @@ func save_to(path: String = PATH) -> void:
 	cfg.set_value("picture", "quality", quality)
 	cfg.set_value("text", "subtitles", subtitles)
 	cfg.set_value("text", "hud_scale", hud_scale)
+	cfg.set_value("picture", "course_map", course_map)
 	cfg.save(path)
 
 
@@ -170,3 +173,4 @@ func _defaults() -> void:
 	quality = "High"
 	subtitles = true
 	hud_scale = 1.0
+	course_map = true

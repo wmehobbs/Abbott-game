@@ -62,6 +62,7 @@ func _picture() -> void:
 	_slider("Look left and right", 0.03, 0.16, 0.01, "mouse_sensitivity", false)
 	_check("Invert look", "invert_look")
 	_check("Horse bob", "camera_bob")
+	_check("Course map", "course_map")
 	_slider("Camera motion", 0.0, 100.0, 5.0, "camera_motion", false)
 	_check("Riding aid", "riding_aid")
 	_check("Controller rumble", "rumble")

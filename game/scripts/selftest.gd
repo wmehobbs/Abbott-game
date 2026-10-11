@@ -64,6 +64,7 @@ func _run() -> void:
 	_view_snap()
 	_settings()
 	await _layout()
+	await _course_map()
 	await _gamepad()
 	await _buses()
 	await _pause_round()
@@ -343,6 +344,166 @@ func _layout() -> void:
 			_fail("layout", "%dx%d hud: %s" % [sz.x, sz.y, why])
 			return
 	_ok("layout")
+
+
+## The overhead map: present on a ride, clear of every button and label at the
+## six layout sizes, gone when the picture setting is off, gold on the next fence.
+func _course_map() -> void:
+	var was_mode := GameState.mode
+	var was_class := GameState.class_id
+	var was_kind := GameState.session_kind
+	var was_seed := GameState.course_seed
+	var was_jo := GameState.jump_off
+	var was_next := GameState.next_fence
+	var was_done := GameState.round_complete
+	var was_demo := GameState.demo_ride
+	var was_indoor := GameState.indoor
+	var was_scale := 1.0
+	var was_map := true
+	if GameState.settings:
+		was_scale = GameState.settings.hud_scale
+		was_map = GameState.settings.course_map
+	var course: Course = null
+	var abbott: Node3D = null
+	var why := ""
+	var scene := get_tree().current_scene
+	if scene == null:
+		why = "no scene"
+	elif GameState.settings == null:
+		why = "no settings"
+	else:
+		GameState.class_id = "beginner"
+		GameState.session_kind = "schooling"
+		GameState.course_seed = 0
+		GameState.jump_off = false
+		GameState.indoor = false
+		GameState.next_fence = 3
+		GameState.round_complete = false
+		GameState.demo_ride = true
+		GameState.mode = "ride"
+		GameState.settings.course_map = true
+		GameState.settings.hud_scale = 1.0
+		course = Course.new()
+		course.name = "Course"
+		scene.add_child(course)
+		course.build(false, 0)
+		if course.fences.size() < 3:
+			why = "course built %d fences" % course.fences.size()
+		else:
+			abbott = Node3D.new()
+			abbott.name = "Abbott"
+			scene.add_child(abbott)
+			abbott.global_position = Vector3(2.0, 0.0, -8.0)
+			abbott.rotation.y = PI
+	if why == "":
+		var sizes: Array[Vector2i] = [
+			Vector2i(1280, 720),
+			Vector2i(1920, 1080),
+			Vector2i(2560, 1440),
+			Vector2i(3840, 2160),
+			Vector2i(1280, 800),
+			Vector2i(2560, 1080),
+		]
+		var checked := false
+		for sz in sizes:
+			var bit := await _course_map_at(sz, not checked)
+			checked = true
+			if bit != "":
+				why = "%dx%d %s" % [sz.x, sz.y, bit]
+				break
+	if course and is_instance_valid(course):
+		course.free()
+	if abbott and is_instance_valid(abbott):
+		abbott.free()
+	GameState.mode = was_mode
+	GameState.class_id = was_class
+	GameState.session_kind = was_kind
+	GameState.course_seed = was_seed
+	GameState.jump_off = was_jo
+	GameState.next_fence = was_next
+	GameState.round_complete = was_done
+	GameState.demo_ride = was_demo
+	GameState.indoor = was_indoor
+	if GameState.settings:
+		GameState.settings.hud_scale = was_scale
+		GameState.settings.course_map = was_map
+	if why != "":
+		_fail("course_map", why)
+		return
+	_ok("course_map")
+
+
+func _course_map_at(sz: Vector2i, check_mark: bool) -> String:
+	var vp := SubViewport.new()
+	vp.size = sz
+	vp.disable_3d = true
+	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(vp)
+	var script: GDScript = load("res://scripts/hud.gd") as GDScript
+	var hud: Node = script.new()
+	vp.add_child(hud)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	hud.call("apply_hud_scale")
+	await get_tree().process_frame
+	var why := ""
+	var map := hud.find_child("CourseMap", true, false) as Control
+	if map == null:
+		why = "map missing"
+	elif not map.visible:
+		why = "map hidden while riding"
+	else:
+		map.call("refresh")
+		var mr := map.get_global_rect()
+		if mr.position.x < -2.0 or mr.position.y < -2.0 or mr.end.x > float(sz.x) + 2.0 or mr.end.y > float(sz.y) + 2.0:
+			why = "map outside %.0f,%.0f %.0fx%.0f" % [mr.position.x, mr.position.y, mr.size.x, mr.size.y]
+		elif mr.size.y < 200.0:
+			why = "map short %.0f" % mr.size.y
+		else:
+			why = _map_hits(hud, mr)
+	if why == "" and check_mark and map:
+		GameState.settings.course_map = false
+		await get_tree().process_frame
+		if map.visible:
+			why = "stayed up with the setting off"
+		else:
+			GameState.settings.course_map = true
+			await get_tree().process_frame
+			if not map.visible:
+				why = "stayed hidden with the setting on"
+			else:
+				map.call("refresh")
+				if int(map.get("marked_next")) != 3:
+					why = "next marked %s" % str(map.get("marked_next"))
+				else:
+					GameState.next_fence = 1
+					map.call("refresh")
+					if int(map.get("marked_next")) != 1:
+						why = "fence 1 marked %s" % str(map.get("marked_next"))
+					GameState.next_fence = 3
+					map.call("refresh")
+	hud.free()
+	vp.free()
+	return why
+
+
+func _map_hits(hud: Node, mr: Rect2) -> String:
+	var buttons: Array[Button] = []
+	var labels: Array[Label] = []
+	_collect_ui(hud, buttons, labels)
+	for lab in labels:
+		if not lab.is_visible_in_tree() or lab.text == "":
+			continue
+		var hit := lab.get_global_rect().intersection(mr)
+		if hit.size.x > 4.0 and hit.size.y > 4.0:
+			return "covers " + lab.text.substr(0, 32)
+	for b in buttons:
+		if not b.is_visible_in_tree():
+			continue
+		var hit2 := b.get_global_rect().intersection(mr)
+		if hit2.size.x > 4.0 and hit2.size.y > 4.0:
+			return "covers " + b.text
+	return ""
 
 
 func _layout_title(sz: Vector2i) -> String:
@@ -635,6 +796,7 @@ func _settings() -> void:
 	s.render_scale = 0.75
 	s.subtitles = false
 	s.hud_scale = 1.2
+	s.course_map = false
 	s.save_to(path)
 	var t := PlayerSettings.new()
 	add_child(t)  # freed with the test node, not leaked at exit
@@ -642,7 +804,7 @@ func _settings() -> void:
 	if absf(t.fov - 62.0) > 0.01 or absf(t.master_db - (-8.0)) > 0.01 or t.quality != "Low":
 		_fail("settings", "round trip fov %.2f quality %s" % [t.fov, t.quality])
 		return
-	if t.subtitles or t.camera_bob or not t.invert_look:
+	if t.subtitles or t.camera_bob or not t.invert_look or t.course_map:
 		_fail("settings", "round trip flags")
 		return
 	if absf(t.mouse_sensitivity - 0.11) > 0.001 or absf(t.render_scale - 0.75) > 0.001 or absf(t.hud_scale - 1.2) > 0.001:
@@ -672,8 +834,8 @@ func _settings() -> void:
 	add_child(bad)  # freed with the test node, not leaked at exit
 	bad.fov = 44.0
 	bad.load_from(path)
-	if absf(bad.fov - 52.0) > 0.01 or bad.quality != "High":
-		_fail("settings", "corrupt file kept fov %.2f" % bad.fov)
+	if absf(bad.fov - 52.0) > 0.01 or bad.quality != "High" or not bad.course_map:
+		_fail("settings", "corrupt file kept fov %.2f map %s" % [bad.fov, str(bad.course_map)])
 		return
 	var missing := PlayerSettings.new()
 	add_child(missing)  # freed with the test node, not leaked at exit
@@ -714,6 +876,7 @@ func _settings() -> void:
 	live.quality = "High"
 	live.subtitles = true
 	live.hud_scale = 1.0
+	live.course_map = true
 	live.apply_audio()
 	GameState._duck = 0.0
 	GameState.voice_hold = false
