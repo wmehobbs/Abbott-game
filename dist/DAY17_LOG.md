@@ -6,7 +6,7 @@ Sunday, October 11. Branch `day17-grok`, from `day16-grok`. Version stays 2.348.
 
 Setup is done. The distance word, the course map, a loose mane for lessons and schooling, show-day dressing, and applause after a clear show round are in. Show day still braids him.
 
-Open `dist/day17/review/00_morning.png` first when it exists. It is not made yet. This log is the summary.
+Open `dist/day17/review/00_morning.png` first. It is the before-and-after page: the distance word, the course map, the mane, the flowers, and the wide view of show day. This log is the summary.
 
 The computer is set to stay awake (AC sleep, hibernate, and the monitor timeout are 0, and a stay-awake loop is running). Grok Build was already on always-approve. No config change.
 
@@ -33,6 +33,8 @@ Show day now has a small judge's stand outside the left rail (the stands are at 
 
 A clear round at a show gets one burst of applause as the crowd starts to wave. It is generated, not a recording, about 4.5 seconds, and it plays once from one player on the Barn slider at about −10 dB. Lessons and schooling stay quiet. The picture of the sound is `dist/day17/review/e_applause_spec.png`. Please listen in the morning. Peak is 0.89 of full scale, so it does not clip. 98.9% of the energy sits between 1 and 4 kHz. The first 0.3 seconds rise in, and the last fifth of a second is nearly quiet.
 
+The show classes were ridden again on seeds 2 and 3. All six finished. Nothing new to fix in the picture. The final shot list is `dist/day17/shots/final_list`. The final show-day probe is `dist/day17/shots/final_show`.
+
 What needs you: see Needs Ernie. The short version is the finish camera in the in-gate, "1 faults", and the advanced rounds being over the time allowed.
 
 ## Status
@@ -46,10 +48,12 @@ What needs you: see Needs Ernie. The short version is the finish camera in the i
 | C mane | ad57d32c | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | 66 and 42 / 37 and 40 | Tag `c1`. Beginner 62.15 is 0.01 s over 62.14, inside the wobble. The mane check is inside the existing braid test, so the pass count stays 68. GPU 0.85 to 1.00 ms, the same band as the map. The two lesson samples disagree by far more than 5%, so the counter is the machine. The mane stays. |
 | D dress | 0acd12af | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | 66 and 83 / 96 and 92 | Tag `d1`. Times match the posted line. The dressing check is inside the existing braid test, so the pass count stays 68. Lesson samples disagree by far more than 5%, and the slower one had the lower GPU time (0.81 ms against 1.19). Show median 94 is above the baseline 91. The counter is the machine. The dressing stays. |
 | E applause | af002017 | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.44, SAVE_MATCH | 35 and 35 / 54 and 39 | Tag `e1`. Jump-off 33.44 is 0.01 s under 33.45, inside the wobble. `success=false` is the jump-off. The player is silent during the sample. GPU stayed 0.94 to 1.03 ms, the same band as the dressing runs that scored 66 to 96. The counter is the machine. The applause stays. |
+| F again | ef89eb07 | no code change, so no new gate. The show pass printed SAVE_MATCH. | | Show classes, seeds 2 and 3. All six finished. No new visual fix. The architecture note is that commit. |
+| final | (this commit) | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | | Tag `final`. Times match the posted line. Morning sheet: `dist/day17/review/00_morning.png`. |
 
 ## QA findings
 
-Six, written up in `dist/day17/QA_FINDINGS.md`. One medium visual, fixed (the distance word). Two for you (the finish in the in-gate, "1 faults"). One low camera note. Two riding reports (advanced fence 6 and the clock, both intermediate jump-offs one time-fault over).
+Seven, written up in `dist/day17/QA_FINDINGS.md`. One medium visual, fixed (the distance word). Two for you (the finish in the in-gate, "1 faults"). One low camera note. Three riding reports. The third is the extra show courses, seeds 2 and 3: more rounds over the time allowed, and an advanced jump-off with a rail. No new visual break on that pass. The map stayed in the corner, and the new show dressing did not sit on the course.
 
 Seen while shooting the map, and left alone: on a course walk the course sentence is drawn over the scoreboard (`walk_hint` sits at y 96, inside that card). It was already there. Moving it is a separate visual change, so it is not in the map commit.
 

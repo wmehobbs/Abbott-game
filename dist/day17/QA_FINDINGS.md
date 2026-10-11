@@ -68,3 +68,26 @@ Seed 0 and seed 1 each jumped off clear of rails in 40.06 s. The card says time 
 Picture: `dist/day17/shots/a_rounds/show_intermediate_s0/results_jo.png` (seed 1 has the same line in the log).
 
 Not changed.
+
+## Seeds 2 and 3
+
+The show classes again, on two more courses. Every round finished. Her save did not change. Frames: `dist/day17/shots/f_rounds/`.
+
+| round | faults | time | jump-off |
+| --- | --- | --- | --- |
+| show beginner seed 2 | 0 | 65.63 | clear, 34.30 |
+| show beginner seed 3 | 0 | 58.13 | clear, 34.23 |
+| show intermediate seed 2 | 2 | 96.05 | no (not clear) |
+| show intermediate seed 3 | 1 | 89.05 | no (not clear) |
+| show advanced seed 2 | 6 | 101.79 | no (not clear) |
+| show advanced seed 3 | 0 | 71.04 | 8 faults, 48.68 |
+
+No new visual break. The map stays in the corner and off the results card. The judge's stand, the urns, and the trailers do not sit on the course. The finish is still in the in-gate, and a one-fault card still says "1 faults". Both are already above.
+
+### 7. More rounds over the time allowed — riding, report only
+
+Intermediate seed 2 is 96.05 s against 85 s allowed, and the card calls it 2 time faults. Intermediate seed 3 is 89.05 s, 1 time fault, and the card says "1 faults". Advanced seed 2 is 101.79 s against 75 s allowed, 6 time faults, no rail on the card. Advanced seed 3 goes clear in 71.04 s, then the jump-off is 48.68 s against 32 s allowed, with a rail at fence 2 (8 faults, 4 of them time).
+
+Pictures: `dist/day17/shots/f_rounds/show_intermediate_s3/results.png`, `show_advanced_s2/results.png`, `show_advanced_s3/results_jo.png`.
+
+Riding was not changed. The time-allowed note still stands.
