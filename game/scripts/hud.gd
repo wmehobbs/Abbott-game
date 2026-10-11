@@ -273,11 +273,12 @@ func _build_callout(root: Control) -> void:
 		callout_lab.add_theme_font_override("font", font_b)
 	grade_lab = _label(root, "", 48, Vector2(0, 0), Color(0.96, 0.93, 0.86))
 	grade_lab.name = "Grade"
-	grade_lab.set_anchors_preset(Control.PRESET_CENTER)
-	grade_lab.offset_left = -360
-	grade_lab.offset_top = 24
-	grade_lab.offset_right = 360
-	grade_lab.offset_bottom = 90
+	# The middle of the picture is her back. Keep the word under the scoreboard, in the sky.
+	grade_lab.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	grade_lab.offset_left = -280
+	grade_lab.offset_top = 276
+	grade_lab.offset_right = 280
+	grade_lab.offset_bottom = 344
 	grade_lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	grade_lab.visible = false
 	if font_b:
