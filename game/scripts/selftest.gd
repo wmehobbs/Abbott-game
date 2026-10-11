@@ -2259,6 +2259,12 @@ func _show_braids() -> void:
 		why = "no braids at a show"
 	elif (manes[0] as Node3D).is_visible_in_tree():
 		why = "mane showing at a show"
+	elif arena.find_child("JudgeStand", true, false) == null:
+		why = "no judge's stand at a show"
+	elif arena.find_child("GateUrns", true, false) == null:
+		why = "no flowers at the in-gate at a show"
+	elif arena.find_child("ShowTrailers", true, false) == null:
+		why = "no trailers in the field at a show"
 	else:
 		GameState.session_kind = "lesson"
 		await get_tree().process_frame
@@ -2266,6 +2272,19 @@ func _show_braids() -> void:
 			why = "braids showing in a lesson"
 		elif not (manes[0] as Node3D).is_visible_in_tree():
 			why = "no mane in a lesson"
+		else:
+			# Built for a show only, so a lesson arena does not grow them.
+			var quiet: Node = packed.instantiate()
+			get_tree().root.add_child(quiet)
+			await get_tree().process_frame
+			if quiet.find_child("JudgeStand", true, false) != null:
+				why = "judge's stand in a lesson"
+			elif quiet.find_child("GateUrns", true, false) != null:
+				why = "flowers at the in-gate in a lesson"
+			elif quiet.find_child("ShowTrailers", true, false) != null:
+				why = "trailers in the field in a lesson"
+			quiet.queue_free()
+			await get_tree().process_frame
 	GameState.session_kind = kind0
 	arena.queue_free()
 	await get_tree().process_frame

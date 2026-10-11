@@ -32,6 +32,9 @@ func build() -> void:
 	_house()
 	_people()
 	_bleachers()
+	# A judge, flowers at the gate, and trailers. A lesson does not dress for a show.
+	if GameState.session_kind == "show":
+		_show_day()
 	_scoreboard()
 	_school_yard()
 	_grounds()
@@ -2203,3 +2206,190 @@ func _sky() -> void:
 		amb.volume_db = -7.0
 		amb.bus = "Ambience"
 	add_child(amb)
+
+
+## Show day: a judge on the long side away from the stands, urns at the
+## in-gate, and trailers in the field past the far rail. One mesh each,
+## so the ride does not pay a draw call per board.
+func _show_day() -> void:
+	_judge_stand()
+	_gate_urns()
+	_show_trailers()
+
+
+func _judge_stand() -> void:
+	# Outside the left rail, mid-ring. The stands are on the far end and the
+	# clock booth is on the right, so this side is empty and the start camera
+	# (looking at the in-gate) does not look through it.
+	var root := Node3D.new()
+	root.name = "JudgeStand"
+	add_child(root)
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var x := -RING_W * 0.5 - 2.45
+	var z := 10.0
+	var wood := Color(0.52, 0.36, 0.20)
+	var white := Color(0.93, 0.91, 0.84)
+	var roof := Color(0.32, 0.18, 0.12)
+	_dress_box(st, Vector3(1.70, 0.12, 2.30), Vector3(x, 0.78, z), wood)
+	for sx in [-0.72, 0.72]:
+		for sz in [-1.00, 1.00]:
+			_dress_box(st, Vector3(0.10, 2.45, 0.10), Vector3(x + sx, 1.22, z + sz), white)
+	_dress_box(st, Vector3(2.05, 0.08, 2.70), Vector3(x, 2.48, z), roof)
+	# Rail on the ring side, a back wall on the field side, one step down.
+	_dress_box(st, Vector3(0.06, 0.08, 2.05), Vector3(x + 0.78, 1.22, z), white)
+	_dress_box(st, Vector3(0.08, 0.90, 2.15), Vector3(x - 0.78, 1.28, z), wood)
+	_dress_box(st, Vector3(0.55, 0.40, 0.80), Vector3(x - 1.25, 0.20, z), wood)
+	var mi := _dress_finish(st, "Booth")
+	root.add_child(mi)
+	for oz in [-0.42, 0.42]:
+		var person := RiderMeshScript.make_standing("spectator%d" % _crowd_n)
+		_crowd_n += 1
+		person.position = Vector3(x, 0.84, z + oz)
+		# The glb faces +Z. A half turn about Y points that face into the ring.
+		# A marker on +Z landed toward the ring; the other way landed away.
+		person.rotation.y = PI * 0.5
+		root.add_child(person)
+
+
+func _gate_urns() -> void:
+	# Inside the ring, beside the gate posts. Outside the posts the mirror
+	# hides anything standing in the field.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var stone := Color(0.55, 0.52, 0.46)
+	var soil := Color(0.28, 0.18, 0.10)
+	var leaf := Color(0.18, 0.36, 0.14)
+	var blooms: Array[Color] = [Color(0.82, 0.18, 0.22), Color(0.94, 0.92, 0.86), Color(0.90, 0.55, 0.62)]
+	var z := -RING_D * 0.5 + 1.05
+	for sx in [-1.0, 1.0]:
+		var x := float(sx) * 2.55
+		_dress_box(st, Vector3(0.36, 0.16, 0.36), Vector3(x, 0.08, z), stone)
+		_dress_box(st, Vector3(0.22, 0.46, 0.22), Vector3(x, 0.36, z), stone)
+		_dress_box(st, Vector3(0.62, 0.28, 0.62), Vector3(x, 0.70, z), stone)
+		_dress_box(st, Vector3(0.70, 0.06, 0.70), Vector3(x, 0.86, z), stone)
+		_dress_box(st, Vector3(0.46, 0.05, 0.46), Vector3(x, 0.84, z), soil)
+		for i in 5:
+			var ox := (float(i) - 2.0) * 0.10
+			var oz := 0.06 if i % 2 == 0 else -0.04
+			_dress_box(st, Vector3(0.10, 0.08, 0.10), Vector3(x + ox, 0.94, z + oz), leaf)
+			_dress_box(st, Vector3(0.12, 0.10, 0.12), Vector3(x + ox * 0.75, 1.02, z), blooms[i % blooms.size()])
+	add_child(_dress_finish(st, "GateUrns"))
+
+
+func _show_trailers() -> void:
+	# Past the far rail and the property fence, on grass the trees are kept off.
+	# The farm's own truck stays by the house. These are the show parking.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	_dress_pickup(st, Vector3(-10.2, 0.0, 50.2))
+	_dress_trailer(st, Vector3(-3.2, 0.0, 50.2), Color(0.92, 0.92, 0.90))
+	_dress_trailer(st, Vector3(8.4, 0.0, 51.6), Color(0.42, 0.12, 0.14))
+	add_child(_dress_finish(st, "ShowTrailers"))
+
+
+func _dress_pickup(st: SurfaceTool, at: Vector3) -> void:
+	var white := Color(0.90, 0.90, 0.88)
+	var glass := Color(0.16, 0.22, 0.28)
+	var black := Color(0.10, 0.10, 0.11)
+	var chrome := Color(0.72, 0.74, 0.76)
+	_dress_box(st, Vector3(5.10, 0.16, 1.85), at + Vector3(0.0, 0.40, 0.0), black)
+	_dress_box(st, Vector3(1.85, 1.05, 1.72), at + Vector3(-0.80, 1.15, 0.0), white)
+	_dress_box(st, Vector3(1.15, 0.36, 1.62), at + Vector3(-2.15, 0.86, 0.0), white)
+	_dress_box(st, Vector3(1.95, 0.58, 1.68), at + Vector3(1.35, 0.86, 0.0), white)
+	_dress_box(st, Vector3(0.08, 0.46, 1.58), at + Vector3(2.30, 0.92, 0.0), white)
+	_dress_box(st, Vector3(0.06, 0.46, 1.50), at + Vector3(-1.55, 1.46, 0.0), glass)
+	_dress_box(st, Vector3(0.85, 0.30, 0.05), at + Vector3(-0.80, 1.38, 0.88), glass)
+	_dress_box(st, Vector3(0.85, 0.30, 0.05), at + Vector3(-0.80, 1.38, -0.88), glass)
+	_dress_box(st, Vector3(0.08, 0.20, 1.50), at + Vector3(-2.72, 0.76, 0.0), chrome)
+	for side in [-1.0, 1.0]:
+		_dress_wheel(st, at + Vector3(-1.85, 0.34, float(side) * 0.95), 0.34, 0.11, black)
+		_dress_wheel(st, at + Vector3(1.15, 0.34, float(side) * 0.95), 0.34, 0.11, black)
+
+
+func _dress_trailer(st: SurfaceTool, at: Vector3, body: Color) -> void:
+	var black := Color(0.10, 0.10, 0.11)
+	var ramp := Color(0.22, 0.20, 0.18)
+	var window := Color(0.20, 0.26, 0.32)
+	_dress_box(st, Vector3(6.20, 2.05, 2.20), at + Vector3(0.35, 1.55, 0.0), body)
+	_dress_box(st, Vector3(1.05, 0.50, 0.85), at + Vector3(-3.05, 1.12, 0.0), body)
+	_dress_box(st, Vector3(0.08, 1.65, 2.00), at + Vector3(3.40, 1.42, 0.0), ramp)
+	_dress_box(st, Vector3(0.55, 0.36, 0.05), at + Vector3(0.20, 2.05, 1.10), window)
+	_dress_box(st, Vector3(0.55, 0.36, 0.05), at + Vector3(0.20, 2.05, -1.10), window)
+	for side in [-1.0, 1.0]:
+		_dress_wheel(st, at + Vector3(1.20, 0.34, float(side) * 1.15), 0.36, 0.12, black)
+		_dress_wheel(st, at + Vector3(2.40, 0.34, float(side) * 1.15), 0.36, 0.12, black)
+
+
+func _dress_box(st: SurfaceTool, size: Vector3, center: Vector3, col: Color) -> void:
+	var hx := size.x * 0.5
+	var hy := size.y * 0.5
+	var hz := size.z * 0.5
+	var c := [
+		center + Vector3(-hx, -hy, -hz),
+		center + Vector3(hx, -hy, -hz),
+		center + Vector3(hx, -hy, hz),
+		center + Vector3(-hx, -hy, hz),
+		center + Vector3(-hx, hy, -hz),
+		center + Vector3(hx, hy, -hz),
+		center + Vector3(hx, hy, hz),
+		center + Vector3(-hx, hy, hz),
+	]
+	var faces := [
+		[4, 5, 6, 4, 6, 7],
+		[0, 1, 5, 0, 5, 4],
+		[1, 2, 6, 1, 6, 5],
+		[2, 3, 7, 2, 7, 6],
+		[3, 0, 4, 3, 4, 7],
+		[0, 3, 2, 0, 2, 1],
+	]
+	for f in faces:
+		var i0 := int(f[0])
+		var a: Vector3 = c[i0]
+		var b: Vector3 = c[int(f[1])]
+		var d: Vector3 = c[int(f[2])]
+		var n := (b - a).cross(d - a).normalized()
+		st.set_color(col)
+		st.set_normal(n)
+		st.add_vertex(a)
+		st.add_vertex(b)
+		st.add_vertex(d)
+		st.set_normal(n)
+		st.add_vertex(c[int(f[3])])
+		st.add_vertex(c[int(f[4])])
+		st.add_vertex(c[int(f[5])])
+
+
+func _dress_wheel(st: SurfaceTool, center: Vector3, radius: float, half_w: float, col: Color) -> void:
+	var sides := 8
+	st.set_color(col)
+	for i in sides:
+		var a0 := TAU * float(i) / float(sides)
+		var a1 := TAU * float(i + 1) / float(sides)
+		var c0 := Vector3(cos(a0), sin(a0), 0.0) * radius
+		var c1 := Vector3(cos(a1), sin(a1), 0.0) * radius
+		var n := Vector3(cos((a0 + a1) * 0.5), sin((a0 + a1) * 0.5), 0.0)
+		st.set_normal(n)
+		var p00 := center + Vector3(c0.x, c0.y, -half_w)
+		var p10 := center + Vector3(c1.x, c1.y, -half_w)
+		var p11 := center + Vector3(c1.x, c1.y, half_w)
+		var p01 := center + Vector3(c0.x, c0.y, half_w)
+		st.add_vertex(p00)
+		st.add_vertex(p10)
+		st.add_vertex(p11)
+		st.add_vertex(p00)
+		st.add_vertex(p11)
+		st.add_vertex(p01)
+
+
+func _dress_finish(st: SurfaceTool, node_name: String) -> MeshInstance3D:
+	var mat := StandardMaterial3D.new()
+	mat.vertex_color_use_as_albedo = true
+	mat.roughness = 0.8
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var mi := MeshInstance3D.new()
+	mi.name = node_name
+	mi.mesh = st.commit()
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	return mi
