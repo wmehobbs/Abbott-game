@@ -49,7 +49,7 @@ What needs you: see Needs Ernie. The short version is the finish camera in the i
 | D dress | 0acd12af | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | 66 and 83 / 96 and 92 | Tag `d1`. Times match the posted line. The dressing check is inside the existing braid test, so the pass count stays 68. Lesson samples disagree by far more than 5%, and the slower one had the lower GPU time (0.81 ms against 1.19). Show median 94 is above the baseline 91. The counter is the machine. The dressing stays. |
 | E applause | af002017 | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.44, SAVE_MATCH | 35 and 35 / 54 and 39 | Tag `e1`. Jump-off 33.44 is 0.01 s under 33.45, inside the wobble. `success=false` is the jump-off. The player is silent during the sample. GPU stayed 0.94 to 1.03 ms, the same band as the dressing runs that scored 66 to 96. The counter is the machine. The applause stays. |
 | F again | ef89eb07 | no code change, so no new gate. The show pass printed SAVE_MATCH. | | Show classes, seeds 2 and 3. All six finished. No new visual fix. The architecture note is that commit. |
-| final | (this commit) | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | | Tag `final`. Times match the posted line. Morning sheet: `dist/day17/review/00_morning.png`. |
+| final | 7e3bdd11 | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | | Tag `final`. Times match the posted line. Morning sheet: `dist/day17/review/00_morning.png`. |
 
 ## QA findings
 
