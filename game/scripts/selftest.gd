@@ -2240,23 +2240,32 @@ func _show_braids() -> void:
 	var horse := arena.get_node_or_null("Abbott") as Node3D
 	var sk := horse.get("skel") as Skeleton3D if horse else null
 	var knots: Array[Node] = []
+	var manes: Array[Node] = []
 	if sk:
 		for att in sk.get_children():
 			if str(att.name).begins_with("Braids"):
 				knots.append_array(att.get_children())
+			elif str(att.name).begins_with("Mane"):
+				manes.append(att)
 	if knots.size() < 8:
 		why = "%d braids on his neck" % knots.size()
+	elif manes.size() < 2:
+		why = "%d mane pieces on his neck" % manes.size()
 	elif arena.find_child("ShowNumber", true, false) == null:
 		why = "no number on her back at a show"
 	elif arena.find_child("Bunting", true, false) == null:
 		why = "no bunting round the ring at a show"
 	elif not (knots[0] as Node3D).is_visible_in_tree():
 		why = "no braids at a show"
+	elif (manes[0] as Node3D).is_visible_in_tree():
+		why = "mane showing at a show"
 	else:
 		GameState.session_kind = "lesson"
 		await get_tree().process_frame
 		if (knots[0] as Node3D).is_visible_in_tree():
 			why = "braids showing in a lesson"
+		elif not (manes[0] as Node3D).is_visible_in_tree():
+			why = "no mane in a lesson"
 	GameState.session_kind = kind0
 	arena.queue_free()
 	await get_tree().process_frame

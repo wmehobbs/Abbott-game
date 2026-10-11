@@ -4,7 +4,7 @@ Sunday, October 11. Branch `day17-grok`, from `day16-grok`. Version stays 2.348.
 
 ## Summary for Ernie
 
-Setup is done. The distance word and the course map are in. The mane, the show dressing, and the applause are not started.
+Setup is done. The distance word, the course map, and a loose mane for lessons and schooling are in. Show day still braids him. The show dressing and the applause are not started.
 
 Open `dist/day17/review/00_morning.png` first when it exists. It is not made yet. This log is the summary.
 
@@ -25,7 +25,9 @@ What is better now: the distance word ("Deep", "Right on") no longer sits on her
 
 What the map tells her: the ring, long side up the screen and the in-gate at the bottom; each fence as a short bar with its number; the next fence in gold, the same number as the "Fence 3 of 8" line; fences already jumped drawn dim; Abbott as an arrow pointing the way he faces. It steps aside while the reins card is up, so those instructions stay clear, and it hides for pause, the results card, options, and the lesson card. Turn it off under Options, Picture, "Course map". It is on by default and is saved with the other picture settings.
 
-Tried and reverted: nothing.
+Lessons and schooling now have a loose mane down the off side of his neck, in place of only the painted stripe. Show day still hides it and shows the braids. Sheet: `dist/day17/review/c_mane.png` (painted stripe beside the hair, at the halt, the canter, and over a jump). From the side and the three-quarter it reads as short pale hair lying on the right side of the neck. From the saddle it barely shows, which is the same as hair lying on the off side. The painted stripe is still there underneath.
+
+Tried and not kept: the first mane stood up off the crest in spikes. The hair had been shaped on the neck's rest pose, and the pose he actually stands in lifted that into a mohawk. That version was never committed. The one that is in hangs with gravity, so a lowered neck does not leave it standing up.
 
 What needs you: see Needs Ernie. The short version is the finish camera in the in-gate, "1 faults", and the advanced rounds being over the time allowed.
 
@@ -37,6 +39,7 @@ What needs you: see Needs Ernie. The short version is the finish camera in the i
 | A tool | d5b0a24e | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | | Tag `a1`. The tool rides a list and saves the screen. A two-round check armed the rider on the second round (the arena clears that flag as it leaves). Lesson 0 faults 25.45 s, schooling beginner 0 faults 62.10 s. |
 | A grade | 1b30b1a8 | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.42 / 62.15 / 33.44, SAVE_MATCH | see note | Tag `a2`. Each time is 0.01 s off the posted line, inside the wobble. Frame counter: lesson 36, 65, 51 and show 39, 42, 38. The same lesson with the label put back was 67. GPU time stayed about 0.8 to 1.0 ms, the same as the baseline. The counter is the machine, not the label, so the move stays. |
 | B map | be78b52c | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | 73 and 42 / 46 and 40 | Tag `b1`. Times match the posted line. The new test is the 68th. The frame counter's median is under the 5% floor. GPU stayed 0.87 to 0.97 ms, the same band as the grade-move runs tonight (about 0.8 to 1.0). The two lesson samples disagree with each other by far more than 5%, so the counter is the machine. The map stays. |
+| C mane | (this commit) | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | 66 and 42 / 37 and 40 | Tag `c1`. Beginner 62.15 is 0.01 s over 62.14, inside the wobble. The mane check is inside the existing braid test, so the pass count stays 68. GPU 0.85 to 1.00 ms, the same band as the map. The two lesson samples disagree by far more than 5%, so the counter is the machine. The mane stays. |
 
 ## QA findings
 

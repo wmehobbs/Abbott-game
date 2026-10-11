@@ -1325,6 +1325,11 @@ func _bind_rig() -> void:
 		braids.name = "Braids"
 		add_child(braids)
 		braids.call("build", self, skel, visual)
+		# Loose mane on the same bones. A show hides it and shows the braids.
+		var mane: Node = preload("res://scripts/mane.gd").new()
+		mane.name = "Mane"
+		add_child(mane)
+		mane.call("build", self, skel, visual)
 	if anim == null:
 		return
 	anim.active = true
