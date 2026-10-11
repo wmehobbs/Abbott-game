@@ -31,7 +31,8 @@ What needs you: nothing yet.
 
 | task | commit | gates (compile, selftest x/0, playtest, les/beg/jo times, save) | fps lesson/show | notes |
 | --- | --- | --- | --- | --- |
-| setup | (this commit) | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.44, SAVE_MATCH | 87 / 91 | Tag `baseline`. Jump-off 0.01 s under 33.45. `success=false` is the jump-off. Gate log stays untracked until the finish. |
+| setup | eea719b8 | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.44, SAVE_MATCH | 87 / 91 | Tag `baseline`. Jump-off 0.01 s under 33.45. `success=false` is the jump-off. Gate log stays untracked until the finish. |
+| A tool | d5b0a24e | compile 1 errors=0, selftest 67/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | | Tag `a1`. The tool rides a list and saves the screen. A two-round check armed the rider on the second round (the arena clears that flag as it leaves). Lesson 0 faults 25.45 s, schooling beginner 0 faults 62.10 s. |
 
 ## QA findings
 
