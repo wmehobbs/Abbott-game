@@ -2,7 +2,7 @@
 
 Godot 4.7 project in `game/`. The game is named Abbott, version 2.348.0.0. The boot scene is `res://scenes/title.tscn`. The only autoload is `GameState` (`res://scripts/game_state.gd`).
 
-There are 31 scripts in `game/scripts/`. Tools that are not part of a round live in `game/tools/` and are not in the list below. `game/tools/validate_content.gd` is the Day 16 course checker. It only writes a report.
+There are 33 scripts in `game/scripts/`. Tools that are not part of a round live in `game/tools/` and are not in the list below. `game/tools/validate_content.gd` is the Day 16 course checker. It only writes a report.
 
 ## How a round is put together
 
@@ -12,7 +12,7 @@ The title is the menu. Every ride, walk, and headless check that needs the ring 
 
 - **Lesson** calls `start_session("lesson", "lesson")` and enters the arena in ride mode. A fresh save with the tutorial still open gets `FirstLesson`, one line at a time. Skip ends it.
 - **School Abbott** opens a class picker (`schooling`). The clock uses that class's school time.
-- **Show day** opens the same picker for `show`. The clock uses the show time. His mane is braided, she wears her number, the ring has pennants, and a ribbon she wins stays on his bridle until the next round.
+- **Show day** opens the same picker for `show`. The clock uses the show time. His mane is braided, she wears her number, the ring has pennants, a judge's stand, flowers at the in-gate, and trailers in the field. A clear round gets one round of applause. A ribbon she wins stays on his bridle until the next round.
 - **Walk** sets walk mode. She is on foot. The walker camera is current, the horse is not controllable, and the clock is stopped. The course line is on the glass. Standing beside a fence says that fence's line once. Mount starts the ride. From the saddle, the walk key puts her back on foot.
 - **Watch a round** sets `demo_ride`, starts a beginner show at seed 0, and lets `RideAI` ride. It is not her round. `save()` does not run.
 - **Season** stays on the title. It fills a panel from `season_rows()`.
@@ -32,15 +32,17 @@ A clear show round inside the time can offer a jump-off. `begin_jump_off()` keep
 
 `bascule.gd` is a `SkeletonModifier3D`. Gallop_Jump poses the back as one plank. This bends it on top of the clip: forehand up at the leave, round over the fence, neck out and down, then gone by the land so the canter does not keep the shape. Bone pose only. The root does not move. It also puts each hoof back on its cannon, because the hoof bones are IK roots and a bend would stretch the pastern. `withers` is the drawn withers after that bend.
 
-`braids.gd` puts button braids down the crest on show day only. Each braid is attached to a neck bone, so it follows the neck after the bascule, and it takes its colour from the mane under it. Lessons and schooling leave the mane loose.
+`braids.gd` puts button braids down the crest on show day only. Each braid is attached to a neck bone, so it follows the neck after the bascule, and it takes its colour from the mane under it. Lessons and schooling hide the braids and show `mane.gd` instead.
 
 `content_library.gd` reads the JSON. Search order is `user://content/`, then `res://../content/` (the checkout's `content/` folder), then `res://content/` (the copy shipped under `game/content/`). If a file is missing, the course and Michelle fall back to what is written in code. The HUD asks for fence names every frame, so the fence catalog is read once.
 
 `course.gd` builds the fences, the start, and the finish for this round from the shipped course (`loaded`). The built-in layout is the fallback when the file is missing.
 
+`course_map.gd` (`CourseMap`) is the small overhead map on the HUD. The long side of the ring runs up the screen and the in-gate is at the bottom. Each fence is a short bar with its number, the next fence is gold, jumped fences are dim, and Abbott is an arrow. It redraws about twelve times a second. It hides for pause, the results card, options, and the lesson card, and it steps aside for the reins card. Options, Picture, "Course map" turns it off. It is on by default.
+
 `ear_life.gd` is the ear modifier. It runs before the bascule, so a worried horse's pricked ears still sit on the bent neck. Idle, walk, and trot hold the ears still in the clip. This tips one back to listen, and both go forward at the canter.
 
-`farm.gd` (`HiddenK`) is the outdoor ring: sand `RING_W` 30.48 m by `RING_D` 76.20 m, centred on the origin, plus mirrors, pines, the house, and the barn. Show day adds the pennant strings.
+`farm.gd` (`HiddenK`) is the outdoor ring: sand `RING_W` 30.48 m by `RING_D` 76.20 m, centred on the origin, plus mirrors, pines, the house, and the barn. Show day adds the pennant strings, a judge's stand on the left rail, flower urns beside the in-gate, a pickup and two trailers past the far stands, and one applause player. A lesson builds none of those.
 
 `fence.gd` (`JumpFence`) is one obstacle: rails, standards, the number, the flower box or oxer dressing, and the knocked / refused / cleared flags the round reads.
 
@@ -50,7 +52,9 @@ A clear show round inside the time can offer a jump-off. `begin_jump_off()` keep
 
 `horse.gd` is Abbott: gaits, steering, the jump, the landing, the camera, and the reins. It finds the skeleton and binds the modifiers. Do not change how this plays on a maintenance day.
 
-`hud.gd` is the glass and the cards: the running round, pause, the first-lesson line, the results card, options opened from pause, and the walk line.
+`hud.gd` is the glass and the cards: the running round, pause, the first-lesson line, the results card, options opened from pause, the walk line, and the course map.
+
+`mane.gd` is the loose mane for a lesson or a schooling round: short locks down the off side of the neck, one mesh per neck bone, hung with gravity so a lifted neck does not leave them standing up. Show day hides it.
 
 `mesh_kit.gd` builds materials, loads textures, and packs small props (leaves, blooms, a hedge) into one mesh so the farm and a course are not thousands of shadow casters.
 
@@ -70,7 +74,7 @@ A clear show round inside the time can offer a jump-off. `begin_jump_off()` keep
 
 `selftest.gd` is added by the title when `--selftest` is set. It runs inside the real boot, so `GameState` is already loaded. It writes only under `user://selftest/` and deletes what it creates. It must not read or write `abbott_save.json`.
 
-`settings.gd` (`PlayerSettings`) is `user://settings.cfg`: buses, look, camera, riding aid, and picture. Tests pass their own path. It is never the ride save.
+`settings.gd` (`PlayerSettings`) is `user://settings.cfg`: buses, look, camera, riding aid, and picture, including whether the course map is on. Tests pass their own path. It is never the ride save.
 
 `settings_menu.gd` is the options list (sound, picture, and from pause the key list). It saves only in a real session.
 
@@ -84,7 +88,7 @@ A clear show round inside the time can offer a jump-off. `begin_jump_off()` keep
 
 `walker.gd` is Madison on foot: a capsule, the same mesh as the saddle, hidden until walk mode so the ring does not show two of her. Enter still mounts. The clock stays on the flags.
 
-`watch_rider.gd` turns a standing figure's head to follow Abbott: Michelle on the rail, and the people in the stands. Neck and head only, eased, and no further than a person turns without moving her feet. With an animation player she idles, and she waves once when Madison finishes a clear round.
+`watch_rider.gd` turns a standing figure's head to follow Abbott: Michelle on the rail, and the people in the stands. Neck and head only, eased, and no further than a person turns without moving her feet. With an animation player she idles, and she waves once when Madison finishes a clear round. The first of those waves asks the farm to play the one applause. The player exists only on show day.
 
 ## The horse's modifier chain
 
@@ -94,7 +98,7 @@ A clear show round inside the time can offer a jump-off. `begin_jump_off()` keep
 2. `EarLife` (`ear_life.gd`)
 3. `Bascule` (`bascule.gd`)
 
-They pose bones on top of the clip. The tail and the ears are first so a worried horse's lifted tail and pricked ears sit on the pose. The back bends last. Show braids are a separate node (`Braids`), built once on the bones and shown only at a show.
+They pose bones on top of the clip. The tail and the ears are first so a worried horse's lifted tail and pricked ears sit on the pose. The back bends last. Show braids are a separate node (`Braids`), built once on the bones and shown only at a show. The loose mane (`Mane`) is built the same way and shown only when it is not a show. Neither one is a modifier.
 
 A script that reads a bone from `_process` sees the clip before these modifiers. `rosette.gd` says so about the head, and `bascule.gd` says so about the withers: `rider_mesh` anchors her fists on the `withers` transform the modifier stores after the bend, not on a raw bone read. `tail_carriage.gd` says the same about the tail's hang. Follow a bone with a `BoneAttachment3D`, or read the transform the modifier publishes, if the drawn pose is what you need.
 
@@ -173,13 +177,15 @@ Run Godot only through these. Each puts `--headless` first and creates no window
 - `python dist/_run_userarg.py --selftest` and `--playtest` — logs `dist/selftest_day.log` and `dist/playtest_day.log`.
 - `python tools/content_factory/run_ridecert.py` — only from the gate.
 - `python dist/day12/run_import.py` — only when a new resource needs importing.
-- `dist/day16/gates.sh` — the gate, which calls the runners above.
+- `dist/day16/gates.sh` — the Day 16 gate, which calls the runners above.
+- `dist/day17/gates.sh` — the Day 17 gate, same checks, tag on the command line.
 
 These open a window. They are for people, not for this run:
 
 - Godot with no `--headless`, and the editor (`-e`)
 - `dist/day12/run_shots.py`, `dist/day15/run_probe.py`
-- `game/tools/day15_probe.gd`, `day15_titleshot.gd`, `day15_fps.gd`, `day15_perf.gd`, `day15_camlog.gd`, `day15_hudtime.gd`
+- `python dist/day17/run_window.py` — the Day 17 windowed runner. It always passes a `--shots-` argument, so the game cannot save, and it checks her save afterwards.
+- `game/tools/day15_probe.gd`, `day15_titleshot.gd`, `day15_fps.gd`, `day15_perf.gd`, `day15_camlog.gd`, `day15_hudtime.gd`, `day17_playthrough.gd`
 - anything named artshot
 - Blender (`dist/day14/run_blender.py` and the rest of that folder)
 
@@ -187,8 +193,8 @@ Never start Godot by hand. One process at a time. Never kill a Godot process thi
 
 ## Where the day logs are
 
-Each day's note is `dist/DAY<n>_LOG.md`. This run is `dist/DAY16_LOG.md`. Older measure notes sit beside some of them (`DAY<n>_MEASURE.md`).
+Each day's note is `dist/DAY<n>_LOG.md`. The latest is `dist/DAY17_LOG.md`. Day 16 is `dist/DAY16_LOG.md`. Older measure notes sit beside some of them (`DAY<n>_MEASURE.md`).
 
-Per-day artifacts are `dist/day<n>/`. Day 16's gate copies are `dist/day16/logs/`. The course report is `dist/day16/content_report.md`. The asset audit is `dist/day16/assets_report.md`. The prompt for this run is `dist/day16/GROK_PROMPT.md`.
+Per-day artifacts are `dist/day<n>/`. Day 16's gate copies are `dist/day16/logs/`. The course report is `dist/day16/content_report.md`. The asset audit is `dist/day16/assets_report.md`. The Day 16 prompt is `dist/day16/GROK_PROMPT.md`. The Day 17 prompt is `dist/day17/GROK_PROMPT.md`, and its before-and-after sheets are `dist/day17/review/`.
 
 `dist/STATUS.md` is the short standing status. `dist/RIDE_CERT.md` is the certificate note.
