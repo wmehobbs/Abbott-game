@@ -4,7 +4,7 @@ Sunday, October 11. Branch `day17-grok`, from `day16-grok`. Version stays 2.348.
 
 ## Summary for Ernie
 
-Setup is done. The distance word, the course map, a loose mane for lessons and schooling, and show-day dressing are in. Show day still braids him. The applause is not started.
+Setup is done. The distance word, the course map, a loose mane for lessons and schooling, show-day dressing, and applause after a clear show round are in. Show day still braids him.
 
 Open `dist/day17/review/00_morning.png` first when it exists. It is not made yet. This log is the summary.
 
@@ -31,6 +31,8 @@ Tried and not kept: the first mane stood up off the crest in spikes. The hair ha
 
 Show day now has a small judge's stand outside the left rail (the stands are at the far end, and the clock booth is on the right), flower urns either side of the in-gate, and a pickup with two trailers in the field past the stands. A lesson does not build them. Sheet: `dist/day17/review/d_show_dress.png` (the riding view, the in-gate, the stand, a wide view, and the field, each before beside after). From the saddle the course is the same: the stand is a small booth on the rail as she looks toward the gate, and the trailers sit beyond the far end. The urns flank the opening and do not fill it. The two people in the booth face into the ring.
 
+A clear round at a show gets one burst of applause as the crowd starts to wave. It is generated, not a recording, about 4.5 seconds, and it plays once from one player on the Barn slider at about −10 dB. Lessons and schooling stay quiet. The picture of the sound is `dist/day17/review/e_applause_spec.png`. Please listen in the morning. Peak is 0.89 of full scale, so it does not clip. 98.9% of the energy sits between 1 and 4 kHz. The first 0.3 seconds rise in, and the last fifth of a second is nearly quiet.
+
 What needs you: see Needs Ernie. The short version is the finish camera in the in-gate, "1 faults", and the advanced rounds being over the time allowed.
 
 ## Status
@@ -43,6 +45,7 @@ What needs you: see Needs Ernie. The short version is the finish camera in the i
 | B map | be78b52c | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | 73 and 42 / 46 and 40 | Tag `b1`. Times match the posted line. The new test is the 68th. The frame counter's median is under the 5% floor. GPU stayed 0.87 to 0.97 ms, the same band as the grade-move runs tonight (about 0.8 to 1.0). The two lesson samples disagree with each other by far more than 5%, so the counter is the machine. The map stays. |
 | C mane | ad57d32c | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.15 / 33.45, SAVE_MATCH | 66 and 42 / 37 and 40 | Tag `c1`. Beginner 62.15 is 0.01 s over 62.14, inside the wobble. The mane check is inside the existing braid test, so the pass count stays 68. GPU 0.85 to 1.00 ms, the same band as the map. The two lesson samples disagree by far more than 5%, so the counter is the machine. The mane stays. |
 | D dress | 0acd12af | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.45, SAVE_MATCH | 66 and 83 / 96 and 92 | Tag `d1`. Times match the posted line. The dressing check is inside the existing braid test, so the pass count stays 68. Lesson samples disagree by far more than 5%, and the slower one had the lower GPU time (0.81 ms against 1.19). Show median 94 is above the baseline 91. The counter is the machine. The dressing stays. |
+| E applause | (this commit) | compile 1 errors=0, selftest 68/0, playtest 0/4/4 pass, 25.43 / 62.14 / 33.44, SAVE_MATCH | 35 and 35 / 54 and 39 | Tag `e1`. Jump-off 33.44 is 0.01 s under 33.45, inside the wobble. `success=false` is the jump-off. The player is silent during the sample. GPU stayed 0.94 to 1.03 ms, the same band as the dressing runs that scored 66 to 96. The counter is the machine. The applause stays. |
 
 ## QA findings
 
@@ -55,6 +58,7 @@ Seen while shooting the map, and left alone: on a course walk the course sentenc
 - After the finish he stands in the in-gate and the camera sits in the jump standard. The camera is `horse.gd`. Pictures on the results cards under `dist/day17/shots/a_rounds/`.
 - A one-fault card says "1 faults". The wording is `game_state.gd` `result_line`.
 - Advanced seed 0 knocks fence 6 and is over the 75 s time allowed (93.31 s). Both intermediate jump-offs are 40.06 s against 36 s allowed. Riding was not changed. The Day 16 time-allowed note still stands.
+- Listen to the applause after a clear show round. It is on the Barn slider. If you don't like it, revert the E commit in the status table ("Day 17: applause after a clear round"). That removes the sound and the one line that starts it. Lessons and schooling never play it.
 
 ## Blocked
 

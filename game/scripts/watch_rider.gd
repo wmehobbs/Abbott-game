@@ -89,3 +89,16 @@ func _cheer(delta: float) -> void:
 		if _cheer_in < 0.0:
 			_cheered = true
 			anim.play("Wave", 0.2)
+			# The first person to wave starts the one shared cheer. The farm
+			# ignores the rest, so forty people do not each play a copy.
+			_applaud()
+
+
+## The farm owns the one player. Anyone else in the tree is ignored.
+func _applaud() -> void:
+	var n: Node = self
+	while n:
+		if n.has_method("applaud"):
+			n.call("applaud")
+			return
+		n = n.get_parent()

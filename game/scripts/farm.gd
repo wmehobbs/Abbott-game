@@ -16,6 +16,8 @@ var _leaf_mats: Array[Material] = []
 var _pine_mat: Material
 var _tree_n := 0
 var _crowd_n := 0
+var _applause: AudioStreamPlayer
+var _applauded := false
 const RiderMeshScript := preload("res://scripts/rider_mesh.gd")
 
 
@@ -2215,6 +2217,39 @@ func _show_day() -> void:
 	_judge_stand()
 	_gate_urns()
 	_show_trailers()
+	_show_applause()
+
+
+## One player for the whole stand. Lessons never build it, so they stay quiet.
+func _show_applause() -> void:
+	var stream: AudioStream = load("res://assets/audio/crowd/applause.wav")
+	if stream == null:
+		return
+	if stream is AudioStreamWAV:
+		var wav: AudioStreamWAV = (stream as AudioStreamWAV).duplicate()
+		wav.loop_mode = AudioStreamWAV.LOOP_DISABLED
+		stream = wav
+	var player := AudioStreamPlayer.new()
+	player.name = "Applause"
+	player.stream = stream
+	player.volume_db = -10.0
+	player.bus = "Ambience"
+	add_child(player)
+	_applause = player
+
+
+## The first wave of a clear show round. A later wave in the same round does nothing.
+func applaud() -> void:
+	if _applause == null or _applauded:
+		return
+	_applauded = true
+	_applause.play()
+
+
+func _process(_delta: float) -> void:
+	# The next round can earn its own cheer. While the card is up, stay quiet.
+	if _applauded and not GameState.round_complete:
+		_applauded = false
 
 
 func _judge_stand() -> void:
